@@ -40,33 +40,38 @@ function App() {
     <Layout onGoHome={() => setActiveView('HOME')}>
       <div className="h-full flex flex-col gap-2 overflow-hidden">
         
-        {/* Barra Superior de Navegación entre Módulos */}
+        {/* Barra Superior de Navegación Unificada */}
         <div className="flex items-center justify-between bg-slate-900 border border-slate-800 p-1.5 rounded-2xl shrink-0">
           <div className="flex items-center gap-2 px-2">
-            {activeView === 'HOME' ? (
-              <div className="flex items-center gap-2">
-                <Compass className="w-5 h-5 text-cyan-400 animate-spin-slow" />
-                <span className="text-xs font-black tracking-wider text-slate-200 uppercase">
-                  Menú Principal de Módulos (7 Módulos PNA)
-                </span>
-              </div>
-            ) : (
-              <button
-                onClick={() => setActiveView('HOME')}
-                className="flex items-center gap-1.5 px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-400 font-bold text-xs rounded-xl border border-slate-700 transition-all cursor-pointer shadow-sm"
-              >
-                <Home className="w-3.5 h-3.5" />
-                <span>Volver al Menú</span>
-              </button>
-            )}
+            <button
+              onClick={() => setActiveView('HOME')}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                activeView === 'HOME'
+                  ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-900/40'
+                  : 'bg-slate-800 text-cyan-400 hover:bg-slate-700 border border-slate-700'
+              }`}
+            >
+              <Home className="w-3.5 h-3.5" />
+              <span>Menú Principal</span>
+            </button>
           </div>
 
-          {/* Selector de Módulos (7 Módulos en Pills Compactas) */}
+          {/* Selector de Módulos (Incluyendo Inicio + 7 Módulos en Pills) */}
           <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 overflow-x-auto">
+            <button
+              onClick={() => setActiveView('HOME')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'HOME' ? 'bg-cyan-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              Inicio (Cards)
+            </button>
+
             <button
               onClick={() => setActiveView('RIPA')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeView === 'RIPA' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                activeView === 'RIPA' ? 'bg-cyan-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Scale className="w-3.5 h-3.5" />
@@ -76,7 +81,7 @@ function App() {
             <button
               onClick={() => setActiveView('SEGURIDAD')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeView === 'SEGURIDAD' ? 'bg-rose-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                activeView === 'SEGURIDAD' ? 'bg-rose-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Shield className="w-3.5 h-3.5" />
@@ -86,7 +91,7 @@ function App() {
             <button
               onClick={() => setActiveView('NOMENCLATURA')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeView === 'NOMENCLATURA' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                activeView === 'NOMENCLATURA' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Sailboat className="w-3.5 h-3.5" />
@@ -96,7 +101,7 @@ function App() {
             <button
               onClick={() => setActiveView('METEOROLOGIA')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeView === 'METEOROLOGIA' ? 'bg-sky-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                activeView === 'METEOROLOGIA' ? 'bg-sky-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Wind className="w-3.5 h-3.5" />
@@ -106,7 +111,7 @@ function App() {
             <button
               onClick={() => setActiveView('PRACTICOS')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeView === 'PRACTICOS' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                activeView === 'PRACTICOS' ? 'bg-emerald-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Calculator className="w-3.5 h-3.5" />
@@ -116,7 +121,7 @@ function App() {
             <button
               onClick={() => setActiveView('NUDOS')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeView === 'NUDOS' ? 'bg-pink-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                activeView === 'NUDOS' ? 'bg-pink-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Cable className="w-3.5 h-3.5" />
@@ -202,7 +207,7 @@ function App() {
               <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 shrink-0 max-w-md mx-auto w-full">
                 <button
                   onClick={() => setPracticoTab('DECLINACION')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     practicoTab === 'DECLINACION' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -211,7 +216,7 @@ function App() {
                 </button>
                 <button
                   onClick={() => setPracticoTab('MAREAS')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     practicoTab === 'MAREAS' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -220,7 +225,7 @@ function App() {
                 </button>
                 <button
                   onClick={() => setPracticoTab('MARCACIONES')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     practicoTab === 'MARCACIONES' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
