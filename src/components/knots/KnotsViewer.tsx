@@ -55,139 +55,140 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
   const passed = result && result.total === questions.length && accuracy >= PASS_THRESHOLD * 100;
   const finished = result && result.total === questions.length;
 
-  // Shuffled questions memo
   const shuffledQuestions = useMemo(() => [...questions].sort(() => Math.random() - 0.5), [questions]);
 
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="h-full flex flex-col gap-2 overflow-hidden">
       
-      {/* Selector de Modo / Tabs Náuticas */}
-      <div className="flex flex-wrap bg-slate-900 p-1.5 rounded-2xl border border-slate-800 max-w-xl mx-auto w-full shadow-lg">
-        <button
-          onClick={() => setTab('ESTUDIO')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            tab === 'ESTUDIO' ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-900/30' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <BookOpen className="w-4 h-4" />
-          Guía Técnica (3D)
-        </button>
-        <button
-          onClick={() => setTab('SIMULADOR_ARMADO')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            tab === 'SIMULADOR_ARMADO' ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-900/30' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <Gamepad2 className="w-4 h-4" />
-          Desafío de Armado
-        </button>
-        <button
-          onClick={() => setTab('QUIZ')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            tab === 'QUIZ' ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-900/30' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <BrainCircuit className="w-4 h-4" />
-          Examen Teórico
-        </button>
-      </div>
-
-      {/* Selector de Nudo Activo (Sidebar Horizontal) */}
-      {(tab === 'ESTUDIO' || tab === 'SIMULADOR_ARMADO') && (
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 px-2">
-          {MASTER_KNOTS_DATA.map((k, idx) => (
-            <button
-              key={k.id}
-              onClick={() => setActiveKnotIdx(idx)}
-              className={`px-4 py-2 rounded-xl text-xs font-extrabold border transition-all whitespace-nowrap cursor-pointer ${
-                activeKnotIdx === idx
-                  ? 'bg-slate-800 border-cyan-400 text-cyan-300 shadow-md shadow-cyan-950'
-                  : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-300'
-              }`}
-            >
-              {idx + 1}. {k.name}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* VISTA 1: GUÍA DE ESTUDIO TÉCNICA E INTERACTIVA */}
-      {tab === 'ESTUDIO' && (
-        <div className="animate-fade-in">
-          <InteractiveKnotViewer knot={activeKnot} />
-        </div>
-      )}
-
-      {/* VISTA 2: DESAFÍO DE SECUENCIA DE ARMADO */}
-      {tab === 'SIMULADOR_ARMADO' && (
-        <div className="animate-fade-in py-4">
-          <KnotSequenceSimulator
-            knotName={activeKnot.name}
-            correctSteps={activeKnot.sequenceChallenge.correctOrder}
-            onSuccess={handleChallengeSuccess}
-          />
-        </div>
-      )}
-
-      {/* VISTA 3: QUIZ DE EVALUACIÓN TEÓRICA */}
-      {tab === 'QUIZ' && !finished && questions.length > 0 && (
-        <div className="animate-fade-in">
-          <QuizCard
-            question={shuffledQuestions[currentIdx]}
-            questionNumber={currentIdx + 1}
-            totalQuestions={shuffledQuestions.length}
-            xpPerCorrect={XP_PER_CORRECT}
-            onAnswer={handleAnswer}
-            onNext={handleNext}
-          />
-        </div>
-      )}
-
-      {/* RESULTADOS DEL QUIZ */}
-      {tab === 'QUIZ' && finished && result && (
-        <div className="bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-3xl p-8 max-w-2xl mx-auto w-full text-center shadow-2xl animate-fade-in">
-          {passed ? (
-            <>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-500/20 border-2 border-amber-500 mb-4 shadow-lg shadow-amber-500/20">
-                <Trophy className="w-10 h-10 text-amber-400" />
-              </div>
-              <h3 className="text-2xl font-extrabold text-amber-300 mb-2">¡Maestro de Cabuyería Náutica!</h3>
-              <p className="text-slate-300 text-sm mb-6 font-medium">Demostraste conocimiento práctico para las exigencias de Prefectura.</p>
-            </>
-          ) : (
-            <>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-cyan-500/20 border-2 border-cyan-500 mb-4">
-                <Lightbulb className="w-10 h-10 text-cyan-400" />
-              </div>
-              <h3 className="text-2xl font-extrabold text-cyan-300 mb-2">Reforzá la Técnica</h3>
-              <p className="text-slate-300 text-sm mb-6">Se requiere 70% para aprobar. Repasá las advertencias y volvé a intentar.</p>
-            </>
-          )}
-
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="bg-slate-950/60 rounded-2xl p-4 border border-slate-800">
-              <p className="text-2xl font-black text-cyan-400">{accuracy.toFixed(0)}%</p>
-              <p className="text-xs text-slate-400 mt-1 font-semibold">Precisión</p>
-            </div>
-            <div className="bg-slate-950/60 rounded-2xl p-4 border border-slate-800">
-              <p className="text-2xl font-black text-emerald-400">{result.correct}/{result.total}</p>
-              <p className="text-xs text-slate-400 mt-1 font-semibold">Aciertos</p>
-            </div>
-            <div className="bg-slate-950/60 rounded-2xl p-4 border border-slate-800">
-              <p className="text-2xl font-black text-amber-400">+{result.xpEarned}</p>
-              <p className="text-xs text-slate-400 mt-1 font-semibold">XP</p>
-            </div>
-          </div>
-
+      {/* Bar Unificada Compacta: Modo + Nudos en 1 sola fila */}
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
+        
+        {/* Selector de Modo */}
+        <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button
-            onClick={handleRestart}
-            className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 px-6 rounded-xl transition-all duration-300 mx-auto shadow-lg shadow-cyan-900/40 cursor-pointer"
+            onClick={() => setTab('ESTUDIO')}
+            className={`flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              tab === 'ESTUDIO' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
           >
-            <RotateCcw className="w-4 h-4" />
-            Reintentar Quiz
+            <BookOpen className="w-3.5 h-3.5" />
+            Guía 3D
+          </button>
+          <button
+            onClick={() => setTab('SIMULADOR_ARMADO')}
+            className={`flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              tab === 'SIMULADOR_ARMADO' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Gamepad2 className="w-3.5 h-3.5" />
+            Desafío
+          </button>
+          <button
+            onClick={() => setTab('QUIZ')}
+            className={`flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              tab === 'QUIZ' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            Quiz
           </button>
         </div>
-      )}
+
+        {/* Selector de Nudo (Pills ultra-compactas) */}
+        {(tab === 'ESTUDIO' || tab === 'SIMULADOR_ARMADO') && (
+          <div className="flex items-center gap-1 overflow-x-auto">
+            {MASTER_KNOTS_DATA.map((k, idx) => (
+              <button
+                key={k.id}
+                onClick={() => setActiveKnotIdx(idx)}
+                className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all whitespace-nowrap ${
+                  activeKnotIdx === idx
+                    ? 'bg-slate-800 border border-cyan-400 text-cyan-300'
+                    : 'bg-slate-950 text-slate-400 border border-slate-800 hover:text-slate-200'
+                }`}
+              >
+                {idx + 1}. {k.name}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Contenido Principal (Flex-1 sin scroll general) */}
+      <div className="flex-1 min-h-0 overflow-hidden">
+        {tab === 'ESTUDIO' && (
+          <InteractiveKnotViewer knot={activeKnot} />
+        )}
+
+        {tab === 'SIMULADOR_ARMADO' && (
+          <div className="h-full overflow-y-auto">
+            <KnotSequenceSimulator
+              knotName={activeKnot.name}
+              correctSteps={activeKnot.sequenceChallenge.correctOrder}
+              onSuccess={handleChallengeSuccess}
+            />
+          </div>
+        )}
+
+        {tab === 'QUIZ' && !finished && questions.length > 0 && (
+          <div className="h-full overflow-y-auto">
+            <QuizCard
+              question={shuffledQuestions[currentIdx]}
+              questionNumber={currentIdx + 1}
+              totalQuestions={shuffledQuestions.length}
+              xpPerCorrect={XP_PER_CORRECT}
+              onAnswer={handleAnswer}
+              onNext={handleNext}
+            />
+          </div>
+        )}
+
+        {tab === 'QUIZ' && finished && result && (
+          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 max-w-xl mx-auto w-full text-center my-auto shadow-2xl">
+            {passed ? (
+              <>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/20 border border-amber-500 mb-3">
+                  <Trophy className="w-8 h-8 text-amber-400" />
+                </div>
+                <h3 className="text-xl font-extrabold text-amber-300 mb-1">¡Maestro de Cabuyería!</h3>
+                <p className="text-slate-300 text-xs mb-4 font-medium">Demostraste conocimiento práctico para las exigencias PNA.</p>
+              </>
+            ) : (
+              <>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500/20 border border-cyan-500 mb-3">
+                  <Lightbulb className="w-8 h-8 text-cyan-400" />
+                </div>
+                <h3 className="text-xl font-extrabold text-cyan-300 mb-1">Reforzá la Técnica</h3>
+                <p className="text-slate-300 text-xs mb-4">Se requiere 70% para aprobar.</p>
+              </>
+            )}
+
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-cyan-400">{accuracy.toFixed(0)}%</p>
+                <p className="text-[10px] text-slate-400">Precisión</p>
+              </div>
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-emerald-400">{result.correct}/{result.total}</p>
+                <p className="text-[10px] text-slate-400">Aciertos</p>
+              </div>
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-amber-400">+{result.xpEarned}</p>
+                <p className="text-[10px] text-slate-400">XP</p>
+              </div>
+            </div>
+
+            <button
+              onClick={handleRestart}
+              className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2.5 px-5 rounded-xl text-xs transition-all mx-auto shadow-md"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              Reintentar Quiz
+            </button>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };
