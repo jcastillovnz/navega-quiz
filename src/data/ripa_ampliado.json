@@ -1,0 +1,200 @@
+[
+  {
+    "id": "ripa_rule5_lookout", "category": "RIPA",
+    "question": "¿Cómo debe mantenerse una vigilancia eficaz a bordo?",
+    "options": [{"id":"A","text":"Solo mirando hacia proa","isCorrect":false},{"id":"B","text":"Con vista, oído y todos los medios disponibles apropiados","isCorrect":true},{"id":"C","text":"Únicamente mediante radar","isCorrect":false},{"id":"D","text":"Solo cuando hay poca visibilidad","isCorrect":false}],
+    "explanation": "La vigilancia es permanente y combina vista, oído y todos los medios disponibles apropiados, incluido el radar cuando exista. Su objetivo es evaluar completamente la situación y el riesgo de abordaje. [REGLA: RIPA - Regla 5]"
+  },
+  {
+    "id": "ripa_rule6_safe_speed", "category": "RIPA",
+    "question": "¿Cuándo debe navegar un buque a velocidad de seguridad?",
+    "options": [{"id":"A","text":"En todo momento","isCorrect":true},{"id":"B","text":"Solo de noche","isCorrect":false},{"id":"C","text":"Solo dentro de un puerto","isCorrect":false},{"id":"D","text":"Únicamente con niebla","isCorrect":false}],
+    "explanation": "Todo buque debe navegar en todo momento a una velocidad que permita actuar eficazmente para evitar un abordaje y detenerse a una distancia apropiada. No es un número fijo: depende del contexto. [REGLA: RIPA - Regla 6]"
+  },
+  {
+    "id": "ripa_rule6_factors", "category": "RIPA",
+    "question": "¿Cuál de estos conjuntos debe considerarse al elegir una velocidad segura?",
+    "options": [{"id":"A","text":"Visibilidad, tráfico, maniobrabilidad, viento, mar, corriente y calado","isCorrect":true},{"id":"B","text":"Solo la potencia del motor","isCorrect":false},{"id":"C","text":"Únicamente la hora del día","isCorrect":false},{"id":"D","text":"Solo la distancia al puerto","isCorrect":false}],
+    "explanation": "La velocidad segura surge de evaluar simultáneamente visibilidad, densidad de tráfico, capacidad de maniobra, luces de fondo, viento, mar, corriente, peligros próximos y relación entre calado y profundidad. Con radar se agregan sus limitaciones y la detección disponible. [REGLA: RIPA - Regla 6]"
+  },
+  {
+    "id": "ripa_rule7_bearing", "category": "RIPA",
+    "question": "Si la marcación de otro buque permanece casi constante mientras disminuye la distancia, ¿qué debe presumirse?",
+    "options": [{"id":"A","text":"Que no existe peligro","isCorrect":false},{"id":"B","text":"Que existe riesgo de abordaje","isCorrect":true},{"id":"C","text":"Que el otro está fondeado","isCorrect":false},{"id":"D","text":"Que ambos tienen igual velocidad","isCorrect":false}],
+    "explanation": "Una demora o marcación casi constante con distancia decreciente es el indicio clásico de rumbo de colisión. Incluso con variación apreciable puede existir riesgo frente a un buque grande o un remolque cercano. [REGLA: RIPA - Regla 7]"
+  },
+  {
+    "id": "ripa_rule7_doubt", "category": "RIPA",
+    "question": "Si hay duda sobre la existencia de riesgo de abordaje, ¿cómo se procede?",
+    "options": [{"id":"A","text":"Se considera que el riesgo existe","isCorrect":true},{"id":"B","text":"Se mantiene rumbo hasta confirmarlo","isCorrect":false},{"id":"C","text":"Se apagan las luces","isCorrect":false},{"id":"D","text":"Se espera una señal del otro buque","isCorrect":false}],
+    "explanation": "La duda no autoriza a esperar: se considera que el riesgo existe y se continúa evaluando con todos los medios disponibles. Esta presunción protege el tiempo y el espacio necesarios para maniobrar. [REGLA: RIPA - Regla 7]"
+  },
+  {
+    "id": "ripa_rule7_radar", "category": "RIPA",
+    "question": "¿Qué práctica es incorrecta al evaluar riesgo con radar?",
+    "options": [{"id":"A","text":"Hacer punteo sistemático de ecos","isCorrect":false},{"id":"B","text":"Usar observación equivalente y continua","isCorrect":false},{"id":"C","text":"Sacar conclusiones con información radar escasa","isCorrect":true},{"id":"D","text":"Comparar distancia y marcación en el tiempo","isCorrect":false}],
+    "explanation": "No deben hacerse suposiciones basadas en información radar insuficiente. El punteo o una observación sistemática equivalente permite valorar CPA, tendencia y riesgo con mayor fundamento. [REGLA: RIPA - Regla 7]"
+  },
+  {
+    "id": "ripa_rule8_early", "category": "RIPA",
+    "question": "¿Cómo debe ser una maniobra destinada a evitar un abordaje?",
+    "options": [{"id":"A","text":"Positiva, con suficiente anticipación y conforme a la buena práctica marinera","isCorrect":true},{"id":"B","text":"Tardía y mínima para no perder rumbo","isCorrect":false},{"id":"C","text":"Una sucesión de pequeños cambios","isCorrect":false},{"id":"D","text":"Solo una reducción leve de velocidad","isCorrect":false}],
+    "explanation": "La acción debe ser positiva, hacerse con tiempo suficiente y respetar la buena práctica marinera. Una alteración clara facilita que el otro buque la detecte y evita una situación ambigua. [REGLA: RIPA - Regla 8]"
+  },
+  {
+    "id": "ripa_rule8_large", "category": "RIPA",
+    "question": "Si hay espacio suficiente, ¿por qué se prefieren cambios de rumbo amplios frente a varios cambios pequeños?",
+    "options": [{"id":"A","text":"Porque resultan claramente visibles para el otro buque","isCorrect":true},{"id":"B","text":"Porque eliminan la obligación de vigilar","isCorrect":false},{"id":"C","text":"Porque aumentan siempre la velocidad","isCorrect":false},{"id":"D","text":"Porque sustituyen las señales acústicas","isCorrect":false}],
+    "explanation": "Una alteración suficientemente grande es fácilmente apreciable visualmente o por radar. Varias alteraciones pequeñas pueden pasar inadvertidas y prolongar una aproximación peligrosa. [REGLA: RIPA - Regla 8]"
+  },
+  {
+    "id": "ripa_rule8_slow", "category": "RIPA",
+    "question": "Para evitar un abordaje o ganar tiempo de evaluación, un buque puede:",
+    "options": [{"id":"A","text":"Reducir velocidad, quitar arrancada o invertir la propulsión","isCorrect":true},{"id":"B","text":"Aumentar siempre a máxima potencia","isCorrect":false},{"id":"C","text":"Apagar las luces de navegación","isCorrect":false},{"id":"D","text":"Abandonar la vigilancia","isCorrect":false}],
+    "explanation": "La Regla 8 permite reducir la velocidad o quitar completamente la arrancada deteniendo o invirtiendo los medios de propulsión. Es una herramienta válida para aumentar tiempo y distancia, pero debe verificarse que la maniobra sea eficaz. [REGLA: RIPA - Regla 8]"
+  },
+  {
+    "id": "ripa_rule9_side", "category": "RIPA",
+    "question": "En un canal angosto, ¿por dónde debe navegar un buque cuando sea seguro y practicable?",
+    "options": [{"id":"A","text":"Cerca del límite exterior de estribor","isCorrect":true},{"id":"B","text":"Por el centro exacto","isCorrect":false},{"id":"C","text":"Cerca del límite de babor","isCorrect":false},{"id":"D","text":"En zigzag","isCorrect":false}],
+    "explanation": "El buque debe mantenerse tan cerca como sea seguro y practicable del límite exterior del canal que quede por su costado de estribor. Así ordena el tránsito en sentidos opuestos. [REGLA: RIPA - Regla 9]"
+  },
+  {
+    "id": "ripa_rule9_impede", "category": "RIPA",
+    "question": "En un canal angosto, ¿qué buques no deben estorbar el paso de otro que solo puede navegar con seguridad dentro del canal?",
+    "options": [{"id":"A","text":"Los menores de 20 m y los veleros","isCorrect":true},{"id":"B","text":"Solo los buques de guerra","isCorrect":false},{"id":"C","text":"Únicamente los pesqueros","isCorrect":false},{"id":"D","text":"Ninguno","isCorrect":false}],
+    "explanation": "Los buques menores de 20 m y los veleros no deben estorbar a un buque que solo pueda navegar con seguridad dentro del canal. Esto no significa ignorar el riesgo de abordaje: ambos conservan sus obligaciones preventivas. [REGLA: RIPA - Regla 9]"
+  },
+  {
+    "id": "ripa_rule9_cross", "category": "RIPA",
+    "question": "¿Cuándo no debe cruzarse un canal angosto?",
+    "options": [{"id":"A","text":"Cuando el cruce estorbaría a un buque que solo puede navegar con seguridad dentro del canal","isCorrect":true},{"id":"B","text":"Cuando hay luz diurna","isCorrect":false},{"id":"C","text":"Cuando el canal está balizado","isCorrect":false},{"id":"D","text":"Cuando se navega a motor","isCorrect":false}],
+    "explanation": "No debe cruzarse si la maniobra estorba a un buque limitado a navegar dentro del canal. Antes de cruzar hay que valorar trayectoria, velocidad y espacio de maniobra del tránsito longitudinal. [REGLA: RIPA - Regla 9]"
+  },
+  {
+    "id": "ripa_rule10_cross", "category": "RIPA",
+    "question": "Si es necesario cruzar una vía de circulación de un dispositivo de separación de tráfico, ¿con qué orientación debe hacerse?",
+    "options": [{"id":"A","text":"Con la proa lo más próxima posible a un ángulo recto respecto del tráfico","isCorrect":true},{"id":"B","text":"En paralelo a la vía","isCorrect":false},{"id":"C","text":"En diagonal muy tendida","isCorrect":false},{"id":"D","text":"Contra el sentido del tráfico","isCorrect":false}],
+    "explanation": "El cruce debe realizarse con la proa tan próxima como sea posible a la perpendicular del sentido general del tráfico. Esto reduce el tiempo dentro de la vía y hace evidente la intención. [REGLA: RIPA - Regla 10]"
+  },
+  {
+    "id": "ripa_rule10_general", "category": "RIPA",
+    "question": "¿Navegar dentro de un dispositivo de separación de tráfico exime de cumplir las demás reglas RIPA?",
+    "options": [{"id":"A","text":"No, las demás reglas siguen siendo aplicables","isCorrect":true},{"id":"B","text":"Sí, siempre","isCorrect":false},{"id":"C","text":"Solo exime a los veleros","isCorrect":false},{"id":"D","text":"Solo durante el día","isCorrect":false}],
+    "explanation": "La Regla 10 organiza el tránsito, pero no elimina las obligaciones de vigilancia, velocidad segura, evaluación de riesgo ni maniobra. Estar correctamente dentro de una vía no concede prioridad absoluta. [REGLA: RIPA - Regla 10]"
+  },
+  {
+    "id": "ripa_rule13_sector", "category": "RIPA",
+    "question": "¿Desde qué sector se considera que un buque alcanza a otro?",
+    "options": [{"id":"A","text":"Cuando se aproxima desde más de 22,5° a popa del través","isCorrect":true},{"id":"B","text":"Solo cuando viene exactamente por popa","isCorrect":false},{"id":"C","text":"Desde cualquier punto de la proa","isCorrect":false},{"id":"D","text":"Cuando ve ambas luces de costado","isCorrect":false}],
+    "explanation": "Hay alcance cuando un buque se aproxima desde una dirección situada a más de 22,5° a popa del través del alcanzado. De noche, normalmente solo vería su luz de alcance y no las de costado. [REGLA: RIPA - Regla 13]"
+  },
+  {
+    "id": "ripa_rule13_doubt", "category": "RIPA",
+    "question": "Si un buque duda si está alcanzando a otro, debe:",
+    "options": [{"id":"A","text":"Considerar que lo está alcanzando y actuar como tal","isCorrect":true},{"id":"B","text":"Considerarse siempre alcanzado","isCorrect":false},{"id":"C","text":"Mantener rumbo sin evaluar","isCorrect":false},{"id":"D","text":"Dar cinco pitadas y acelerar","isCorrect":false}],
+    "explanation": "Ante la duda se asume la condición de buque que alcanza. Por lo tanto, debe mantenerse apartado y conservar esa obligación hasta quedar completamente pasado y libre. [REGLA: RIPA - Regla 13]"
+  },
+  {
+    "id": "ripa_rule13_until_clear", "category": "RIPA",
+    "question": "¿Cuándo termina la obligación del buque que alcanza?",
+    "options": [{"id":"A","text":"Cuando queda completamente pasado y libre del alcanzado","isCorrect":true},{"id":"B","text":"Al cambiar ligeramente la marcación","isCorrect":false},{"id":"C","text":"Cuando llega al través","isCorrect":false},{"id":"D","text":"Después de emitir una pitada","isCorrect":false}],
+    "explanation": "Una alteración posterior de la marcación no convierte el encuentro en cruce. El buque que alcanza continúa obligado a mantenerse apartado hasta estar completamente pasado y libre. [REGLA: RIPA - Regla 13]"
+  },
+  {
+    "id": "ripa_rule16_action", "category": "RIPA",
+    "question": "¿Qué debe hacer el buque obligado a mantenerse apartado?",
+    "options": [{"id":"A","text":"Maniobrar con anticipación y de forma decidida para quedar bien franco","isCorrect":true},{"id":"B","text":"Esperar hasta último momento","isCorrect":false},{"id":"C","text":"Mantener siempre rumbo y velocidad","isCorrect":false},{"id":"D","text":"Cruzar por la proa del otro","isCorrect":false}],
+    "explanation": "El buque que cede el paso debe actuar, en lo posible, con anticipación y de manera decidida para quedar bien franco. La meta no es pasar apenas, sino producir una separación clara y verificable. [REGLA: RIPA - Regla 16]"
+  },
+  {
+    "id": "ripa_rule19_port", "category": "RIPA",
+    "question": "En visibilidad reducida, al detectar solo por radar un buque a proa del través, ¿qué alteración debe evitarse si es posible?",
+    "options": [{"id":"A","text":"Una alteración de rumbo a babor, salvo que se esté alcanzando","isCorrect":true},{"id":"B","text":"Toda alteración a estribor","isCorrect":false},{"id":"C","text":"Toda reducción de velocidad","isCorrect":false},{"id":"D","text":"Usar el radar","isCorrect":false}],
+    "explanation": "Cuando el otro buque está a proa del través y no está siendo alcanzado, se evita, si las circunstancias lo permiten, alterar a babor. En niebla no se aplican mecánicamente las reglas de cruce de buques a la vista. [REGLA: RIPA - Regla 19]"
+  },
+  {
+    "id": "ripa_rule19_abeam", "category": "RIPA",
+    "question": "En visibilidad reducida, ¿qué cambio debe evitarse frente a un buque detectado por el través o a popa del través?",
+    "options": [{"id":"A","text":"Alterar el rumbo hacia ese buque","isCorrect":true},{"id":"B","text":"Alejarse de él","isCorrect":false},{"id":"C","text":"Reducir velocidad","isCorrect":false},{"id":"D","text":"Vigilar su eco","isCorrect":false}],
+    "explanation": "Se evita alterar hacia un buque situado por el través o a popa del través. Si aparece una situación de aproximación excesiva, se reduce a la mínima velocidad de gobierno, se quita arrancada si hace falta y se navega con extrema precaución. [REGLA: RIPA - Regla 19]"
+  },
+  {
+    "id": "ripa_rule20_display", "category": "RIPA",
+    "question": "¿Cuándo deben exhibirse las luces reglamentarias?",
+    "options": [{"id":"A","text":"Desde la puesta hasta la salida del sol y también con visibilidad reducida","isCorrect":true},{"id":"B","text":"Solo a medianoche","isCorrect":false},{"id":"C","text":"Únicamente dentro del puerto","isCorrect":false},{"id":"D","text":"Solo con luna nueva","isCorrect":false}],
+    "explanation": "Las luces se exhiben desde la puesta hasta la salida del sol; durante ese período no deben mostrarse otras que puedan confundirse. También se exhiben de día en visibilidad reducida y en cualquier otra circunstancia que se considere necesaria. [REGLA: RIPA - Regla 20]"
+  },
+  {
+    "id": "ripa_rule24_over200", "category": "RIPA",
+    "question": "Además de las luces, ¿qué marca diurna indica que un remolque supera los 200 m?",
+    "options": [{"id":"A","text":"Un rombo donde mejor pueda verse","isCorrect":true},{"id":"B","text":"Tres bolas negras","isCorrect":false},{"id":"C","text":"Un cilindro","isCorrect":false},{"id":"D","text":"Dos conos con los vértices unidos","isCorrect":false}],
+    "explanation": "Cuando la longitud del remolque excede 200 m, el remolcador y el remolcado exhiben un rombo donde mejor pueda verse. La longitud se mide desde la popa del remolcador hasta el extremo de popa del remolque. [REGLA: RIPA - Regla 24]"
+  },
+  {
+    "id": "ripa_rule25_sail", "category": "RIPA",
+    "question": "¿Qué luces básicas exhibe un velero en navegación?",
+    "options": [{"id":"A","text":"Luces de costado y luz de alcance","isCorrect":true},{"id":"B","text":"Solo una luz de tope blanca","isCorrect":false},{"id":"C","text":"Roja-blanca-roja verticales","isCorrect":false},{"id":"D","text":"Tres luces rojas verticales","isCorrect":false}],
+    "explanation": "Un velero en navegación exhibe luces de costado y luz de alcance. Si mide menos de 20 m puede combinarlas en un farol tricolor en el tope del palo; las luces opcionales roja sobre verde no se combinan con ese farol. [REGLA: RIPA - Regla 25]"
+  },
+  {
+    "id": "ripa_rule25_motor_sailing", "category": "RIPA",
+    "question": "De día, ¿qué marca muestra un velero que también utiliza su motor?",
+    "options": [{"id":"A","text":"Un cono negro con el vértice hacia abajo","isCorrect":true},{"id":"B","text":"Una esfera negra","isCorrect":false},{"id":"C","text":"Un cilindro negro","isCorrect":false},{"id":"D","text":"Dos rombos","isCorrect":false}],
+    "explanation": "Un buque que navega a vela y simultáneamente usa propulsión mecánica se considera buque a motor. De día exhibe a proa, donde mejor se vea, un cono con el vértice hacia abajo. [REGLA: RIPA - Regla 25 e)]"
+  },
+  {
+    "id": "ripa_rule27_nuc_day", "category": "RIPA",
+    "question": "¿Qué marca diurna identifica a un buque sin gobierno?",
+    "options": [{"id":"A","text":"Dos bolas negras en línea vertical","isCorrect":true},{"id":"B","text":"Bola-rombo-bola","isCorrect":false},{"id":"C","text":"Un cilindro","isCorrect":false},{"id":"D","text":"Un cono hacia abajo","isCorrect":false}],
+    "explanation": "El buque sin gobierno muestra dos bolas negras verticales. De noche las equivalentes son dos luces rojas todo horizonte; si además lleva arrancada, agrega luces de costado y alcance. [REGLA: RIPA - Regla 27 a)]"
+  },
+  {
+    "id": "ripa_rule27_ram_day", "category": "RIPA",
+    "question": "¿Qué marca diurna identifica a un buque con capacidad de maniobra restringida?",
+    "options": [{"id":"A","text":"Bola-rombo-bola en línea vertical","isCorrect":true},{"id":"B","text":"Tres bolas negras","isCorrect":false},{"id":"C","text":"Dos conos vértice con vértice","isCorrect":false},{"id":"D","text":"Una esfera en proa","isCorrect":false}],
+    "explanation": "La combinación bola-rombo-bola corresponde a capacidad de maniobra restringida. De noche se traduce en roja-blanca-roja, todas luces todo horizonte en vertical. [REGLA: RIPA - Regla 27 b)]"
+  },
+  {
+    "id": "ripa_rule27_dredging", "category": "RIPA",
+    "question": "En una draga con una obstrucción, ¿qué marcas indican el costado por el que puede pasar otro buque?",
+    "options": [{"id":"A","text":"Dos rombos negros verticales","isCorrect":true},{"id":"B","text":"Dos bolas negras verticales","isCorrect":false},{"id":"C","text":"Tres bolas negras","isCorrect":false},{"id":"D","text":"Un cilindro","isCorrect":false}],
+    "explanation": "La draga muestra dos rombos en el costado libre y dos bolas en el lado de la obstrucción. De noche: dos verdes todo horizonte señalan el costado libre y dos rojas el obstruido. [REGLA: RIPA - Regla 27 d)]"
+  },
+  {
+    "id": "ripa_rule28_cylinder", "category": "RIPA",
+    "question": "¿Qué marca diurna puede exhibir un buque restringido por su calado?",
+    "options": [{"id":"A","text":"Un cilindro negro","isCorrect":true},{"id":"B","text":"Tres bolas negras","isCorrect":false},{"id":"C","text":"Bola-rombo-bola","isCorrect":false},{"id":"D","text":"Dos conos","isCorrect":false}],
+    "explanation": "El cilindro negro identifica de día al buque restringido por su calado. De noche puede exhibir tres luces rojas todo horizonte en vertical, además de sus luces normales de buque a motor. [REGLA: RIPA - Regla 28]"
+  },
+  {
+    "id": "ripa_rule29_pilot", "category": "RIPA",
+    "question": "¿Qué luces distintivas exhibe un buque en servicio de practicaje?",
+    "options": [{"id":"A","text":"Blanca sobre roja, todo horizonte","isCorrect":true},{"id":"B","text":"Dos blancas verticales","isCorrect":false},{"id":"C","text":"Roja-blanca-roja","isCorrect":false},{"id":"D","text":"Verde sobre blanca","isCorrect":false}],
+    "explanation": "El buque dedicado a practicaje exhibe blanca sobre roja, luces todo horizonte cerca del tope del palo. Navegando agrega costados y alcance; fondeado agrega las luces o marca de fondeo. [REGLA: RIPA - Regla 29] [TIP: práctico: blanco arriba, rojo abajo.]"
+  },
+  {
+    "id": "ripa_rule33_whistle", "category": "RIPA",
+    "question": "¿Desde qué eslora debe llevar un buque un pito reglamentario?",
+    "options": [{"id":"A","text":"12 metros o más","isCorrect":true},{"id":"B","text":"20 metros o más","isCorrect":false},{"id":"C","text":"50 metros o más","isCorrect":false},{"id":"D","text":"100 metros o más","isCorrect":false}],
+    "explanation": "Un buque de 12 m o más debe llevar pito. A partir de 20 m debe llevar además campana, y a partir de 100 m, además, un gong cuyo tono no pueda confundirse con el de la campana. [REGLA: RIPA - Regla 33]"
+  },
+  {
+    "id": "ripa_rule33_bell", "category": "RIPA",
+    "question": "Según la regla vigente, ¿desde qué eslora debe llevar además una campana?",
+    "options": [{"id":"A","text":"20 metros o más","isCorrect":true},{"id":"B","text":"7 metros o más","isCorrect":false},{"id":"C","text":"12 metros o más","isCorrect":false},{"id":"D","text":"100 metros o más","isCorrect":false}],
+    "explanation": "El equipo acústico escala con la eslora: desde 12 m, pito; desde 20 m, pito y campana; desde 100 m, también gong. Los menores de 12 m deben contar con algún medio eficaz para emitir señales. [REGLA: RIPA - Regla 33]"
+  },
+  {
+    "id": "ripa_rule35_towed", "category": "RIPA",
+    "question": "En visibilidad reducida, ¿qué señal emite un buque remolcado tripulado, inmediatamente después de la señal del remolcador?",
+    "options": [{"id":"A","text":"Una pitada larga seguida de tres cortas","isCorrect":true},{"id":"B","text":"Dos pitadas largas","isCorrect":false},{"id":"C","text":"Una corta y una larga","isCorrect":false},{"id":"D","text":"Cinco pitadas cortas","isCorrect":false}],
+    "explanation": "El buque remolcado, o el último de un remolque tripulado, emite una larga seguida de tres cortas inmediatamente después de la señal del remolcador, siempre que sea posible. [REGLA: RIPA - Regla 35 e)]"
+  },
+  {
+    "id": "ripa_rule36_attention", "category": "RIPA",
+    "question": "Para llamar la atención de otro buque, ¿qué señal puede utilizarse sin confundirse con las reglamentarias?",
+    "options": [{"id":"A","text":"Una señal luminosa o acústica que no pueda confundirse con otra autorizada","isCorrect":true},{"id":"B","text":"Una luz estroboscópica cegadora dirigida al puente","isCorrect":false},{"id":"C","text":"Cualquier secuencia idéntica a una señal de maniobra","isCorrect":false},{"id":"D","text":"Apagar todas las luces","isCorrect":false}],
+    "explanation": "Puede hacerse una señal luminosa o acústica que no se confunda con las previstas en otra regla, o dirigir el haz del reflector hacia el peligro sin molestar ni deslumbrar. Deben evitarse luces intermitentes de gran intensidad que creen confusión. [REGLA: RIPA - Regla 36]"
+  }
+]

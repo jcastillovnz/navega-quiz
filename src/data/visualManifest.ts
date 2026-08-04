@@ -1,6 +1,7 @@
 export type VisualFamily =
   | 'RIPA_RULE_12' | 'RIPA_RULE_13' | 'RIPA_RULE_14' | 'RIPA_RULE_15' | 'RIPA_RULE_18'
-  | 'RIPA_LIGHTS' | 'RIPA_DAY_ANCHORED' | 'RIPA_DAY_AGROUND' | 'RIPA_DAY_TRAWLING' | 'RIPA_SOUND'
+  | 'RIPA_LIGHTS' | 'RIPA_DAY_ANCHORED' | 'RIPA_DAY_AGROUND' | 'RIPA_DAY_TRAWLING' | 'RIPA_DAY_SHAPES' | 'RIPA_SOUND'
+  | 'RIPA_WATCH' | 'RIPA_COLLISION_RISK' | 'RIPA_AVOIDANCE' | 'RIPA_CHANNEL' | 'RIPA_TSS' | 'RIPA_RESTRICTED_VIS'
   | 'IALA_PORT' | 'IALA_STARBOARD' | 'IALA_CARDINAL_N' | 'IALA_CARDINAL_E'
   | 'IALA_CARDINAL_S' | 'IALA_CARDINAL_W' | 'IALA_ISOLATED' | 'IALA_SAFE'
   | 'IALA_SPECIAL' | 'IALA_NEW_DANGER'
@@ -32,6 +33,16 @@ assign(['ripa_16'], 'RIPA_DAY_AGROUND', 'Tres esferas negras verticales y casco 
 assign(['ripa_17'], 'RIPA_DAY_TRAWLING', 'Dos conos negros con vértices unidos y aparejo de arrastre');
 assign(['ripa_7', 'ripa_8', 'ripa_9', 'ripa_10', 'ripa_15', 'ripa_18', 'ripa_19', 'ripa_20', 'ripa_24', 'ripa_25', 'ripa_26', 'ripa_33', 'ripa_35'], 'RIPA_LIGHTS', 'Color, disposición, sector y perspectiva de las luces');
 assign(['ripa_13', 'ripa_14', 'ripa_27', 'ripa_28', 'ripa_29', 'ripa_30', 'ripa_31', 'ripa_32', 'ripa_sound_port', 'ripa_sound_doubt', 'ripa_sound_overtake_starboard', 'ripa_sound_overtake_port', 'ripa_sound_overtake_agree', 'ripa_sound_bend', 'ripa_sound_stopped_fog', 'ripa_sound_anchor_fog'], 'RIPA_SOUND', 'Secuencia de pitadas o campana y duración reglamentaria');
+assign(['ripa_rule5_lookout', 'ripa_rule6_safe_speed', 'ripa_rule6_factors'], 'RIPA_WATCH', 'Puente, campo visual, radar y factores de velocidad segura');
+assign(['ripa_rule7_bearing', 'ripa_rule7_doubt', 'ripa_rule7_radar'], 'RIPA_COLLISION_RISK', 'Marcaciones sucesivas, distancia decreciente y punto de máxima aproximación');
+assign(['ripa_rule8_early', 'ripa_rule8_large', 'ripa_rule8_slow', 'ripa_rule16_action'], 'RIPA_AVOIDANCE', 'Comparación entre maniobra clara, maniobra insuficiente y separación resultante');
+assign(['ripa_rule9_side', 'ripa_rule9_impede', 'ripa_rule9_cross'], 'RIPA_CHANNEL', 'Canal angosto, límite exterior de estribor y tránsito limitado al canal');
+assign(['ripa_rule10_cross', 'ripa_rule10_general'], 'RIPA_TSS', 'Vías de circulación, zona de separación y cruce perpendicular');
+assign(['ripa_rule19_port', 'ripa_rule19_abeam'], 'RIPA_RESTRICTED_VIS', 'Radar, niebla, sectores relativos y maniobras que deben evitarse');
+assign(['ripa_rule13_sector', 'ripa_rule13_doubt', 'ripa_rule13_until_clear'], 'RIPA_RULE_13', 'Límite de 22,5 grados a popa del través y obligación hasta quedar libre');
+assign(['ripa_rule20_display', 'ripa_rule25_sail', 'ripa_rule29_pilot'], 'RIPA_LIGHTS', 'Color, disposición, sector y perspectiva de las luces');
+assign(['ripa_rule24_over200', 'ripa_rule25_motor_sailing', 'ripa_rule27_nuc_day', 'ripa_rule27_ram_day', 'ripa_rule27_dredging', 'ripa_rule28_cylinder'], 'RIPA_DAY_SHAPES', 'Silueta reglamentaria específica de la marca diurna evaluada');
+assign(['ripa_rule33_whistle', 'ripa_rule33_bell', 'ripa_rule35_towed', 'ripa_rule36_attention'], 'RIPA_SOUND', 'Equipo acústico o secuencia reglamentaria contextualizada');
 
 assign(['iala_1'], 'IALA_PORT', 'Color y forma de la marca lateral de babor en Región B');
 assign(['iala_2'], 'IALA_STARBOARD', 'Color, forma y luz de la marca lateral de estribor en Región B');

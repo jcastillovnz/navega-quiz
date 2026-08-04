@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Search, X, BookOpen, BrainCircuit, Lightbulb } from 'lucide-react';
 import ripaIala from '../../data/ripa_iala.json';
 import ripaSound from '../../data/ripa_senales_auditivas.json';
+import ripaExtended from '../../data/ripa_ampliado.json';
 import teoria from '../../data/teoria.json';
 import nudos from '../../data/nudos.json';
 import nomenclatura from '../../data/nomenclatura.json';
@@ -31,6 +32,7 @@ const PRACTICOS_QUESTIONS: AllQuestion[] = (practicos as unknown as Array<{
 const ALL_QUESTIONS: AllQuestion[] = [
   ...(ripaIala as QuizQuestion[]).map(q => ({ ...q, _source: 'RIPA/IALA' })),
   ...(ripaSound as QuizQuestion[]).map(q => ({ ...q, _source: 'RIPA/IALA' })),
+  ...(ripaExtended as QuizQuestion[]).map(q => ({ ...q, _source: 'RIPA/IALA' })),
   ...(teoria as QuizQuestion[]).map(q => ({ ...q, _source: 'Teoría' })),
   ...(nudos as QuizQuestion[]).map(q => ({ ...q, _source: 'Nudos' })),
   ...(nomenclatura as QuizQuestion[]).map(q => ({ ...q, _source: 'Nomenclatura' })),
@@ -114,7 +116,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ isOpen, onClose }) =
           <Search className="w-5 h-5 text-cyan-400 shrink-0" />
           <input
             type="text"
-            placeholder="Buscar en las 188 preguntas del banco (ej: 'eslora', 'Pampero', 'ballestrinque')..."
+            placeholder={`Buscar en las ${ALL_QUESTIONS.length} preguntas del banco (ej: 'eslora', 'Pampero', 'ballestrinque')...`}
             value={query}
             onChange={e => setQuery(e.target.value)}
             autoFocus

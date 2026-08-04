@@ -6,6 +6,9 @@ import { RipaSoundSignalViewer } from '../ripa/RipaSoundSignalViewer';
 import { IntegratedLearningView } from '../learning/IntegratedLearningView';
 import ripaIalaData from '../../data/ripa_iala.json';
 import ripaSoundData from '../../data/ripa_senales_auditivas.json';
+import ripaExtendedData from '../../data/ripa_ampliado.json';
+import { RipaRuleConceptViewer } from '../ripa/RipaRuleConceptViewer';
+import { RipaDayShapeViewer } from '../ripa/RipaDayShapeViewer';
 import anchoredDayShape from '../../assets/ripa_anchored_day_shape_illustrated.png';
 import agroundDayShape from '../../assets/ripa_aground_day_shape_illustrated.png';
 import trawlerDayShape from '../../assets/ripa_trawler_day_shape_illustrated.png';
@@ -15,7 +18,8 @@ import type { QuizQuestion } from '../../types/quiz';
 export const ModuloRipaIalaView: React.FC = () => {
   const questions = useMemo<QuizQuestion[]>(() => [
     ...(ripaIalaData as QuizQuestion[]).filter(question => question.category === 'RIPA'),
-    ...(ripaSoundData as QuizQuestion[])
+    ...(ripaSoundData as QuizQuestion[]),
+    ...(ripaExtendedData as QuizQuestion[])
   ], []);
 
   return (
@@ -69,6 +73,10 @@ export const ModuloRipaIalaView: React.FC = () => {
             }
             if (family === 'RIPA_SOUND') {
               return <RipaSoundSignalViewer context={text} />;
+            }
+            if (family === 'RIPA_DAY_SHAPES') return <RipaDayShapeViewer context={text} />;
+            if (family === 'RIPA_WATCH' || family === 'RIPA_COLLISION_RISK' || family === 'RIPA_AVOIDANCE' || family === 'RIPA_CHANNEL' || family === 'RIPA_TSS' || family === 'RIPA_RESTRICTED_VIS') {
+              return <RipaRuleConceptViewer family={family} />;
             }
             if (family === 'RIPA_LIGHTS') {
               const focusShipType = /velero|vela/.test(text) ? 'VELA' : 'MOTOR';
