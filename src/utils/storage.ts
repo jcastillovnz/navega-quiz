@@ -1,7 +1,8 @@
-import type { UserProgress, SpacedRepetitionItem, UserRank, ExamResult } from '../types/quiz';
+import type { UserProgress, SpacedRepetitionItem, UserRank, ExamResult, LearningMastery } from '../types/quiz';
 
 const STORAGE_KEY = 'navega_quiz_v1';
 const EXAMS_KEY = 'navega_quiz_exams_v1';
+const MASTERY_KEY = 'navega_quiz_mastery_v1';
 
 const DEFAULT_PROGRESS: UserProgress = {
   xp: 0,
@@ -203,9 +204,47 @@ export const getAverageScore = (): number => {
   return Math.round(list.reduce((acc, e) => acc + e.score, 0) / list.length);
 };
 
+// ============ Dominio por módulo ============
+
+export const loadMastery = (): Record<string, LearningMastery> => {
+  try {
+    const raw = localStorage.getItem(MASTERY_KEY);
+    return raw ? JSON.parse(raw) as Record<string, LearningMastery> : {};
+  } catch {
+    return {};
+  }
+};
+
+export const registerLearningAnswer = (
+  moduleId: string,
+  questionId: string,
+  wasCorrect: boolean
+): LearningMastery => {
+  const all = loadMastery();
+  const current = all[moduleId] ?? {
+    moduleId,
+    answeredQuestionIds: [],
+    correctQuestionIds: [],
+    attempts: 0,
+    updatedAt: 0
+  };
+  current.attempts += 1;
+  current.updatedAt = Date.now();
+  if (!current.answeredQuestionIds.includes(questionId)) current.answeredQuestionIds.push(questionId);
+  if (wasCorrect && !current.correctQuestionIds.includes(questionId)) current.correctQuestionIds.push(questionId);
+  all[moduleId] = current;
+  try {
+    localStorage.setItem(MASTERY_KEY, JSON.stringify(all));
+  } catch {
+    // localStorage lleno o deshabilitado
+  }
+  return current;
+};
+
 // ============ Reset ============
 
 export const resetAll = (): void => {
   localStorage.removeItem(STORAGE_KEY);
   localStorage.removeItem(EXAMS_KEY);
+  localStorage.removeItem(MASTERY_KEY);
 };

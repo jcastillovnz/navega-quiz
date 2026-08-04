@@ -4,11 +4,12 @@ import { RipaLightViewer } from '../ripa/RipaLightViewer';
 import { RipaCrossingSimulator } from '../ripa/RipaCrossingSimulator';
 import { IalaBuoyViewer } from '../iala/IalaBuoyViewer';
 import { QuizCard } from '../quiz/QuizCard';
+import { IntegratedLearningView } from '../learning/IntegratedLearningView';
 import { addXP, addManyToReview, registerStudy } from '../../utils/storage';
 import ripaIalaData from '../../data/ripa_iala.json';
 import type { QuizQuestion } from '../../types/quiz';
 
-type TabId = 'ESTUDIO' | 'QUIZ';
+type TabId = 'APRENDER' | 'ESTUDIO' | 'QUIZ';
 type SubTabId = 'LUCES' | 'CRUCES' | 'IALA';
 
 interface ModuleResult {
@@ -22,7 +23,7 @@ const XP_PER_CORRECT = 10;
 const PASS_THRESHOLD = 0.7;
 
 export const ModuloRipaIalaView: React.FC = () => {
-  const [tab, setTab] = useState<TabId>('ESTUDIO');
+  const [tab, setTab] = useState<TabId>('APRENDER');
   const [subTab, setSubTab] = useState<SubTabId>('LUCES');
   const [currentIdx, setCurrentIdx] = useState(0);
   const [result, setResult] = useState<ModuleResult | null>(null);
@@ -74,13 +75,22 @@ export const ModuloRipaIalaView: React.FC = () => {
         {/* Toggle Estudio / Quiz */}
         <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button
+            onClick={() => setTab('APRENDER')}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+              tab === 'APRENDER' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Lightbulb className="w-3.5 h-3.5" />
+            Aprender
+          </button>
+          <button
             onClick={() => setTab('ESTUDIO')}
             className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
               tab === 'ESTUDIO' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            Guía Teórica
+            Explorar
           </button>
           <button
             onClick={() => setTab('QUIZ')}
@@ -89,7 +99,7 @@ export const ModuloRipaIalaView: React.FC = () => {
             }`}
           >
             <BrainCircuit className="w-3.5 h-3.5" />
-            Quiz Práctico
+            Practicar
           </button>
         </div>
 
@@ -119,6 +129,19 @@ export const ModuloRipaIalaView: React.FC = () => {
 
       {/* Área de Contenido (Flex-1, sin scroll global) */}
       <div className="flex-1 min-h-0 overflow-hidden">
+        {tab === 'APRENDER' && (
+          <IntegratedLearningView
+            moduleId="RIPA_IALA"
+            title="RIPA e IALA"
+            questions={questions}
+            visual={<RipaCrossingSimulator />}
+            visualForQuestion={question => {
+              if (question.category === 'IALA') return <IalaBuoyViewer />;
+              if (/luz|luces|marca|noche/i.test(question.question)) return <RipaLightViewer />;
+              return <RipaCrossingSimulator />;
+            }}
+          />
+        )}
         {/* ESTUDIO: Pasa altura completa al viewer */}
         {tab === 'ESTUDIO' && (
           <div className="h-full overflow-hidden">

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { RotateCcw, BookOpen, BrainCircuit, Trophy, AlertTriangle, Check, Lightbulb } from 'lucide-react';
 import { QuizCard } from '../quiz/QuizCard';
+import { IntegratedLearningView } from '../learning/IntegratedLearningView';
 import { addXP, addManyToReview, registerStudy } from '../../utils/storage';
 import type { QuizQuestion } from '../../types/quiz';
 
@@ -127,7 +128,7 @@ interface KnotsViewerProps {
 }
 
 export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
-  const [tab, setTab] = useState<'ESTUDIO' | 'QUIZ'>('ESTUDIO');
+  const [tab, setTab] = useState<'APRENDER' | 'ESTUDIO' | 'QUIZ'>('APRENDER');
   const [activeKnot, setActiveKnot] = useState(0);
 
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -171,13 +172,22 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
         {/* Toggle Modo */}
         <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button
+            onClick={() => setTab('APRENDER')}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+              tab === 'APRENDER' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Lightbulb className="w-3.5 h-3.5" />
+            Aprender
+          </button>
+          <button
             onClick={() => setTab('ESTUDIO')}
             className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
               tab === 'ESTUDIO' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            Guía Paso a Paso
+            Explorar
           </button>
           <button
             onClick={() => setTab('QUIZ')}
@@ -186,7 +196,7 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
             }`}
           >
             <BrainCircuit className="w-3.5 h-3.5" />
-            Práctica Quiz
+            Practicar
           </button>
         </div>
 
@@ -210,6 +220,37 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
           </div>
         )}
       </div>
+
+      {tab === 'APRENDER' && (
+        <div className="flex-1 min-h-0 overflow-hidden">
+          <IntegratedLearningView
+            moduleId="NUDOS"
+            title="Nudos Náuticos"
+            questions={shuffledQuestions}
+            visual={null}
+            accentClass="bg-pink-500"
+            visualForQuestion={question => {
+              const text = `${question.question} ${question.explanation}`.toLowerCase();
+              const selectedKnot = KNOTS.find(item =>
+                [item.name, ...item.otherNames].some(name => text.includes(name.toLowerCase()))
+              ) ?? KNOTS[0];
+              return (
+                <div className="h-full flex flex-col bg-slate-950 p-2">
+                  <img
+                    src={selectedKnot.stepsImage}
+                    alt={`Secuencia detallada para realizar ${selectedKnot.name}`}
+                    className="flex-1 min-h-0 w-full object-contain rounded-xl"
+                  />
+                  <div className="shrink-0 p-2 text-center">
+                    <p className="text-sm font-black text-white">{selectedKnot.name}</p>
+                    <p className="text-[10px] text-slate-400">{selectedKnot.use}</p>
+                  </div>
+                </div>
+              );
+            }}
+          />
+        </div>
+      )}
 
       {/* ESTUDIO: Grid 2 columnas */}
       {tab === 'ESTUDIO' && (

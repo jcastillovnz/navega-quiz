@@ -2,6 +2,7 @@ import ripaIalaData from '../data/ripa_iala.json';
 import teoriaData from '../data/teoria.json';
 import practicosData from '../data/practicos.json';
 import nudosData from '../data/nudos.json';
+import nomenclaturaData from '../data/nomenclatura.json';
 import type { QuizQuestion, QuizCategory, PracticalExercise } from '../types/quiz';
 
 export interface ExamConfig {
@@ -40,7 +41,7 @@ const practicalToQuestion = (p: PracticalExercise): ExamQuestion => {
   return {
     id: p.id,
     question: p.statement,
-    options: opts.sort(() => Math.random() - 0.5),
+    options: shuffle(opts),
     explanation: p.explanationStepByStep,
     category: 'PRACTICO',
     type: 'PRACTICAL',
@@ -83,6 +84,25 @@ const sample = <T,>(arr: T[], n: number): T[] => {
   return out;
 };
 
+/** Fisher-Yates sin mutar el banco original. */
+const shuffle = <T,>(arr: T[]): T[] => {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+};
+
+const THEORETICAL_WEIGHTS: Partial<Record<QuizCategory, number>> = {
+  RIPA: 9,
+  IALA: 4,
+  SEGURIDAD: 7,
+  NOMENCLATURA: 7,
+  METEOROLOGIA: 5,
+  NUDOS: 3
+};
+
 export const DEFAULT_EXAM_CONFIG: ExamConfig = {
   theoreticalCount: 35,
   practicalCount: 5,
@@ -97,14 +117,23 @@ export const generateExam = (config: ExamConfig = DEFAULT_EXAM_CONFIG): Generate
   const theoreticalPool = [
     ...(ripaIalaData as QuizQuestion[]),
     ...(teoriaData as QuizQuestion[]),
+    ...(nomenclaturaData as QuizQuestion[]),
     ...(nudosData as QuizQuestion[])
   ];
   const practicalPool = practicosData as PracticalExercise[];
 
-  const theoreticalSelected = sample(theoreticalPool, config.theoreticalCount).map(q => ({
+  const weighted = Object.entries(THEORETICAL_WEIGHTS).flatMap(([category, count]) =>
+    sample(theoreticalPool.filter(q => q.category === category), count)
+  );
+  const selectedIds = new Set(weighted.map(q => q.id));
+  const remainder = theoreticalPool.filter(q => !selectedIds.has(q.id));
+  const theoreticalSelected = [
+    ...weighted,
+    ...sample(remainder, Math.max(0, config.theoreticalCount - weighted.length))
+  ].slice(0, config.theoreticalCount).map(q => ({
     id: q.id,
     question: q.question,
-    options: q.options,
+    options: shuffle(q.options),
     explanation: q.explanation,
     category: q.category,
     type: 'THEORETICAL' as const,
@@ -114,7 +143,7 @@ export const generateExam = (config: ExamConfig = DEFAULT_EXAM_CONFIG): Generate
   const practicalSelected = sample(practicalPool, config.practicalCount).map(practicalToQuestion);
 
   // Orden aleatorio final
-  const allQuestions = [...theoreticalSelected, ...practicalSelected].sort(() => Math.random() - 0.5);
+  const allQuestions = shuffle([...theoreticalSelected, ...practicalSelected]);
 
   return {
     config,

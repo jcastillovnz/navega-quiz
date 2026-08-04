@@ -25,7 +25,8 @@ import {
   MapPin,
   Waves
 } from 'lucide-react';
-import teoriaData from './data/teoria.json';
+import nudosData from './data/nudos.json';
+import type { QuizQuestion } from './types/quiz';
 
 type ActiveView = 'HOME' | ModuleId;
 
@@ -33,8 +34,8 @@ function App() {
   const [activeView, setActiveView] = useState<ActiveView>('HOME');
   const [practicoTab, setPracticoTab] = useState<'DECLINACION' | 'MAREAS' | 'MARCACIONES'>('DECLINACION');
 
-  // Preguntas de práctica para Nudos
-  const knotsQuestions = (teoriaData as any[]).filter(q => q.category === 'NOMENCLATURA' || q.category === 'SEGURIDAD');
+  // Banco específico de cabuyería: evita mezclar preguntas de Seguridad.
+  const knotsQuestions = nudosData as QuizQuestion[];
 
   return (
     <Layout onGoHome={() => setActiveView('HOME')}>

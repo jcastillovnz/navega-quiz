@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { BookOpen, BrainCircuit, Trophy, RotateCcw } from 'lucide-react';
+import { BookOpen, BrainCircuit, Trophy, RotateCcw, Lightbulb } from 'lucide-react';
 import { QuizCard } from '../quiz/QuizCard';
+import { IntegratedLearningView } from '../learning/IntegratedLearningView';
 import { addXP, addManyToReview, registerStudy } from '../../utils/storage';
 import teoriaData from '../../data/teoria.json';
+import nomenclaturaData from '../../data/nomenclatura.json';
 import type { QuizQuestion, QuizCategory } from '../../types/quiz';
 
 interface ModuleConfig {
@@ -26,13 +28,17 @@ export interface ModuloTeoricoViewProps {
 }
 
 export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, viewer }) => {
-  const [tab, setTab] = useState<'ESTUDIO' | 'QUIZ'>('ESTUDIO');
+  const [tab, setTab] = useState<'APRENDER' | 'ESTUDIO' | 'QUIZ'>('APRENDER');
   const [currentIdx, setCurrentIdx] = useState(0);
   const [result, setResult] = useState<{ correct: number; total: number; xpEarned: number } | null>(null);
 
   // Filtrar y mezclar preguntas de la categoría
   const questions = useMemo<QuizQuestion[]>(() => {
-    const arr = (teoriaData as QuizQuestion[]).filter(q => q.category === config.category);
+    const pool = [
+      ...(teoriaData as QuizQuestion[]),
+      ...(nomenclaturaData as QuizQuestion[])
+    ];
+    const arr = pool.filter(q => q.category === config.category);
     return arr.sort(() => Math.random() - 0.5);
   }, [config.category]);
 
@@ -95,13 +101,22 @@ export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, vi
         {/* Tabs Estudio / Práctica */}
         <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button
+            onClick={() => setTab('APRENDER')}
+            className={`flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              tab === 'APRENDER' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Lightbulb className="w-3.5 h-3.5" />
+            Aprender
+          </button>
+          <button
             onClick={() => setTab('ESTUDIO')}
             className={`flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all ${
               tab === 'ESTUDIO' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            Guía Teórica
+            Explorar
           </button>
           <button
             onClick={() => setTab('QUIZ')}
@@ -110,13 +125,22 @@ export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, vi
             }`}
           >
             <BrainCircuit className="w-3.5 h-3.5" />
-            Quiz Práctico
+            Practicar
           </button>
         </div>
       </div>
 
       {/* Contenido (Flex-1 sin scroll global) */}
       <div className="flex-1 min-h-0 overflow-hidden">
+        {tab === 'APRENDER' && (
+          <IntegratedLearningView
+            moduleId={config.id}
+            title={config.title}
+            questions={questions}
+            visual={viewer}
+            accentClass={config.badgeColor}
+          />
+        )}
         {tab === 'ESTUDIO' && (
           <div className="h-full overflow-hidden">
             {viewer}

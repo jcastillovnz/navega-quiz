@@ -65,6 +65,14 @@ export interface UserProgress {
   spacedRepetitionQueue: SpacedRepetitionItem[];
 }
 
+export interface LearningMastery {
+  moduleId: string;
+  answeredQuestionIds: string[];
+  correctQuestionIds: string[];
+  attempts: number;
+  updatedAt: number;
+}
+
 /**
  * 5. Interfaces para el Simulador de Examen Real (Integral)
  */

@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import ialaBuoyImg from '../../assets/iala_buoy_babor.png';
 
-type BuoyType = 'BABOR' | 'ESTRIBOR' | 'PELIGRO_AISLADO' | 'AGUAS_SEGURAS';
+type BuoyType =
+  | 'BABOR' | 'ESTRIBOR'
+  | 'CARDINAL_N' | 'CARDINAL_E' | 'CARDINAL_S' | 'CARDINAL_W'
+  | 'PELIGRO_AISLADO' | 'AGUAS_SEGURAS' | 'ESPECIAL' | 'NUEVO_PELIGRO';
 
 interface BuoyInfo {
   name: string;
@@ -18,8 +21,9 @@ interface BuoyInfo {
   bodyColor: string;
   stripeColors?: string[];
   stripeDir?: 'horizontal' | 'vertical';
-  topShape: 'cylinder' | 'cone' | 'two-spheres' | 'sphere';
+  topShape: 'cylinder' | 'cone' | 'two-spheres' | 'sphere' | 'x' | 'cross' | 'north' | 'east' | 'south' | 'west';
   topColor: string;
+  bands?: string[];
 }
 
 const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
@@ -45,6 +49,38 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     rule: '✅ Verde a Estribor al entrar. Opuesto a IALA A (Europa).',
     bodyColor: '#16a34a', topShape: 'cone', topColor: '#16a34a',
   },
+  CARDINAL_N: {
+    name: 'Cardinal Norte', color: 'text-amber-300', accentColor: 'border-amber-400/50',
+    topMark: '▲ ▲ Dos conos hacia arriba', lightPattern: 'Q W o VQ W — Blanco continuo rápido',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '255,255,255',
+    description: 'Las aguas seguras están al NORTE de la marca. Cuerpo negro sobre amarillo.',
+    rule: 'Norte: conos arriba; pasá al norte. Ritmo continuo, como las 12 en punto.',
+    bodyColor: '#facc15', topShape: 'north', topColor: '#0f172a', bands: ['#0f172a', '#facc15']
+  },
+  CARDINAL_E: {
+    name: 'Cardinal Este', color: 'text-amber-300', accentColor: 'border-amber-400/50',
+    topMark: '▼ ▲ Conos con bases enfrentadas', lightPattern: 'Q(3) W 10s o VQ(3) W 5s',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '255,255,255',
+    description: 'Las aguas seguras están al ESTE. Bandas negro-amarillo-negro.',
+    rule: 'Este = 3 destellos, como las 3 en el reloj.',
+    bodyColor: '#0f172a', topShape: 'east', topColor: '#0f172a', bands: ['#0f172a', '#facc15', '#0f172a']
+  },
+  CARDINAL_S: {
+    name: 'Cardinal Sur', color: 'text-amber-300', accentColor: 'border-amber-400/50',
+    topMark: '▼ ▼ Dos conos hacia abajo', lightPattern: 'Q(6)+LFl W 15s o VQ(6)+LFl W 10s',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid-double animate-glow-white', lightRgb: '255,255,255',
+    description: 'Las aguas seguras están al SUR. Cuerpo amarillo sobre negro.',
+    rule: 'Sur = 6 destellos más uno largo, como las 6 en el reloj.',
+    bodyColor: '#0f172a', topShape: 'south', topColor: '#0f172a', bands: ['#facc15', '#0f172a']
+  },
+  CARDINAL_W: {
+    name: 'Cardinal Oeste', color: 'text-amber-300', accentColor: 'border-amber-400/50',
+    topMark: '▲ ▼ Conos con puntas enfrentadas', lightPattern: 'Q(9) W 15s o VQ(9) W 10s',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid-double animate-glow-white', lightRgb: '255,255,255',
+    description: 'Las aguas seguras están al OESTE. Bandas amarillo-negro-amarillo.',
+    rule: 'Oeste = 9 destellos, como las 9 en el reloj.',
+    bodyColor: '#facc15', topShape: 'west', topColor: '#0f172a', bands: ['#facc15', '#0f172a', '#facc15']
+  },
   PELIGRO_AISLADO: {
     name: 'Peligro Aislado',
     color: 'text-white', accentColor: 'border-white/30',
@@ -69,6 +105,22 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#dc2626', stripeColors: ['#ffffff'], stripeDir: 'vertical',
     topShape: 'sphere', topColor: '#dc2626',
   },
+  ESPECIAL: {
+    name: 'Marca Especial', color: 'text-yellow-300', accentColor: 'border-yellow-400/50',
+    topMark: '✕ Aspa amarilla', lightPattern: 'Fl Y — Cualquier ritmo amarillo que no se confunda',
+    lightColorClass: 'bg-yellow-300', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '253,224,71',
+    description: 'Señala zonas o configuraciones especiales: cables, recreación, dragado, emisarios o separación de tráfico. No marca por sí sola un peligro a la navegación.',
+    rule: 'Amarilla + aspa: consultá la carta para conocer el propósito.',
+    bodyColor: '#facc15', topShape: 'x', topColor: '#facc15'
+  },
+  NUEVO_PELIGRO: {
+    name: 'Nuevo Peligro / Naufragio', color: 'text-blue-300', accentColor: 'border-blue-400/50',
+    topMark: '✚ Cruz amarilla vertical', lightPattern: 'Al B/Y 1s — Azul y amarilla alternadas',
+    lightColorClass: 'bg-blue-400', lightAnimClass: 'animate-flash-iso animate-glow-white', lightRgb: '96,165,250',
+    description: 'Marca de emergencia para un naufragio o peligro nuevo que todavía no figura adecuadamente en publicaciones. Franjas verticales azules y amarillas.',
+    rule: 'Extremá precauciones, mantenete apartado y verificá Avisos a los Navegantes.',
+    bodyColor: '#2563eb', stripeColors: ['#facc15'], stripeDir: 'vertical', topShape: 'cross', topColor: '#facc15'
+  }
 };
 
 function BuoyTopMark({ shape, color }: { shape: string; color: string }) {
@@ -81,6 +133,12 @@ function BuoyTopMark({ shape, color }: { shape: string; color: string }) {
     </>
   );
   if (shape === 'sphere') return <circle cx="40" cy="11" r="10" fill={color} />;
+  if (shape === 'x') return <g stroke={color} strokeWidth="6"><line x1="25" y1="2" x2="55" y2="22"/><line x1="55" y1="2" x2="25" y2="22"/></g>;
+  if (shape === 'cross') return <g stroke={color} strokeWidth="6"><line x1="40" y1="0" x2="40" y2="24"/><line x1="26" y1="12" x2="54" y2="12"/></g>;
+  if (shape === 'north') return <g fill={color}><polygon points="40,0 25,15 55,15"/><polygon points="40,13 25,28 55,28"/></g>;
+  if (shape === 'south') return <g fill={color}><polygon points="25,0 55,0 40,15"/><polygon points="25,13 55,13 40,28"/></g>;
+  if (shape === 'east') return <g fill={color}><polygon points="25,0 55,0 40,15"/><polygon points="40,13 25,28 55,28"/></g>;
+  if (shape === 'west') return <g fill={color}><polygon points="40,0 25,15 55,15"/><polygon points="25,13 55,13 40,28"/></g>;
   return null;
 }
 
@@ -113,6 +171,17 @@ function BuoyBody({ bodyColor, stripeColors, stripeDir }: {
   );
 }
 
+function CardinalBands({ bands }: { bands: string[] }) {
+  const height = 64 / bands.length;
+  return (
+    <g clipPath="url(#buoy-body-clip)">
+      <defs><clipPath id="buoy-body-clip"><ellipse cx="40" cy="72" rx="24" ry="36" /></clipPath></defs>
+      {bands.map((color, index) => <rect key={`${color}-${index}`} x="16" y={36 + index * height} width="48" height={height + 1} fill={color} />)}
+      <ellipse cx="32" cy="56" rx="6" ry="14" fill="white" opacity="0.08" />
+    </g>
+  );
+}
+
 export const IalaBuoyViewer: React.FC = () => {
   const [isNight, setIsNight] = useState(true);
   const [selectedBuoy, setSelectedBuoy] = useState<BuoyType>('BABOR');
@@ -132,12 +201,12 @@ export const IalaBuoyViewer: React.FC = () => {
           {isNight ? 'Modo Noche 🌙' : 'Modo Día ☀️'}
         </button>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-1 max-w-[78%] justify-end">
           {(Object.keys(BUOY_DATA) as BuoyType[]).map(type => (
             <button
               key={type}
               onClick={() => setSelectedBuoy(type)}
-              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-2 py-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
                 selectedBuoy === type
                   ? 'bg-cyan-500 text-slate-950 shadow-md'
                   : 'bg-slate-950 text-slate-400 border border-slate-800 hover:text-slate-200'
@@ -233,6 +302,7 @@ export const IalaBuoyViewer: React.FC = () => {
                     stripeColors={buoy.stripeColors}
                     stripeDir={buoy.stripeDir}
                   />
+                  {buoy.bands && <CardinalBands bands={buoy.bands} />}
                   {/* Cadena de fondeo */}
                   <path d="M40,112 Q38,120 36,128" stroke="#64748b" strokeWidth="2" strokeDasharray="3,2" fill="none" />
                 </svg>
