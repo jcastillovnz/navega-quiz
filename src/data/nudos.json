@@ -4,215 +4,539 @@
     "category": "NUDOS",
     "question": "¿Cuál es el nudo más utilizado para crear un anillo fijo que no se corre ni se aprieta bajo carga, y se desata con un tirón?",
     "options": [
-      { "id": "A", "text": "Nudo Llano", "isCorrect": false },
-      { "id": "B", "text": "As de Guía (Bowline)", "isCorrect": true },
-      { "id": "C", "text": "Ballestrinque (Clove Hitch)", "isCorrect": false },
-      { "id": "D", "text": "Nudo de Ocho (Figure Eight)", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Nudo Llano",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "As de Guía (Bowline)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Ballestrinque (Clove Hitch)",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Nudo de Ocho (Figure Eight)",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El As de Guía es EL nudo náutico por excelencia: forma un lazo que no se ajusta ni se desliza bajo carga, y se desata con un tirón incluso después de soportar mucha tensión. Imprescindible para rescate y HAA. [TIP: 'As de Guía' = 'el nudo rey'. Su forma de lazo lo hace perfecto para rescatar personas.]"
+    "explanation": "El As de Guía es EL nudo náutico por excelencia: forma un lazo que no se ajusta ni se desliza bajo carga, y se desata con un tirón incluso después de soportar mucha tensión. Imprescindible para rescate y HAA. [TIP: 'As de Guía' = 'el nudo rey'. Su forma de lazo lo hace perfecto para rescatar personas.]",
+    "concept": "As de Guía (Bowline): El Nudo Rey",
+    "theory": "El As de Guía forma un lazo que NO se ajusta ni se desliza bajo carga y se desata con un tirón. Es EL nudo náutico por excelencia. Imprescindible para rescate, HAA y trabajo en altura."
   },
   {
     "id": "nudo_2",
     "category": "NUDOS",
     "question": "Para unir DOS cabos del MISMO diámetro y material, ¿qué nudo se utiliza?",
     "options": [
-      { "id": "A", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": false },
-      { "id": "B", "text": "As de Guía (Bowline)", "isCorrect": false },
-      { "id": "C", "text": "Nudo Llano (Reef Knot)", "isCorrect": true },
-      { "id": "D", "text": "Ballestrinque (Clove Hitch)", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Vuelta de Escota (Sheet Bend)",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "As de Guía (Bowline)",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Nudo Llano (Reef Knot)",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Ballestrinque (Clove Hitch)",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El Nudo Llano (Reef Knot) une dos cabos del mismo diámetro. Es fácil de recordar con la frase 'izquierda sobre derecha, derecha sobre izquierda'. Si los diámetros son distintos, se desliza: ahí se usa la Vuelta de Escota. [TIP: 'Llano' = llano, plano. Solo para MISMO diámetro.]"
+    "explanation": "El Nudo Llano (Reef Knot) une dos cabos del mismo diámetro. Es fácil de recordar con la frase 'izquierda sobre derecha, derecha sobre izquierda'. Si los diámetros son distintos, se desliza: ahí se usa la Vuelta de Escota. [TIP: 'Llano' = llano, plano. Solo para MISMO diámetro.]",
+    "concept": "Nudo Llano: Unión de Cabos del Mismo Diámetro",
+    "theory": "El Nudo Llano une dos cabos de MISMO diámetro. Se recuerda: 'izquierda sobre derecha, derecha sobre izquierda'. Si los diámetros son distintos, se desliza y FALLA."
   },
   {
     "id": "nudo_3",
     "category": "NUDOS",
     "question": "¿Qué nudo se usa para amarrar un cabo a un palo, cáncamo o barandal?",
     "options": [
-      { "id": "A", "text": "Nudo de Ocho", "isCorrect": false },
-      { "id": "B", "text": "Ballestrinque (Clove Hitch)", "isCorrect": true },
-      { "id": "C", "text": "As de Guía", "isCorrect": false },
-      { "id": "D", "text": "Vuelta de Escota", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Nudo de Ocho",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Ballestrinque (Clove Hitch)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "As de Guía",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Vuelta de Escota",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El Ballestrinque (Clove Hitch) es el nudo de amarre por excelencia: rápido, se ajusta solo con la carga y funciona en cualquier dirección. Se usa para colgar defensas del barandal, fondeos temporales y amarres a postes. [TIP: 'Ballestrinque' = 'ballesta' (arma antigua). El nudo tiene forma de ballesta cruzando el palo.]"
+    "explanation": "El Ballestrinque (Clove Hitch) es el nudo de amarre por excelencia: rápido, se ajusta solo con la carga y funciona en cualquier dirección. Se usa para colgar defensas del barandal, fondeos temporales y amarres a postes. [TIP: 'Ballestrinque' = 'ballesta' (arma antigua). El nudo tiene forma de ballesta cruzando el palo.]",
+    "concept": "Ballestrinque: Nudo de Amarre a Palos",
+    "theory": "El Ballestrinque amarra un cabo a un palo, cáncamo o barandal. Es rápido, se ajusta solo con carga y funciona en cualquier dirección. Nudo de amarre por excelencia en navegación."
   },
   {
     "id": "nudo_4",
     "category": "NUDOS",
     "question": "Para unir dos cabos de DISTINTO diámetro (por ejemplo, nylon con cadena, o dos cabos de diferente grosor), ¿qué nudo es el correcto?",
     "options": [
-      { "id": "A", "text": "Nudo Llano", "isCorrect": false },
-      { "id": "B", "text": "Nudo de Ocho", "isCorrect": false },
-      { "id": "C", "text": "As de Guía", "isCorrect": false },
-      { "id": "D", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": true }
+      {
+        "id": "A",
+        "text": "Nudo Llano",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Nudo de Ocho",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "As de Guía",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Vuelta de Escota (Sheet Bend)",
+        "isCorrect": true
+      }
     ],
-    "explanation": "La Vuelta de Escota (Sheet Bend) está diseñada específicamente para unir cabos de distinto diámetro. A diferencia del Nudo Llano, no se desliza cuando los grosores son diferentes. Se usa mucho para prolongar la línea de fondeo cabo-cadena. [TIP: 'Sheet' = 'escota' (cabo de la vela). 'Bend' = 'vuelta'. Por eso se llama Vuelta de Escota.]"
+    "explanation": "La Vuelta de Escota (Sheet Bend) está diseñada específicamente para unir cabos de distinto diámetro. A diferencia del Nudo Llano, no se desliza cuando los grosores son diferentes. Se usa mucho para prolongar la línea de fondeo cabo-cadena. [TIP: 'Sheet' = 'escota' (cabo de la vela). 'Bend' = 'vuelta'. Por eso se llama Vuelta de Escota.]",
+    "concept": "Vuelta de Escota: Unión de Cabos Diferentes",
+    "theory": "La Vuelta de Escota une dos cabos de DIFERENTE diámetro o material. Es más segura que el Nudo Llano para esta situación. Se usa cuando los cabos no son iguales."
   },
   {
     "id": "nudo_5",
     "category": "NUDOS",
     "question": "¿Qué nudo se utiliza como TOPE de cabo para evitar que un chicote se deslice por un ojo, polea o mordaza?",
     "options": [
-      { "id": "A", "text": "As de Guía", "isCorrect": false },
-      { "id": "B", "text": "Ballestrinque", "isCorrect": false },
-      { "id": "C", "text": "Nudo de Ocho (Figure Eight)", "isCorrect": true },
-      { "id": "D", "text": "Nudo Llano", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "As de Guía",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Ballestrinque",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Nudo de Ocho (Figure Eight)",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Nudo Llano",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El Nudo de Ocho (Figure Eight) se hace en el extremo (chicote) del cabo y crea un tope grueso que no pasa por los agujeros ni por las poleas. Es muy fácil de identificar visualmente y de desatar incluso mojado. [TIP: 'Figure Eight' = 'forma de 8' en inglés. Se llama así porque su forma es un 8.]"
+    "explanation": "El Nudo de Ocho (Figure Eight) se hace en el extremo (chicote) del cabo y crea un tope grueso que no pasa por los agujeros ni por las poleas. Es muy fácil de identificar visualmente y de desatar incluso mojado. [TIP: 'Figure Eight' = 'forma de 8' en inglés. Se llama así porque su forma es un 8.]",
+    "concept": "Nudo de Ocho: Tope de Seguridad",
+    "theory": "El Nudo de Ocho es un tope simple que IMPIDE que un cabo se deslice a través de un anillo u orificio. Es ancho y seguro. Se usa como freno o tope de seguridad."
   },
   {
     "id": "nudo_6",
     "category": "NUDOS",
     "question": "En una situación de Hombre al Agua (HAA), ¿cuál es el nudo más adecuado para hacer un anillo al que subir al náufrago?",
     "options": [
-      { "id": "A", "text": "Nudo Llano", "isCorrect": false },
-      { "id": "B", "text": "Ballestrinque", "isCorrect": false },
-      { "id": "C", "text": "As de Guía (Bowline)", "isCorrect": true },
-      { "id": "D", "text": "Nudo de Ocho", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Nudo Llano",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Ballestrinque",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "As de Guía (Bowline)",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Nudo de Ocho",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El As de Guía es el indicado para HAA: forma un anillo seguro alrededor del náufrago, no se aprieta (no lo estrangula) y se puede desatar rápidamente para liberarlo. Por eso es obligatorio aprenderlo y dominarlo. [TIP: HAA = As de Guía. Es la regla nemotécnica del rescate.]"
+    "explanation": "El As de Guía es el indicado para HAA: forma un anillo seguro alrededor del náufrago, no se aprieta (no lo estrangula) y se puede desatar rápidamente para liberarlo. Por eso es obligatorio aprenderlo y dominarlo. [TIP: HAA = As de Guía. Es la regla nemotécnica del rescate.]",
+    "concept": "Medio Ballestrinque: Amarre Rápido",
+    "theory": "El Medio Ballestrinque es una versión simplificada del Ballestrinque. Rápido de hacer pero menos seguro. Se usa en amarres temporales o cuando hay prisa y poco espacio."
   },
   {
     "id": "nudo_7",
     "category": "NUDOS",
     "question": "Si necesitás prolongar la línea de fondeo uniendo un cabo de nylon a un tramo de cadena, ¿qué nudo usás?",
     "options": [
-      { "id": "A", "text": "Nudo Llano (Reef Knot)", "isCorrect": false },
-      { "id": "B", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": true },
-      { "id": "C", "text": "As de Guía", "isCorrect": false },
-      { "id": "D", "text": "Ballestrinque", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Nudo Llano (Reef Knot)",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Vuelta de Escota (Sheet Bend)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "As de Guía",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Ballestrinque",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La Vuelta de Escota une cabos de distinto diámetro y material, lo que la hace perfecta para nylon-cadena. El Nudo Llano NO sirve acá porque se desliza al haber distintos grosores. [TIP: Nylon-cadena = Vuelta de Escota. Es la unión clásica de fondeo.]"
+    "explanation": "La Vuelta de Escota une cabos de distinto diámetro y material, lo que la hace perfecta para nylon-cadena. El Nudo Llano NO sirve acá porque se desliza al haber distintos grosores. [TIP: Nylon-cadena = Vuelta de Escota. Es la unión clásica de fondeo.]",
+    "concept": "Nudo Náutico 7",
+    "theory": "Explicación teórica para el nudo 7. Contenido sobre técnicas de amarre y nudos marítimos."
   },
   {
     "id": "nudo_8",
     "category": "NUDOS",
     "question": "¿Qué frase mnemotécnica se usa para recordar cómo se hace el Nudo Llano?",
     "options": [
-      { "id": "A", "text": "Derecha sobre izquierda, izquierda sobre derecha", "isCorrect": false },
-      { "id": "B", "text": "Izquierda sobre derecha, derecha sobre izquierda", "isCorrect": true },
-      { "id": "C", "text": "Siempre el firme arriba, el chicote abajo", "isCorrect": false },
-      { "id": "D", "text": "Pasar por dentro, rodear, salir por la gaza", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Derecha sobre izquierda, izquierda sobre derecha",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Izquierda sobre derecha, derecha sobre izquierda",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Siempre el firme arriba, el chicote abajo",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Pasar por dentro, rodear, salir por la gaza",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La regla del Nudo Llano es: chicote IZQUIERDO cruza por ENCIMA del derecho, y después chicote DERECHO cruza por ENCIMA del izquierdo. Esa simetría es lo que hace que el nudo quede prolijo y no se corra. [TIP: 'ID-DI' = Izquierda-Derecha, Derecha-Izquierda. Repite 'ID-DI' en voz alta al hacer el nudo.]"
+    "explanation": "La regla del Nudo Llano es: chicote IZQUIERDO cruza por ENCIMA del derecho, y después chicote DERECHO cruza por ENCIMA del izquierdo. Esa simetría es lo que hace que el nudo quede prolijo y no se corra. [TIP: 'ID-DI' = Izquierda-Derecha, Derecha-Izquierda. Repite 'ID-DI' en voz alta al hacer el nudo.]",
+    "concept": "Nudo Náutico 8",
+    "theory": "Explicación teórica para el nudo 8. Contenido sobre técnicas de amarre y nudos marítimos."
   },
   {
     "id": "nudo_9",
     "category": "NUDOS",
     "question": "¿Qué es una 'COCA' en náutica?",
     "options": [
-      { "id": "A", "text": "Una torcedura o vuelta en un cabo", "isCorrect": true },
-      { "id": "B", "text": "Tomar un rizo", "isCorrect": false },
-      { "id": "C", "text": "Anudar el cabo", "isCorrect": false },
-      { "id": "D", "text": "Cortar el cabo", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Una torcedura o vuelta en un cabo",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Tomar un rizo",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Anudar el cabo",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Cortar el cabo",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Una coca es una torcedura o vuelta anormal en un cabo. Si no se deshace a tiempo, puede dañar el cabo permanentemente. Se previene 'abozando' (enrollando) el cabo correctamente. [TIP: 'Coca' = torcedura. No confundir con 'cocaína'. Siempre verifica que tus cabos no tengan cocas.]"
+    "explanation": "Una coca es una torcedura o vuelta anormal en un cabo. Si no se deshace a tiempo, puede dañar el cabo permanentemente. Se previene 'abozando' (enrollando) el cabo correctamente. [TIP: 'Coca' = torcedura. No confundir con 'cocaína'. Siempre verifica que tus cabos no tengan cocas.]",
+    "concept": "Nudo Náutico 9",
+    "theory": "Explicación teórica para el nudo 9. Contenido sobre técnicas de amarre y nudos marítimos."
   },
   {
     "id": "nudo_10",
     "category": "NUDOS",
     "question": "¿Qué es el CUNNINGHAM (cuñingham)?",
     "options": [
-      { "id": "A", "text": "Aparejo para REPICAR el gratil de la vela mayor contra la gansera", "isCorrect": true },
-      { "id": "B", "text": "Un instrumento para desatar nudos", "isCorrect": false },
-      { "id": "C", "text": "Un compartimento para guardar cosas", "isCorrect": false },
-      { "id": "D", "text": "Un tipo de ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Aparejo para REPICAR el gratil de la vela mayor contra la gansera",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Un instrumento para desatar nudos",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Un compartimento para guardar cosas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Un tipo de ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El cunningham es un aparejo o cabo que sirve para TENSAR (repicar) el gratil de la vela mayor contra el palo (gansera), modificando la forma de la vela según la intensidad del viento. [TIP: 'Cunningham' tensa el gratil (borde de proa) de la mayor hacia abajo.]"
+    "explanation": "El cunningham es un aparejo o cabo que sirve para TENSAR (repicar) el gratil de la vela mayor contra el palo (gansera), modificando la forma de la vela según la intensidad del viento. [TIP: 'Cunningham' tensa el gratil (borde de proa) de la mayor hacia abajo.]",
+    "concept": "Nudo Náutico 10",
+    "theory": "Explicación teórica para el nudo 10. Contenido sobre técnicas de amarre y nudos marítimos."
   },
   {
     "id": "nudo_11",
     "category": "NUDOS",
     "question": "¿Qué significa 'colchar'?",
     "options": [
-      { "id": "A", "text": "Unir los cordones de un cabo torciéndolos unos con otros", "isCorrect": true },
-      { "id": "B", "text": "Anudar dos cabos", "isCorrect": false },
-      { "id": "C", "text": "Entalingar un cabo", "isCorrect": false },
-      { "id": "D", "text": "Cortar el cabo", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Unir los cordones de un cabo torciéndolos unos con otros",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Anudar dos cabos",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Entalingar un cabo",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Cortar el cabo",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Colchar significa unir los cordones o filásticas de un cabo retorciéndolos entre sí. Es una técnica para empalmar dos cabos o reparar una zona dañada trenzando sus fibras. [TIP: 'Colcha' = cubierta, revestimiento. Colchar = 'cubrir' un cabo con el trenzado de otro.]"
+    "explanation": "Colchar significa unir los cordones o filásticas de un cabo retorciéndolos entre sí. Es una técnica para empalmar dos cabos o reparar una zona dañada trenzando sus fibras. [TIP: 'Colcha' = cubierta, revestimiento. Colchar = 'cubrir' un cabo con el trenzado de otro.]",
+    "concept": "Nudo Náutico 11",
+    "theory": "Explicación teórica para el nudo 11. Contenido sobre técnicas de amarre y nudos marítimos."
   },
   {
     "id": "nudo_12",
     "category": "NUDOS",
     "question": "¿Qué es el 'GRATIL' de una vela?",
     "options": [
-      { "id": "A", "text": "El borde inferior de la vela", "isCorrect": false },
-      { "id": "B", "text": "El borde de PROA (adelante) de la vela, donde se fija al mástil", "isCorrect": true },
-      { "id": "C", "text": "El borde de popa de la vela", "isCorrect": false },
-      { "id": "D", "text": "La parte central", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El borde inferior de la vela",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "El borde de PROA (adelante) de la vela, donde se fija al mástil",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "El borde de popa de la vela",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La parte central",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El gratil es el borde de PROA de la vela, el que se enrolla o fija en el mástil/estay. En la mayor, va por la gansera (track del palo). [TIP: 'Gratil' = borde de adelante. 'Baluma' = borde de popa. 'Pujamen' = borde inferior.]"
+    "explanation": "El gratil es el borde de PROA de la vela, el que se enrolla o fija en el mástil/estay. En la mayor, va por la gansera (track del palo). [TIP: 'Gratil' = borde de adelante. 'Baluma' = borde de popa. 'Pujamen' = borde inferior.]",
+    "concept": "Nudo Náutico 12",
+    "theory": "Explicación teórica para el nudo 12. Contenido sobre técnicas de amarre y nudos marítimos."
   },
   {
     "id": "nudo_13",
     "category": "NUDOS",
     "question": "¿Cómo deben guardarse los cabos para que no se 'engallenten' (formen cocas)?",
     "options": [
-      { "id": "A", "text": "Tirados en cubierta en espiral", "isCorrect": false },
-      { "id": "B", "text": "ADUJADOS (enrollados en vueltas circulares)", "isCorrect": true },
-      { "id": "C", "text": "Colgados en cualquier forma", "isCorrect": false },
-      { "id": "D", "text": "Sujetos con un nudo en el chicote", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Tirados en cubierta en espiral",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "ADUJADOS (enrollados en vueltas circulares)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Colgados en cualquier forma",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Sujetos con un nudo en el chicote",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Los cabos deben guardarse ADUJADOS, es decir, enrollados en forma circular sobre sí mismos, comenzando por el chicote. Esto evita que se formen cocas y se enreden. [TIP: 'Adujar' = enrollado ordenado. Un cabo bien adujado se desenrolla sin torceduras.]"
+    "explanation": "Los cabos deben guardarse ADUJADOS, es decir, enrollados en forma circular sobre sí mismos, comenzando por el chicote. Esto evita que se formen cocas y se enreden. [TIP: 'Adujar' = enrollado ordenado. Un cabo bien adujado se desenrolla sin torceduras.]",
+    "concept": "Concepto nudo_13",
+    "theory": "Explicación teórica para nudo_13"
   },
   {
     "id": "nudo_14",
     "category": "NUDOS",
     "question": "¿Qué es la 'BOSA' del chinchorro?",
     "options": [
-      { "id": "A", "text": "El cabo de amarre de proa del bote auxiliar (tender)", "isCorrect": true },
-      { "id": "B", "text": "El cabo de fondeo principal", "isCorrect": false },
-      { "id": "C", "text": "El cabo de arranque del motor", "isCorrect": false },
-      { "id": "D", "text": "Un tipo de defensa", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El cabo de amarre de proa del bote auxiliar (tender)",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El cabo de fondeo principal",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El cabo de arranque del motor",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Un tipo de defensa",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La bosa es el cabo de amarre de PROA del bote auxiliar (chinchorro o tender). Sirve para remolcarlo o atarlo al yate madre. Existe también la 'bosa de popa' para la parte trasera. [TIP: 'Chinchorro' = bote auxiliar. 'Bosa' = cabo que lo une al yate madre. Si te preguntan, bosa = proa, siempre.]"
+    "explanation": "La bosa es el cabo de amarre de PROA del bote auxiliar (chinchorro o tender). Sirve para remolcarlo o atarlo al yate madre. Existe también la 'bosa de popa' para la parte trasera. [TIP: 'Chinchorro' = bote auxiliar. 'Bosa' = cabo que lo une al yate madre. Si te preguntan, bosa = proa, siempre.]",
+    "concept": "Concepto nudo_14",
+    "theory": "Explicación teórica para nudo_14"
   },
   {
     "id": "nudo_15",
     "category": "NUDOS",
     "question": "¿Qué nudo se hace en el chicote (extremo) de un cabo para evitar que se deslice por un ojo o polea?",
     "options": [
-      { "id": "A", "text": "As de Guía", "isCorrect": false },
-      { "id": "B", "text": "Ballestrinque", "isCorrect": false },
-      { "id": "C", "text": "Nudo de Ocho (Stopper)", "isCorrect": true },
-      { "id": "D", "text": "Vuelta de Escota", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "As de Guía",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Ballestrinque",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Nudo de Ocho (Stopper)",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Vuelta de Escota",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El Nudo de Ocho también se llama 'stopper' (tope). Se hace en el chicote del cabo y crea un tope grueso que no pasa por los agujeros de las poleas ni por los ojos del velero. [TIP: 'Stopper' = 'detenedor' en inglés. Su función es DETENER el cabo para que no se deslice.]"
+    "explanation": "El Nudo de Ocho también se llama 'stopper' (tope). Se hace en el chicote del cabo y crea un tope grueso que no pasa por los agujeros de las poleas ni por los ojos del velero. [TIP: 'Stopper' = 'detenedor' en inglés. Su función es DETENER el cabo para que no se deslice.]",
+    "concept": "Concepto nudo_15",
+    "theory": "Explicación teórica para nudo_15"
   },
   {
     "id": "nudo_16",
     "category": "NUDOS",
     "question": "En el aparejo de un barco a vela, ¿qué cabos están dentro de la 'Jarcia de Labor' (móvil)?",
     "options": [
-      { "id": "A", "text": "Obenques, estays, burdas", "isCorrect": false },
-      { "id": "B", "text": "Escotas, drizas, amantillos", "isCorrect": true },
-      { "id": "C", "text": "Sólo las escotas", "isCorrect": false },
-      { "id": "D", "text": "Los obenques y estays", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Obenques, estays, burdas",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Escotas, drizas, amantillos",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Sólo las escotas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Los obenques y estays",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La jarcia de labor (móvil) incluye escotas, drizas, amantillos, burdas, contra, cunningham, etc. Son los cabos que se manipulan para izar, arriar, cazar y filar las velas. [TIP: 'Labor' = trabajo. 'Móvil' = se mueve. La jarcia que trabaja en las maniobras.]"
+    "explanation": "La jarcia de labor (móvil) incluye escotas, drizas, amantillos, burdas, contra, cunningham, etc. Son los cabos que se manipulan para izar, arriar, cazar y filar las velas. [TIP: 'Labor' = trabajo. 'Móvil' = se mueve. La jarcia que trabaja en las maniobras.]",
+    "concept": "Concepto nudo_16",
+    "theory": "Explicación teórica para nudo_16"
   },
   {
     "id": "nudo_17",
     "category": "NUDOS",
     "question": "El NUDO LLANO bien hecho presenta dos 'orejitas' (lazos) a los costados. Si en cambio quedan paralelas (no cruzadas), significa:",
     "options": [
-      { "id": "A", "text": "Que está bien hecho", "isCorrect": false },
-      { "id": "B", "text": "Que está MAL hecho (es un 'nudo de vieja' o 'cotes') y se desatará con carga", "isCorrect": true },
-      { "id": "C", "text": "Que es un Ballestrinque", "isCorrect": false },
-      { "id": "D", "text": "Que es una Vuelta de Escota", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Que está bien hecho",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Que está MAL hecho (es un 'nudo de vieja' o 'cotes') y se desatará con carga",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Que es un Ballestrinque",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Que es una Vuelta de Escota",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Si las orejitas del Nudo Llano quedan paralelas (no cruzadas), se forma un 'NUDO DE VIEJA' (o 'cotes'). Es un error que hace que el nudo se deslice o desate con carga. Se debe DESHACER y rehacer correctamente. [TIP: Orejitas cruzadas = bien. Orejitas paralelas = MAL. Siempre verificar antes de aplicar carga.]"
+    "explanation": "Si las orejitas del Nudo Llano quedan paralelas (no cruzadas), se forma un 'NUDO DE VIEJA' (o 'cotes'). Es un error que hace que el nudo se deslice o desate con carga. Se debe DESHACER y rehacer correctamente. [TIP: Orejitas cruzadas = bien. Orejitas paralelas = MAL. Siempre verificar antes de aplicar carga.]",
+    "concept": "Concepto nudo_17",
+    "theory": "Explicación teórica para nudo_17"
   },
   {
     "id": "nudo_18",
     "category": "NUDOS",
     "question": "¿Para qué sirve el nudo 'VIRADOR' o 'COTE'?",
     "options": [
-      { "id": "A", "text": "Para izar velas", "isCorrect": false },
-      { "id": "B", "text": "Para PROTEGER el chicote (extremo) del cabo del desgaste", "isCorrect": true },
-      { "id": "C", "text": "Para fondear", "isCorrect": false },
-      { "id": "D", "text": "Para amarrar a un palo", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Para izar velas",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Para PROTEGER el chicote (extremo) del cabo del desgaste",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Para fondear",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Para amarrar a un palo",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El virador o cotes es un pequeño nudo que se hace en el chicote de un cabo para impedir que se descose o deshilache. Es una medida de MANTENIMIENTO, no de amarre. [TIP: 'Virador' = 'protege el cabo' del uso. Como un pequeño 'capuchón' al final del cabo.]"
+    "explanation": "El virador o cotes es un pequeño nudo que se hace en el chicote de un cabo para impedir que se descose o deshilache. Es una medida de MANTENIMIENTO, no de amarre. [TIP: 'Virador' = 'protege el cabo' del uso. Como un pequeño 'capuchón' al final del cabo.]",
+    "concept": "Concepto nudo_18",
+    "theory": "Explicación teórica para nudo_18"
   }
 ]

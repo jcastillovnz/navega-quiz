@@ -4,779 +4,1949 @@
     "category": "NOMENCLATURA",
     "question": "¿Cómo se llama la línea imaginaria que recorre longitudinalmente el casco desde la proa hasta la popa, dividiendo la embarcación en dos mitades simétricas?",
     "options": [
-      { "id": "A", "text": "Línea de flotación", "isCorrect": false },
-      { "id": "B", "text": "Plano, eje o línea de crujía", "isCorrect": true },
-      { "id": "C", "text": "Línea de agua", "isCorrect": false },
-      { "id": "D", "text": "Eje de simetría", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Línea de flotación",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Plano, eje o línea de crujía",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Línea de agua",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Eje de simetría",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La línea de crujía recorre el casco longitudinalmente de proa a popa y divide al buque en dos mitades simétricas. Coincide con la quilla."
+    "explanation": "La línea de crujía recorre el casco longitudinalmente de proa a popa y divide al buque en dos mitades simétricas. Coincide con la quilla.",
+    "concept": "Línea de Crujía: División Longitudinal del Casco",
+    "theory": "La línea de crujía recorre el casco de proa a popa dividiendo el buque en dos mitades simétricas. Coincide con la quilla y es la referencia para babor y estribor. Es el eje longitudinal del buque."
   },
   {
     "id": "nom_2",
     "category": "NOMENCLATURA",
     "question": "Babor es el lado ___ del buque mirando de popa a proa.",
     "options": [
-      { "id": "A", "text": "Derecho", "isCorrect": false },
-      { "id": "B", "text": "Izquierdo", "isCorrect": true },
-      { "id": "C", "text": "Central", "isCorrect": false },
-      { "id": "D", "text": "Trasero", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Derecho",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Izquierdo",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Central",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Trasero",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Babor es el costado IZQUIERDO del buque mirando de popa a proa (convención argentina PNA). Estribor es el costado DERECHO."
+    "explanation": "Babor es el costado IZQUIERDO del buque mirando de popa a proa (convención argentina PNA). Estribor es el costado DERECHO.",
+    "concept": "Babor y Estribor: Costados del Buque",
+    "theory": "Babor es el lado IZQUIERDO mirando de popa a proa. Estribor es el lado DERECHO. Se definen desde la perspectiva de una persona EN el buque mirando hacia proa. Esto es UNIVERSAL en navegación."
   },
   {
     "id": "nom_3",
     "category": "NOMENCLATURA",
     "question": "¿Qué parte de la embarcación se denomina 'roda'?",
     "options": [
-      { "id": "A", "text": "La popa", "isCorrect": false },
-      { "id": "B", "text": "Prolongación de la quilla que constituye la pieza principal en la proa", "isCorrect": true },
-      { "id": "C", "text": "Una vela", "isCorrect": false },
-      { "id": "D", "text": "El timón", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La popa",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Prolongación de la quilla que constituye la pieza principal en la proa",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Una vela",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El timón",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La roda es la pieza estructural que prolonga la quilla rematando el casco por la proa. Es la parte que CORTA el agua mientras el buque avanza. También llamada tajamar. [REGLA: Apunte 'La Barca Náutica' - Cap. 2: Casco y Estructura] [TIP: 'Roda' viene del francés 'roue' (rueda), porque la proa es curva como una rueda]"
+    "explanation": "La roda es la pieza estructural que prolonga la quilla rematando el casco por la proa. Es la parte que CORTA el agua mientras el buque avanza. También llamada tajamar. [REGLA: Apunte 'La Barca Náutica' - Cap. 2: Casco y Estructura] [TIP: 'Roda' viene del francés 'roue' (rueda), porque la proa es curva como una rueda]",
+    "concept": "Roda y Tajamar: Estructura de Proa",
+    "theory": "La roda es la pieza estructural que prolonga la quilla rematando el casco por proa. Es la parte que 'corta' el agua mientras el buque avanza. También llamada tajamar o proa. Parte más frontal del barco."
   },
   {
     "id": "nom_4",
     "category": "NOMENCLATURA",
     "question": "¿Qué es el codaste?",
     "options": [
-      { "id": "A", "text": "La parte trasera del casco donde se monta el timón", "isCorrect": true },
-      { "id": "B", "text": "Una vela auxiliar", "isCorrect": false },
-      { "id": "C", "text": "Un cabo de fondeo", "isCorrect": false },
-      { "id": "D", "text": "El ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte trasera del casco donde se monta el timón",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Una vela auxiliar",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Un cabo de fondeo",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El codaste es la pieza estructural que prolonga la quilla por la popa. Une las bordas del casco en la parte trasera y sirve de soporte al timón."
+    "explanation": "El codaste es la pieza estructural que prolonga la quilla por la popa. Une las bordas del casco en la parte trasera y sirve de soporte al timón.",
+    "concept": "Espejo o Codaste: Estructura de Popa",
+    "theory": "El espejo es la parte posterior del casco que remata la popa. Es donde va montado el timón. En veleros, es donde se pinta el nombre del barco. Es la superficie vertical de popa."
   },
   {
     "id": "nom_5",
     "category": "NOMENCLATURA",
     "question": "¿Cuál es la eslora de un buque?",
     "options": [
-      { "id": "A", "text": "El ancho máximo del casco", "isCorrect": false },
-      { "id": "B", "text": "La longitud total medida de proa a popa, sin elementos no estructurales", "isCorrect": true },
-      { "id": "C", "text": "La altura del mástil", "isCorrect": false },
-      { "id": "D", "text": "La profundidad bajo el agua", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El ancho máximo del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "La longitud total medida de proa a popa, sin elementos no estructurales",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "La altura del mástil",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La profundidad bajo el agua",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La eslora es la longitud total del buque de proa a popa, SIN considerar elementos no estructurales. Es la medida más importante para determinar el tamaño del barco."
+    "explanation": "La eslora es la longitud total del buque de proa a popa, SIN considerar elementos no estructurales. Es la medida más importante para determinar el tamaño del barco.",
+    "concept": "Quilla: Columna Vertebral del Casco",
+    "theory": "La quilla es la pieza longitudinal fundamental del casco, como la 'columna vertebral' del buque. Proporciona estabilidad, reduce la deriva lateral y es donde se conectan otras estructuras. Base estructural del barco."
   },
   {
     "id": "nom_6",
     "category": "NOMENCLATURA",
     "question": "La manga de un buque es:",
     "options": [
-      { "id": "A", "text": "La distancia horizontal MÁXIMA entre los costados opuestos del casco", "isCorrect": true },
-      { "id": "B", "text": "La altura del casco", "isCorrect": false },
-      { "id": "C", "text": "El largo de la embarcación", "isCorrect": false },
-      { "id": "D", "text": "La profundidad del agua bajo la quilla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La distancia horizontal MÁXIMA entre los costados opuestos del casco",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La altura del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El largo de la embarcación",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La profundidad del agua bajo la quilla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La manga es la distancia horizontal máxima entre babor y estribor, con las estructuras fijas. Se toma perpendicularmente a la eslora."
+    "explanation": "La manga es la distancia horizontal máxima entre babor y estribor, con las estructuras fijas. Se toma perpendicularmente a la eslora.",
+    "concept": "Eslora, Manga y Puntal: Dimensiones Principales",
+    "theory": "Eslora = largo del buque (proa a popa). Manga = ancho máximo. Puntal = altura desde quilla a cubierta. Estas tres medidas definen el volumen y categoría de navegación. Dimensiones esenciales de un barco."
   },
   {
     "id": "nom_7",
     "category": "NOMENCLATURA",
     "question": "El calado es:",
     "options": [
-      { "id": "A", "text": "La distancia vertical desde la línea de flotación hasta la parte inferior de la quilla (sin contar timón ni orza)", "isCorrect": true },
-      { "id": "B", "text": "La altura del mástil", "isCorrect": false },
-      { "id": "C", "text": "La longitud del casco", "isCorrect": false },
-      { "id": "D", "text": "La distancia hasta la cubierta", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La distancia vertical desde la línea de flotación hasta la parte inferior de la quilla (sin contar timón ni orza)",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La altura del mástil",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La longitud del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La distancia hasta la cubierta",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El calado es la distancia vertical desde la línea de flotación hasta la parte más baja de la quilla. NO se cuentan el timón, la orza ni las colas de motores. Indica cuánto se 'hunde' el barco. [REGLA: Apunte 'La Barca Náutica' - Cap. 3: Dimensiones del Barco] [TIP: Hay calado a proa, a popa y al medio. El asiento es la diferencia entre calado de popa y proa.]"
+    "explanation": "El calado es la distancia vertical desde la línea de flotación hasta la parte más baja de la quilla. NO se cuentan el timón, la orza ni las colas de motores. Indica cuánto se 'hunde' el barco. [REGLA: Apunte 'La Barca Náutica' - Cap. 3: Dimensiones del Barco] [TIP: Hay calado a proa, a popa y al medio. El asiento es la diferencia entre calado de popa y proa.]",
+    "concept": "Francobordo: Borda sobre el Agua",
+    "theory": "Francobordo es la distancia vertical entre la línea de flotación y la borda (canto de cubierta). Mide cuánto del casco está fuera del agua. Mayor francobordo = más reserva de flotabilidad."
   },
   {
     "id": "nom_8",
     "category": "NOMENCLATURA",
     "question": "El francobordo es:",
     "options": [
-      { "id": "A", "text": "La distancia vertical desde la línea de flotación (en carga máxima) hasta la cubierta superior", "isCorrect": true },
-      { "id": "B", "text": "El ancho máximo del barco", "isCorrect": false },
-      { "id": "C", "text": "La profundidad sumergida", "isCorrect": false },
-      { "id": "D", "text": "La longitud de proa a popa", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La distancia vertical desde la línea de flotación (en carga máxima) hasta la cubierta superior",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El ancho máximo del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La profundidad sumergida",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La longitud de proa a popa",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El francobordo es la distancia vertical desde la línea de flotación en carga máxima hasta la cubierta superior. Es la RESERVA DE FLOTABILIDAD del buque."
+    "explanation": "El francobordo es la distancia vertical desde la línea de flotación en carga máxima hasta la cubierta superior. Es la RESERVA DE FLOTABILIDAD del buque.",
+    "concept": "Amura: Costados Anteriores",
+    "theory": "Las amuras son los costados anteriores del buque, desde proa hasta el través (punto más ancho). Cada amura lleva el número de matrícula pintado. 'Amura de babor' y 'amura de estribor'."
   },
   {
     "id": "nom_9",
     "category": "NOMENCLATURA",
     "question": "El puntal es:",
     "options": [
-      { "id": "A", "text": "La medida vertical desde la parte más baja de la cubierta principal hasta la línea de flotación", "isCorrect": true },
-      { "id": "B", "text": "El largo del barco", "isCorrect": false },
-      { "id": "C", "text": "La altura del mástil", "isCorrect": false },
-      { "id": "D", "text": "El ancho de la manga", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La medida vertical desde la parte más baja de la cubierta principal hasta la línea de flotación",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El largo del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La altura del mástil",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El ancho de la manga",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El puntal es la altura interior del casco: la distancia vertical desde la parte más baja de la cubierta principal hasta la línea de flotación, a la altura de la parte superior de la quilla."
+    "explanation": "El puntal es la altura interior del casco: la distancia vertical desde la parte más baja de la cubierta principal hasta la línea de flotación, a la altura de la parte superior de la quilla.",
+    "concept": "Través: Punto de Máxima Anchura",
+    "theory": "El través es el punto del buque de máxima anchura (manga máxima). 'Por el través' significa por el costado perpendicular a la línea de crujía. Punto de referencia importante en navegación."
   },
   {
     "id": "nom_10",
     "category": "NOMENCLATURA",
     "question": "La obra viva es:",
     "options": [
-      { "id": "A", "text": "La parte del casco que está permanentemente sumergida", "isCorrect": true },
-      { "id": "B", "text": "La parte del casco que está sobre el agua", "isCorrect": false },
-      { "id": "C", "text": "La cubierta principal", "isCorrect": false },
-      { "id": "D", "text": "La parte del casco pintada de blanco", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte del casco que está permanentemente sumergida",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La parte del casco que está sobre el agua",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La cubierta principal",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La parte del casco pintada de blanco",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La obra viva (o carena) es la parte del casco que está permanentemente debajo de la línea de flotación. Contribuye a la flotabilidad y estabilidad."
+    "explanation": "La obra viva (o carena) es la parte del casco que está permanentemente debajo de la línea de flotación. Contribuye a la flotabilidad y estabilidad.",
+    "concept": "Jarcia Fija: Cables Inmóviles del Mástil",
+    "theory": "La jarcia fija son los cables que sostienen el mástil en posición fija (obenques, vientos, crucetas). NO se mueve ni se ajusta durante la navegación. Es la 'estructura' del sistema de velas."
   },
   {
     "id": "nom_11",
     "category": "NOMENCLATURA",
     "question": "La obra muerta es:",
     "options": [
-      { "id": "A", "text": "La parte del casco que se encuentra por encima de la línea de flotación", "isCorrect": true },
-      { "id": "B", "text": "La parte sumergida del casco", "isCorrect": false },
-      { "id": "C", "text": "El motor fuera de borda", "isCorrect": false },
-      { "id": "D", "text": "El ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte del casco que se encuentra por encima de la línea de flotación",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La parte sumergida del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El motor fuera de borda",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La obra muerta es la parte del casco que se encuentra por ENCIMA de la línea de flotación, expuesta al aire."
+    "explanation": "La obra muerta es la parte del casco que se encuentra por ENCIMA de la línea de flotación, expuesta al aire.",
+    "concept": "Concepto de Nomenclatura 11",
+    "theory": "Explicación teórica para el concepto de nomenclatura 11. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_12",
     "category": "NOMENCLATURA",
     "question": "La amura es:",
     "options": [
-      { "id": "A", "text": "El sector delantero de la banda (costado)", "isCorrect": true },
-      { "id": "B", "text": "El sector medio de la banda", "isCorrect": false },
-      { "id": "C", "text": "El sector trasero de la banda", "isCorrect": false },
-      { "id": "D", "text": "La popa del barco", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El sector delantero de la banda (costado)",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El sector medio de la banda",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El sector trasero de la banda",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La popa del barco",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La amura es la parte DELANTERA de cada costado del barco, desde el través convergiendo hacia la proa."
+    "explanation": "La amura es la parte DELANTERA de cada costado del barco, desde el través convergiendo hacia la proa.",
+    "concept": "Concepto de Nomenclatura 12",
+    "theory": "Explicación teórica para el concepto de nomenclatura 12. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_13",
     "category": "NOMENCLATURA",
     "question": "La aleta es:",
     "options": [
-      { "id": "A", "text": "El sector trasero del costado, desde el través hasta la popa", "isCorrect": true },
-      { "id": "B", "text": "El sector delantero del casco", "isCorrect": false },
-      { "id": "C", "text": "Una pieza del timón", "isCorrect": false },
-      { "id": "D", "text": "La parte sumergida", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El sector trasero del costado, desde el través hasta la popa",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El sector delantero del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Una pieza del timón",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La parte sumergida",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La aleta es la parte TRASERA de cada costado del barco, desde el través convergiendo hacia la popa."
+    "explanation": "La aleta es la parte TRASERA de cada costado del barco, desde el través convergiendo hacia la popa.",
+    "concept": "Concepto de Nomenclatura 13",
+    "theory": "Explicación teórica para el concepto de nomenclatura 13. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_14",
     "category": "NOMENCLATURA",
     "question": "La línea de flotación es:",
     "options": [
-      { "id": "A", "text": "La intersección entre la parte sumergida y la parte que emerge del agua", "isCorrect": true },
-      { "id": "B", "text": "La línea pintada en el casco", "isCorrect": false },
-      { "id": "C", "text": "La línea de crujía", "isCorrect": false },
-      { "id": "D", "text": "La línea de cubierta", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La intersección entre la parte sumergida y la parte que emerge del agua",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La línea pintada en el casco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La línea de crujía",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La línea de cubierta",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La línea de flotación es la intersección entre la parte sumergida y la parte que emerge del agua. Divide obra viva de obra muerta."
+    "explanation": "La línea de flotación es la intersección entre la parte sumergida y la parte que emerge del agua. Divide obra viva de obra muerta.",
+    "concept": "Concepto de Nomenclatura 14",
+    "theory": "Explicación teórica para el concepto de nomenclatura 14. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_15",
     "category": "NOMENCLATURA",
     "question": "¿Qué es la quilla?",
     "options": [
-      { "id": "A", "text": "Una vela", "isCorrect": false },
-      { "id": "B", "text": "Viga estructural que va de proa a popa por el fondo del casco; es la columna vertebral del barco", "isCorrect": true },
-      { "id": "C", "text": "Un cabo de amarre", "isCorrect": false },
-      { "id": "D", "text": "El timón", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Una vela",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Viga estructural que va de proa a popa por el fondo del casco; es la columna vertebral del barco",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Un cabo de amarre",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El timón",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La quilla es una viga que se extiende a lo largo de la parte INFERIOR del casco. Va de proa a popa, sirve de base a las cuadernas y es la 'columna vertebral' de la embarcación. Aporta estabilidad y resistencia."
+    "explanation": "La quilla es una viga que se extiende a lo largo de la parte INFERIOR del casco. Va de proa a popa, sirve de base a las cuadernas y es la 'columna vertebral' de la embarcación. Aporta estabilidad y resistencia.",
+    "concept": "Concepto de Nomenclatura 15",
+    "theory": "Explicación teórica para el concepto de nomenclatura 15. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_16",
     "category": "NOMENCLATURA",
     "question": "Los mamparos son:",
     "options": [
-      { "id": "A", "text": "Los cabos del mástil", "isCorrect": false },
-      { "id": "B", "text": "Tabiques que dividen el interior del casco en compartimentos estancos", "isCorrect": true },
-      { "id": "C", "text": "Las velas", "isCorrect": false },
-      { "id": "D", "text": "Las boyas de fondeo", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Los cabos del mástil",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Tabiques que dividen el interior del casco en compartimentos estancos",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Las velas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Las boyas de fondeo",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Los mamparos son tabiques que dividen el interior de la embarcación en compartimentos. Contribuyen a la seguridad e integridad estructural ante una vía de agua."
+    "explanation": "Los mamparos son tabiques que dividen el interior de la embarcación en compartimentos. Contribuyen a la seguridad e integridad estructural ante una vía de agua.",
+    "concept": "Concepto de Nomenclatura 16",
+    "theory": "Explicación teórica para el concepto de nomenclatura 16. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_17",
     "category": "NOMENCLATURA",
     "question": "La sentina es:",
     "options": [
-      { "id": "A", "text": "La parte más baja del casco donde se acumula el agua", "isCorrect": true },
-      { "id": "B", "text": "La cubierta superior", "isCorrect": false },
-      { "id": "C", "text": "La vela mayor", "isCorrect": false },
-      { "id": "D", "text": "El palo mayor", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte más baja del casco donde se acumula el agua",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La cubierta superior",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La vela mayor",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El palo mayor",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La sentina es la parte MÁS BAJA del casco, donde se acumula el agua que entra accidentalmente. Equipada con bombas de achique para mantener el buque seco."
+    "explanation": "La sentina es la parte MÁS BAJA del casco, donde se acumula el agua que entra accidentalmente. Equipada con bombas de achique para mantener el buque seco.",
+    "concept": "Concepto de Nomenclatura 17",
+    "theory": "Explicación teórica para el concepto de nomenclatura 17. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_18",
     "category": "NOMENCLATURA",
     "question": "Las cuadernas son:",
     "options": [
-      { "id": "A", "text": "Cuerdas de amarre", "isCorrect": false },
-      { "id": "B", "text": "Piezas estructurales que salen de la quilla y se extienden hacia los costados, definiendo la forma del casco", "isCorrect": true },
-      { "id": "C", "text": "Las velas auxiliares", "isCorrect": false },
-      { "id": "D", "text": "Los cabos de maniobra", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Cuerdas de amarre",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Piezas estructurales que salen de la quilla y se extienden hacia los costados, definiendo la forma del casco",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Las velas auxiliares",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Los cabos de maniobra",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Las cuadernas son piezas estructurales que salen de la quilla hacia los costados. Aportan rigidez y definen la FORMA de la embarcación."
+    "explanation": "Las cuadernas son piezas estructurales que salen de la quilla hacia los costados. Aportan rigidez y definen la FORMA de la embarcación.",
+    "concept": "Concepto de Nomenclatura 18",
+    "theory": "Explicación teórica para el concepto de nomenclatura 18. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_19",
     "category": "NOMENCLATURA",
     "question": "Los baos son:",
     "options": [
-      { "id": "A", "text": "Refuerzos transversales de babor a estribor que unen las cuadernas y sostienen la cubierta", "isCorrect": true },
-      { "id": "B", "text": "Los cabos de la jarcia firme", "isCorrect": false },
-      { "id": "C", "text": "Los remos del bote", "isCorrect": false },
-      { "id": "D", "text": "Las anclas", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Refuerzos transversales de babor a estribor que unen las cuadernas y sostienen la cubierta",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Los cabos de la jarcia firme",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Los remos del bote",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Las anclas",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Los baos son refuerzos transversales (de babor a estribor) que unen las cuadernas en la parte superior y sostienen las cubiertas."
+    "explanation": "Los baos son refuerzos transversales (de babor a estribor) que unen las cuadernas en la parte superior y sostienen las cubiertas.",
+    "concept": "Concepto de Nomenclatura 19",
+    "theory": "Explicación teórica para el concepto de nomenclatura 19. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_20",
     "category": "NOMENCLATURA",
     "question": "El arrufo es:",
     "options": [
-      { "id": "A", "text": "La curvatura de construcción que recibe la cubierta principal respecto del plano horizontal en los extremos de proa y popa", "isCorrect": true },
-      { "id": "B", "text": "El timón de respeto", "isCorrect": false },
-      { "id": "C", "text": "Una vela de tormenta", "isCorrect": false },
-      { "id": "D", "text": "Un cabo de amarre", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La curvatura de construcción que recibe la cubierta principal respecto del plano horizontal en los extremos de proa y popa",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El timón de respeto",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Una vela de tormenta",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Un cabo de amarre",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El arrufo es la curvatura que recibe la cubierta principal, elevándose hacia proa y popa. Mejora el desagüe y la estética del barco."
+    "explanation": "El arrufo es la curvatura que recibe la cubierta principal, elevándose hacia proa y popa. Mejora el desagüe y la estética del barco.",
+    "concept": "Concepto de Nomenclatura 20",
+    "theory": "Explicación teórica para el concepto de nomenclatura 20. Contenido sobre anatomía del barco y estructuras náuticas."
   },
   {
     "id": "nom_21",
     "category": "NOMENCLATURA",
     "question": "El espejo es:",
     "options": [
-      { "id": "A", "text": "La parte posterior del casco, ubicada en la popa", "isCorrect": true },
-      { "id": "B", "text": "La proa del barco", "isCorrect": false },
-      { "id": "C", "text": "Un espejo de señales", "isCorrect": false },
-      { "id": "D", "text": "Una pieza de la jarcia", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte posterior del casco, ubicada en la popa",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La proa del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Un espejo de señales",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una pieza de la jarcia",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El espejo es la parte posterior (plana) del casco, ubicada en la popa. Allí se pinta el nombre y número de matrícula."
+    "explanation": "El espejo es la parte posterior (plana) del casco, ubicada en la popa. Allí se pinta el nombre y número de matrícula.",
+    "concept": "Concepto nom_21",
+    "theory": "Explicación teórica para nom_21"
   },
   {
     "id": "nom_22",
     "category": "NOMENCLATURA",
     "question": "El pantoque es:",
     "options": [
-      { "id": "A", "text": "La parte superior del costado bajo la regala", "isCorrect": true },
-      { "id": "B", "text": "La parte inferior de la proa", "isCorrect": false },
-      { "id": "C", "text": "Un cabo de la jarcia", "isCorrect": false },
-      { "id": "D", "text": "Una vela", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte superior del costado bajo la regala",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La parte inferior de la proa",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Un cabo de la jarcia",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una vela",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El pantoque es una viga o refuerzo longitudinal en la parte superior del costado, debajo de la regala, donde el casco se inclina hacia el fondo."
+    "explanation": "El pantoque es una viga o refuerzo longitudinal en la parte superior del costado, debajo de la regala, donde el casco se inclina hacia el fondo.",
+    "concept": "Concepto nom_22",
+    "theory": "Explicación teórica para nom_22"
   },
   {
     "id": "nom_23",
     "category": "NOMENCLATURA",
     "question": "La regala es:",
     "options": [
-      { "id": "A", "text": "El refuerzo estructural del borde superior del costado", "isCorrect": true },
-      { "id": "B", "text": "La parte inferior del casco", "isCorrect": false },
-      { "id": "C", "text": "Una vela", "isCorrect": false },
-      { "id": "D", "text": "El ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El refuerzo estructural del borde superior del costado",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La parte inferior del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Una vela",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La regala es el refuerzo del borde superior del costado. En veleros, es útil para apoyarse al escorar el barco."
+    "explanation": "La regala es el refuerzo del borde superior del costado. En veleros, es útil para apoyarse al escorar el barco.",
+    "concept": "Concepto nom_23",
+    "theory": "Explicación teórica para nom_23"
   },
   {
     "id": "nom_24",
     "category": "NOMENCLATURA",
     "question": "La borda es:",
     "options": [
-      { "id": "A", "text": "El costado del buque que se eleva por encima del agua, entre la cubierta y la regala", "isCorrect": true },
-      { "id": "B", "text": "La parte inferior del casco", "isCorrect": false },
-      { "id": "C", "text": "El timón", "isCorrect": false },
-      { "id": "D", "text": "Una pieza del motor", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El costado del buque que se eleva por encima del agua, entre la cubierta y la regala",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La parte inferior del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El timón",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una pieza del motor",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La borda es la parte lateral del casco que se eleva por encima del nivel del agua, entre la cubierta y la regala."
+    "explanation": "La borda es la parte lateral del casco que se eleva por encima del nivel del agua, entre la cubierta y la regala.",
+    "concept": "Concepto nom_24",
+    "theory": "Explicación teórica para nom_24"
   },
   {
     "id": "nom_25",
     "category": "NOMENCLATURA",
     "question": "Un monocasco es:",
     "options": [
-      { "id": "A", "text": "Una embarcación con un solo casco", "isCorrect": true },
-      { "id": "B", "text": "Una embarcación con dos cascos", "isCorrect": false },
-      { "id": "C", "text": "Una pieza del motor", "isCorrect": false },
-      { "id": "D", "text": "Un tipo de vela", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Una embarcación con un solo casco",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Una embarcación con dos cascos",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Una pieza del motor",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Un tipo de vela",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Monocasco = armazón de una sola pieza. Multicasco = 2 (catamarán) o 3 (trimarán) cascos, que aportan estabilidad adicional."
+    "explanation": "Monocasco = armazón de una sola pieza. Multicasco = 2 (catamarán) o 3 (trimarán) cascos, que aportan estabilidad adicional.",
+    "concept": "Concepto nom_25",
+    "theory": "Explicación teórica para nom_25"
   },
   {
     "id": "nom_26",
     "category": "NOMENCLATURA",
     "question": "¿Qué significa 'barlovento'?",
     "options": [
-      { "id": "A", "text": "Hacia donde va el viento", "isCorrect": false },
-      { "id": "B", "text": "Desde donde VIENE el viento", "isCorrect": true },
-      { "id": "C", "text": "La dirección de la corriente", "isCorrect": false },
-      { "id": "D", "text": "El lado derecho del barco", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Hacia donde va el viento",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Desde donde VIENE el viento",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "La dirección de la corriente",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El lado derecho del barco",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Barlovento = la dirección DE DONDE VIENE el viento. Sotavento = hacia donde VA el viento."
+    "explanation": "Barlovento = la dirección DE DONDE VIENE el viento. Sotavento = hacia donde VA el viento.",
+    "concept": "Concepto nom_26",
+    "theory": "Explicación teórica para nom_26"
   },
   {
     "id": "nom_27",
     "category": "NOMENCLATURA",
     "question": "¿Qué significa 'sotavento'?",
     "options": [
-      { "id": "A", "text": "Hacia donde VA el viento", "isCorrect": true },
-      { "id": "B", "text": "Desde donde viene el viento", "isCorrect": false },
-      { "id": "C", "text": "El lado izquierdo del barco", "isCorrect": false },
-      { "id": "D", "text": "La popa del barco", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Hacia donde VA el viento",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Desde donde viene el viento",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El lado izquierdo del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La popa del barco",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Sotavento = hacia donde VA el viento. Lo opuesto a barlovento."
+    "explanation": "Sotavento = hacia donde VA el viento. Lo opuesto a barlovento.",
+    "concept": "Concepto nom_27",
+    "theory": "Explicación teórica para nom_27"
   },
   {
     "id": "nom_28",
     "category": "NOMENCLATURA",
     "question": "¿Qué es la cubierta?",
     "options": [
-      { "id": "A", "text": "La parte horizontal superior del casco que permite la estanqueidad", "isCorrect": true },
-      { "id": "B", "text": "La parte sumergida del casco", "isCorrect": false },
-      { "id": "C", "text": "La vela mayor", "isCorrect": false },
-      { "id": "D", "text": "El timón", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte horizontal superior del casco que permite la estanqueidad",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La parte sumergida del casco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La vela mayor",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El timón",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La cubierta es la parte horizontal superior del casco; asegura la estanqueidad. Cada uno de los pisos de la embarcación."
+    "explanation": "La cubierta es la parte horizontal superior del casco; asegura la estanqueidad. Cada uno de los pisos de la embarcación.",
+    "concept": "Concepto nom_28",
+    "theory": "Explicación teórica para nom_28"
   },
   {
     "id": "nom_29",
     "category": "NOMENCLATURA",
     "question": "El plan es:",
     "options": [
-      { "id": "A", "text": "El piso más bajo de la embarcación", "isCorrect": true },
-      { "id": "B", "text": "La cubierta principal", "isCorrect": false },
-      { "id": "C", "text": "Un cabo de amarre", "isCorrect": false },
-      { "id": "D", "text": "Una vela", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El piso más bajo de la embarcación",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La cubierta principal",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Un cabo de amarre",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una vela",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El plan es el piso más bajo de la embarcación."
+    "explanation": "El plan es el piso más bajo de la embarcación.",
+    "concept": "Concepto nom_29",
+    "theory": "Explicación teórica para nom_29"
   },
   {
     "id": "nom_30",
     "category": "NOMENCLATURA",
     "question": "Barlovento es:",
     "options": [
-      { "id": "A", "text": "La parte del barco de donde viene el viento", "isCorrect": true },
-      { "id": "B", "text": "El lado derecho del barco", "isCorrect": false },
-      { "id": "C", "text": "La parte donde se acumulan las velas", "isCorrect": false },
-      { "id": "D", "text": "El ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La parte del barco de donde viene el viento",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El lado derecho del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La parte donde se acumulan las velas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Barlovento es la parte del barco de donde VIENE el viento. Determina el lado de mayor presión del viento sobre la embarcación."
+    "explanation": "Barlovento es la parte del barco de donde VIENE el viento. Determina el lado de mayor presión del viento sobre la embarcación.",
+    "concept": "Concepto nom_30",
+    "theory": "Explicación teórica para nom_30"
   },
   {
     "id": "nom_31",
     "category": "NOMENCLATURA",
     "question": "Para subir a bordo un náufrago, ¿por dónde debe hacerse según la regla náutica?",
     "options": [
-      { "id": "A", "text": "Por la proa", "isCorrect": false },
-      { "id": "B", "text": "A barlovento", "isCorrect": true },
-      { "id": "C", "text": "A sotavento", "isCorrect": false },
-      { "id": "D", "text": "Por la popa", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Por la proa",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "A barlovento",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "A sotavento",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Por la popa",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El náufrago debe subir a bordo por BARLOVENTO (la parte de donde viene el viento), para evitar que el barco derive hacia él y lo atropelle."
+    "explanation": "El náufrago debe subir a bordo por BARLOVENTO (la parte de donde viene el viento), para evitar que el barco derive hacia él y lo atropelle.",
+    "concept": "Concepto nom_31",
+    "theory": "Explicación teórica para nom_31"
   },
   {
     "id": "nom_32",
     "category": "NOMENCLATURA",
     "question": "Si un barco va 'amurado a babor', ¿qué significa?",
     "options": [
-      { "id": "A", "text": "Que está fondeado", "isCorrect": false },
-      { "id": "B", "text": "Que la banda de babor es la que recibe el viento", "isCorrect": true },
-      { "id": "C", "text": "Que está parado", "isCorrect": false },
-      { "id": "D", "text": "Que va a motor", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Que está fondeado",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Que la banda de babor es la que recibe el viento",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Que está parado",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Que va a motor",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Amurado a babor = la banda de babor (costado izquierdo mirando hacia proa) es la que RECIBE el viento. Lo opuesto a amurado a estribor."
+    "explanation": "Amurado a babor = la banda de babor (costado izquierdo mirando hacia proa) es la que RECIBE el viento. Lo opuesto a amurado a estribor.",
+    "concept": "Concepto nom_32",
+    "theory": "Explicación teórica para nom_32"
   },
   {
     "id": "nom_33",
     "category": "NOMENCLATURA",
     "question": "La escora es:",
     "options": [
-      { "id": "A", "text": "El ángulo de inclinación lateral de la embarcación", "isCorrect": true },
-      { "id": "B", "text": "La velocidad del barco", "isCorrect": false },
-      { "id": "C", "text": "El rumbo del barco", "isCorrect": false },
-      { "id": "D", "text": "La altura del mástil", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El ángulo de inclinación lateral de la embarcación",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La velocidad del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El rumbo del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La altura del mástil",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La escora es el ángulo de inclinación LATERAL de la embarcación, producido por el viento o por el peso de los tripulantes."
+    "explanation": "La escora es el ángulo de inclinación LATERAL de la embarcación, producido por el viento o por el peso de los tripulantes.",
+    "concept": "Concepto nom_33",
+    "theory": "Explicación teórica para nom_33"
   },
   {
     "id": "nom_34",
     "category": "NOMENCLATURA",
     "question": "El asiento de un buque es:",
     "options": [
-      { "id": "A", "text": "La diferencia en inclinación longitudinal entre los calados de popa y proa", "isCorrect": true },
-      { "id": "B", "text": "El lugar donde se sientan los pasajeros", "isCorrect": false },
-      { "id": "C", "text": "El ángulo de escora", "isCorrect": false },
-      { "id": "D", "text": "La diferencia de manga", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La diferencia en inclinación longitudinal entre los calados de popa y proa",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El lugar donde se sientan los pasajeros",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El ángulo de escora",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La diferencia de manga",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El asiento es la diferencia de inclinación longitudinal entre el calado de popa y el de proa. Si es positivo (apopante) el calado de proa es menor; si es negativo (aproante) el calado de proa es mayor."
+    "explanation": "El asiento es la diferencia de inclinación longitudinal entre el calado de popa y el de proa. Si es positivo (apopante) el calado de proa es menor; si es negativo (aproante) el calado de proa es mayor.",
+    "concept": "Concepto nom_34",
+    "theory": "Explicación teórica para nom_34"
   },
   {
     "id": "nom_35",
     "category": "NOMENCLATURA",
     "question": "¿Qué es el bulbo de proa?",
     "options": [
-      { "id": "A", "text": "Una estructura en la proa que reduce la resistencia al avance", "isCorrect": true },
-      { "id": "B", "text": "Una pieza de la jarcia", "isCorrect": false },
-      { "id": "C", "text": "El ancla de proa", "isCorrect": false },
-      { "id": "D", "text": "Una boya de fondeo", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Una estructura en la proa que reduce la resistencia al avance",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Una pieza de la jarcia",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El ancla de proa",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una boya de fondeo",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El bulbo de proa (en algunos casos) es una estructura en forma de bulbo ubicada en la parte DELANTERA del casco. Reduce la resistencia al avance y mejora la eficiencia."
+    "explanation": "El bulbo de proa (en algunos casos) es una estructura en forma de bulbo ubicada en la parte DELANTERA del casco. Reduce la resistencia al avance y mejora la eficiencia.",
+    "concept": "Concepto nom_35",
+    "theory": "Explicación teórica para nom_35"
   },
   {
     "id": "nom_36",
     "category": "NOMENCLATURA",
     "question": "El principio de Arquímedes dice que:",
     "options": [
-      { "id": "A", "text": "Todo cuerpo sumergido en un fluido experimenta un empuje vertical hacia arriba igual al peso del fluido desalojado", "isCorrect": true },
-      { "id": "B", "text": "Todo cuerpo sumergido cae al fondo", "isCorrect": false },
-      { "id": "C", "text": "El empuje depende del color del fluido", "isCorrect": false },
-      { "id": "D", "text": "Los barcos siempre flotan", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Todo cuerpo sumergido en un fluido experimenta un empuje vertical hacia arriba igual al peso del fluido desalojado",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Todo cuerpo sumergido cae al fondo",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El empuje depende del color del fluido",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Los barcos siempre flotan",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El principio de Arquímedes: todo cuerpo sumergido en un fluido experimenta un empuje VERTICAL y hacia arriba igual al peso del fluido DESALOJADO. Esto explica por qué los barcos flotan."
+    "explanation": "El principio de Arquímedes: todo cuerpo sumergido en un fluido experimenta un empuje VERTICAL y hacia arriba igual al peso del fluido DESALOJADO. Esto explica por qué los barcos flotan.",
+    "concept": "Concepto nom_36",
+    "theory": "Explicación teórica para nom_36"
   },
   {
     "id": "nom_37",
     "category": "NOMENCLATURA",
     "question": "La orza en un velero sirve para:",
     "options": [
-      { "id": "A", "text": "Evitar el cabeceo (movimiento vertical)", "isCorrect": false },
-      { "id": "B", "text": "Evitar el desplazamiento lateral (deriva)", "isCorrect": true },
-      { "id": "C", "text": "Mejorar la escora", "isCorrect": false },
-      { "id": "D", "text": "Servir de timón", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Evitar el cabeceo (movimiento vertical)",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Evitar el desplazamiento lateral (deriva)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Mejorar la escora",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Servir de timón",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La orza es una pieza que se baja por debajo del casco y OPONE resistencia al desplazamiento lateral, evitando la deriva. No es lo mismo que la quilla (que es estructural)."
+    "explanation": "La orza es una pieza que se baja por debajo del casco y OPONE resistencia al desplazamiento lateral, evitando la deriva. No es lo mismo que la quilla (que es estructural).",
+    "concept": "Concepto nom_37",
+    "theory": "Explicación teórica para nom_37"
   },
   {
     "id": "nom_38",
     "category": "NOMENCLATURA",
     "question": "El desplazamiento de un buque es:",
     "options": [
-      { "id": "A", "text": "El peso del buque, equivalente al peso del agua desplazada (en toneladas métricas)", "isCorrect": true },
-      { "id": "B", "text": "La velocidad del barco", "isCorrect": false },
-      { "id": "C", "text": "La distancia recorrida", "isCorrect": false },
-      { "id": "D", "text": "El volumen de la sentina", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El peso del buque, equivalente al peso del agua desplazada (en toneladas métricas)",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "La velocidad del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La distancia recorrida",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El volumen de la sentina",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El desplazamiento es el PESO de la embarcación, equivalente al peso del agua desplazada. Se mide en toneladas métricas."
+    "explanation": "El desplazamiento es el PESO de la embarcación, equivalente al peso del agua desplazada. Se mide en toneladas métricas.",
+    "concept": "Concepto nom_38",
+    "theory": "Explicación teórica para nom_38"
   },
   {
     "id": "nom_39",
     "category": "NOMENCLATURA",
     "question": "En la jarcia firme, los obenques sirven para:",
     "options": [
-      { "id": "A", "text": "Sostener el mástil lateralmente (hacia babor y estribor)", "isCorrect": true },
-      { "id": "B", "text": "Sostener la botavara", "isCorrect": false },
-      { "id": "C", "text": "Cazar las velas", "isCorrect": false },
-      { "id": "D", "text": "Fondear el ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Sostener el mástil lateralmente (hacia babor y estribor)",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Sostener la botavara",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Cazar las velas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Fondear el ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Los obenques son cables que sostienen el mástil LATERALMENTE (hacia babor y estribor). Son parte de la jarcia firme."
+    "explanation": "Los obenques son cables que sostienen el mástil LATERALMENTE (hacia babor y estribor). Son parte de la jarcia firme.",
+    "concept": "Concepto nom_39",
+    "theory": "Explicación teórica para nom_39"
   },
   {
     "id": "nom_40",
     "category": "NOMENCLATURA",
     "question": "En la jarcia firme, los estays sirven para:",
     "options": [
-      { "id": "A", "text": "Cazar las velas", "isCorrect": false },
-      { "id": "B", "text": "Sostener el mástil longitudinalmente (hacia proa o popa)", "isCorrect": true },
-      { "id": "C", "text": "Servir de timón", "isCorrect": false },
-      { "id": "D", "text": "Fondear el ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Cazar las velas",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Sostener el mástil longitudinalmente (hacia proa o popa)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Servir de timón",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Fondear el ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Los estays (estay proel y estay popel/backstay) son cables que sostienen el mástil LONGITUDINALMENTE, hacia proa o popa. Son parte de la jarcia firme."
+    "explanation": "Los estays (estay proel y estay popel/backstay) son cables que sostienen el mástil LONGITUDINALMENTE, hacia proa o popa. Son parte de la jarcia firme.",
+    "concept": "Concepto nom_40",
+    "theory": "Explicación teórica para nom_40"
   },
   {
     "id": "nom_41",
     "category": "NOMENCLATURA",
     "question": "¿Qué es el 'cruceta' o 'baudillo' en la jarcia?",
     "options": [
-      { "id": "A", "text": "Cabo que evita que los obenques se junten, dando rigidez lateral al palo", "isCorrect": true },
-      { "id": "B", "text": "Una vela", "isCorrect": false },
-      { "id": "C", "text": "Un cabo de amarre", "isCorrect": false },
-      { "id": "D", "text": "El ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Cabo que evita que los obenques se junten, dando rigidez lateral al palo",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Una vela",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Un cabo de amarre",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Las crucetas o baudillos son cables transversales que evitan que los obenques se junten hacia el casco, dando rigidez lateral al palo."
+    "explanation": "Las crucetas o baudillos son cables transversales que evitan que los obenques se junten hacia el casco, dando rigidez lateral al palo.",
+    "concept": "Concepto nom_41",
+    "theory": "Explicación teórica para nom_41"
   },
   {
     "id": "nom_42",
     "category": "NOMENCLATURA",
     "question": "¿Cuál es la función de las BURDAS en la jarcia firme?",
     "options": [
-      { "id": "A", "text": "Reforzar la verticalidad del mástil (sostienen al mástil hacia popa y abajo)", "isCorrect": true },
-      { "id": "B", "text": "Cazar la mayor", "isCorrect": false },
-      { "id": "C", "text": "Izar el foque", "isCorrect": false },
-      { "id": "D", "text": "Amarrar la embarcación", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Reforzar la verticalidad del mástil (sostienen al mástil hacia popa y abajo)",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Cazar la mayor",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Izar el foque",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Amarrar la embarcación",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Las burdas son cables que refuerzan la verticalidad del mástil, manteniéndolo recto hacia popa y hacia abajo. Forman parte de la jarcia firme."
+    "explanation": "Las burdas son cables que refuerzan la verticalidad del mástil, manteniéndolo recto hacia popa y hacia abajo. Forman parte de la jarcia firme.",
+    "concept": "Concepto nom_42",
+    "theory": "Explicación teórica para nom_42"
   },
   {
     "id": "nom_43",
     "category": "NOMENCLATURA",
     "question": "¿Qué es la trinquetilla o 'babystay'?",
     "options": [
-      { "id": "A", "text": "Un estay de proa auxiliar que sale de un punto bajo del mástil hacia la proa", "isCorrect": true },
-      { "id": "B", "text": "Una vela", "isCorrect": false },
-      { "id": "C", "text": "Una boya de fondeo", "isCorrect": false },
-      { "id": "D", "text": "Un ancla pequeña", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Un estay de proa auxiliar que sale de un punto bajo del mástil hacia la proa",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Una vela",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Una boya de fondeo",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Un ancla pequeña",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La trinquetilla (babystay) es un estay auxiliar que va desde un punto BAJO del mástil hacia proa. Sirve para izar velas de proa adicionales."
+    "explanation": "La trinquetilla (babystay) es un estay auxiliar que va desde un punto BAJO del mástil hacia proa. Sirve para izar velas de proa adicionales.",
+    "concept": "Concepto nom_43",
+    "theory": "Explicación teórica para nom_43"
   },
   {
     "id": "nom_44",
     "category": "NOMENCLATURA",
     "question": "¿Para qué sirven las DRIZAS?",
     "options": [
-      { "id": "A", "text": "Para tensar la jarcia firme", "isCorrect": false },
-      { "id": "B", "text": "Para IZAR (subir) las velas por el mástil", "isCorrect": true },
-      { "id": "C", "text": "Para orzar (subir la roda hacia el viento)", "isCorrect": false },
-      { "id": "D", "text": "Para fondear el ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Para tensar la jarcia firme",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Para IZAR (subir) las velas por el mástil",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Para orzar (subir la roda hacia el viento)",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Para fondear el ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Las drizas son los cabos que sirven para IZAR (subir) las velas por el mástil. Una driza por cada vela (mayor, foque, etc.)."
+    "explanation": "Las drizas son los cabos que sirven para IZAR (subir) las velas por el mástil. Una driza por cada vela (mayor, foque, etc.).",
+    "concept": "Concepto nom_44",
+    "theory": "Explicación teórica para nom_44"
   },
   {
     "id": "nom_45",
     "category": "NOMENCLATURA",
     "question": "¿Para qué sirven las ESCOTAS?",
     "options": [
-      { "id": "A", "text": "Para cazar y filar las velas (regular su ángulo)", "isCorrect": true },
-      { "id": "B", "text": "Para tensar el mástil", "isCorrect": false },
-      { "id": "C", "text": "Para cazar el mástil", "isCorrect": false },
-      { "id": "D", "text": "Para arriar el ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Para cazar y filar las velas (regular su ángulo)",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Para tensar el mástil",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Para cazar el mástil",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Para arriar el ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Las escotas son cabos que CAZAN (tensan) o FILAN (aflojan) las velas, regulando su ángulo con respecto al viento."
+    "explanation": "Las escotas son cabos que CAZAN (tensan) o FILAN (aflojan) las velas, regulando su ángulo con respecto al viento.",
+    "concept": "Concepto nom_45",
+    "theory": "Explicación teórica para nom_45"
   },
   {
     "id": "nom_46",
     "category": "NOMENCLATURA",
     "question": "El AMANTILLO sirve para:",
     "options": [
-      { "id": "A", "text": "Trimar las velas", "isCorrect": false },
-      { "id": "B", "text": "IZAR / ARRIAR las perchas (mástiles, botavara, etc.)", "isCorrect": true },
-      { "id": "C", "text": "Cazar las velas", "isCorrect": false },
-      { "id": "D", "text": "Sujetar el timón", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Trimar las velas",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "IZAR / ARRIAR las perchas (mástiles, botavara, etc.)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Cazar las velas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Sujetar el timón",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El amantillo es el cabo que se usa para IZAR o ARRIAR las perchas (mástiles, botavara, botalón, etc.). Va desde la parte alta hasta la base."
+    "explanation": "El amantillo es el cabo que se usa para IZAR o ARRIAR las perchas (mástiles, botavara, botalón, etc.). Va desde la parte alta hasta la base.",
+    "concept": "Concepto nom_46",
+    "theory": "Explicación teórica para nom_46"
   },
   {
     "id": "nom_47",
     "category": "NOMENCLATURA",
     "question": "¿Cómo se llama el cabo que levanta el PENOL (extremo) de la botavara?",
     "options": [
-      { "id": "A", "text": "Driza", "isCorrect": false },
-      { "id": "B", "text": "Amantillo", "isCorrect": true },
-      { "id": "C", "text": "Boza", "isCorrect": false },
-      { "id": "D", "text": "Escota", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Driza",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Amantillo",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Boza",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Escota",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El amantillo es el cabo que va al penol (extremo) de la botavara y permite subirla o bajarla."
+    "explanation": "El amantillo es el cabo que va al penol (extremo) de la botavara y permite subirla o bajarla.",
+    "concept": "Concepto nom_47",
+    "theory": "Explicación teórica para nom_47"
   },
   {
     "id": "nom_48",
     "category": "NOMENCLATURA",
     "question": "¿Con qué cabo se toman los RIZOS de una vela?",
     "options": [
-      { "id": "A", "text": "Con las drizas", "isCorrect": false },
-      { "id": "B", "text": "Con el amante de rizo", "isCorrect": true },
-      { "id": "C", "text": "Con las escotas", "isCorrect": false },
-      { "id": "D", "text": "Con los amantillos", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Con las drizas",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Con el amante de rizo",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Con las escotas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Con los amantillos",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El amante de rizo es el cabo específico que se usa para ATAR los rizos, reduciendo la superficie de la vela sin cambiarla. Se usa con mal tiempo."
+    "explanation": "El amante de rizo es el cabo específico que se usa para ATAR los rizos, reduciendo la superficie de la vela sin cambiarla. Se usa con mal tiempo.",
+    "concept": "Concepto nom_48",
+    "theory": "Explicación teórica para nom_48"
   },
   {
     "id": "nom_49",
     "category": "NOMENCLATURA",
     "question": "¿Qué es el CUNNINGHAM (cuñingham)?",
     "options": [
-      { "id": "A", "text": "Aparejo para REPICAR el gratil de la vela mayor contra la gansera", "isCorrect": true },
-      { "id": "B", "text": "Un instrumento para desatar nudos", "isCorrect": false },
-      { "id": "C", "text": "Un compartimento para guardar cosas", "isCorrect": false },
-      { "id": "D", "text": "Un tipo de ancla", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Aparejo para REPICAR el gratil de la vela mayor contra la gansera",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Un instrumento para desatar nudos",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Un compartimento para guardar cosas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Un tipo de ancla",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El cunningham es un aparejo o cabo que sirve para TENSAR (repicar) el gratil de la vela mayor contra el palo (gansera), modificando la forma de la vela."
+    "explanation": "El cunningham es un aparejo o cabo que sirve para TENSAR (repicar) el gratil de la vela mayor contra el palo (gansera), modificando la forma de la vela.",
+    "concept": "Concepto nom_49",
+    "theory": "Explicación teórica para nom_49"
   },
   {
     "id": "nom_50",
     "category": "NOMENCLATURA",
     "question": "¿Con qué se aferran (sujetan) las velas arriadas?",
     "options": [
-      { "id": "A", "text": "Cornamusa", "isCorrect": false },
-      { "id": "B", "text": "MATAFIONES", "isCorrect": true },
-      { "id": "C", "text": "Stoper", "isCorrect": false },
-      { "id": "D", "text": "Bozas", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Cornamusa",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "MATAFIONES",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Stoper",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Bozas",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Los matafiones son pequeñas cuerdas o cintas cosidas en las velas, que se usan para ATAR (aferrar) las velas arriadas a la botavara o al pie del mástil."
+    "explanation": "Los matafiones son pequeñas cuerdas o cintas cosidas en las velas, que se usan para ATAR (aferrar) las velas arriadas a la botavara o al pie del mástil.",
+    "concept": "Concepto nom_50",
+    "theory": "Explicación teórica para nom_50"
   },
   {
     "id": "nom_51",
     "category": "NOMENCLATURA",
     "question": "El TANGÓN es un palo que sirve principalmente para:",
     "options": [
-      { "id": "A", "text": "Servir de timón", "isCorrect": false },
-      { "id": "B", "text": "IZAR el SPINAKER (vela grande de popa para viento portante)", "isCorrect": true },
-      { "id": "C", "text": "Izar el génaker", "isCorrect": false },
-      { "id": "D", "text": "Achicar paño", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Servir de timón",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "IZAR el SPINAKER (vela grande de popa para viento portante)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Izar el génaker",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Achicar paño",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El tangón es un palo que sale de la cara de proa del mástil y se usa principalmente para IZAR el spinaker (vela grande de empopada)."
+    "explanation": "El tangón es un palo que sale de la cara de proa del mástil y se usa principalmente para IZAR el spinaker (vela grande de empopada).",
+    "concept": "Concepto nom_51",
+    "theory": "Explicación teórica para nom_51"
   },
   {
     "id": "nom_52",
     "category": "NOMENCLATURA",
     "question": "¿Qué tipo de velero tiene DOS palos de igual tamaño?",
     "options": [
-      { "id": "A", "text": "Ketche", "isCorrect": true },
-      { "id": "B", "text": "Cuter", "isCorrect": false },
-      { "id": "C", "text": "Yawl", "isCorrect": false },
-      { "id": "D", "text": "Sloop", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Ketche",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Cuter",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Yawl",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Sloop",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Ketche = dos palos de IGUAL tamaño. Cuter = dos palos (mayor + mesana menor). Yawl = dos palos con mesana detrás del timón. Sloop = un solo palo."
+    "explanation": "Ketche = dos palos de IGUAL tamaño. Cuter = dos palos (mayor + mesana menor). Yawl = dos palos con mesana detrás del timón. Sloop = un solo palo.",
+    "concept": "Concepto nom_52",
+    "theory": "Explicación teórica para nom_52"
   },
   {
     "id": "nom_53",
     "category": "NOMENCLATURA",
     "question": "El grosor de un cabo en náutica se mide por su:",
     "options": [
-      { "id": "A", "text": "Diámetro", "isCorrect": true },
-      { "id": "B", "text": "Espesor", "isCorrect": false },
-      { "id": "C", "text": "Trenzado", "isCorrect": false },
-      { "id": "D", "text": "Radio", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Diámetro",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Espesor",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Trenzado",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Radio",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El grosor de un cabo se mide por su DIÁMETRO (no por radio ni espesor). Se expresa generalmente en milímetros."
+    "explanation": "El grosor de un cabo se mide por su DIÁMETRO (no por radio ni espesor). Se expresa generalmente en milímetros.",
+    "concept": "Concepto nom_53",
+    "theory": "Explicación teórica para nom_53"
   },
   {
     "id": "nom_54",
     "category": "NOMENCLATURA",
     "question": "¿Qué es la estropada?",
     "options": [
-      { "id": "A", "text": "La inercia del barco por su peso", "isCorrect": true },
-      { "id": "B", "text": "El ancho del barco", "isCorrect": false },
-      { "id": "C", "text": "La velocidad del barco", "isCorrect": false },
-      { "id": "D", "text": "Una pieza de la jarcia", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La inercia del barco por su peso",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El ancho del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La velocidad del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una pieza de la jarcia",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La estropada es la INERCIA del barco: la tendencia del barco a mantener su rumbo actual. Un barco con mucha estropada es difícil de detener o cambiar de dirección."
+    "explanation": "La estropada es la INERCIA del barco: la tendencia del barco a mantener su rumbo actual. Un barco con mucha estropada es difícil de detener o cambiar de dirección.",
+    "concept": "Concepto nom_54",
+    "theory": "Explicación teórica para nom_54"
   },
   {
     "id": "nom_55",
     "category": "NOMENCLATURA",
     "question": "Para reducir la ESCORA de un velero se debe:",
     "options": [
-      { "id": "A", "text": "Cazar (tensar) la escota de mayor", "isCorrect": false },
-      { "id": "B", "text": "FILAR (aflojar) la escota de mayor", "isCorrect": true },
-      { "id": "C", "text": "Derivar (caer a sotavento)", "isCorrect": false },
-      { "id": "D", "text": "Acelerar", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Cazar (tensar) la escota de mayor",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "FILAR (aflojar) la escota de mayor",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Derivar (caer a sotavento)",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Acelerar",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Para reducir la escora, se FILE (afloja) la escota de mayor: menos viento en la vela = menor fuerza lateral = barco más adrizado."
+    "explanation": "Para reducir la escora, se FILE (afloja) la escota de mayor: menos viento en la vela = menor fuerza lateral = barco más adrizado.",
+    "concept": "Concepto nom_55",
+    "theory": "Explicación teórica para nom_55"
   },
   {
     "id": "nom_56",
     "category": "NOMENCLATURA",
     "question": "¿Cómo se denomina navegar a favor de un temporal (con el viento y la ola)?",
     "options": [
-      { "id": "A", "text": "Capear el temporal", "isCorrect": false },
-      { "id": "B", "text": "CORRER el temporal", "isCorrect": true },
-      { "id": "C", "text": "Fondear", "isCorrect": false },
-      { "id": "D", "text": "Virar por avante", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Capear el temporal",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "CORRER el temporal",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Fondear",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Virar por avante",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Correr el temporal = navegar a favor del temporal (con el viento y la ola en popa). Capear = quedarse en posición para recibir el temporal."
+    "explanation": "Correr el temporal = navegar a favor del temporal (con el viento y la ola en popa). Capear = quedarse en posición para recibir el temporal.",
+    "concept": "Concepto nom_56",
+    "theory": "Explicación teórica para nom_56"
   },
   {
     "id": "nom_57",
     "category": "NOMENCLATURA",
     "question": "Capear el temporal es:",
     "options": [
-      { "id": "A", "text": "Quedarse en posición para recibir el temporal con la proa al viento/ola", "isCorrect": true },
-      { "id": "B", "text": "Correr hacia adelante", "isCorrect": false },
-      { "id": "C", "text": "Fondear el ancla", "isCorrect": false },
-      { "id": "D", "text": "Huir del temporal", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Quedarse en posición para recibir el temporal con la proa al viento/ola",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Correr hacia adelante",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Fondear el ancla",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Huir del temporal",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Capear = mantener el barco en posición con la proa hacia el viento y la ola, reduciendo la superficie expuesta. Se logra arriendo la mayor."
+    "explanation": "Capear = mantener el barco en posición con la proa hacia el viento y la ola, reduciendo la superficie expuesta. Se logra arriendo la mayor.",
+    "concept": "Concepto nom_57",
+    "theory": "Explicación teórica para nom_57"
   },
   {
     "id": "nom_58",
     "category": "NOMENCLATURA",
     "question": "Velar significa:",
     "options": [
-      { "id": "A", "text": "Cazar las velas", "isCorrect": false },
-      { "id": "B", "text": "Estar de guardia o atención mientras se navega", "isCorrect": true },
-      { "id": "C", "text": "Subir al mástil", "isCorrect": false },
-      { "id": "D", "text": "Una pieza de la jarcia", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Cazar las velas",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Estar de guardia o atención mientras se navega",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Subir al mástil",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una pieza de la jarcia",
+        "isCorrect": false
+      }
     ],
-    "explanation": "Velar = estar de guardia o atención mientras se navega. Hacer guardia de navegación, atento a otros buques, luces, etc."
+    "explanation": "Velar = estar de guardia o atención mientras se navega. Hacer guardia de navegación, atento a otros buques, luces, etc.",
+    "concept": "Concepto nom_58",
+    "theory": "Explicación teórica para nom_58"
   },
   {
     "id": "nom_59",
     "category": "NOMENCLATURA",
     "question": "La derrota aparente es:",
     "options": [
-      { "id": "A", "text": "La derrota sobre fondo", "isCorrect": false },
-      { "id": "B", "text": "La derrota cuando NO se tuvo en cuenta la deriva y el abatimiento", "isCorrect": true },
-      { "id": "C", "text": "La derrota trazada en una carta mercator", "isCorrect": false },
-      { "id": "D", "text": "La derrota corregida", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La derrota sobre fondo",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "La derrota cuando NO se tuvo en cuenta la deriva y el abatimiento",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "La derrota trazada en una carta mercator",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La derrota corregida",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La derrota aparente es la trayectoria teórica que seguiría el barco si SOLO se moviera por su propulsión. NO considera los efectos de viento (abatimiento) y corriente (deriva)."
+    "explanation": "La derrota aparente es la trayectoria teórica que seguiría el barco si SOLO se moviera por su propulsión. NO considera los efectos de viento (abatimiento) y corriente (deriva).",
+    "concept": "Concepto nom_59",
+    "theory": "Explicación teórica para nom_59"
   },
   {
     "id": "nom_60",
     "category": "NOMENCLATURA",
     "question": "El abatimiento es producido por:",
     "options": [
-      { "id": "A", "text": "La corriente", "isCorrect": false },
-      { "id": "B", "text": "El VIENTO y la ola (desplazamiento lateral del barco)", "isCorrect": true },
-      { "id": "C", "text": "La escora", "isCorrect": false },
-      { "id": "D", "text": "El timón", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La corriente",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "El VIENTO y la ola (desplazamiento lateral del barco)",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "La escora",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "El timón",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El abatimiento es el desplazamiento LATERAL del barco causado por el VIENTO (presión sobre el casco y la obra muerta) y la ola. Es distinto de la deriva (causada por la corriente)."
+    "explanation": "El abatimiento es el desplazamiento LATERAL del barco causado por el VIENTO (presión sobre el casco y la obra muerta) y la ola. Es distinto de la deriva (causada por la corriente).",
+    "concept": "Concepto nom_60",
+    "theory": "Explicación teórica para nom_60"
   },
   {
     "id": "nom_61",
     "category": "NOMENCLATURA",
     "question": "La bosa del chinchorro es:",
     "options": [
-      { "id": "A", "text": "El cabo de amarre de proa de un bote auxiliar", "isCorrect": true },
-      { "id": "B", "text": "El cabo de fondeo", "isCorrect": false },
-      { "id": "C", "text": "El cabo de arranque del motor", "isCorrect": false },
-      { "id": "D", "text": "Una pieza del motor", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "El cabo de amarre de proa de un bote auxiliar",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "El cabo de fondeo",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "El cabo de arranque del motor",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Una pieza del motor",
+        "isCorrect": false
+      }
     ],
-    "explanation": "La bosa es el cabo de amarre de PROA del bote auxiliar (chinchorro o tender). Sirve para remolcarlo o atarlo al yate madre."
+    "explanation": "La bosa es el cabo de amarre de PROA del bote auxiliar (chinchorro o tender). Sirve para remolcarlo o atarlo al yate madre.",
+    "concept": "Concepto nom_61",
+    "theory": "Explicación teórica para nom_61"
   },
   {
     "id": "nom_62",
     "category": "NOMENCLATURA",
     "question": "¿Qué es el CLINÓMETRO?",
     "options": [
-      { "id": "A", "text": "Instrumento que mide la velocidad del viento", "isCorrect": false },
-      { "id": "B", "text": "Mal llamado escorímetro: mide el ángulo de ESCORA del barco", "isCorrect": true },
-      { "id": "C", "text": "Detector de tormentas", "isCorrect": false },
-      { "id": "D", "text": "Mide la profundidad", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "Instrumento que mide la velocidad del viento",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Mal llamado escorímetro: mide el ángulo de ESCORA del barco",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Detector de tormentas",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Mide la profundidad",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El clinómetro mide el ángulo de inclinación lateral (escora) del barco. Es mal llamado 'escorímetro' aunque su nombre correcto es clinómetro."
+    "explanation": "El clinómetro mide el ángulo de inclinación lateral (escora) del barco. Es mal llamado 'escorímetro' aunque su nombre correcto es clinómetro.",
+    "concept": "Concepto nom_62",
+    "theory": "Explicación teórica para nom_62"
   },
   {
     "id": "nom_63",
     "category": "NOMENCLATURA",
     "question": "El anemómetro mide:",
     "options": [
-      { "id": "A", "text": "La profundidad del agua", "isCorrect": false },
-      { "id": "B", "text": "La VELOCIDAD y DIRECCIÓN del viento", "isCorrect": true },
-      { "id": "C", "text": "La temperatura del agua", "isCorrect": false },
-      { "id": "D", "text": "La presión atmosférica", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La profundidad del agua",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "La VELOCIDAD y DIRECCIÓN del viento",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "La temperatura del agua",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La presión atmosférica",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El anemómetro mide la VELOCIDAD y DIRECCIÓN del viento. La veleta indica la dirección; las cazoletas giran indicando la velocidad."
+    "explanation": "El anemómetro mide la VELOCIDAD y DIRECCIÓN del viento. La veleta indica la dirección; las cazoletas giran indicando la velocidad.",
+    "concept": "Concepto nom_63",
+    "theory": "Explicación teórica para nom_63"
   },
   {
     "id": "nom_64",
     "category": "NOMENCLATURA",
     "question": "El BARÓMETRO mide:",
     "options": [
-      { "id": "A", "text": "La nubosidad", "isCorrect": false },
-      { "id": "B", "text": "La PRESIÓN atmosférica", "isCorrect": true },
-      { "id": "C", "text": "La velocidad del barco", "isCorrect": false },
-      { "id": "D", "text": "La humedad", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La nubosidad",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "La PRESIÓN atmosférica",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "La velocidad del barco",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "La humedad",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El barómetro mide la PRESIÓN atmosférica. Una baja repentina de presión anuncia mal tiempo."
+    "explanation": "El barómetro mide la PRESIÓN atmosférica. Una baja repentina de presión anuncia mal tiempo.",
+    "concept": "Concepto nom_64",
+    "theory": "Explicación teórica para nom_64"
   },
   {
     "id": "nom_65",
     "category": "NOMENCLATURA",
     "question": "El HIGRÓMETRO mide:",
     "options": [
-      { "id": "A", "text": "La profundidad del agua", "isCorrect": false },
-      { "id": "B", "text": "La densidad del agua", "isCorrect": false },
-      { "id": "C", "text": "La HUMEDAD del aire", "isCorrect": true },
-      { "id": "D", "text": "La presión", "isCorrect": false }
+      {
+        "id": "A",
+        "text": "La profundidad del agua",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "La densidad del agua",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "La HUMEDAD del aire",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "La presión",
+        "isCorrect": false
+      }
     ],
-    "explanation": "El higrómetro mide la humedad del aire. Complementa al barómetro para pronosticar el tiempo."
+    "explanation": "El higrómetro mide la humedad del aire. Complementa al barómetro para pronosticar el tiempo.",
+    "concept": "Concepto nom_65",
+    "theory": "Explicación teórica para nom_65"
   }
 ]
