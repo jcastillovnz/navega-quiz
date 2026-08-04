@@ -15,7 +15,7 @@ import {
 import { loadProgress, getBestScore, getAverageScore, loadExams } from '../../utils/storage';
 import type { UserProgress } from '../../types/quiz';
 
-export type ModuleId = 'RIPA' | 'SEGURIDAD' | 'NOMENCLATURA' | 'METEOROLOGIA' | 'PRACTICOS' | 'NUDOS' | 'EXAMEN';
+export type ModuleId = 'RIPA' | 'IALA' | 'SEGURIDAD' | 'NOMENCLATURA' | 'METEOROLOGIA' | 'PRACTICOS' | 'NUDOS' | 'EXAMEN';
 
 interface ModuleCard {
   id: ModuleId;
@@ -32,16 +32,26 @@ const MODULES: ModuleCard[] = [
   {
     id: 'RIPA',
     number: 1,
-    title: 'RIPA & IALA',
-    description: 'Luces de navegación, reglas de paso y balizamiento',
+    title: 'RIPA',
+    description: 'Reglas de paso, luces, marcas y señales acústicas',
     icon: Scale,
     gradient: 'from-cyan-500/20 to-cyan-500/5',
     borderColor: 'hover:border-cyan-500/60 border-slate-700/80',
     iconColor: 'text-cyan-400'
   },
   {
-    id: 'SEGURIDAD',
+    id: 'IALA',
     number: 2,
+    title: 'Balizamiento IALA',
+    description: 'Laterales, cardinales, peligros y señales especiales',
+    icon: Anchor,
+    gradient: 'from-blue-500/20 to-blue-500/5',
+    borderColor: 'hover:border-blue-500/60 border-slate-700/80',
+    iconColor: 'text-blue-400'
+  },
+  {
+    id: 'SEGURIDAD',
+    number: 3,
     title: 'Seguridad & Fondeo',
     description: 'Inventario PNA, rescate HAA y maniobra de fondeo',
     icon: Shield,
@@ -51,7 +61,7 @@ const MODULES: ModuleCard[] = [
   },
   {
     id: 'NOMENCLATURA',
-    number: 3,
+    number: 4,
     title: 'Nomenclatura',
     description: 'Casco, francobordo, jarcia y arboladura',
     icon: Sailboat,
@@ -61,7 +71,7 @@ const MODULES: ModuleCard[] = [
   },
   {
     id: 'METEOROLOGIA',
-    number: 4,
+    number: 5,
     title: 'Meteorología',
     description: 'Escala Beaufort, Pampero y Sudestada',
     icon: Wind,
@@ -71,7 +81,7 @@ const MODULES: ModuleCard[] = [
   },
   {
     id: 'PRACTICOS',
-    number: 5,
+    number: 6,
     title: 'Ejercicios Prácticos',
     description: 'Declinación magnética, mareas y marcaciones',
     icon: Calculator,
@@ -81,7 +91,7 @@ const MODULES: ModuleCard[] = [
   },
   {
     id: 'NUDOS',
-    number: 6,
+    number: 7,
     title: 'Nudos Náuticos',
     description: 'Los 5 nudos esenciales con visor 3D y desafío',
     icon: Cable,
@@ -109,14 +119,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
   }, []);
 
   return (
-    <div className="h-full flex flex-col gap-3 min-h-0 min-w-0 overflow-hidden">
+    <div className="h-full flex flex-col gap-2 min-h-0 min-w-0 overflow-hidden">
       {/* Hero compacto */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 rounded-2xl p-3.5 shrink-0 shadow-lg">
+      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 rounded-2xl p-2.5 shrink-0 shadow-lg">
         <div className="flex items-center justify-between gap-3 flex-wrap min-w-0">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-0.5">
               <Anchor className="w-5 h-5 text-cyan-400" />
-              <h1 className="text-xl md:text-2xl font-extrabold text-white tracking-tight">¡Bienvenido a bordo!</h1>
+              <h1 className="text-lg md:text-xl font-extrabold text-white tracking-tight leading-tight">¡Bienvenido a bordo!</h1>
             </div>
             <p className="text-slate-300 text-xs font-medium">
               {progress && progress.xp > 0
@@ -151,30 +161,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
       </div>
 
       {/* Grid de módulos que ocupa el 100% del alto restante (Sin Espacio Vacío) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 flex-1 min-h-0 sm:grid-rows-2">
+      <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-2 flex-1 min-h-0">
         {MODULES.map(m => {
           const Icon = m.icon;
           return (
             <button
               key={m.id}
               onClick={() => onSelectModule(m.id)}
-              className={`group text-left bg-gradient-to-br ${m.gradient} bg-slate-900/90 border-2 ${m.borderColor} rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl active:scale-[0.99] cursor-pointer h-full`}
+              className={`group min-w-0 min-h-0 text-left bg-gradient-to-br ${m.gradient} bg-slate-900/90 border-2 ${m.borderColor} rounded-2xl p-2.5 lg:p-3 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl active:scale-[0.99] cursor-pointer h-full overflow-hidden`}
             >
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <div className={`p-2 rounded-xl bg-slate-950 border border-slate-800 ${m.iconColor} group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-5 h-5" />
+                <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <div className={`p-1.5 rounded-xl bg-slate-950 border border-slate-800 ${m.iconColor} group-hover:scale-110 transition-transform shrink-0`}>
+                    <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
                   </div>
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider bg-slate-950 px-2 py-0.5 rounded-full border border-slate-800">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-wide bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 whitespace-nowrap">
                     Módulo {m.number}
                   </span>
                 </div>
-                <h3 className="text-base font-extrabold text-white mb-1 group-hover:text-cyan-300 transition-colors">{m.title}</h3>
-                <p className="text-xs text-slate-300 leading-relaxed font-medium line-clamp-2">{m.description}</p>
+                <h3 className="text-sm lg:text-base font-extrabold text-white mb-1 group-hover:text-cyan-300 transition-colors leading-tight break-words">{m.title}</h3>
+                <p className="text-[10px] lg:text-[11px] xl:text-xs text-slate-300 leading-snug font-medium break-words">{m.description}</p>
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-bold text-slate-200 group-hover:text-cyan-400 transition-colors mt-2">
-                <span>Ingresar al Módulo</span>
+              <div className="flex items-center justify-between gap-1 pt-1.5 border-t border-slate-800/80 text-[10px] lg:text-xs font-bold text-slate-200 group-hover:text-cyan-400 transition-colors mt-1.5 shrink-0">
+                <span className="whitespace-nowrap">Ingresar</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </button>
@@ -185,20 +195,20 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
       {/* CTA Examen Final */}
       <button
         onClick={() => onSelectModule('EXAMEN')}
-        className="group relative w-full bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border-2 border-amber-500/40 hover:border-amber-500 rounded-2xl p-3.5 transition-all duration-300 hover:scale-[1.005] hover:shadow-2xl hover:shadow-amber-500/20 active:scale-[0.99] shrink-0 cursor-pointer"
+        className="group relative w-full bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border-2 border-amber-500/40 hover:border-amber-500 rounded-2xl p-2.5 transition-all duration-300 hover:scale-[1.005] hover:shadow-2xl hover:shadow-amber-500/20 active:scale-[0.99] shrink-0 cursor-pointer"
       >
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 group-hover:scale-105 transition-transform">
             <GraduationCap className="w-6 h-6 text-amber-300" />
           </div>
-          <div className="flex-1 text-left">
-            <div className="flex items-center gap-2 mb-0.5">
-              <h3 className="text-base font-extrabold text-amber-200">Simulador de Examen Real PNA</h3>
+          <div className="flex-1 min-w-0 text-left">
+            <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 mb-0.5">
+              <h3 className="text-sm lg:text-base font-extrabold text-amber-200 leading-tight">Simulador de Examen Real PNA</h3>
               <span className="text-[9px] font-black bg-amber-500/30 text-amber-100 px-2 py-0.5 rounded-full border border-amber-500/40 uppercase tracking-wider">
                 DESAFÍO FINAL
               </span>
             </div>
-            <p className="text-xs text-slate-300 font-medium">
+            <p className="text-[10px] lg:text-xs text-slate-300 font-medium leading-snug">
               40 puntos combinados • 60 minutos • Cronómetro estricto • Certificación Timonel
             </p>
           </div>

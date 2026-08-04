@@ -3,10 +3,12 @@ import { Layout } from './components/layout/Layout';
 import { DashboardView } from './components/dashboard/DashboardView';
 import type { ModuleId } from './components/dashboard/DashboardView';
 import { ModuloRipaIalaView } from './components/modules/ModuloRipaIalaView';
+import { ModuloIalaView } from './components/modules/ModuloIalaView';
 import { ModuloTeoricoView } from './components/modules/ModuloTeoricoView';
 import { SeguridadViewer } from './components/seguridad/SeguridadViewer';
 import { NomenclaturaViewer } from './components/nomenclatura/NomenclaturaViewer';
 import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer';
+import { MeteorologyConceptViewer } from './components/meteorologia/MeteorologyConceptViewer';
 import { KnotsViewer } from './components/knots/KnotsViewer';
 import { RealExamView } from './components/exam/RealExamView';
 import { DeclinationCalculator } from './components/practico/DeclinationCalculator';
@@ -23,7 +25,8 @@ import {
   Home, 
   Compass,
   MapPin,
-  Waves
+  Waves,
+  Anchor
 } from 'lucide-react';
 import nudosData from './data/nudos.json';
 import type { QuizQuestion } from './types/quiz';
@@ -80,13 +83,23 @@ function App() {
             </button>
 
             <button
+              onClick={() => setActiveView('IALA')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'IALA' ? 'bg-blue-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Anchor className="w-3.5 h-3.5" />
+              2. IALA
+            </button>
+
+            <button
               onClick={() => setActiveView('SEGURIDAD')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeView === 'SEGURIDAD' ? 'bg-rose-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Shield className="w-3.5 h-3.5" />
-              2. Seguridad
+              3. Seguridad
             </button>
 
             <button
@@ -96,7 +109,7 @@ function App() {
               }`}
             >
               <Sailboat className="w-3.5 h-3.5" />
-              3. Nomenclatura
+              4. Nomenclatura
             </button>
 
             <button
@@ -106,7 +119,7 @@ function App() {
               }`}
             >
               <Wind className="w-3.5 h-3.5" />
-              4. Meteo
+              5. Meteo
             </button>
 
             <button
@@ -116,7 +129,7 @@ function App() {
               }`}
             >
               <Calculator className="w-3.5 h-3.5" />
-              5. Prácticos
+              6. Prácticos
             </button>
 
             <button
@@ -126,7 +139,7 @@ function App() {
               }`}
             >
               <Cable className="w-3.5 h-3.5" />
-              6. Nudos
+              7. Nudos
             </button>
 
             <button
@@ -154,6 +167,10 @@ function App() {
             <ModuloRipaIalaView />
           )}
 
+          {activeView === 'IALA' && (
+            <ModuloIalaView />
+          )}
+
           {/* MÓDULO 2: SEGURIDAD & FONDEO */}
           {activeView === 'SEGURIDAD' && (
             <ModuloTeoricoView 
@@ -162,11 +179,20 @@ function App() {
                 title: 'Seguridad Náutica y Fondeo',
                 subtitle: 'Inventario PNA, salvamento, Hombre al Agua (HAA) y maniobras de fondeo.',
                 category: 'SEGURIDAD',
-                badge: 'Módulo 2',
+                badge: 'Módulo 3',
                 badgeColor: 'bg-rose-500',
                 icon: Shield
               }}
               viewer={<SeguridadViewer />}
+              visualForQuestion={question => {
+                const text = `${question.id} ${question.question}`.toLowerCase();
+                if (/fire|fuego|incend|matafuego|extint|combust/.test(text)) return <SeguridadViewer focusSection="INCENDIO" />;
+                if (/temporal|mal tiempo|capear|correr|sotavento|ancla de capa/.test(text)) return <SeguridadViewer focusSection="TEMPORAL" />;
+                if (/averia|avería|vía de agua|via de agua|varada|abordaje|remolque|abandono|timón de fortuna/.test(text)) return <SeguridadViewer focusSection="AVERIAS" />;
+                if (/hombre al agua|haa|náufrago|naufrago/.test(text)) return <SeguridadViewer focusSection="HAA" />;
+                if (/fondeo|ancla|cadena|garreo/.test(text)) return <SeguridadViewer focusSection="FONDEO" />;
+                return <SeguridadViewer focusSection="INVENTARIO" />;
+              }}
             />
           )}
 
@@ -178,11 +204,11 @@ function App() {
                 title: 'Nomenclatura y Arboladura',
                 subtitle: 'Anatomía del barco, casco, francobordo, jarcia fija y maniobra de velas.',
                 category: 'NOMENCLATURA',
-                badge: 'Módulo 3',
+                badge: 'Módulo 4',
                 badgeColor: 'bg-amber-500',
                 icon: Sailboat
               }}
-              viewer={<NomenclaturaViewer />}
+              viewer={<NomenclaturaViewer compact />}
             />
           )}
 
@@ -194,11 +220,20 @@ function App() {
                 title: 'Meteorología Náutica',
                 subtitle: 'Escala Beaufort, Pampero, Sudestada y tormentas Cumulonimbus (CB).',
                 category: 'METEOROLOGIA',
-                badge: 'Módulo 4',
+                badge: 'Módulo 5',
                 badgeColor: 'bg-sky-500',
                 icon: Wind
               }}
               viewer={<MeteorologiaViewer />}
+              visualForQuestion={question => {
+                const text = `${question.id} ${question.question}`.toLowerCase();
+                if (/forecast|pronóstico|meteorológica/.test(text)) return <MeteorologyConceptViewer focus="PRONOSTICO" />;
+                if (/pressure|presión|barómetro|isobara|humedad/.test(text)) return <MeteorologyConceptViewer focus="PRESION" />;
+                if (/breeze|brisa/.test(text)) return <MeteorologyConceptViewer focus="BRISAS" />;
+                if (/wave|oleaje|douglas|fetch/.test(text)) return <MeteorologyConceptViewer focus="OLEAJE" />;
+                if (/wind|viento|anemómetro|veleta/.test(text)) return <MeteorologyConceptViewer focus="VIENTO" />;
+                return <MeteorologiaViewer />;
+              }}
             />
           )}
 

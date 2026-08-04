@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import ialaBuoyImg from '../../assets/iala_buoy_babor.png';
 
@@ -182,10 +182,14 @@ function CardinalBands({ bands }: { bands: string[] }) {
   );
 }
 
-export const IalaBuoyViewer: React.FC = () => {
+export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType }> = ({ compact = false, focusType }) => {
   const [isNight, setIsNight] = useState(true);
   const [selectedBuoy, setSelectedBuoy] = useState<BuoyType>('BABOR');
   const buoy = BUOY_DATA[selectedBuoy];
+
+  useEffect(() => {
+    if (focusType) setSelectedBuoy(focusType);
+  }, [focusType]);
 
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
@@ -222,7 +226,7 @@ export const IalaBuoyViewer: React.FC = () => {
       <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
 
         {/* Canvas visual animado (7 cols) */}
-        <div className={`md:col-span-7 rounded-2xl overflow-hidden border-2 h-full flex items-center justify-center relative transition-all duration-700 ${buoy.accentColor} ${
+        <div className={`${compact ? 'md:col-span-12' : 'md:col-span-7'} rounded-2xl overflow-hidden border-2 h-full flex items-center justify-center relative transition-all duration-700 ${buoy.accentColor} ${
           isNight
             ? 'bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-900'
             : 'bg-gradient-to-b from-sky-300 via-sky-400 to-sky-500'
@@ -336,7 +340,7 @@ export const IalaBuoyViewer: React.FC = () => {
         </div>
 
         {/* Panel explicativo (5 cols) */}
-        <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto h-full">
+        {!compact && <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto h-full">
           <div>
             <h3 className={`text-base font-extrabold ${buoy.color} mb-0.5`}>{buoy.name}</h3>
           </div>
@@ -384,7 +388,7 @@ export const IalaBuoyViewer: React.FC = () => {
           <div className="bg-amber-500/10 border border-amber-500/25 rounded-xl p-3 text-[11px] text-amber-300 font-medium leading-relaxed mt-auto">
             {buoy.rule}
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );

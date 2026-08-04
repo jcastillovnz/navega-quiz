@@ -3,6 +3,10 @@ import teoriaData from '../data/teoria.json';
 import practicosData from '../data/practicos.json';
 import nudosData from '../data/nudos.json';
 import nomenclaturaData from '../data/nomenclatura.json';
+import ialaAmpliadoData from '../data/iala_ampliado.json';
+import seguridadIncendiosData from '../data/seguridad_incendios.json';
+import seguridadEmergenciasData from '../data/seguridad_emergencias.json';
+import meteorologiaExtendidaData from '../data/meteorologia_extendida.json';
 import type { QuizQuestion, QuizCategory, PracticalExercise } from '../types/quiz';
 
 export interface ExamConfig {
@@ -95,8 +99,8 @@ const shuffle = <T,>(arr: T[]): T[] => {
 };
 
 const THEORETICAL_WEIGHTS: Partial<Record<QuizCategory, number>> = {
-  RIPA: 9,
-  IALA: 4,
+  RIPA: 7,
+  IALA: 6,
   SEGURIDAD: 7,
   NOMENCLATURA: 7,
   METEOROLOGIA: 5,
@@ -116,7 +120,11 @@ export const DEFAULT_EXAM_CONFIG: ExamConfig = {
 export const generateExam = (config: ExamConfig = DEFAULT_EXAM_CONFIG): GeneratedExam => {
   const theoreticalPool = [
     ...(ripaIalaData as QuizQuestion[]),
+    ...(ialaAmpliadoData as QuizQuestion[]),
     ...(teoriaData as QuizQuestion[]),
+    ...(seguridadIncendiosData as QuizQuestion[]),
+    ...(seguridadEmergenciasData as QuizQuestion[]),
+    ...(meteorologiaExtendidaData as QuizQuestion[]),
     ...(nomenclaturaData as QuizQuestion[]),
     ...(nudosData as QuizQuestion[])
   ];

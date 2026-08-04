@@ -26,7 +26,7 @@ const RIGGING_TERMS = [
 
 type Section = 'CASCO' | 'JARCIA';
 
-export const NomenclaturaViewer: React.FC = () => {
+export const NomenclaturaViewer: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
   const [section, setSection] = useState<Section>('CASCO');
   const [filter, setFilter] = useState<'TODOS' | 'FIJA' | 'MOVIL'>('TODOS');
 
@@ -78,7 +78,7 @@ export const NomenclaturaViewer: React.FC = () => {
       {section === 'CASCO' && (
         <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
           {/* Imagen hiperrealista del casco (7 cols) */}
-          <div className="md:col-span-7 bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden flex items-center justify-center h-full relative">
+          <div className={`${compact ? 'md:col-span-12' : 'md:col-span-7'} bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden flex items-center justify-center h-full relative`}>
             <img
               src={sailboatAnatomy}
               alt="Anatomía completa del velero con etiquetas: eslora, manga, calado, francobordo, obra viva, obra muerta, proa, popa, quilla, cubierta, bañera"
@@ -90,7 +90,7 @@ export const NomenclaturaViewer: React.FC = () => {
           </div>
 
           {/* Panel de términos (5 cols) */}
-          <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-3 flex flex-col gap-1.5 overflow-y-auto h-full">
+          {!compact && <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-3 flex flex-col gap-1.5 overflow-y-auto h-full">
             <h3 className="text-sm font-extrabold text-white shrink-0 mb-1">Términos del Casco</h3>
             {HULL_TERMS.map(t => (
               <div key={t.term} className="bg-slate-950 border border-slate-800 rounded-xl p-2.5">
@@ -98,7 +98,7 @@ export const NomenclaturaViewer: React.FC = () => {
                 <p className="text-[11px] text-slate-300 leading-relaxed">{t.def}</p>
               </div>
             ))}
-          </div>
+          </div>}
         </div>
       )}
 
@@ -106,7 +106,7 @@ export const NomenclaturaViewer: React.FC = () => {
       {section === 'JARCIA' && (
         <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
           {/* Imagen hiperrealista de la arboladura (7 cols) */}
-          <div className="md:col-span-7 bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden flex items-center justify-center h-full relative">
+          <div className={`${compact ? 'md:col-span-12' : 'md:col-span-7'} bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden flex items-center justify-center h-full relative`}>
             <img
               src={sailboatRigging}
               alt="Arboladura y jarcia del velero: palo, estay de proa, obenques, backstay, botavara, mayor, foque, driza, escota"
@@ -118,7 +118,7 @@ export const NomenclaturaViewer: React.FC = () => {
           </div>
 
           {/* Panel de jarcia (5 cols) */}
-          <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-3 flex flex-col gap-1.5 overflow-y-auto h-full">
+          {!compact && <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-3 flex flex-col gap-1.5 overflow-y-auto h-full">
             <div className="flex items-center gap-2 shrink-0 mb-1">
               <h3 className="text-sm font-extrabold text-white">Piezas de la Arboladura</h3>
               <div className="flex gap-1 ml-auto text-[10px]">
@@ -140,7 +140,7 @@ export const NomenclaturaViewer: React.FC = () => {
                 <p className="text-[11px] text-slate-300 leading-relaxed">{t.def}</p>
               </div>
             ))}
-          </div>
+          </div>}
         </div>
       )}
     </div>

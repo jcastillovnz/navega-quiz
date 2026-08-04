@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { BookOpen, Check, ChevronRight, Lightbulb, RotateCcw, X } from 'lucide-react';
 import type { QuizQuestion } from '../../types/quiz';
-import { addToReview, addXP, registerLearningAnswer, registerStudy } from '../../utils/storage';
+import * as storage from '../../utils/storage';
 
 interface IntegratedLearningViewProps {
   moduleId: string;
@@ -44,12 +44,12 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
     setIsCorrect(correct);
     if (correct) {
       setCorrectCount(value => value + 1);
-      addXP(10);
+      storage.addXP(10);
     } else {
-      addToReview(question.id);
+      storage.addToReview(question.id);
     }
-    registerStudy();
-    registerLearningAnswer(moduleId, question.id, correct);
+    storage.registerStudy();
+    storage.registerLearningAnswer(moduleId, question.id, correct);
   };
 
   const next = () => {
@@ -69,7 +69,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
 
   return (
     <div className="h-full min-h-0 grid grid-cols-1 md:grid-cols-12 gap-2 overflow-hidden">
-      <section className="md:col-span-7 min-h-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 relative">
+      <section className="order-2 md:col-span-7 min-h-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 relative">
         <div className="absolute left-2 top-2 z-20 rounded-lg border border-white/20 bg-slate-950/80 backdrop-blur-md px-2 py-1">
           <p className="text-[9px] uppercase tracking-widest text-cyan-300 font-black">Ilustración interactiva</p>
           <p className="text-[10px] text-slate-300">Explorá la escena antes de responder</p>
@@ -77,7 +77,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
         <div className="h-full min-h-0 overflow-hidden pt-10">{visualForQuestion ? visualForQuestion(question) : visual}</div>
       </section>
 
-      <section className="md:col-span-5 min-h-0 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-md flex flex-col">
+      <section className="order-1 md:col-span-5 min-h-0 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-md flex flex-col">
         <div className="p-3 border-b border-slate-800 shrink-0">
           <div className="flex items-center justify-between gap-2 mb-2">
             <div>
