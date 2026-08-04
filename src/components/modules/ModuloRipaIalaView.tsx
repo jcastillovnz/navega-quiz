@@ -68,20 +68,10 @@ export const ModuloRipaIalaView: React.FC = () => {
   const finished = result && result.total === questions.length;
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto">
-      {/* Header del Módulo */}
-      <div className="text-center">
-        <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-3">
-          <Ship className="w-3.5 h-3.5" />
-          MÓDULO 1
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-2">
-          Legislación, RIPA & IALA
-        </h2>
-        <p className="text-slate-300 max-w-2xl mx-auto text-sm">
-          Aprende las reglas de paso, las luces de navegación y el sistema de balizamiento. Después, pon a prueba tu conocimiento.
-        </p>
-      </div>
+    <div className="flex flex-col gap-4">
+      <p className="text-slate-300 text-sm">
+        Aprende las reglas de paso, las luces de navegación y el sistema de balizamiento. Después, pon a prueba tu conocimiento.
+      </p>
 
       {/* Tabs principales: Estudio vs Quiz */}
       <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full">
@@ -107,7 +97,7 @@ export const ModuloRipaIalaView: React.FC = () => {
 
       {/* Contenido según tab */}
       {tab === 'ESTUDIO' && (
-        <div className="flex flex-col gap-6 animate-[fade-in_0.4s_ease-out]">
+        <div className="flex flex-col gap-4 animate-[fade-in_0.4s_ease-out]">
           {/* Sub-tabs del contenido teórico */}
           <div className="flex flex-wrap gap-2 justify-center">
             {(
@@ -199,7 +189,7 @@ export const ModuloRipaIalaView: React.FC = () => {
 
           {result.incorrectIds.length > 0 && (
             <p className="text-xs text-slate-400 mb-4">
-              {result.incorrectIds.length} pregunta(s) se enviarán a tu Caja de Repaso (Tarea 24).
+              {result.incorrectIds.length} pregunta(s) se enviarán a tu Caja de Repaso.
             </p>
           )}
 

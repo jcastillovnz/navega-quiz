@@ -80,16 +80,8 @@ export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, vi
   }
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto">
-      {/* Header */}
-      <div className="text-center">
-        <div className={`inline-flex items-center gap-2 ${config.badgeColor} border px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-3`}>
-          <Icon className="w-3.5 h-3.5" />
-          {config.badge}
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-2">{config.title}</h2>
-        <p className="text-slate-300 max-w-2xl mx-auto text-sm">{config.subtitle}</p>
-      </div>
+    <div className="flex flex-col gap-4">
+      <p className="text-slate-300 text-sm">{config.subtitle}</p>
 
       {/* Tabs Estudio / Práctica */}
       <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full">

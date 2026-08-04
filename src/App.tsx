@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { ArrowLeft, Scale, Shield, Sailboat, Wind, Calculator, GraduationCap } from 'lucide-react';
 import { Layout } from './components/layout/Layout';
+import { DashboardView, type ModuleId } from './components/dashboard/DashboardView';
 import { ModuloRipaIalaView } from './components/modules/ModuloRipaIalaView';
 import { ModuloTeoricoView } from './components/modules/ModuloTeoricoView';
 import { NomenclaturaViewer } from './components/nomenclatura/NomenclaturaViewer';
@@ -10,9 +12,10 @@ import { TideCalculator } from './components/practico/TideCalculator';
 import { BearingsSimulator } from './components/practico/BearingsSimulator';
 import { RealExamView } from './components/exam/RealExamView';
 import { QuizCard } from './components/quiz/QuizCard';
-import { Shield, Sailboat, Wind, Calculator, Compass, Waves, BookOpen, BrainCircuit, Trophy, RotateCcw, GraduationCap } from 'lucide-react';
 import type { ModuleConfig } from './components/modules/ModuloTeoricoView';
 import type { QuizCategory, QuizQuestion } from './types/quiz';
+import { addXP, addManyToReview, registerStudy } from './utils/storage';
+import { Shield as ShieldIcon, Sailboat as SailboatIcon, Wind as WindIcon } from 'lucide-react';
 import practicosData from './data/practicos.json';
 
 const MOD_SEGURIDAD: ModuleConfig = {
@@ -22,7 +25,7 @@ const MOD_SEGURIDAD: ModuleConfig = {
   category: 'SEGURIDAD' as QuizCategory,
   badge: 'MÓDULO 2',
   badgeColor: 'bg-rose-500/10 border-rose-500/30 text-rose-300',
-  icon: Shield
+  icon: ShieldIcon
 };
 
 const MOD_NOMENCLATURA: ModuleConfig = {
@@ -32,7 +35,7 @@ const MOD_NOMENCLATURA: ModuleConfig = {
   category: 'NOMENCLATURA' as QuizCategory,
   badge: 'MÓDULO 3',
   badgeColor: 'bg-amber-500/10 border-amber-500/30 text-amber-300',
-  icon: Sailboat
+  icon: SailboatIcon
 };
 
 const MOD_METEOROLOGIA: ModuleConfig = {
@@ -42,10 +45,41 @@ const MOD_METEOROLOGIA: ModuleConfig = {
   category: 'METEOROLOGIA' as QuizCategory,
   badge: 'MÓDULO 4',
   badgeColor: 'bg-cyan-500/10 border-cyan-500/30 text-cyan-300',
-  icon: Wind
+  icon: WindIcon
 };
 
-const XP_PER_CORRECT = 15;
+interface ModuleShellProps {
+  number: number;
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  badgeColor: string;
+  onBack: () => void;
+  children: React.ReactNode;
+}
+
+const ModuleShell: React.FC<ModuleShellProps> = ({ number, title, icon: Icon, badgeColor, onBack, children }) => (
+  <div className="flex-1 flex flex-col min-h-0">
+    {/* Header fijo del módulo */}
+    <div className="flex items-center justify-between mb-3 shrink-0">
+      <button
+        onClick={onBack}
+        className="flex items-center gap-2 text-slate-400 hover:text-cyan-300 transition-colors group"
+      >
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span className="text-sm font-medium">Volver al inicio</span>
+      </button>
+      <div className={`flex items-center gap-2 ${badgeColor} border px-3 py-1 rounded-full text-xs font-bold tracking-wider`}>
+        <Icon className="w-3.5 h-3.5" />
+        MÓDULO {number}
+      </div>
+    </div>
+    <h2 className="text-2xl md:text-3xl font-bold text-slate-50 mb-1 shrink-0">{title}</h2>
+    {/* Contenido scrolleable */}
+    <div className="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1">
+      {children}
+    </div>
+  </div>
+);
 
 const ModuloPracticosView: React.FC = () => {
   const [tab, setTab] = useState<'ESTUDIO' | 'QUIZ'>('ESTUDIO');
@@ -53,14 +87,9 @@ const ModuloPracticosView: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [result, setResult] = useState<{ correct: number; total: number; xpEarned: number } | null>(null);
 
-  // Convertir practicos.json a formato QuizQuestion-like para usar QuizCard
   const questions: QuizQuestion[] = (practicosData as Array<{
-    id: string;
-    category: string;
-    type: string;
-    statement: string;
-    expectedResult: string | number;
-    explanationStepByStep: string;
+    id: string; category: string; type: string;
+    statement: string; expectedResult: string | number; explanationStepByStep: string;
   }>).map(p => ({
     id: p.id,
     category: 'PRACTICO' as QuizCategory,
@@ -74,26 +103,27 @@ const ModuloPracticosView: React.FC = () => {
     explanation: p.explanationStepByStep
   }));
 
-  const handleAnswer = (isCorrect: boolean) => {
+  const handleAnswer = (isCorrect: boolean, qid: string) => {
     setResult(prev => {
       const base = prev ?? { correct: 0, total: 0, xpEarned: 0 };
       return {
         correct: base.correct + (isCorrect ? 1 : 0),
         total: base.total + 1,
-        xpEarned: base.xpEarned + (isCorrect ? XP_PER_CORRECT : 0)
+        xpEarned: base.xpEarned + (isCorrect ? 15 : 0)
       };
     });
+    if (isCorrect) addXP(15);
+    else addManyToReview([qid]);
   };
 
   const handleNext = () => {
-    if (currentIdx < questions.length - 1) {
-      setCurrentIdx(c => c + 1);
-    }
+    if (currentIdx < questions.length - 1) setCurrentIdx(c => c + 1);
   };
 
   const handleRestart = () => {
     setCurrentIdx(0);
     setResult(null);
+    registerStudy();
   };
 
   const accuracy = result ? (result.correct / result.total) * 100 : 0;
@@ -101,65 +131,46 @@ const ModuloPracticosView: React.FC = () => {
   const finished = result && result.total === questions.length;
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto">
-      <div className="text-center">
-        <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-3">
-          <Calculator className="w-3.5 h-3.5" />
-          MÓDULO 5
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-2">Ejercicios Prácticos de Navegación</h2>
-        <p className="text-slate-300 max-w-2xl mx-auto text-sm">
-          Resuelve problemas reales: declinación, mareas y marcaciones.
-        </p>
-      </div>
-
-      <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full">
+    <div className="flex flex-col gap-4">
+      <p className="text-slate-300 text-sm">Resuelve problemas reales: declinación, mareas y marcaciones.</p>
+      <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md">
         <button
           onClick={() => setTab('ESTUDIO')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+          className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
             tab === 'ESTUDIO' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          <BookOpen className="w-4 h-4" />
           Calculadoras
         </button>
         <button
           onClick={() => setTab('QUIZ')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+          className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
             tab === 'QUIZ' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          <BrainCircuit className="w-4 h-4" />
           Práctica
         </button>
       </div>
 
       {tab === 'ESTUDIO' && (
-        <div className="flex flex-col gap-4 animate-[fade-in_0.4s_ease-out]">
-          <div className="flex flex-wrap gap-2 justify-center">
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-wrap gap-2">
             {([
-              { id: 'DECLINACION', label: 'Declinación', icon: Compass },
-              { id: 'MAREAS', label: 'Mareas', icon: Waves },
-              { id: 'MARCACIONES', label: 'Marcaciones', icon: Calculator }
-            ] as const).map(t => {
-              const Icon = t.icon;
-              return (
-                <button
-                  key={t.id}
-                  onClick={() => setTool(t.id)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
-                    tool === t.id
-                      ? 'bg-cyan-600 text-white shadow-md'
-                      : 'bg-slate-800 border border-slate-700 text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {t.label}
-                </button>
-              );
-            })}
+              { id: 'DECLINACION', label: 'Declinación' },
+              { id: 'MAREAS', label: 'Mareas' },
+              { id: 'MARCACIONES', label: 'Marcaciones' }
+            ] as const).map(t => (
+              <button
+                key={t.id}
+                onClick={() => setTool(t.id)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  tool === t.id ? 'bg-cyan-600 text-white shadow-md' : 'bg-slate-800 border border-slate-700 text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
           </div>
-
           {tool === 'DECLINACION' && <DeclinationCalculator />}
           {tool === 'MAREAS' && <TideCalculator />}
           {tool === 'MARCACIONES' && <BearingsSimulator />}
@@ -167,58 +178,39 @@ const ModuloPracticosView: React.FC = () => {
       )}
 
       {tab === 'QUIZ' && !finished && (
-        <div className="animate-[fade-in_0.4s_ease-out]">
-          <QuizCard
-            question={questions[currentIdx]}
-            questionNumber={currentIdx + 1}
-            totalQuestions={questions.length}
-            xpPerCorrect={XP_PER_CORRECT}
-            onAnswer={handleAnswer}
-            onNext={handleNext}
-          />
-        </div>
+        <QuizCard
+          question={questions[currentIdx]}
+          questionNumber={currentIdx + 1}
+          totalQuestions={questions.length}
+          xpPerCorrect={15}
+          onAnswer={handleAnswer}
+          onNext={handleNext}
+        />
       )}
 
       {tab === 'QUIZ' && finished && result && (
-        <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto w-full text-center animate-[fade-in_0.5s_ease-out]">
-          {passed ? (
-            <>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-500/20 border-2 border-amber-500 mb-4">
-                <Trophy className="w-10 h-10 text-amber-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-amber-300 mb-2">¡Ejercicios Aprobados!</h3>
-              <p className="text-slate-300 text-sm mb-6">Dominas los cálculos de navegación.</p>
-            </>
-          ) : (
-            <>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-cyan-500/20 border-2 border-cyan-500 mb-4">
-                <RotateCcw className="w-10 h-10 text-cyan-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-cyan-300 mb-2">Vuelve a intentarlo</h3>
-              <p className="text-slate-300 text-sm mb-6">Necesitas al menos un 70% para aprobar.</p>
-            </>
-          )}
-
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
+        <div className="bg-slate-800/70 border border-white/10 rounded-2xl p-6 text-center">
+          <h3 className={`text-2xl font-bold mb-2 ${passed ? 'text-amber-300' : 'text-cyan-300'}`}>
+            {passed ? '¡Aprobado!' : 'Vuelve a intentarlo'}
+          </h3>
+          <div className="grid grid-cols-3 gap-3 my-4">
+            <div className="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
               <p className="text-2xl font-bold text-cyan-400">{accuracy.toFixed(0)}%</p>
-              <p className="text-xs text-slate-400 mt-1">Precisión</p>
+              <p className="text-xs text-slate-400">Precisión</p>
             </div>
-            <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
+            <div className="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
               <p className="text-2xl font-bold text-emerald-400">{result.correct}/{result.total}</p>
-              <p className="text-xs text-slate-400 mt-1">Aciertos</p>
+              <p className="text-xs text-slate-400">Aciertos</p>
             </div>
-            <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
+            <div className="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
               <p className="text-2xl font-bold text-amber-400">+{result.xpEarned}</p>
-              <p className="text-xs text-slate-400 mt-1">XP ganada</p>
+              <p className="text-xs text-slate-400">XP</p>
             </div>
           </div>
-
           <button
             onClick={handleRestart}
-            className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 px-6 rounded-xl transition-all duration-300 mx-auto shadow-lg shadow-cyan-900/40"
+            className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 px-5 rounded-xl transition-all"
           >
-            <RotateCcw className="w-4 h-4" />
             Reintentar
           </button>
         </div>
@@ -228,43 +220,85 @@ const ModuloPracticosView: React.FC = () => {
 };
 
 function App() {
+  const [activeModule, setActiveModule] = useState<ModuleId | null>(null);
+
+  const handleBack = () => setActiveModule(null);
+
   return (
     <Layout>
-      <div className="flex flex-col items-center gap-16 py-8">
-        <ModuloRipaIalaView />
+      {activeModule === null && <DashboardView onSelectModule={setActiveModule} />}
 
-        <div className="w-32 h-px bg-slate-800" />
+      {activeModule === 'RIPA' && (
+        <ModuleShell
+          number={1}
+          title="Legislación, RIPA & IALA"
+          icon={Scale}
+          badgeColor="bg-cyan-500/10 border-cyan-500/30 text-cyan-300"
+          onBack={handleBack}
+        >
+          <ModuloRipaIalaView />
+        </ModuleShell>
+      )}
 
-        <ModuloTeoricoView config={MOD_SEGURIDAD} viewer={<SeguridadViewer />} />
+      {activeModule === 'SEGURIDAD' && (
+        <ModuleShell
+          number={2}
+          title="Seguridad y Fondeo"
+          icon={Shield}
+          badgeColor="bg-rose-500/10 border-rose-500/30 text-rose-300"
+          onBack={handleBack}
+        >
+          <ModuloTeoricoView config={MOD_SEGURIDAD} viewer={<SeguridadViewer />} />
+        </ModuleShell>
+      )}
 
-        <div className="w-32 h-px bg-slate-800" />
+      {activeModule === 'NOMENCLATURA' && (
+        <ModuleShell
+          number={3}
+          title="Nomenclatura del Yate"
+          icon={Sailboat}
+          badgeColor="bg-amber-500/10 border-amber-500/30 text-amber-300"
+          onBack={handleBack}
+        >
+          <ModuloTeoricoView config={MOD_NOMENCLATURA} viewer={<NomenclaturaViewer />} />
+        </ModuleShell>
+      )}
 
-        <ModuloTeoricoView config={MOD_NOMENCLATURA} viewer={<NomenclaturaViewer />} />
+      {activeModule === 'METEOROLOGIA' && (
+        <ModuleShell
+          number={4}
+          title="Meteorología Náutica"
+          icon={Wind}
+          badgeColor="bg-sky-500/10 border-sky-500/30 text-sky-300"
+          onBack={handleBack}
+        >
+          <ModuloTeoricoView config={MOD_METEOROLOGIA} viewer={<MeteorologiaViewer />} />
+        </ModuleShell>
+      )}
 
-        <div className="w-32 h-px bg-slate-800" />
+      {activeModule === 'PRACTICOS' && (
+        <ModuleShell
+          number={5}
+          title="Ejercicios Prácticos de Navegación"
+          icon={Calculator}
+          badgeColor="bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
+          onBack={handleBack}
+        >
+          <ModuloPracticosView />
+        </ModuleShell>
+      )}
 
-        <ModuloTeoricoView config={MOD_METEOROLOGIA} viewer={<MeteorologiaViewer />} />
-
-        <div className="w-32 h-px bg-slate-800" />
-
-        <ModuloPracticosView />
-
-        <div className="w-32 h-px bg-amber-500/30" />
-
-        <div className="w-full max-w-5xl mx-auto flex flex-col gap-6">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-300 px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-3">
-              <GraduationCap className="w-3.5 h-3.5" />
-              DESAFÍO FINAL
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-2">Simulador de Examen Real PNA</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto text-sm">
-              40 puntos • 60 minutos • Sin ayudas. Cronómetro estricto. ¿Te animás?
-            </p>
-          </div>
+      {activeModule === 'EXAMEN' && (
+        <ModuleShell
+          number={6}
+          title="Simulador de Examen Real PNA"
+          icon={GraduationCap}
+          badgeColor="bg-amber-500/10 border-amber-500/30 text-amber-300"
+          onBack={handleBack}
+        >
           <RealExamView />
-        </div>
-      </div>
+        </ModuleShell>
+      )}
     </Layout>
   );
 }
