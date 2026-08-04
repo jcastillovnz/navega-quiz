@@ -5,7 +5,7 @@ const CACHE_NAME = 'navega-quiz-v1';
 
 // No pre-cacheamos rutas absolutas porque el SW no sabe el base path.
 // En su lugar, cacheamos bajo demanda en el primer fetch.
-self.addEventListener('install', event => {
+self.addEventListener('install', () => {
   self.skipWaiting();
 });
 

@@ -60,7 +60,7 @@ export const RipaLightViewer: React.FC = () => {
       </div>
 
       {/* Visor Visual */}
-      <div className={`relative w-full h-80 rounded-2xl overflow-hidden transition-all duration-700 flex items-center justify-center border ${isNight ? 'bg-slate-950 border-slate-800' : 'bg-sky-100 border-sky-300'}`}>
+      <div className={`relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden transition-all duration-700 flex items-center justify-center border ${isNight ? 'bg-slate-950 border-slate-800' : 'bg-sky-100 border-sky-300'}`}>
         
         {/* Fondo del mar (Horizonte) */}
         <div className={`absolute bottom-0 w-full h-1/3 transition-all duration-700 ${isNight ? 'bg-slate-900' : 'bg-sky-300'}`}></div>

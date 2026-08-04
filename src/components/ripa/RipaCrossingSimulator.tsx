@@ -205,7 +205,7 @@ export const RipaCrossingSimulator: React.FC = () => {
       </div>
 
       {/* Canvas de Simulación */}
-      <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden border border-slate-700 bg-gradient-to-b from-slate-900 to-slate-950">
+      <div className="relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden border border-slate-700 bg-gradient-to-b from-slate-900 to-slate-950">
         {/* Grilla náutica sutil (rosa de los vientos) */}
         <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>

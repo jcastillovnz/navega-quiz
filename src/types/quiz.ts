@@ -9,7 +9,8 @@ export type QuizCategory =
   | 'SEGURIDAD'
   | 'NOMENCLATURA'
   | 'METEOROLOGIA'
-  | 'PRACTICO';
+  | 'PRACTICO'
+  | 'NUDOS';
 
 /**
  * 2. Interfaces para las Preguntas y Banco de Preguntas

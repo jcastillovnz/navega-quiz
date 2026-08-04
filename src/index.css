@@ -4,6 +4,13 @@
   /* No additional custom configs needed yet, tailwind default is quite good */
 }
 
+/* Garantizar que NUNCA haya scroll en la página principal */
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 /* Efectos Fotorrealistas (Luces y Faros) para el Modo Noche */
 .glow-red { 
   box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.7); 

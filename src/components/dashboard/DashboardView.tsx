@@ -9,12 +9,13 @@ import {
   ChevronRight,
   Star,
   Trophy,
-  Anchor
+  Anchor,
+  Cable
 } from 'lucide-react';
 import { loadProgress, getBestScore, getAverageScore, loadExams } from '../../utils/storage';
 import type { UserProgress } from '../../types/quiz';
 
-export type ModuleId = 'RIPA' | 'SEGURIDAD' | 'NOMENCLATURA' | 'METEOROLOGIA' | 'PRACTICOS' | 'EXAMEN';
+export type ModuleId = 'RIPA' | 'SEGURIDAD' | 'NOMENCLATURA' | 'METEOROLOGIA' | 'PRACTICOS' | 'NUDOS' | 'EXAMEN';
 
 interface ModuleCard {
   id: ModuleId;
@@ -77,6 +78,16 @@ const MODULES: ModuleCard[] = [
     gradient: 'from-emerald-500/20 to-emerald-500/5',
     borderColor: 'hover:border-emerald-500/60',
     iconColor: 'text-emerald-400'
+  },
+  {
+    id: 'NUDOS',
+    number: 6,
+    title: 'Nudos Náuticos',
+    description: 'Los 5 nudos esenciales del examen',
+    icon: Cable,
+    gradient: 'from-pink-500/20 to-pink-500/5',
+    borderColor: 'hover:border-pink-500/60',
+    iconColor: 'text-pink-400'
   }
 ];
 
@@ -98,16 +109,16 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
   }, []);
 
   return (
-    <div className="flex-1 flex flex-col gap-4 min-h-0 overflow-y-auto">
+    <div className="flex-1 flex flex-col gap-3 min-h-0 overflow-hidden">
       {/* Hero compacto */}
-      <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700 rounded-2xl p-5 shrink-0">
+      <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700 rounded-2xl p-3 shrink-0">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <Anchor className="w-5 h-5 text-cyan-400" />
-              <h1 className="text-2xl md:text-3xl font-bold text-white">¡Bienvenido a bordo!</h1>
+            <div className="flex items-center gap-2 mb-0.5">
+              <Anchor className="w-4 h-4 text-cyan-400" />
+              <h1 className="text-xl md:text-2xl font-bold text-white">¡Bienvenido a bordo!</h1>
             </div>
-            <p className="text-slate-300 text-sm">
+            <p className="text-slate-300 text-xs">
               {progress && progress.xp > 0
                 ? `Continuá tu preparación para el examen de Timonel de Yate Vela y Motor.`
                 : `Elegí un módulo para empezar. Teoría visual + práctica + examen final.`}
@@ -115,22 +126,22 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
           </div>
 
           {progress && progress.xp > 0 && (
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-1.5 flex-wrap">
               <StatChip
-                icon={<Trophy className="w-3.5 h-3.5" />}
+                icon={<Trophy className="w-3 h-3" />}
                 label="Mejor"
                 value={`${bestScore}%`}
                 color="text-amber-300"
               />
               <StatChip
-                icon={<Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />}
-                label="Promedio"
+                icon={<Star className="w-3 h-3 fill-amber-400 text-amber-400" />}
+                label="Prom."
                 value={`${avgScore}%`}
                 color="text-cyan-300"
               />
               <StatChip
-                icon={<GraduationCap className="w-3.5 h-3.5" />}
-                label="Exámenes"
+                icon={<GraduationCap className="w-3 h-3" />}
+                label="Ex."
                 value={String(examCount)}
                 color="text-emerald-300"
               />
@@ -140,28 +151,28 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
       </div>
 
       {/* Grid de módulos */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 flex-1 min-h-0 content-start">
         {MODULES.map(m => {
           const Icon = m.icon;
           return (
             <button
               key={m.id}
               onClick={() => onSelectModule(m.id)}
-              className={`group text-left bg-gradient-to-br ${m.gradient} bg-slate-800/50 border-2 border-slate-700 ${m.borderColor} rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]`}
+              className={`group text-left bg-gradient-to-br ${m.gradient} bg-slate-800/50 border-2 border-slate-700 ${m.borderColor} rounded-xl p-3 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]`}
             >
-              <div className="flex items-start justify-between mb-2">
-                <div className={`p-2 rounded-lg bg-slate-900/60 border border-slate-700 ${m.iconColor}`}>
-                  <Icon className="w-6 h-6" />
+              <div className="flex items-start justify-between mb-1.5">
+                <div className={`p-1.5 rounded-lg bg-slate-900/60 border border-slate-700 ${m.iconColor}`}>
+                  <Icon className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider bg-slate-900/60 px-2 py-1 rounded">
-                  Módulo {m.number}
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider bg-slate-900/60 px-1.5 py-0.5 rounded">
+                  M{m.number}
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">{m.title}</h3>
-              <p className="text-xs text-slate-400 mb-3">{m.description}</p>
-              <div className="flex items-center text-xs font-bold text-slate-300 group-hover:text-cyan-300 transition-colors">
+              <h3 className="text-sm font-bold text-white mb-0.5">{m.title}</h3>
+              <p className="text-[11px] text-slate-400 mb-2 line-clamp-1">{m.description}</p>
+              <div className="flex items-center text-[10px] font-bold text-slate-300 group-hover:text-cyan-300 transition-colors">
                 Empezar
-                <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-3 h-3 ml-0.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </button>
           );
@@ -171,31 +182,26 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
       {/* CTA Examen Final */}
       <button
         onClick={() => onSelectModule('EXAMEN')}
-        className="group relative w-full bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border-2 border-amber-500/40 hover:border-amber-500 rounded-2xl p-5 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl hover:shadow-amber-500/20 active:scale-[0.99]"
+        className="group relative w-full bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border-2 border-amber-500/40 hover:border-amber-500 rounded-xl p-3 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl hover:shadow-amber-500/20 active:scale-[0.99] shrink-0"
       >
-        <div className="flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-amber-500/20 border border-amber-500/40">
-            <GraduationCap className="w-8 h-8 text-amber-300" />
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-amber-500/20 border border-amber-500/40">
+            <GraduationCap className="w-6 h-6 text-amber-300" />
           </div>
           <div className="flex-1 text-left">
             <div className="flex items-center gap-2 mb-0.5">
-              <h3 className="text-xl font-bold text-amber-200">Simulador de Examen Real PNA</h3>
-              <span className="text-[10px] font-bold bg-amber-500/30 text-amber-100 px-2 py-0.5 rounded-full">
+              <h3 className="text-base font-bold text-amber-200">Simulador de Examen Real PNA</h3>
+              <span className="text-[9px] font-bold bg-amber-500/30 text-amber-100 px-1.5 py-0.5 rounded-full">
                 DESAFÍO FINAL
               </span>
             </div>
-            <p className="text-sm text-slate-300">
-              40 puntos • 60 minutos • Cronómetro estricto • ¿Te animás?
+            <p className="text-[11px] text-slate-300">
+              40 puntos • 60 minutos • Cronómetro estricto
             </p>
           </div>
-          <ChevronRight className="w-6 h-6 text-amber-300 group-hover:translate-x-1 transition-transform" />
+          <ChevronRight className="w-5 h-5 text-amber-300 group-hover:translate-x-1 transition-transform" />
         </div>
       </button>
-
-      {/* Footer mini */}
-      <div className="text-center text-[10px] text-slate-600 mt-2 shrink-0">
-        NavegaQuiz · Timonel de Yate Vela y Motor · 100% client-side
-      </div>
     </div>
   );
 };
@@ -206,9 +212,9 @@ const StatChip: React.FC<{ icon: React.ReactNode; label: string; value: string; 
   value,
   color
 }) => (
-  <div className="flex items-center gap-1.5 bg-slate-900/60 border border-slate-700 px-2.5 py-1.5 rounded-full">
+  <div className="flex items-center gap-1 bg-slate-900/60 border border-slate-700 px-2 py-0.5 rounded-full">
     {icon}
-    <span className="text-[10px] text-slate-400 uppercase tracking-wider">{label}</span>
-    <span className={`text-sm font-bold ${color}`}>{value}</span>
+    <span className="text-[9px] text-slate-400 uppercase tracking-wider">{label}</span>
+    <span className={`text-xs font-bold ${color}`}>{value}</span>
   </div>
 );

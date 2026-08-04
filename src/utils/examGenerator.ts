@@ -1,6 +1,7 @@
 import ripaIalaData from '../data/ripa_iala.json';
 import teoriaData from '../data/teoria.json';
 import practicosData from '../data/practicos.json';
+import nudosData from '../data/nudos.json';
 import type { QuizQuestion, QuizCategory, PracticalExercise } from '../types/quiz';
 
 export interface ExamConfig {
@@ -93,7 +94,11 @@ export const DEFAULT_EXAM_CONFIG: ExamConfig = {
  * extraídas del banco general.
  */
 export const generateExam = (config: ExamConfig = DEFAULT_EXAM_CONFIG): GeneratedExam => {
-  const theoreticalPool = [...(ripaIalaData as QuizQuestion[]), ...(teoriaData as QuizQuestion[])];
+  const theoreticalPool = [
+    ...(ripaIalaData as QuizQuestion[]),
+    ...(teoriaData as QuizQuestion[]),
+    ...(nudosData as QuizQuestion[])
+  ];
   const practicalPool = practicosData as PracticalExercise[];
 
   const theoreticalSelected = sample(theoreticalPool, config.theoreticalCount).map(q => ({

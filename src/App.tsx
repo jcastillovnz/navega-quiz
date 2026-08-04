@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Scale, Shield, Sailboat, Wind, Calculator, GraduationCap } from 'lucide-react';
+import { ArrowLeft, Scale, Shield, Sailboat, Wind, Calculator, GraduationCap, Cable } from 'lucide-react';
 import { Layout } from './components/layout/Layout';
 import { DashboardView, type ModuleId } from './components/dashboard/DashboardView';
 import { ModuloRipaIalaView } from './components/modules/ModuloRipaIalaView';
@@ -10,6 +10,7 @@ import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer
 import { DeclinationCalculator } from './components/practico/DeclinationCalculator';
 import { TideCalculator } from './components/practico/TideCalculator';
 import { BearingsSimulator } from './components/practico/BearingsSimulator';
+import { KnotsViewer } from './components/knots/KnotsViewer';
 import { RealExamView } from './components/exam/RealExamView';
 import { QuizCard } from './components/quiz/QuizCard';
 import type { ModuleConfig } from './components/modules/ModuloTeoricoView';
@@ -17,6 +18,7 @@ import type { QuizCategory, QuizQuestion } from './types/quiz';
 import { addXP, addManyToReview, registerStudy } from './utils/storage';
 import { Shield as ShieldIcon, Sailboat as SailboatIcon, Wind as WindIcon } from 'lucide-react';
 import practicosData from './data/practicos.json';
+import nudosData from './data/nudos.json';
 
 const MOD_SEGURIDAD: ModuleConfig = {
   id: 'SEGURIDAD',
@@ -60,20 +62,20 @@ interface ModuleShellProps {
 const ModuleShell: React.FC<ModuleShellProps> = ({ number, title, icon: Icon, badgeColor, onBack, children }) => (
   <div className="flex-1 flex flex-col min-h-0">
     {/* Header fijo del módulo */}
-    <div className="flex items-center justify-between mb-3 shrink-0">
+    <div className="flex items-center justify-between mb-1.5 shrink-0">
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-slate-400 hover:text-cyan-300 transition-colors group"
+        className="flex items-center gap-1.5 text-slate-400 hover:text-cyan-300 transition-colors group"
       >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        <span className="text-sm font-medium">Volver al inicio</span>
+        <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+        <span className="text-xs font-medium">Volver al inicio</span>
       </button>
-      <div className={`flex items-center gap-2 ${badgeColor} border px-3 py-1 rounded-full text-xs font-bold tracking-wider`}>
-        <Icon className="w-3.5 h-3.5" />
+      <div className={`flex items-center gap-1.5 ${badgeColor} border px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider`}>
+        <Icon className="w-3 h-3" />
         MÓDULO {number}
       </div>
     </div>
-    <h2 className="text-2xl md:text-3xl font-bold text-slate-50 mb-1 shrink-0">{title}</h2>
+    <h2 className="text-lg md:text-xl font-bold text-slate-50 mb-2 shrink-0">{title}</h2>
     {/* Contenido scrolleable */}
     <div className="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1">
       {children}
@@ -288,9 +290,21 @@ function App() {
         </ModuleShell>
       )}
 
-      {activeModule === 'EXAMEN' && (
+      {activeModule === 'NUDOS' && (
         <ModuleShell
           number={6}
+          title="Nudos Náuticos Esenciales"
+          icon={Cable}
+          badgeColor="bg-pink-500/10 border-pink-500/30 text-pink-300"
+          onBack={handleBack}
+        >
+          <KnotsViewer questions={nudosData as unknown as QuizQuestion[]} />
+        </ModuleShell>
+      )}
+
+      {activeModule === 'EXAMEN' && (
+        <ModuleShell
+          number={7}
           title="Simulador de Examen Real PNA"
           icon={GraduationCap}
           badgeColor="bg-amber-500/10 border-amber-500/30 text-amber-300"

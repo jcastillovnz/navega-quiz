@@ -1,0 +1,98 @@
+[
+  {
+    "id": "nudo_1",
+    "category": "NUDOS",
+    "question": "¿Cuál es el nudo más utilizado para crear un anillo fijo que no se corre ni se aprieta bajo carga, y se desata con un tirón?",
+    "options": [
+      { "id": "A", "text": "Nudo Llano", "isCorrect": false },
+      { "id": "B", "text": "As de Guía (Bowline)", "isCorrect": true },
+      { "id": "C", "text": "Ballestrinque (Clove Hitch)", "isCorrect": false },
+      { "id": "D", "text": "Nudo de Ocho (Figure Eight)", "isCorrect": false }
+    ],
+    "explanation": "El As de Guía es EL nudo náutico por excelencia: forma un lazo que no se ajusta ni se desliza bajo carga, y se desata con un tirón incluso después de soportar mucha tensión. Imprescindible para rescate y HAA."
+  },
+  {
+    "id": "nudo_2",
+    "category": "NUDOS",
+    "question": "Para unir DOS cabos del MISMO diámetro y material, ¿qué nudo se utiliza?",
+    "options": [
+      { "id": "A", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": false },
+      { "id": "B", "text": "As de Guía (Bowline)", "isCorrect": false },
+      { "id": "C", "text": "Nudo Llano (Reef Knot)", "isCorrect": true },
+      { "id": "D", "text": "Ballestrinque (Clove Hitch)", "isCorrect": false }
+    ],
+    "explanation": "El Nudo Llano (Reef Knot) une dos cabos del mismo diámetro. Es fácil de recordar con la frase 'izquierda sobre derecha, derecha sobre izquierda'. Si los diámetros son distintos, se desliza: ahí se usa la Vuelta de Escota."
+  },
+  {
+    "id": "nudo_3",
+    "category": "NUDOS",
+    "question": "¿Qué nudo se usa para amarrar un cabo a un palo, cáncamo o barandal?",
+    "options": [
+      { "id": "A", "text": "Nudo de Ocho", "isCorrect": false },
+      { "id": "B", "text": "Ballestrinque (Clove Hitch)", "isCorrect": true },
+      { "id": "C", "text": "As de Guía", "isCorrect": false },
+      { "id": "D", "text": "Vuelta de Escota", "isCorrect": false }
+    ],
+    "explanation": "El Ballestrinque (Clove Hitch) es el nudo de amarre por excelencia: rápido, se ajusta solo con la carga y funciona en cualquier dirección. Se usa para colgar defensas del barandal, fondeos temporales y amarres a postes."
+  },
+  {
+    "id": "nudo_4",
+    "category": "NUDOS",
+    "question": "Para unir dos cabos de DISTINTO diámetro (por ejemplo, nylon con cadena, o dos cabos de diferente grosor), ¿qué nudo es el correcto?",
+    "options": [
+      { "id": "A", "text": "Nudo Llano", "isCorrect": false },
+      { "id": "B", "text": "Nudo de Ocho", "isCorrect": false },
+      { "id": "C", "text": "As de Guía", "isCorrect": false },
+      { "id": "D", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": true }
+    ],
+    "explanation": "La Vuelta de Escota (Sheet Bend) está diseñada específicamente para unir cabos de distinto diámetro. A diferencia del Nudo Llano, no se desliza cuando los grosores son diferentes. Se usa mucho para prolongar la línea de fondeo cabo-cadena."
+  },
+  {
+    "id": "nudo_5",
+    "category": "NUDOS",
+    "question": "¿Qué nudo se utiliza como TOPE de cabo para evitar que un chicote se deslice por un ojo, polea o mordaza?",
+    "options": [
+      { "id": "A", "text": "As de Guía", "isCorrect": false },
+      { "id": "B", "text": "Ballestrinque", "isCorrect": false },
+      { "id": "C", "text": "Nudo de Ocho (Figure Eight)", "isCorrect": true },
+      { "id": "D", "text": "Nudo Llano", "isCorrect": false }
+    ],
+    "explanation": "El Nudo de Ocho (Figure Eight) se hace en el extremo (chicote) del cabo y crea un tope grueso que no pasa por los agujeros ni por las poleas. Es muy fácil de identificar visualmente y de desatar incluso mojado."
+  },
+  {
+    "id": "nudo_6",
+    "category": "NUDOS",
+    "question": "En una situación de Hombre al Agua (HAA), ¿cuál es el nudo más adecuado para hacer un anillo al que subir al náufrago?",
+    "options": [
+      { "id": "A", "text": "Nudo Llano", "isCorrect": false },
+      { "id": "B", "text": "Ballestrinque", "isCorrect": false },
+      { "id": "C", "text": "As de Guía (Bowline)", "isCorrect": true },
+      { "id": "D", "text": "Nudo de Ocho", "isCorrect": false }
+    ],
+    "explanation": "El As de Guía es el indicado para HAA: forma un anillo seguro alrededor del náufrago, no se aprieta (no lo estrangula) y se puede desatar rápidamente para liberarlo. Por eso es obligatorio aprenderlo y dominarlo."
+  },
+  {
+    "id": "nudo_7",
+    "category": "NUDOS",
+    "question": "Si necesitás prolongar la línea de fondeo uniendo un cabo de nylon a un tramo de cadena, ¿qué nudo usás?",
+    "options": [
+      { "id": "A", "text": "Nudo Llano (Reef Knot)", "isCorrect": false },
+      { "id": "B", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": true },
+      { "id": "C", "text": "As de Guía", "isCorrect": false },
+      { "id": "D", "text": "Ballestrinque", "isCorrect": false }
+    ],
+    "explanation": "La Vuelta de Escota une cabos de distinto diámetro y material, lo que la hace perfecta para nylon-cadena. El Nudo Llano NO sirve acá porque se desliza al haber distintos grosores."
+  },
+  {
+    "id": "nudo_8",
+    "category": "NUDOS",
+    "question": "¿Qué frase mnemotécnica se usa para recordar cómo se hace el Nudo Llano?",
+    "options": [
+      { "id": "A", "text": "Derecha sobre izquierda, izquierda sobre derecha", "isCorrect": false },
+      { "id": "B", "text": "Izquierda sobre derecha, derecha sobre izquierda", "isCorrect": true },
+      { "id": "C", "text": "Siempre el firme arriba, el chicote abajo", "isCorrect": false },
+      { "id": "D", "text": "Pasar por dentro, rodear, salir por la gaza", "isCorrect": false }
+    ],
+    "explanation": "La regla del Nudo Llano es: chicote IZQUIERDO cruza por ENCIMA del derecho, y después chicote DERECHO cruza por ENCIMA del izquierdo. Esa simetría es lo que hace que el nudo quede prolijo y no se corra."
+  }
+]

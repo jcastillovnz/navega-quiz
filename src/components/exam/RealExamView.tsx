@@ -10,7 +10,8 @@ const CATEGORY_LABELS: Record<QuizCategory, string> = {
   SEGURIDAD: 'Seguridad',
   NOMENCLATURA: 'Nomenclatura',
   METEOROLOGIA: 'Meteorología',
-  PRACTICO: 'Prácticos'
+  PRACTICO: 'Prácticos',
+  NUDOS: 'Nudos'
 };
 
 const formatTime = (seconds: number): string => {
@@ -119,43 +120,43 @@ export const RealExamView: React.FC = () => {
     const angleStep = (Math.PI * 2) / Math.max(1, radarModules.length);
 
     return (
-      <div className="max-w-3xl mx-auto p-4 flex flex-col gap-6 animate-[fade-in_0.6s_ease-out]">
+      <div className="max-w-3xl mx-auto p-2 flex flex-col gap-3 animate-[fade-in_0.6s_ease-out] flex-1 min-h-0 overflow-y-auto">
         <div className="text-center">
           <div
-            className={`inline-flex items-center justify-center w-24 h-24 rounded-full mb-4 ${
+            className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-2 ${
               report.passed ? 'bg-amber-500/20 border-2 border-amber-500' : 'bg-rose-500/20 border-2 border-rose-500'
             }`}
           >
-            {report.passed ? <Trophy className="w-12 h-12 text-amber-400" /> : <AlertTriangle className="w-12 h-12 text-rose-400" />}
+            {report.passed ? <Trophy className="w-8 h-8 text-amber-400" /> : <AlertTriangle className="w-8 h-8 text-rose-400" />}
           </div>
-          <h2 className={`text-3xl font-bold mb-2 ${report.passed ? 'text-amber-300' : 'text-rose-300'}`}>
+          <h2 className={`text-2xl font-bold mb-1 ${report.passed ? 'text-amber-300' : 'text-rose-300'}`}>
             {report.passed ? '¡APROBADO!' : 'No alcanzaste el 70%'}
           </h2>
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-400 text-xs">
             Examen PNA Simulado — Timonel de Yate Vela y Motor
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3">
           {/* Score grande */}
-          <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 text-center">
-            <p className="text-xs uppercase tracking-wider text-slate-400">Puntaje Final</p>
-            <p className={`text-6xl font-bold my-2 ${report.passed ? 'text-amber-300' : 'text-rose-300'}`}>
-              {report.score}<span className="text-2xl text-slate-500">/100</span>
+          <div className="bg-slate-800/60 border border-slate-700 rounded-xl p-3 text-center">
+            <p className="text-[10px] uppercase tracking-wider text-slate-400">Puntaje Final</p>
+            <p className={`text-5xl font-bold my-1 ${report.passed ? 'text-amber-300' : 'text-rose-300'}`}>
+              {report.score}<span className="text-xl text-slate-500">/100</span>
             </p>
-            <p className="text-xs text-slate-400">
+            <p className="text-[10px] text-slate-400">
               {report.correctCount} aciertos de {report.totalCount} • {minutes}m {String(seconds).padStart(2, '0')}s
             </p>
             {report.passed && (
-              <div className="mt-4 inline-block bg-amber-500/20 text-amber-200 px-3 py-1.5 rounded-full text-xs font-bold border border-amber-500/40">
+              <div className="mt-2 inline-block bg-amber-500/20 text-amber-200 px-2 py-1 rounded-full text-[10px] font-bold border border-amber-500/40">
                 🎖️ MEDALLA DE TIMONEL
               </div>
             )}
           </div>
 
           {/* Radar chart por módulo */}
-          <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5">
-            <p className="text-xs uppercase tracking-wider text-slate-400 mb-2 text-center">Rendimiento por Módulo</p>
+          <div className="bg-slate-800/60 border border-slate-700 rounded-xl p-3">
+            <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-1 text-center">Rendimiento por Módulo</p>
             {radarModules.length === 0 ? (
               <p className="text-sm text-slate-500 text-center py-12">Sin datos.</p>
             ) : (
@@ -226,15 +227,15 @@ export const RealExamView: React.FC = () => {
         </div>
 
         {/* Detalle por módulo */}
-        <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-4">
-          <p className="text-xs uppercase tracking-wider text-slate-400 mb-3">Detalle por módulo</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="bg-slate-800/60 border border-slate-700 rounded-xl p-3">
+          <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-2">Detalle por módulo</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-1.5">
             {radarModules.map(([cat, m]) => {
               const pct = Math.round((m.correct / m.total) * 100);
               return (
-                <div key={cat} className="bg-slate-900/50 rounded-lg p-2.5 border border-slate-700">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider">{CATEGORY_LABELS[cat]}</p>
-                  <p className="text-lg font-bold text-white">{m.correct}/{m.total}</p>
+                <div key={cat} className="bg-slate-900/50 rounded-lg p-2 border border-slate-700">
+                  <p className="text-[9px] text-slate-400 uppercase tracking-wider">{CATEGORY_LABELS[cat]}</p>
+                  <p className="text-sm font-bold text-white">{m.correct}/{m.total}</p>
                   <div className="w-full h-1 bg-slate-700 rounded-full mt-1 overflow-hidden">
                     <div
                       className={`h-full ${pct >= 70 ? 'bg-emerald-500' : 'bg-rose-500'}`}
@@ -248,18 +249,18 @@ export const RealExamView: React.FC = () => {
         </div>
 
         {!report.passed && report.incorrectIds.length > 0 && (
-          <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4 text-sm text-cyan-200 flex items-start gap-2">
-            <RotateCcw className="w-4 h-4 mt-0.5 shrink-0" />
+          <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-2 text-xs text-cyan-200 flex items-start gap-2">
+            <RotateCcw className="w-3.5 h-3.5 mt-0.5 shrink-0" />
             <p>
               <strong className="text-cyan-100">Caja de Repaso:</strong> {report.incorrectIds.length} pregunta(s) se
-              enviarán automáticamente a tu algoritmo de repetición espaciada (próximamente en Tarea 24).
+              enviarán a tu algoritmo de repetición espaciada.
             </p>
           </div>
         )}
 
         <button
           onClick={startExam}
-          className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 px-6 rounded-xl transition-all duration-300 mx-auto shadow-lg shadow-cyan-900/40"
+          className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 px-4 rounded-lg transition-all duration-300 mx-auto shadow-lg shadow-cyan-900/40 text-sm shrink-0"
         >
           <RotateCcw className="w-4 h-4" />
           Generar Nuevo Examen
@@ -270,31 +271,29 @@ export const RealExamView: React.FC = () => {
 
   // --- PANTALLA DE EXAMEN EN CURSO ---
   return (
-    <div className="max-w-3xl mx-auto p-4 flex flex-col gap-4">
+    <div className="max-w-3xl mx-auto p-1 flex flex-col gap-2 flex-1 min-h-0">
       {/* Header con cronómetro */}
-      <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-4 flex items-center justify-between">
+      <div className="bg-slate-800/60 border border-slate-700 rounded-lg p-2 flex items-center justify-between shrink-0">
         <div>
-          <p className="text-[10px] uppercase tracking-wider text-slate-400">Examen PNA</p>
-          <p className="text-sm font-bold text-white">Simulacro Oficial • {total} puntos</p>
+          <p className="text-[9px] uppercase tracking-wider text-slate-400">Examen PNA</p>
+          <p className="text-xs font-bold text-white">Simulacro Oficial • {total} pts</p>
         </div>
-        <div className={`flex items-center gap-2 px-3 py-2 rounded-lg border ${
+        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md border ${
           isLowTime ? 'bg-rose-500/20 border-rose-500 animate-pulse' : 'bg-slate-900 border-slate-700'
         }`}>
-          <Clock className={`w-4 h-4 ${isLowTime ? 'text-rose-400' : 'text-cyan-400'}`} />
-          <span className={`font-mono font-bold text-lg ${isLowTime ? 'text-rose-300' : 'text-white'}`}>
+          <Clock className={`w-3.5 h-3.5 ${isLowTime ? 'text-rose-400' : 'text-cyan-400'}`} />
+          <span className={`font-mono font-bold text-sm ${isLowTime ? 'text-rose-300' : 'text-white'}`}>
             {formatTime(timeLeft)}
           </span>
         </div>
       </div>
 
       {/* Progreso */}
-      <div className="flex items-center justify-between text-xs text-slate-400">
-        <span>Pregunta <strong className="text-white">{currentIdx + 1}</strong> de {total}</span>
-        <span>
-          Respondidas: <strong className="text-cyan-300">{answeredCount}</strong>/{total}
-        </span>
+      <div className="flex items-center justify-between text-[10px] text-slate-400 shrink-0 px-1">
+        <span>Pregunta <strong className="text-white">{currentIdx + 1}</strong>/{total}</span>
+        <span>Respondidas: <strong className="text-cyan-300">{answeredCount}</strong>/{total}</span>
       </div>
-      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+      <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden shrink-0">
         <div
           className="h-full bg-gradient-to-r from-cyan-500 to-cyan-300 transition-all"
           style={{ width: `${((currentIdx + 1) / total) * 100}%` }}
@@ -302,50 +301,50 @@ export const RealExamView: React.FC = () => {
       </div>
 
       {/* Pregunta (sin feedback inmediato) */}
-      <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-[10px] uppercase tracking-wider text-slate-400">
+      <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-lg p-3 shrink-0">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-[9px] uppercase tracking-wider text-slate-400">
             {CATEGORY_LABELS[currentQ.category]} • {currentQ.type === 'THEORETICAL' ? 'Teórica' : 'Práctica'}
           </span>
         </div>
-        <h3 className="text-lg md:text-xl font-semibold text-slate-50 leading-relaxed">
+        <h3 className="text-sm md:text-base font-semibold text-slate-50 leading-snug">
           {currentQ.question}
         </h3>
       </div>
 
       {/* Opciones (sin colores de feedback) */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-1.5 flex-1 min-h-0">
         {currentQ.options.map(option => {
           const isSelected = answers[currentQ.id] === option.id;
           return (
             <button
               key={option.id}
               onClick={() => handleSelect(currentQ.id, option.id)}
-              className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-start gap-3 ${
+              className={`w-full text-left p-2 rounded-lg border-2 transition-all duration-200 flex items-start gap-2 ${
                 isSelected
                   ? 'bg-cyan-500/15 border-cyan-500 text-cyan-50'
                   : 'bg-slate-800/50 border-slate-700 hover:border-slate-500 text-slate-200'
               }`}
             >
               <span
-                className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
+                className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 ${
                   isSelected ? 'bg-cyan-500 text-slate-950 border-cyan-500' : 'border-slate-600 text-slate-400'
                 }`}
               >
                 {option.id}
               </span>
-              <span className="text-sm md:text-base">{option.text}</span>
+              <span className="text-sm">{option.text}</span>
             </button>
           );
         })}
       </div>
 
       {/* Navegación */}
-      <div className="flex gap-3 mt-2">
+      <div className="flex gap-2 shrink-0">
         <button
           onClick={() => setCurrentIdx(i => Math.max(0, i - 1))}
           disabled={currentIdx === 0}
-          className="px-4 py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+          className="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
         >
           ← Anterior
         </button>
@@ -353,7 +352,7 @@ export const RealExamView: React.FC = () => {
         {currentIdx < total - 1 ? (
           <button
             onClick={() => setCurrentIdx(i => i + 1)}
-            className="flex-1 flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-cyan-900/40"
+            className="flex-1 flex items-center justify-center gap-1.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 rounded-lg transition-all shadow-lg shadow-cyan-900/40 text-sm"
           >
             Siguiente
             <ChevronRight className="w-4 h-4" />
@@ -361,7 +360,7 @@ export const RealExamView: React.FC = () => {
         ) : (
           <button
             onClick={handleFinish}
-            className="flex-1 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg transition-all shadow-lg shadow-amber-900/40"
+            className="flex-1 flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 rounded-lg transition-all shadow-lg shadow-amber-900/40 text-sm"
           >
             <CheckCircle2 className="w-4 h-4" />
             Finalizar Examen
@@ -370,9 +369,9 @@ export const RealExamView: React.FC = () => {
       </div>
 
       {/* Mini-mapa de preguntas */}
-      <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-3">
-        <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-2">Mapa de preguntas</p>
-        <div className="grid grid-cols-10 sm:grid-cols-20 gap-1">
+      <div className="bg-slate-800/40 border border-slate-700 rounded-lg p-1.5 shrink-0">
+        <p className="text-[9px] uppercase tracking-wider text-slate-400 mb-1 px-1">Mapa</p>
+        <div className="flex flex-wrap gap-0.5 max-h-12 overflow-y-auto">
           {exam.questions.map((q, i) => {
             const isAnswered = !!answers[q.id];
             const isCurrent = i === currentIdx;
@@ -380,7 +379,7 @@ export const RealExamView: React.FC = () => {
               <button
                 key={q.id}
                 onClick={() => setCurrentIdx(i)}
-                className={`aspect-square text-[9px] font-bold rounded ${
+                className={`w-5 h-5 text-[9px] font-bold rounded flex items-center justify-center ${
                   isCurrent
                     ? 'bg-cyan-500 text-slate-950 ring-1 ring-cyan-300'
                     : isAnswered

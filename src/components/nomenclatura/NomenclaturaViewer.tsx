@@ -94,7 +94,7 @@ export const NomenclaturaViewer: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-4">
           {/* SVG del velero (vista de perfil mejorada) */}
-          <div className="relative bg-gradient-to-b from-sky-900/30 via-slate-900 to-slate-950 border border-slate-700 rounded-xl overflow-hidden h-96">
+          <div className="relative bg-gradient-to-b from-sky-900/30 via-slate-900 to-slate-950 border border-slate-700 rounded-xl overflow-hidden h-64 sm:h-72">
             <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
               <defs>
                 {/* Agua (degradado inferior) */}
@@ -258,7 +258,7 @@ export const NomenclaturaViewer: React.FC = () => {
           </div>
 
           {/* Panel de detalle */}
-          <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-4 min-h-96 flex flex-col">
+          <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-3 min-h-64 flex flex-col">
             {activeHull ? (
               <div className="animate-[fade-in_0.3s_ease-out]">
                 <div className="flex items-start justify-between mb-3">
@@ -343,7 +343,7 @@ export const NomenclaturaViewer: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-4">
           {/* Lista */}
-          <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
+          <div className="space-y-2 max-h-72 overflow-y-auto pr-2">
             {filteredRigg.map(item => {
               const isActive = activeRigg?.id === item.id;
               return (
@@ -376,7 +376,7 @@ export const NomenclaturaViewer: React.FC = () => {
           </div>
 
           {/* Detalle */}
-          <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-4 min-h-60">
+          <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-3 min-h-48">
             {activeRigg ? (
               <div className="animate-[fade-in_0.3s_ease-out]">
                 <div className="flex items-center gap-2 mb-3">

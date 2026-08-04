@@ -85,7 +85,7 @@ export const IalaBuoyViewer: React.FC = () => {
       </div>
 
       {/* Visor Visual */}
-      <div className={`relative w-full h-80 rounded-2xl overflow-hidden transition-all duration-700 flex flex-col items-center justify-end border ${isNight ? 'bg-slate-950 border-slate-800' : 'bg-sky-100 border-sky-300'}`}>
+      <div className={`relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden transition-all duration-700 flex flex-col items-center justify-end border ${isNight ? 'bg-slate-950 border-slate-800' : 'bg-sky-100 border-sky-300'}`}>
         
         {/* Fondo del mar (Agua) */}
         <div className={`absolute bottom-0 w-full h-24 transition-all duration-700 ${isNight ? 'bg-slate-900 border-t border-slate-800' : 'bg-sky-300/60 border-t border-sky-400/50'}`}></div>

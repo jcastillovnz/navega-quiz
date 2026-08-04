@@ -90,7 +90,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
 
   const getOptionClasses = (optionId: string): string => {
     const base =
-      'w-full text-left p-4 rounded-xl border-2 transition-all duration-300 flex items-start gap-3 group';
+      'w-full text-left p-2.5 rounded-lg border-2 transition-all duration-300 flex items-start gap-2.5 group';
 
     if (state === 'IDLE') {
       return `${base} bg-slate-800/50 border-slate-700 hover:border-cyan-500 hover:bg-slate-800 cursor-pointer`;
@@ -109,7 +109,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 relative">
+    <div className="w-full max-w-3xl mx-auto p-2 relative">
       {/* XP Floater Animation */}
       {showXPFloater && (
         <div className="absolute top-4 right-8 z-20 pointer-events-none animate-[float-up_1.2s_ease-out_forwards]">
@@ -120,7 +120,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
       )}
 
       {/* Header con progreso */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-2">
         <span className="text-xs text-slate-400 font-medium tracking-wider uppercase">
           Pregunta {questionNumber} de {totalQuestions}
         </span>
@@ -131,7 +131,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
       </div>
 
       {/* Barra de progreso */}
-      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden mb-6">
+      <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden mb-2">
         <div
           className="h-full bg-gradient-to-r from-cyan-500 to-cyan-300 transition-all duration-500"
           style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
@@ -139,14 +139,14 @@ export const QuizCard: React.FC<QuizCardProps> = ({
       </div>
 
       {/* Tarjeta de Pregunta */}
-      <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-6 mb-5 shadow-2xl">
-        <h3 className="text-lg md:text-xl font-semibold text-slate-50 leading-relaxed">
+      <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-xl p-3 mb-3 shadow-2xl">
+        <h3 className="text-sm md:text-base font-semibold text-slate-50 leading-snug">
           {question.question}
         </h3>
       </div>
 
       {/* Opciones */}
-      <div className="flex flex-col gap-3 mb-5">
+      <div className="flex flex-col gap-2 mb-3">
         {question.options.map(option => {
           const isSelected = selectedId === option.id;
           const optionData = question.options.find(o => o.id === option.id);
@@ -179,7 +179,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                   option.id
                 )}
               </span>
-              <span className="text-sm md:text-base">{option.text}</span>
+              <span className="text-sm">{option.text}</span>
             </button>
           );
         })}
@@ -188,7 +188,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
       {/* Feedback / Explicación (post-respuesta) */}
       {state !== 'IDLE' && (
         <div
-          className={`rounded-xl p-4 mb-5 border-l-4 animate-[fade-in_0.4s_ease-out] ${
+          className={`rounded-lg p-3 mb-3 border-l-4 animate-[fade-in_0.4s_ease-out] ${
             state === 'CORRECT'
               ? 'bg-emerald-500/10 border-emerald-500'
               : 'bg-rose-500/10 border-rose-500'
@@ -209,7 +209,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
       {state !== 'IDLE' && (
         <button
           onClick={handleNext}
-          className="w-full flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-cyan-900/40"
+          className="w-full flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 rounded-lg transition-all duration-300 shadow-lg shadow-cyan-900/40"
         >
           Siguiente Pregunta
           <ChevronRight className="w-5 h-5" />
