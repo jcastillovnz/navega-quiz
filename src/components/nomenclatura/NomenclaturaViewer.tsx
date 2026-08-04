@@ -220,6 +220,11 @@ export const NomenclaturaViewer: React.FC = () => {
 
               {/* Foque (vela entre proa y mástil) */}
               <polygon points="100,22 175,60 100,60" fill="url(#sailGrad)" opacity="0.8" stroke="#94a3b8" strokeWidth="0.5" />
+
+              {/* Etiqueta "PROA" sobre la proa (en el SVG) */}
+              <text x="180" y="55" fontSize="6" fill="#fbbf24" fontWeight="bold" textAnchor="middle" opacity="0.9">PROA</text>
+              {/* Etiqueta "POPA" sobre la popa */}
+              <text x="40" y="55" fontSize="6" fill="#fbbf24" fontWeight="bold" textAnchor="middle" opacity="0.9">POPA</text>
             </svg>
 
             {/* Etiquetas fijas: "Babor" (abajo) y "Estribor" (arriba) - referencia constante */}
