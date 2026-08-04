@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `9 / 25 Tareas completadas (36%)`
+- **Progreso Global**: `10 / 25 Tareas completadas (40%)`
 - **Estado Actual**: 🔴 **Listo para Iniciar**
-- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 10**
+- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 11**
 
 ---
 
@@ -107,7 +107,7 @@ Leyenda de Estados:
 
 ### 🚨 FASE 3: Módulo 1 (Legislación, RIPA & IALA) (Tareas 09 - 13)
 - `[COMPLETADO]` ✅ **Tarea 09**: Visor RIPA (`RipaLightViewer.tsx`).
-- `[PENDIENTE]` ⏳ **Tarea 10**: Visor IALA (`IalaBuoyViewer.tsx`).
+- `[COMPLETADO]` ✅ **Tarea 10**: Visor IALA (`IalaBuoyViewer.tsx`).
 - `[PENDIENTE]` ⏳ **Tarea 11**: Simulador cruces (`RipaCrossingSimulator.tsx`).
 - `[PENDIENTE]` ⏳ **Tarea 12**: `QuizCard.tsx` (Componente de quiz con animaciones de éxito/error, ganancia de XP y sonidos UI).
 - `[PENDIENTE]` ⏳ **Tarea 13**: `ModuloRipaIalaView.tsx`.
