@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Layout } from './components/layout/Layout';
-import { DashboardView, ModuleId } from './components/dashboard/DashboardView';
+import { DashboardView } from './components/dashboard/DashboardView';
+import type { ModuleId } from './components/dashboard/DashboardView';
 import { ModuloRipaIalaView } from './components/modules/ModuloRipaIalaView';
 import { ModuloTeoricoView } from './components/modules/ModuloTeoricoView';
 import { SeguridadViewer } from './components/seguridad/SeguridadViewer';

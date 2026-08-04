@@ -87,9 +87,6 @@ export const SeguridadViewer: React.FC = () => {
     return (depth * anchorRatio).toFixed(1);
   }, [depth, anchorRatio]);
 
-  const lineMax = 50;
-  const linePercent = Math.min(100, (parseFloat(lineLength) / lineMax) * 100);
-
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
       {/* Sub-Tabs de Seguridad */}

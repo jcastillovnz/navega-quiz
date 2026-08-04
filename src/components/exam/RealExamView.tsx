@@ -52,7 +52,11 @@ const playTone = (type: 'success' | 'error') => {
   }
 };
 
-export const RealExamView: React.FC = () => {
+interface RealExamViewProps {
+  onFinish?: () => void;
+}
+
+export const RealExamView: React.FC<RealExamViewProps> = ({ onFinish }) => {
   const [exam, setExam] = useState<GeneratedExam | null>(null);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -158,7 +162,8 @@ export const RealExamView: React.FC = () => {
     const earned = r.score + (r.passed ? 50 : 0);
     addXP(earned);
     registerStudy();
-  }, [exam, answers]);
+    onFinish?.();
+  }, [exam, answers, onFinish]);
 
   const currentQ: ExamQuestion | undefined = exam?.questions[currentIdx];
   const answeredCount = useMemo(() => Object.keys(answers).length, [answers]);
