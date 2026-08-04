@@ -6,13 +6,58 @@ import floodingResponse from '../../assets/safety_flooding_response_illustrated-
 import manOverboard from '../../assets/safety_man_overboard_illustrated-v2.png';
 import heavyWeather from '../../assets/safety_heavy_weather_illustrated-v2.png';
 import distressSignals from '../../assets/safety_distress_signals_illustrated-v2.png';
+import fireClassA from '../../assets/safety_fire_class_a_illustrated-v2.png';
+import fireLiquid from '../../assets/safety_fire_liquid_illustrated-v2.png';
+import fireGas from '../../assets/safety_fire_gas_illustrated-v2.png';
+import fireCookingOil from '../../assets/safety_fire_cooking_oil_illustrated-v2.png';
+import fireMetal from '../../assets/safety_fire_metal_illustrated-v2.png';
 import type { QuizQuestion } from '../../types/quiz';
 import type { VisualFamily } from '../../data/visualManifest';
 
 type Props={question:QuizQuestion;family?:VisualFamily};
 const kindFrom=(q:QuizQuestion,f?:VisualFamily)=>{const t=`${q.question} ${q.explanation}`.toLowerCase(); if(q.id==='seg_1')return'lifejackets'; if(/vhf|mayday|canal 16|radio/.test(t))return'radio'; if(/bengala|humo naranja|señal/.test(t))return'flare'; if(f==='SAFETY_FIRE'||/fuego|incendio|matafuego|extintor|combusti/.test(t))return'fire'; if(f==='SAFETY_ANCHOR'||/ancla|fonde|cadena|orinque|garrear/.test(t))return'anchor'; if(f==='SAFETY_HAA'||/hombre al agua|náufrago/.test(t))return'rescue'; if(f==='SAFETY_STORM'||/temporal|costa a sotavento|capear|ancla de capa/.test(t))return'storm'; if(f==='SAFETY_DAMAGE'||/vía de agua|abordaje|varad|timón|remolque|abandono/.test(t))return'damage'; if(/motor|bujía|prensaestopa|ánodo|rayo/.test(t))return'mechanical'; return'document';};
 
-const rasterPlate = (question: QuizQuestion): { src: string; alt: string; focus: string } | null => {
+type RasterPlate = { src: string; alt: string; focus: string; detail?: 'AGENTS' };
+
+const rasterPlate = (question: QuizQuestion): RasterPlate | null => {
+  if (['seg_7', 'seg_fire_1'].includes(question.id)) {
+    return {
+      src: fireClassA,
+      alt: 'Fuego controlado de madera, papel y tela dentro de una bandeja de entrenamiento en la cubierta de un velero',
+      focus: question.id === 'seg_7'
+        ? 'Relacioná el combustible sólido con los distintos modos de descarga disponibles.'
+        : 'Identificá qué tienen en común la madera, el papel y la tela antes de clasificar el incendio.',
+      detail: question.id === 'seg_7' ? 'AGENTS' : undefined
+    };
+  }
+  if (question.id === 'seg_fire_2') {
+    return {
+      src: fireLiquid,
+      alt: 'Líquido combustible ardiendo en una bandeja y demostración separada de cómo un chorro de agua dispersa líquido',
+      focus: 'Compará la superficie líquida en llamas con el efecto de dispersión producido por el chorro.'
+    };
+  }
+  if (question.id === 'seg_fire_3') {
+    return {
+      src: fireGas,
+      alt: 'Fuga encendida en la instalación de GLP de un velero mientras se cierra la válvula del cilindro',
+      focus: 'Seguí la instalación desde el cilindro hasta la fuga y observá qué acción elimina el suministro.'
+    };
+  }
+  if (question.id === 'seg_fire_5') {
+    return {
+      src: fireMetal,
+      alt: 'Virutas de metal combustible ardiendo y siendo cubiertas con polvo especial dentro de una bandeja',
+      focus: 'Observá el combustible metálico, el polvo aplicado suavemente y los agentes mantenidos aislados.'
+    };
+  }
+  if (question.id === 'seg_fire_7') {
+    return {
+      src: fireCookingOil,
+      alt: 'Aceite de cocina ardiendo en una sartén de la cocina de un velero con agente húmedo preparado',
+      focus: 'Identificá el aceite caliente, la tapa disponible y el tipo de aplicación preparada a distancia segura.'
+    };
+  }
   if (['seg_3', 'seg_4', 'seg_18', 'seg_24', 'seg_catenary_1'].includes(question.id)) {
     const focus = question.id === 'seg_24'
       ? 'Seguí la línea auxiliar desde la boya hasta la parte posterior del ancla.'
@@ -74,6 +119,13 @@ const rasterPlate = (question: QuizQuestion): { src: string; alt: string; focus:
 const DetailedRasterPlate: React.FC<{ plate: NonNullable<ReturnType<typeof rasterPlate>> }> = ({ plate }) => (
   <figure className="relative h-full overflow-hidden bg-slate-950">
     <img src={plate.src} alt={plate.alt} className="h-full w-full object-contain" />
+    {plate.detail === 'AGENTS' && (
+      <div className="absolute right-2 top-2 grid w-28 grid-cols-3 gap-1 rounded-xl border border-white/25 bg-slate-950/90 p-2 shadow-2xl sm:w-44" aria-label="Comparación visual de agentes extintores aptos para sólidos">
+        <div className="grid place-items-center rounded-lg bg-cyan-950/80 p-1"><span className="h-8 w-2 rounded-full bg-gradient-to-b from-cyan-100 to-cyan-500 sm:h-12"/><span className="mt-1 text-[7px] text-cyan-100">niebla</span></div>
+        <div className="grid place-items-center rounded-lg bg-slate-800 p-1"><span className="h-8 w-5 rounded-b-full bg-gradient-to-b from-white to-slate-300 sm:h-12"/><span className="mt-1 text-[7px] text-slate-100">espuma</span></div>
+        <div className="grid place-items-center rounded-lg bg-amber-950/70 p-1"><span className="h-8 w-7 rounded-full bg-[radial-gradient(circle,#fde68a_1px,transparent_1px)] bg-[length:4px_4px] sm:h-12"/><span className="mt-1 text-[7px] text-amber-100">polvo</span></div>
+      </div>
+    )}
     <figcaption className="absolute inset-x-2 bottom-2 rounded-lg border border-cyan-300/25 bg-slate-950/88 px-2.5 py-1.5 shadow-xl backdrop-blur-sm">
       <p className="text-[9px] sm:text-[11px] leading-snug text-slate-100"><strong className="text-cyan-200">Pista de observación:</strong> {plate.focus}</p>
     </figcaption>
