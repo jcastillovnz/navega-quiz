@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { BookOpen, BrainCircuit, Trophy, RotateCcw } from 'lucide-react';
+import { BookOpen, BrainCircuit, Trophy, RotateCcw, Lightbulb } from 'lucide-react';
 import { QuizCard } from '../quiz/QuizCard';
 import { addXP, addManyToReview, registerStudy } from '../../utils/storage';
 import teoriaData from '../../data/teoria.json';

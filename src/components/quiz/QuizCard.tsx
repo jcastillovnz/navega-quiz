@@ -138,6 +138,23 @@ export const QuizCard: React.FC<QuizCardProps> = ({
         />
       </div>
 
+      {/* Concepto Teórico (antes de la pregunta) */}
+      {question.concept && (
+        <div className="bg-gradient-to-br from-cyan-500/15 to-blue-500/10 border border-cyan-500/30 rounded-xl p-3 mb-3 shadow-lg">
+          <p className="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1.5">
+            💡 Concepto Clave
+          </p>
+          <h4 className="text-sm font-semibold text-cyan-50 mb-2">
+            {question.concept}
+          </h4>
+          {question.theory && (
+            <p className="text-xs text-slate-200 leading-relaxed">
+              {question.theory}
+            </p>
+          )}
+        </div>
+      )}
+
       {/* Tarjeta de Pregunta */}
       <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-xl p-3 mb-3 shadow-2xl">
         <h3 className="text-sm md:text-base font-semibold text-slate-50 leading-snug">

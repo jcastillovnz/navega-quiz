@@ -24,9 +24,11 @@ export interface QuizOption {
 export interface QuizQuestion {
   id: string;
   category: QuizCategory;
+  concept: string; // Concepto teórico clave
+  theory: string; // Explicación breve del concepto (antes de la pregunta)
   question: string;
   options: QuizOption[];
-  explanation: string; // Explicación que se muestra al usuario después de responder
+  explanation: string; // Explicación detallada después de responder
   imageUrl?: string; // URL opcional si la pregunta depende de un diagrama o imagen
 }
 
