@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import { Clock, CheckCircle2, ChevronRight, Trophy, AlertTriangle, RotateCcw } from 'lucide-react';
+import { Clock, Trophy, AlertTriangle, RotateCcw } from 'lucide-react';
 import { generateExam, gradeExam, type GeneratedExam, type ExamQuestion } from '../../utils/examGenerator';
 import { saveExamResult, addManyToReview, addXP, registerStudy } from '../../utils/storage';
 import type { QuizCategory, ExamResult } from '../../types/quiz';
+import { ExamFeedbackCard } from './ExamFeedbackCard';
 
 const CATEGORY_LABELS: Record<QuizCategory, string> = {
   RIPA: 'RIPA',
@@ -20,6 +21,37 @@ const formatTime = (seconds: number): string => {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 };
 
+/** Tono corto con Web Audio API */
+const playTone = (type: 'success' | 'error') => {
+  try {
+    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    if (type === 'success') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(659.25, ctx.currentTime);
+      osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.4);
+    } else {
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(120, ctx.currentTime);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.3);
+    }
+  } catch {
+    // Silenciar si el navegador bloquea autoplay
+  }
+};
+
 export const RealExamView: React.FC = () => {
   const [exam, setExam] = useState<GeneratedExam | null>(null);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -28,6 +60,13 @@ export const RealExamView: React.FC = () => {
   const [finished, setFinished] = useState(false);
   const [report, setReport] = useState<ReturnType<typeof gradeExam> | null>(null);
   const startRef = useRef<number>(0);
+
+  // === NUEVO: Estado de feedback post-respuesta ===
+  // currentAnswer: opción que el usuario acaba de elegir (null si no respondió)
+  // isExplaining: true después de responder, muestra el ExamFeedbackCard
+  // answeredCount se deriva de `answers` (que se actualiza al responder)
+  const [currentAnswer, setCurrentAnswer] = useState<string | null>(null);
+  const [isExplaining, setIsExplaining] = useState(false);
 
   // Inicializar examen
   const startExam = useCallback(() => {
@@ -38,6 +77,8 @@ export const RealExamView: React.FC = () => {
     setTimeLeft(e.config.durationMinutes * 60);
     setFinished(false);
     setReport(null);
+    setCurrentAnswer(null);
+    setIsExplaining(false);
     startRef.current = Date.now();
   }, []);
 
@@ -57,8 +98,31 @@ export const RealExamView: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exam, finished, timeLeft <= 0]);
 
+  /**
+   * Al seleccionar una opción: graba la respuesta, activa el feedback,
+   * y reproduce el sonido correspondiente. NO avanza a la siguiente
+   * (eso lo hace handleNext después de ver la explicación).
+   */
   const handleSelect = (qid: string, oid: string) => {
+    if (isExplaining) return; // Bloqueado durante feedback
     setAnswers(prev => ({ ...prev, [qid]: oid }));
+    setCurrentAnswer(oid);
+    setIsExplaining(true);
+    // Sonido
+    const option = exam?.questions.find(q => q.id === qid)?.options.find(o => o.id === oid);
+    if (option) {
+      playTone(option.isCorrect ? 'success' : 'error');
+    }
+  };
+
+  /**
+   * Avanza a la siguiente pregunta después de leer la explicación.
+   * Resetea los flags de feedback.
+   */
+  const handleNext = () => {
+    setCurrentAnswer(null);
+    setIsExplaining(false);
+    setCurrentIdx(i => i + 1);
   };
 
   const handleFinish = useCallback(() => {
@@ -300,73 +364,107 @@ export const RealExamView: React.FC = () => {
         />
       </div>
 
-      {/* Pregunta (sin feedback inmediato) */}
-      <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-lg p-3 shrink-0">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-[9px] uppercase tracking-wider text-slate-400">
-            {CATEGORY_LABELS[currentQ.category]} • {currentQ.type === 'THEORETICAL' ? 'Teórica' : 'Práctica'}
-          </span>
-        </div>
-        <h3 className="text-sm md:text-base font-semibold text-slate-50 leading-snug">
-          {currentQ.question}
-        </h3>
-      </div>
-
-      {/* Opciones (sin colores de feedback) */}
-      <div className="flex flex-col gap-1.5 flex-1 min-h-0">
-        {currentQ.options.map(option => {
-          const isSelected = answers[currentQ.id] === option.id;
-          return (
-            <button
-              key={option.id}
-              onClick={() => handleSelect(currentQ.id, option.id)}
-              className={`w-full text-left p-2 rounded-lg border-2 transition-all duration-200 flex items-start gap-2 ${
-                isSelected
-                  ? 'bg-cyan-500/15 border-cyan-500 text-cyan-50'
-                  : 'bg-slate-800/50 border-slate-700 hover:border-slate-500 text-slate-200'
-              }`}
-            >
-              <span
-                className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 ${
-                  isSelected ? 'bg-cyan-500 text-slate-950 border-cyan-500' : 'border-slate-600 text-slate-400'
-                }`}
-              >
-                {option.id}
+      {/* === ZONA DE PREGUNTA / FEEDBACK === */}
+      {!isExplaining ? (
+        <>
+          {/* Pregunta */}
+          <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-lg p-3 shrink-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-[9px] uppercase tracking-wider text-slate-400">
+                {CATEGORY_LABELS[currentQ.category]} • {currentQ.type === 'THEORETICAL' ? 'Teórica' : 'Práctica'}
               </span>
-              <span className="text-sm">{option.text}</span>
+            </div>
+            <h3 className="text-sm md:text-base font-semibold text-slate-50 leading-snug">
+              {currentQ.question}
+            </h3>
+          </div>
+
+          {/* Opciones (sin feedback) */}
+          <div className="flex flex-col gap-1.5 flex-1 min-h-0">
+            {currentQ.options.map(option => (
+              <button
+                key={option.id}
+                onClick={() => handleSelect(currentQ.id, option.id)}
+                className="w-full text-left p-2 rounded-lg border-2 border-slate-700 bg-slate-800/50 hover:border-cyan-500 hover:bg-slate-800 text-slate-200 transition-all duration-200 flex items-start gap-2"
+              >
+                <span className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-slate-600 text-slate-400">
+                  {option.id}
+                </span>
+                <span className="text-sm">{option.text}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Navegación (antes de responder) */}
+          <div className="flex gap-2 shrink-0">
+            <button
+              onClick={() => setCurrentIdx(i => Math.max(0, i - 1))}
+              disabled={currentIdx === 0}
+              className="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
+            >
+              ← Anterior
             </button>
-          );
-        })}
-      </div>
+            <span className="flex-1 flex items-center justify-center gap-1.5 bg-slate-800/50 border border-slate-700 border-dashed text-slate-500 font-medium py-2 rounded-lg text-xs italic">
+              Selecciona una opción para ver la explicación
+            </span>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Pregunta (reducida, como referencia) */}
+          <div className="bg-slate-900/50 border border-slate-700/50 rounded-lg p-2.5 shrink-0">
+            <p className="text-[9px] uppercase tracking-wider text-slate-500 mb-0.5">
+              {CATEGORY_LABELS[currentQ.category]} • Pregunta {currentIdx + 1}/{total}
+            </p>
+            <p className="text-xs text-slate-300 leading-snug line-clamp-2">
+              {currentQ.question}
+            </p>
+          </div>
 
-      {/* Navegación */}
-      <div className="flex gap-2 shrink-0">
-        <button
-          onClick={() => setCurrentIdx(i => Math.max(0, i - 1))}
-          disabled={currentIdx === 0}
-          className="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
-        >
-          ← Anterior
-        </button>
+          {/* FEEDBACK: explicación detallada antes de avanzar */}
+          <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden custom-scroll">
+            {(() => {
+              const selectedOption = currentQ.options.find(o => o.id === currentAnswer);
+              const correctOption = currentQ.options.find(o => o.isCorrect);
+              const isCorrect = selectedOption?.isCorrect ?? false;
 
-        {currentIdx < total - 1 ? (
-          <button
-            onClick={() => setCurrentIdx(i => i + 1)}
-            className="flex-1 flex items-center justify-center gap-1.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 rounded-lg transition-all shadow-lg shadow-cyan-900/40 text-sm"
-          >
-            Siguiente
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        ) : (
-          <button
-            onClick={handleFinish}
-            className="flex-1 flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 rounded-lg transition-all shadow-lg shadow-amber-900/40 text-sm"
-          >
-            <CheckCircle2 className="w-4 h-4" />
-            Finalizar Examen
-          </button>
-        )}
-      </div>
+              // Extraer regla oficial y tip de la explicación (formato: "REGLA: ... | TIP: ...")
+              let rule: string | undefined;
+              let tip: string | undefined;
+              let explanation = currentQ.explanation;
+              const ruleMatch = explanation.match(/\[REGLA:\s*([^\]]+)\]/);
+              const tipMatch = explanation.match(/\[TIP:\s*([^\]]+)\]/);
+              if (ruleMatch) {
+                rule = ruleMatch[1].trim();
+                explanation = explanation.replace(ruleMatch[0], '').trim();
+              }
+              if (tipMatch) {
+                tip = tipMatch[1].trim();
+                explanation = explanation.replace(tipMatch[0], '').trim();
+              }
+
+              return (
+                <ExamFeedbackCard
+                  isCorrect={isCorrect}
+                  questionText={currentQ.question}
+                  category={CATEGORY_LABELS[currentQ.category]}
+                  userAnswer={currentAnswer ?? ''}
+                  correctAnswer={correctOption?.id ?? ''}
+                  userAnswerText={selectedOption?.text ?? ''}
+                  correctAnswerText={correctOption?.text ?? ''}
+                  explanation={explanation}
+                  rule={rule}
+                  tip={tip}
+                  questionNumber={currentIdx + 1}
+                  totalQuestions={total}
+                  onNext={handleNext}
+                  isLast={currentIdx >= total - 1}
+                />
+              );
+            })()}
+          </div>
+        </>
+      )}
 
       {/* Mini-mapa de preguntas - horizontal, sin overflow vertical */}
       <div className="bg-slate-800/40 border border-slate-700 rounded-lg p-1.5 shrink-0 overflow-hidden">

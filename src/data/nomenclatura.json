@@ -33,7 +33,7 @@
       { "id": "C", "text": "Una vela", "isCorrect": false },
       { "id": "D", "text": "El timón", "isCorrect": false }
     ],
-    "explanation": "La roda es la pieza estructural que prolonga la quilla rematando el casco por la proa. Es la parte que CORTA el agua mientras el buque avanza. También llamada tajamar."
+    "explanation": "La roda es la pieza estructural que prolonga la quilla rematando el casco por la proa. Es la parte que CORTA el agua mientras el buque avanza. También llamada tajamar. [REGLA: Apunte 'La Barca Náutica' - Cap. 2: Casco y Estructura] [TIP: 'Roda' viene del francés 'roue' (rueda), porque la proa es curva como una rueda]"
   },
   {
     "id": "nom_4",
@@ -81,7 +81,7 @@
       { "id": "C", "text": "La longitud del casco", "isCorrect": false },
       { "id": "D", "text": "La distancia hasta la cubierta", "isCorrect": false }
     ],
-    "explanation": "El calado es la distancia vertical desde la línea de flotación hasta la parte más baja de la quilla. NO se cuentan el timón, la orza ni las colas de motores. Indica cuánto se 'hunde' el barco."
+    "explanation": "El calado es la distancia vertical desde la línea de flotación hasta la parte más baja de la quilla. NO se cuentan el timón, la orza ni las colas de motores. Indica cuánto se 'hunde' el barco. [REGLA: Apunte 'La Barca Náutica' - Cap. 3: Dimensiones del Barco] [TIP: Hay calado a proa, a popa y al medio. El asiento es la diferencia entre calado de popa y proa.]"
   },
   {
     "id": "nom_8",

@@ -28,12 +28,12 @@
     "category": "RIPA",
     "question": "Dos buques de propulsión mecánica navegan de vuelta encontrada (rumbo opuesto) con riesgo de abordaje (Regla 14). ¿Qué maniobra deben realizar?",
     "options": [
-      { "id": "A", "text": "Ambos deben caer a babor.", "isCorrect": false },
-      { "id": "B", "text": "Ambos deben caer a estribor.", "isCorrect": true },
-      { "id": "C", "text": "El de menor tamaño debe apartarse.", "isCorrect": false },
-      { "id": "D", "text": "El que navega más rápido debe apartarse.", "isCorrect": false }
+      { "id": "A", "text": "Ambos deben caer a babor", "isCorrect": false },
+      { "id": "B", "text": "Ambos deben caer a estribor", "isCorrect": true },
+      { "id": "C", "text": "El de menor tamaño debe apartarse", "isCorrect": false },
+      { "id": "D", "text": "El que navega más rápido debe apartarse", "isCorrect": false }
     ],
-    "explanation": "Regla 14: Cuando dos buques de propulsión mecánica naveguen de vuelta encontrada, cada uno caerá a estribor para pasar por babor del otro."
+    "explanation": "Regla 14: Cuando dos buques de propulsión mecánica naveguen de vuelta encontrada, cada uno caerá a estribor para pasar por babor del otro. [REGLA: RIPA - Regla 14 (Vuelta encontrada)] [TIP: 'Vuelta encontrada' = se ven de frente, rumbos opuestos. 'A estribor' significa caer a la DERECHA del propio barco.]"
   },
   {
     "id": "ripa_4",

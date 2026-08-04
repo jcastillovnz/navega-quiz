@@ -57,7 +57,7 @@
       { "id": "C", "text": "Debe haber uno por tripulante a bordo, y debe llevarse puesto en situaciones climáticas adversas o maniobras de riesgo.", "isCorrect": true },
       { "id": "D", "text": "Solo el timonel.", "isCorrect": false }
     ],
-    "explanation": "Es obligatorio contar con un chaleco aprobado por persona a bordo. PNA exige su uso en situaciones de mal tiempo, navegación nocturna, cruce de barras, o si el timonel lo ordena."
+    "explanation": "Es obligatorio contar con un chaleco aprobado por persona a bordo. PNA exige su uso en situaciones de mal tiempo, navegación nocturna, cruce de barras, o si el timonel lo ordena. [REGLA: Ordenanza 8/98 PNA - Elementos de seguridad obligatorios] [TIP: El chaleco debe tener silbato, luz y cinta reflectante. En niños, debe ser del tamaño adecuado.]"
   },
   {
     "id": "seg_2",
