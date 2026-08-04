@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `13 / 25 Tareas completadas (52%)`
-- **Estado Actual**: 🟢 **FASE 3 Completa**
-- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 14**
+- **Progreso Global**: `25 / 25 Tareas completadas (100%)`
+- **Estado Actual**: 🏁 **PROYECTO COMPLETO**
+- **Estado**: ✅ Listo para deploy en GitHub Pages
 
 ---
 
@@ -113,21 +113,20 @@ Leyenda de Estados:
 - `[COMPLETADO]` ✅ **Tarea 13**: `ModuloRipaIalaView.tsx` — Orquestador con tabs Estudio/Práctica, sub-tabs visuales, quiz gamificado, pantalla de resultados con XP, precisión y medalla.
 
 ### 🛡️ FASE 4: Módulos 2, 3 y 4 (Seguridad, Nomenclatura, Clima) (Tareas 14 - 17)
-- `[PENDIENTE]` ⏳ **Tarea 14**: `NomenclaturaViewer.tsx`.
-- `[PENDIENTE]` ⏳ **Tarea 15**: `SeguridadViewer.tsx`.
-- `[PENDIENTE]` ⏳ **Tarea 16**: `MeteorologiaViewer.tsx`.
-- `[PENDIENTE]` ⏳ **Tarea 17**: Ensamblar Vistas Teóricas.
+- `[COMPLETADO]` ✅ **Tarea 14**: `NomenclaturaViewer.tsx` — SVG interactivo del casco con 11 hotspots (proa/popa/babor/estribor/eslora/manga/calado/obra viva/muerta/francobordo/quilla) + árbol de Jarcia Fija vs Móvil con 11 cabos.
+- `[COMPLETADO]` ✅ **Tarea 15**: `SeguridadViewer.tsx` — Inventario PNA con score de seguridad (8 ítems), stepper animado de HAA (6 pasos) y calculadora de fondeo con visualización de línea.
+- `[COMPLETADO]` ✅ **Tarea 16**: `MeteorologiaViewer.tsx` — Escala Beaufort 0-12 con slider, animaciones de oleaje dinámicas (calm/moderate/strong/extreme), relámpagos en F10+, lluvia en F7+, Pampero y Sudestada con tarjetas explicativas.
+- `[COMPLETADO]` ✅ **Tarea 17**: `ModuloTeoricoView.tsx` — Orquestador genérico reutilizable con tabs Estudio/Práctica, QuizCard integrado y pantalla de resultados. Ensamblado en `App.tsx` con los 3 módulos teóricos.
 
 ### 📐 FASE 5: Módulo 5 (Ejercicios Prácticos de Navegación) (Tareas 18 - 20)
-- `[PENDIENTE]` ⏳ **Tarea 18**: `DeclinationCalculator.tsx`.
-- `[PENDIENTE]` ⏳ **Tarea 19**: `TideCalculator.tsx`.
-- `[PENDIENTE]` ⏳ **Tarea 20**: `BearingsSimulator.tsx`.
+- `[COMPLETADO]` ✅ **Tarea 18**: `DeclinationCalculator.tsx` — Calculadora interactiva de Declinación Magnética con presets, resolución paso a paso y regla mnemotécnica "Igual suma, distinto resta".
+- `[COMPLETADO]` ✅ **Tarea 19**: `TideCalculator.tsx` — Editor de tabla de mareas (hasta 6 puntos), predicción de altura por interpolación, dirección de marea y veredicto de cruce crítico.
+- `[COMPLETADO]` ✅ **Tarea 20**: `BearingsSimulator.tsx` — Rosa de los vientos interactiva con líneas de marcación, sliders de bearing y visualización del FIX por intersección.
 
 ### ⏱️ FASE 6: Simulador de Examen Real PNA (Integral) (Tareas 21 - 23)
-- `[PENDIENTE]` ⏳ **Tarea 21**: `examGenerator.ts` (Generador de examen de 40 preguntas combinadas seleccionadas de un banco general de ~200 preguntas).
-- `[PENDIENTE]` ⏳ **Tarea 22**: `RealExamView.tsx`.
-- `[PENDIENTE]` ⏳ **Tarea 23**: `ExamReport.tsx` (Radar chart, otorgamiento de Insignias y ruteo de fallos al algoritmo de Repaso Espaciado).
+- `[COMPLETADO]` ✅ **Tarea 21**: `examGenerator.ts` — Generador de examen 40 puntos (35 teóricas + 5 prácticas) con distractores numéricos plausibles y muestreo aleatorio ponderado.
+- `[COMPLETADO]` ✅ **Tarea 22+23**: `RealExamView.tsx` — Modo examen sin feedback inmediato, cronómetro regresivo 60min con alerta a <5min, mini-mapa de preguntas navegable, persistencia de resultados y `ExamReport` con RadarChart SVG por módulo, Medalla de Timonel y ruteo de fallos a SpacedRepetition.
 
 ### 📱 FASE 7: Persistencia Gamificada y PWA (Tareas 24 - 25)
-- `[PENDIENTE]` ⏳ **Tarea 24**: `storage.ts` (Persistencia de XP, Rachas Diarias y algoritmos de Repaso en `localStorage`).
-- `[PENDIENTE]` ⏳ **Tarea 25**: Setup final de PWA y Build para GitHub Pages.
+- `[COMPLETADO]` ✅ **Tarea 24**: `storage.ts` — Persistencia completa en `localStorage`: XP, Rangos (Grumete/Marinero/Contramaestre/Timonel), Rachas Diarias con auto-update, algoritmo SM-2 de Repetición Espaciada, Badges por rank y racha, guardado de Examenes. Integrada en Navbar, ModuloRipaIalaView, ModuloTeoricoView y RealExamView.
+- `[COMPLETADO]` ✅ **Tarea 25**: PWA setup completo — `manifest.json`, `sw.js` con estrategia cache-first/network-first, favicon SVG náutico, meta-tags PWA en `index.html`, registro automático del SW. Build final: 333KB JS / 95KB gzipped, lint limpio.

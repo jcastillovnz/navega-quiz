@@ -1,0 +1,21 @@
+{
+  "name": "NavegaQuiz - Timonel de Yate",
+  "short_name": "NavegaQuiz",
+  "description": "Preparación para el examen oficial de Timonel de Yate Vela y Motor. Aprende RIPA, IALA, nomenclatura, meteorología, seguridad y más.",
+  "start_url": "/navega-quiz/",
+  "scope": "/navega-quiz/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#020617",
+  "theme_color": "#22d3ee",
+  "lang": "es-AR",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/navega-quiz/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

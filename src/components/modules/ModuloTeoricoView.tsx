@@ -1,47 +1,48 @@
 import React, { useMemo, useState } from 'react';
-import { BookOpen, BrainCircuit, Trophy, RotateCcw, Lightbulb, Layers, Ship } from 'lucide-react';
-import { RipaLightViewer } from '../ripa/RipaLightViewer';
-import { RipaCrossingSimulator } from '../ripa/RipaCrossingSimulator';
-import { IalaBuoyViewer } from '../iala/IalaBuoyViewer';
+import { BookOpen, BrainCircuit, Trophy, RotateCcw } from 'lucide-react';
 import { QuizCard } from '../quiz/QuizCard';
 import { addXP, addManyToReview, registerStudy } from '../../utils/storage';
-import ripaIalaData from '../../data/ripa_iala.json';
-import type { QuizQuestion } from '../../types/quiz';
+import teoriaData from '../../data/teoria.json';
+import type { QuizQuestion, QuizCategory } from '../../types/quiz';
 
-type TabId = 'ESTUDIO' | 'QUIZ';
-type SubTabId = 'LUCES' | 'CRUCES' | 'IALA';
-
-interface ModuleResult {
-  correct: number;
-  total: number;
-  xpEarned: number;
-  incorrectIds: string[];
+interface ModuleConfig {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: QuizCategory;
+  badge: string;
+  badgeColor: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
+
+export type { ModuleConfig };
 
 const XP_PER_CORRECT = 10;
 const PASS_THRESHOLD = 0.7;
 
-export const ModuloRipaIalaView: React.FC = () => {
-  const [tab, setTab] = useState<TabId>('ESTUDIO');
-  const [subTab, setSubTab] = useState<SubTabId>('LUCES');
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [result, setResult] = useState<ModuleResult | null>(null);
+export interface ModuloTeoricoViewProps {
+  config: ModuleConfig;
+  viewer: React.ReactNode;
+}
 
-  // Mezclar preguntas al inicio (memoizado) - solo categorías RIPA e IALA
+export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, viewer }) => {
+  const [tab, setTab] = useState<'ESTUDIO' | 'QUIZ'>('ESTUDIO');
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [result, setResult] = useState<{ correct: number; total: number; xpEarned: number } | null>(null);
+
+  // Filtrar y mezclar preguntas de la categoría
   const questions = useMemo<QuizQuestion[]>(() => {
-    const arr = [...(ripaIalaData as QuizQuestion[])];
+    const arr = (teoriaData as QuizQuestion[]).filter(q => q.category === config.category);
     return arr.sort(() => Math.random() - 0.5);
-  }, []);
+  }, [config.category]);
 
   const handleAnswer = (isCorrect: boolean, qid: string) => {
     setResult(prev => {
-      const base: ModuleResult = prev ?? { correct: 0, total: 0, xpEarned: 0, incorrectIds: [] };
+      const base = prev ?? { correct: 0, total: 0, xpEarned: 0 };
       return {
-        ...base,
         correct: base.correct + (isCorrect ? 1 : 0),
         total: base.total + 1,
-        xpEarned: base.xpEarned + (isCorrect ? XP_PER_CORRECT : 0),
-        incorrectIds: isCorrect ? base.incorrectIds : [...base.incorrectIds, qid]
+        xpEarned: base.xpEarned + (isCorrect ? XP_PER_CORRECT : 0)
       };
     });
     if (isCorrect) {
@@ -66,24 +67,31 @@ export const ModuloRipaIalaView: React.FC = () => {
   const accuracy = result ? (result.correct / result.total) * 100 : 0;
   const passed = result && result.total === questions.length && accuracy >= PASS_THRESHOLD * 100;
   const finished = result && result.total === questions.length;
+  const Icon = config.icon;
+
+  // Si no hay preguntas, mostrar mensaje
+  if (questions.length === 0) {
+    return (
+      <div className="flex flex-col items-center gap-4 py-8 max-w-2xl mx-auto text-center">
+        <Icon className="w-12 h-12 text-slate-600" />
+        <p className="text-slate-300 text-sm">Aún no hay preguntas cargadas para {config.title}.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto">
-      {/* Header del Módulo */}
+      {/* Header */}
       <div className="text-center">
-        <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-3">
-          <Ship className="w-3.5 h-3.5" />
-          MÓDULO 1
+        <div className={`inline-flex items-center gap-2 ${config.badgeColor} border px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-3`}>
+          <Icon className="w-3.5 h-3.5" />
+          {config.badge}
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-2">
-          Legislación, RIPA & IALA
-        </h2>
-        <p className="text-slate-300 max-w-2xl mx-auto text-sm">
-          Aprende las reglas de paso, las luces de navegación y el sistema de balizamiento. Después, pon a prueba tu conocimiento.
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-2">{config.title}</h2>
+        <p className="text-slate-300 max-w-2xl mx-auto text-sm">{config.subtitle}</p>
       </div>
 
-      {/* Tabs principales: Estudio vs Quiz */}
+      {/* Tabs Estudio / Práctica */}
       <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full">
         <button
           onClick={() => setTab('ESTUDIO')}
@@ -105,40 +113,9 @@ export const ModuloRipaIalaView: React.FC = () => {
         </button>
       </div>
 
-      {/* Contenido según tab */}
+      {/* Contenido */}
       {tab === 'ESTUDIO' && (
-        <div className="flex flex-col gap-6 animate-[fade-in_0.4s_ease-out]">
-          {/* Sub-tabs del contenido teórico */}
-          <div className="flex flex-wrap gap-2 justify-center">
-            {(
-              [
-                { id: 'LUCES', label: 'Luces de Navegación', icon: Lightbulb },
-                { id: 'CRUCES', label: 'Reglas de Cruce', icon: Layers },
-                { id: 'IALA', label: 'Balizamiento IALA', icon: Ship }
-              ] as { id: SubTabId; label: string; icon: React.ComponentType<{ className?: string }> }[]
-            ).map(s => {
-              const Icon = s.icon;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => setSubTab(s.id)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
-                    subTab === s.id
-                      ? 'bg-slate-700 text-white'
-                      : 'bg-slate-800/50 text-slate-400 border border-slate-700 hover:text-slate-200'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {s.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {subTab === 'LUCES' && <RipaLightViewer />}
-          {subTab === 'CRUCES' && <RipaCrossingSimulator />}
-          {subTab === 'IALA' && <IalaBuoyViewer />}
-        </div>
+        <div className="animate-[fade-in_0.4s_ease-out]">{viewer}</div>
       )}
 
       {tab === 'QUIZ' && !finished && (
@@ -154,7 +131,6 @@ export const ModuloRipaIalaView: React.FC = () => {
         </div>
       )}
 
-      {/* Pantalla de Resultados */}
       {tab === 'QUIZ' && finished && result && (
         <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto w-full text-center animate-[fade-in_0.5s_ease-out]">
           {passed ? (
@@ -163,32 +139,25 @@ export const ModuloRipaIalaView: React.FC = () => {
                 <Trophy className="w-10 h-10 text-amber-400" />
               </div>
               <h3 className="text-2xl font-bold text-amber-300 mb-2">¡Módulo Aprobado!</h3>
-              <p className="text-slate-300 text-sm mb-6">
-                Has dominado las Reglas RIPA y el Balizamiento IALA. ¡A seguir navegando!
-              </p>
+              <p className="text-slate-300 text-sm mb-6">Excelente trabajo. Dominas {config.title}.</p>
             </>
           ) : (
             <>
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-cyan-500/20 border-2 border-cyan-500 mb-4">
                 <RotateCcw className="w-10 h-10 text-cyan-400" />
               </div>
-              <h3 className="text-2xl font-bold text-cyan-300 mb-2">Buen intento, marinero</h3>
-              <p className="text-slate-300 text-sm mb-6">
-                Necesitas al menos un 70% para aprobar. Repasa el estudio y vuelve a intentarlo.
-              </p>
+              <h3 className="text-2xl font-bold text-cyan-300 mb-2">Sigue practicando</h3>
+              <p className="text-slate-300 text-sm mb-6">Necesitas al menos un 70% para aprobar. Vuelve a intentarlo.</p>
             </>
           )}
 
-          {/* Stats */}
           <div className="grid grid-cols-3 gap-3 mb-6">
             <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
               <p className="text-2xl font-bold text-cyan-400">{accuracy.toFixed(0)}%</p>
               <p className="text-xs text-slate-400 mt-1">Precisión</p>
             </div>
             <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
-              <p className="text-2xl font-bold text-emerald-400">
-                {result.correct}/{result.total}
-              </p>
+              <p className="text-2xl font-bold text-emerald-400">{result.correct}/{result.total}</p>
               <p className="text-xs text-slate-400 mt-1">Aciertos</p>
             </div>
             <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
@@ -196,12 +165,6 @@ export const ModuloRipaIalaView: React.FC = () => {
               <p className="text-xs text-slate-400 mt-1">XP ganada</p>
             </div>
           </div>
-
-          {result.incorrectIds.length > 0 && (
-            <p className="text-xs text-slate-400 mb-4">
-              {result.incorrectIds.length} pregunta(s) se enviarán a tu Caja de Repaso (Tarea 24).
-            </p>
-          )}
 
           <button
             onClick={handleRestart}
