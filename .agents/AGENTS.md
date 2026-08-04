@@ -39,6 +39,7 @@ El usuario espera una aplicación web de alta calidad.
 - **Colores Principales**: Tonos profundos de azul marino (Dark Navy/Slate `bg-slate-900`), blanco puro, y acentos de color cian (`cyan-500`) o dorado (`amber-500`) para elementos destacados. 
 - **Modo Oscuro (Glassmorphism)**: Prioriza fondos oscuros y marinos con tarjetas semi-transparentes (blur/glassmorphism) cuando el simulador (como el Visor RIPA nocturno) lo requiera.
 - **Micro-interacciones**: Asegúrate de que los botones tengan efectos `hover` atractivos, transiciones suaves y feedback visual al responder una pregunta (verde para éxito, rojo para error, con sutiles sacudidas o pings de Tailwind).
+- **Skill de UI & Gráficos**: Consulta y aplica **estrictamente** las directivas en [.agents/skills/marine-ui-design/SKILL.md](file:///Users/jose-castillo/navega-quiz/.agents/skills/marine-ui-design/SKILL.md) para garantizar una arquitectura **Zero-Scroll (`100dvh`)** sin desplazamiento horizontal/vertical e **ilustraciones vectoriales fotorrealistas** (Sombras 3D, Glow de luces, Anatomía de cabos Chicote/Firme).
 
 ---
 

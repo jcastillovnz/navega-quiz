@@ -1,99 +1,251 @@
-import { useState } from 'react';
-// Importar todos los JSON al inicio para garantizar que se incluyan en el bundle
-// (rolldown/Vite pueden tree-shakear imports no usados en el grafo)
-import ripaIalaData from './data/ripa_iala.json';
-import teoriaData from './data/teoria.json';
-import practicosData from './data/practicos.json';
-import nudosData from './data/nudos.json';
-import nomenclaturaData from './data/nomenclatura.json';
-// Asignar a window para evitar tree-shaking
-if (typeof window !== 'undefined') {
-  Object.assign(window, { __quizData: { ripaIalaData, teoriaData, practicosData, nudosData, nomenclaturaData } });
-}
+import React, { useState } from 'react';
 import { Layout } from './components/layout/Layout';
-import { RipaLightViewer } from './components/ripa/RipaLightViewer';
-import { IalaBuoyViewer } from './components/iala/IalaBuoyViewer';
+import { DashboardView, ModuleId } from './components/dashboard/DashboardView';
+import { ModuloRipaIalaView } from './components/modules/ModuloRipaIalaView';
+import { ModuloTeoricoView } from './components/modules/ModuloTeoricoView';
+import { SeguridadViewer } from './components/seguridad/SeguridadViewer';
+import { NomenclaturaViewer } from './components/nomenclatura/NomenclaturaViewer';
+import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer';
 import { KnotsViewer } from './components/knots/KnotsViewer';
-import { Compass, Ship, Anchor, Award } from 'lucide-react';
+import { RealExamView } from './components/exam/RealExamView';
+import { DeclinationCalculator } from './components/practico/DeclinationCalculator';
+import { TideCalculator } from './components/practico/TideCalculator';
+import { BearingsSimulator } from './components/practico/BearingsSimulator';
+import { 
+  Shield, 
+  Sailboat, 
+  Wind, 
+  Calculator, 
+  Scale, 
+  Cable, 
+  GraduationCap, 
+  Home, 
+  Compass,
+  MapPin,
+  Waves
+} from 'lucide-react';
+import teoriaData from './data/teoria.json';
 
-type ModuleType = 'RIPA' | 'IALA' | 'NUDOS';
+type ActiveView = 'HOME' | ModuleId;
 
 function App() {
-  const [activeModule, setActiveModule] = useState<ModuleType>('RIPA');
+  const [activeView, setActiveView] = useState<ActiveView>('HOME');
+  const [practicoTab, setPracticoTab] = useState<'DECLINACION' | 'MAREAS' | 'MARCACIONES'>('DECLINACION');
 
-  // Muestra de preguntas mock para el quiz de nudos
-  const mockQuestions = [
-    {
-      id: 'k1',
-      category: 'NOMENCLATURA' as const,
-      question: '¿Qué nudo debe usarse para encapillar una gaza a una bita sin que se corra bajo tensión?',
-      options: [
-        { id: 'a', text: 'Nudo Llano', isCorrect: false },
-        { id: 'b', text: 'As de Guía', isCorrect: true },
-        { id: 'c', text: 'Ballestrinque', isCorrect: false },
-        { id: 'd', text: 'Nudo de Ocho', isCorrect: false }
-      ],
-      explanation: 'El As de Guía es el nudo por excelencia para formar gazas fijas que no se azocan bajo carga.'
-    }
-  ];
+  // Preguntas de práctica para Nudos
+  const knotsQuestions = (teoriaData as any[]).filter(q => q.category === 'NOMENCLATURA' || q.category === 'SEGURIDAD');
 
   return (
-    <Layout>
+    <Layout onGoHome={() => setActiveView('HOME')}>
       <div className="h-full flex flex-col gap-2 overflow-hidden">
         
-        {/* Selector de Módulo Principal (Top Navigation Bar) */}
+        {/* Barra Superior de Navegación entre Módulos */}
         <div className="flex items-center justify-between bg-slate-900 border border-slate-800 p-1.5 rounded-2xl shrink-0">
-          <div className="flex items-center gap-2 px-3 py-1">
-            <Compass className="w-5 h-5 text-cyan-400 animate-spin-slow" />
-            <span className="text-xs font-black tracking-wider text-slate-200 uppercase hidden sm:inline-block">
-              Módulos de Estudio
-            </span>
+          <div className="flex items-center gap-2 px-2">
+            {activeView === 'HOME' ? (
+              <div className="flex items-center gap-2">
+                <Compass className="w-5 h-5 text-cyan-400 animate-spin-slow" />
+                <span className="text-xs font-black tracking-wider text-slate-200 uppercase">
+                  Menú Principal de Módulos (7 Módulos PNA)
+                </span>
+              </div>
+            ) : (
+              <button
+                onClick={() => setActiveView('HOME')}
+                className="flex items-center gap-1.5 px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-400 font-bold text-xs rounded-xl border border-slate-700 transition-all cursor-pointer shadow-sm"
+              >
+                <Home className="w-3.5 h-3.5" />
+                <span>Volver al Menú</span>
+              </button>
+            )}
           </div>
 
-          <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800">
+          {/* Selector de Módulos (7 Módulos en Pills Compactas) */}
+          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 overflow-x-auto">
             <button
-              onClick={() => setActiveModule('RIPA')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeModule === 'RIPA'
-                  ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-900/40'
-                  : 'text-slate-400 hover:text-slate-200'
+              onClick={() => setActiveView('RIPA')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'RIPA' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              <Ship className="w-3.5 h-3.5" />
-              RIPA (Luces)
+              <Scale className="w-3.5 h-3.5" />
+              1. RIPA
             </button>
 
             <button
-              onClick={() => setActiveModule('IALA')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeModule === 'IALA'
-                  ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-900/40'
-                  : 'text-slate-400 hover:text-slate-200'
+              onClick={() => setActiveView('SEGURIDAD')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'SEGURIDAD' ? 'bg-rose-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              <Anchor className="w-3.5 h-3.5" />
-              IALA (Boyas)
+              <Shield className="w-3.5 h-3.5" />
+              2. Seguridad
             </button>
 
             <button
-              onClick={() => setActiveModule('NUDOS')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeModule === 'NUDOS'
-                  ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-900/40'
-                  : 'text-slate-400 hover:text-slate-200'
+              onClick={() => setActiveView('NOMENCLATURA')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'NOMENCLATURA' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              <Award className="w-3.5 h-3.5" />
-              Nudos Náuticos
+              <Sailboat className="w-3.5 h-3.5" />
+              3. Nomenclatura
+            </button>
+
+            <button
+              onClick={() => setActiveView('METEOROLOGIA')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'METEOROLOGIA' ? 'bg-sky-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Wind className="w-3.5 h-3.5" />
+              4. Meteo
+            </button>
+
+            <button
+              onClick={() => setActiveView('PRACTICOS')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'PRACTICOS' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Calculator className="w-3.5 h-3.5" />
+              5. Prácticos
+            </button>
+
+            <button
+              onClick={() => setActiveView('NUDOS')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'NUDOS' ? 'bg-pink-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Cable className="w-3.5 h-3.5" />
+              6. Nudos
+            </button>
+
+            <button
+              onClick={() => setActiveView('EXAMEN')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'EXAMEN' ? 'bg-amber-400 text-slate-950 font-black shadow-md' : 'text-amber-400 hover:text-amber-300'
+              }`}
+            >
+              <GraduationCap className="w-3.5 h-3.5" />
+              Examen Real
             </button>
           </div>
         </div>
 
-        {/* Contenido del Módulo Activo (Ocupa 100% de la altura restante) */}
+        {/* CONTENIDO DEL MÓDULO ACTIVO */}
         <div className="flex-1 min-h-0 overflow-hidden py-1">
-          {activeModule === 'RIPA' && <RipaLightViewer />}
-          {activeModule === 'IALA' && <IalaBuoyViewer />}
-          {activeModule === 'NUDOS' && <KnotsViewer questions={mockQuestions} />}
+          
+          {/* HOME: DASHBOARD COMPLETO (7 MÓDULOS) */}
+          {activeView === 'HOME' && (
+            <DashboardView onSelectModule={(id) => setActiveView(id)} />
+          )}
+
+          {/* MÓDULO 1: RIPA & IALA */}
+          {activeView === 'RIPA' && (
+            <ModuloRipaIalaView />
+          )}
+
+          {/* MÓDULO 2: SEGURIDAD & FONDEO */}
+          {activeView === 'SEGURIDAD' && (
+            <ModuloTeoricoView 
+              config={{
+                id: 'SEGURIDAD',
+                title: 'Seguridad Náutica y Fondeo',
+                subtitle: 'Inventario PNA, salvamento, Hombre al Agua (HAA) y maniobras de fondeo.',
+                category: 'SEGURIDAD',
+                badge: 'Módulo 2',
+                badgeColor: 'bg-rose-500',
+                icon: Shield
+              }}
+              viewer={<SeguridadViewer />}
+            />
+          )}
+
+          {/* MÓDULO 3: NOMENCLATURA & ARBOLADURA */}
+          {activeView === 'NOMENCLATURA' && (
+            <ModuloTeoricoView 
+              config={{
+                id: 'NOMENCLATURA',
+                title: 'Nomenclatura y Arboladura',
+                subtitle: 'Anatomía del barco, casco, francobordo, jarcia fija y maniobra de velas.',
+                category: 'NOMENCLATURA',
+                badge: 'Módulo 3',
+                badgeColor: 'bg-amber-500',
+                icon: Sailboat
+              }}
+              viewer={<NomenclaturaViewer />}
+            />
+          )}
+
+          {/* MÓDULO 4: METEOROLOGÍA NÁUTICA */}
+          {activeView === 'METEOROLOGIA' && (
+            <ModuloTeoricoView 
+              config={{
+                id: 'METEOROLOGIA',
+                title: 'Meteorología Náutica',
+                subtitle: 'Escala Beaufort, Pampero, Sudestada y tormentas Cumulonimbus (CB).',
+                category: 'METEOROLOGIA',
+                badge: 'Módulo 4',
+                badgeColor: 'bg-sky-500',
+                icon: Wind
+              }}
+              viewer={<MeteorologiaViewer />}
+            />
+          )}
+
+          {/* MÓDULO 5: EJERCICIOS PRÁCTICOS DE NAVEGACIÓN */}
+          {activeView === 'PRACTICOS' && (
+            <div className="h-full flex flex-col gap-2 overflow-hidden">
+              <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 shrink-0 max-w-md mx-auto w-full">
+                <button
+                  onClick={() => setPracticoTab('DECLINACION')}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    practicoTab === 'DECLINACION' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <Calculator className="w-3.5 h-3.5" />
+                  Declinación (Dm)
+                </button>
+                <button
+                  onClick={() => setPracticoTab('MAREAS')}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    practicoTab === 'MAREAS' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <Waves className="w-3.5 h-3.5" />
+                  Mareas
+                </button>
+                <button
+                  onClick={() => setPracticoTab('MARCACIONES')}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    practicoTab === 'MARCACIONES' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  Marcaciones
+                </button>
+              </div>
+
+              <div className="flex-1 min-h-0 overflow-y-auto">
+                {practicoTab === 'DECLINACION' && <DeclinationCalculator />}
+                {practicoTab === 'MAREAS' && <TideCalculator />}
+                {practicoTab === 'MARCACIONES' && <BearingsSimulator />}
+              </div>
+            </div>
+          )}
+
+          {/* MÓDULO 6: NUDOS NÁUTICOS */}
+          {activeView === 'NUDOS' && (
+            <KnotsViewer questions={knotsQuestions} />
+          )}
+
+          {/* MÓDULO 7: SIMULADOR DE EXAMEN REAL PNA */}
+          {activeView === 'EXAMEN' && (
+            <RealExamView onFinish={() => setActiveView('HOME')} />
+          )}
+
         </div>
 
       </div>

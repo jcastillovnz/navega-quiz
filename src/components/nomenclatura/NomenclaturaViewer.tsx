@@ -225,6 +225,37 @@ export const NomenclaturaViewer: React.FC = () => {
               <text x="180" y="55" fontSize="6" fill="#fbbf24" fontWeight="bold" textAnchor="middle" opacity="0.9">PROA</text>
               {/* Etiqueta "POPA" sobre la popa */}
               <text x="40" y="55" fontSize="6" fill="#fbbf24" fontWeight="bold" textAnchor="middle" opacity="0.9">POPA</text>
+
+              {/* ====== LÍNEAS DE MEDIDAS (cotas) ====== */}
+              {/* Eslora: línea horizontal debajo del barco con flechas */}
+              <g opacity="0.85">
+                <line x1="20" y1="195" x2="180" y2="195" stroke="#f59e0b" strokeWidth="0.4" />
+                <line x1="20" y1="190" x2="20" y2="200" stroke="#f59e0b" strokeWidth="0.4" />
+                <line x1="180" y1="190" x2="180" y2="200" stroke="#f59e0b" strokeWidth="0.4" />
+                <polygon points="20,195 25,193 25,197" fill="#f59e0b" />
+                <polygon points="180,195 175,193 175,197" fill="#f59e0b" />
+                <text x="100" y="193" fontSize="3.5" fill="#f59e0b" fontWeight="bold" textAnchor="middle">ESLORA</text>
+              </g>
+
+              {/* Calado: línea vertical a la izquierda con flechas */}
+              <g opacity="0.85">
+                <line x1="5" y1="120" x2="5" y2="170" stroke="#06b6d4" strokeWidth="0.4" />
+                <line x1="0" y1="120" x2="10" y2="120" stroke="#06b6d4" strokeWidth="0.4" />
+                <line x1="0" y1="170" x2="10" y2="170" stroke="#06b6d4" strokeWidth="0.4" />
+                <polygon points="5,170 3,165 7,165" fill="#06b6d4" />
+                <polygon points="5,120 3,125 7,125" fill="#06b6d4" />
+                <text x="9" y="148" fontSize="3.5" fill="#06b6d4" fontWeight="bold">CALADO</text>
+              </g>
+
+              {/* Manga: línea vertical a la derecha con flechas */}
+              <g opacity="0.85">
+                <line x1="195" y1="38" x2="195" y2="160" stroke="#a855f7" strokeWidth="0.4" />
+                <line x1="190" y1="38" x2="200" y2="38" stroke="#a855f7" strokeWidth="0.4" />
+                <line x1="190" y1="160" x2="200" y2="160" stroke="#a855f7" strokeWidth="0.4" />
+                <polygon points="195,160 193,155 197,155" fill="#a855f7" />
+                <polygon points="195,38 193,43 197,43" fill="#a855f7" />
+                <text x="195" y="103" fontSize="3.5" fill="#a855f7" fontWeight="bold" textAnchor="middle">MANGA</text>
+              </g>
             </svg>
 
             {/* Etiquetas fijas: "Babor" (abajo) y "Estribor" (arriba) - referencia constante */}
