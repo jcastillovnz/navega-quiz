@@ -215,6 +215,31 @@ export const loadMastery = (): Record<string, LearningMastery> => {
   }
 };
 
+/**
+ * Orden de estudio al volver a un módulo:
+ * 1) nunca respondidas, 2) última respuesta incorrecta, 3) repasos vencidos,
+ * 4) respuestas correctas todavía no vencidas.
+ * El orden original se conserva dentro de cada prioridad para que la ruta sea estable.
+ */
+export const prioritizeLearningQuestionIds = (moduleId: string, questionIds: string[]): string[] => {
+  const mastery = loadMastery()[moduleId];
+  const results = mastery?.questionResults ?? {};
+  const reviewById = new Map(loadProgress().spacedRepetitionQueue.map(item => [item.questionId, item]));
+  const now = Date.now();
+  const priority = (id: string): number => {
+    const result = results[id];
+    if (!result && !mastery?.answeredQuestionIds.includes(id)) return 0;
+    if (result ? !result.lastCorrect : !mastery?.correctQuestionIds.includes(id)) return 1;
+    const review = reviewById.get(id);
+    if (review && review.nextReviewDate <= now) return 2;
+    return 3;
+  };
+  return questionIds
+    .map((id, originalIndex) => ({ id, originalIndex, priority: priority(id) }))
+    .sort((a, b) => a.priority - b.priority || a.originalIndex - b.originalIndex)
+    .map(item => item.id);
+};
+
 export const registerLearningAnswer = (
   moduleId: string,
   questionId: string,
@@ -227,6 +252,15 @@ export const registerLearningAnswer = (
     correctQuestionIds: [],
     attempts: 0,
     updatedAt: 0
+  };
+  current.questionResults ??= {};
+  const previous = current.questionResults[questionId];
+  current.questionResults[questionId] = {
+    attempts: (previous?.attempts ?? 0) + 1,
+    correctCount: (previous?.correctCount ?? 0) + (wasCorrect ? 1 : 0),
+    incorrectCount: (previous?.incorrectCount ?? 0) + (wasCorrect ? 0 : 1),
+    lastCorrect: wasCorrect,
+    lastAnsweredAt: Date.now()
   };
   current.attempts += 1;
   current.updatedAt = Date.now();

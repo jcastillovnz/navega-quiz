@@ -74,7 +74,12 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
   visualForQuestion,
   accentClass = 'bg-cyan-500'
 }) => {
-  const ordered = useMemo(() => [...questions], [questions]);
+  const ordered = useMemo(() => {
+    const byId = new Map(questions.map(question => [question.id, question]));
+    return storage.prioritizeLearningQuestionIds(moduleId, questions.map(question => question.id))
+      .map(id => byId.get(id))
+      .filter((question): question is QuizQuestion => Boolean(question));
+  }, [moduleId, questions]);
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -101,9 +106,10 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
       storage.addXP(10);
       playSuccessChime();
     } else {
-      storage.addToReview(question.id);
       playErrorTone();
     }
+    storage.addToReview(question.id);
+    storage.reviewResult(question.id, correct);
     storage.registerStudy();
     storage.registerLearningAnswer(moduleId, question.id, correct);
   };

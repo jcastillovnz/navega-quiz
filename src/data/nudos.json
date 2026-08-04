@@ -214,5 +214,47 @@
       { "id": "D", "text": "Para amarrar a un palo", "isCorrect": false }
     ],
     "explanation": "El virador o cotes es un pequeño nudo que se hace en el chicote de un cabo para impedir que se descose o deshilache. Es una medida de MANTENIMIENTO, no de amarre. [TIP: 'Virador' = 'protege el cabo' del uso. Como un pequeño 'capuchón' al final del cabo.]"
+  },
+  {
+    "id": "nudo_19", "category": "NUDOS",
+    "question": "¿Qué significa adujar un cabo?",
+    "options": [{"id":"A","text":"Ordenarlo en vueltas o senos para guardarlo y poder usarlo sin enredos","isCorrect":true},{"id":"B","text":"Cortarlo en tramos iguales","isCorrect":false},{"id":"C","text":"Mojarlo antes de hacer un nudo","isCorrect":false},{"id":"D","text":"Unirlo permanentemente a una cadena","isCorrect":false}],
+    "explanation": "Adujar es recoger y ordenar un cabo formando vueltas o senos regulares. Una buena aduja protege el cabo, ocupa menos espacio y permite desplegarlo sin engalletarse ni formar cocas. Antes de adujar conviene quitar la torsión dejando correr el cabo. [FUENTE: Preguntero Timonel 2026, Cabuyería]"
+  },
+  {
+    "id": "nudo_20", "category": "NUDOS",
+    "question": "¿Qué tipo de aduja conviene para un cabo de uso general que se guardará colgado?",
+    "options": [{"id":"A","text":"Aduja redonda o a la marinera, con vueltas iguales y asegurada","isCorrect":true},{"id":"B","text":"Aduja a la holandesa pegada a cubierta","isCorrect":false},{"id":"C","text":"Cabo amontonado sin orden","isCorrect":false},{"id":"D","text":"Ocho abierto sobre toda la cubierta","isCorrect":false}],
+    "explanation": "La aduja redonda reúne vueltas del mismo tamaño. Para transportarla o colgarla se asegura el conjunto con varias vueltas y un seno o cote final; suele llamarse aduja a la marinera. Debe quedar firme, pero sin deformar el cabo."
+  },
+  {
+    "id": "nudo_21", "category": "NUDOS",
+    "question": "¿Cuál es la principal ventaja de adujar un cabo en forma de ocho?",
+    "options": [{"id":"A","text":"Compensa la torsión y reduce la formación de cocas al largarlo","isCorrect":true},{"id":"B","text":"Lo convierte en un cabo elástico","isCorrect":false},{"id":"C","text":"Evita que el cabo se moje","isCorrect":false},{"id":"D","text":"Sustituye un nudo de amarre","isCorrect":false}],
+    "explanation": "En la aduja en ocho cada cruce alterna el sentido de curvatura, por lo que acumula menos torsión que una sucesión de círculos. Es útil para cabos largos, mangueras o líneas que deben correr con fluidez. Los cruces deben ser amplios y ordenados."
+  },
+  {
+    "id": "nudo_22", "category": "NUDOS",
+    "question": "¿Para qué se usa principalmente una aduja a la holandesa?",
+    "options": [{"id":"A","text":"Para presentar el cabo plano y ordenado en una espiral sobre cubierta","isCorrect":true},{"id":"B","text":"Para lanzar inmediatamente una línea de rescate","isCorrect":false},{"id":"C","text":"Para unir dos cabos de distinto diámetro","isCorrect":false},{"id":"D","text":"Para absorber el tirón de un remolque","isCorrect":false}],
+    "explanation": "La aduja a la holandesa dispone el cabo como una espiral plana y compacta sobre cubierta. Es prolija y facilita inspeccionarlo, pero no es la elección para una línea que deba largarse instantáneamente porque primero habrá que desarmar la espiral."
+  },
+  {
+    "id": "nudo_23", "category": "NUDOS",
+    "question": "Para preparar una línea que debe salir rápidamente sin trabarse, ¿qué disposición es la más segura?",
+    "options": [{"id":"A","text":"Senos largos alternados o una aduja en ocho, con el chicote de trabajo accesible","isCorrect":true},{"id":"B","text":"Una espiral holandesa muy apretada","isCorrect":false},{"id":"C","text":"Vueltas mezcladas alrededor de una cornamusa","isCorrect":false},{"id":"D","text":"Un ovillo cerrado","isCorrect":false}],
+    "explanation": "Una línea de maniobra o lanzamiento debe prepararse con senos claros, sin cruces atrapados, o en ocho. El chicote que saldrá primero queda identificado y libre. Antes de usarla se comprueba que nadie esté dentro de una gaza y que el cabo no pueda enganchar pies u objetos."
+  },
+  {
+    "id": "nudo_24", "category": "NUDOS",
+    "question": "¿Qué error al hacer una aduja redonda favorece que aparezcan cocas?",
+    "options": [{"id":"A","text":"Forzar todas las vueltas sin descargar la torsión natural del cabo","isCorrect":true},{"id":"B","text":"Formar vueltas de tamaño parecido","isCorrect":false},{"id":"C","text":"Revisar el estado del cabo","isCorrect":false},{"id":"D","text":"Mantener el chicote visible","isCorrect":false}],
+    "explanation": "Cada vuelta redonda puede añadir torsión. Si el cabo se retuerce, no debe obligarse a adoptar el círculo: se deja girar el chicote, se extiende para descargarlo o se usa una aduja en ocho. Una coca debilita temporalmente el trabajo del cabo y puede atascar una maniobra."
+  },
+  {
+    "id": "nudo_25", "category": "NUDOS",
+    "question": "Antes de largar una aduja, ¿qué comprobación de seguridad es esencial?",
+    "options": [{"id":"A","text":"Que la línea esté clara y que nadie tenga pies o manos dentro de sus senos","isCorrect":true},{"id":"B","text":"Que todos pisen el cabo para controlarlo","isCorrect":false},{"id":"C","text":"Que el chicote esté oculto bajo las vueltas","isCorrect":false},{"id":"D","text":"Que la aduja tenga el menor diámetro posible","isCorrect":false}],
+    "explanation": "Una línea que toma carga puede cerrar un seno con enorme fuerza. Antes de largar se ordena la cubierta, se identifica firme y chicote, se verifica que la línea corra clara y toda persona queda fuera de senos y de la trayectoria de trabajo."
   }
 ]

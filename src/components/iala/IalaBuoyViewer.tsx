@@ -65,7 +65,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     image: cardinalNorth,
     name: 'Cardinal Norte', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▲ ▲ Dos conos hacia arriba', lightPattern: 'Q W o VQ W — Blanco continuo rápido',
-    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '255,255,255',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-iala-continuous animate-glow-white', lightRgb: '255,255,255',
     description: 'Las aguas seguras están al NORTE de la marca. Cuerpo negro sobre amarillo.',
     rule: 'Norte: conos arriba; pasá al norte. Ritmo continuo, como las 12 en punto.',
     bodyColor: '#facc15', topShape: 'north', topColor: '#0f172a', bands: ['#0f172a', '#facc15']
@@ -74,7 +74,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     image: cardinalEast,
     name: 'Cardinal Este', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▼ ▲ Conos con bases enfrentadas', lightPattern: 'Q(3) W 10s o VQ(3) W 5s',
-    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '255,255,255',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-iala-triple animate-glow-white', lightRgb: '255,255,255',
     description: 'Las aguas seguras están al ESTE. Bandas negro-amarillo-negro.',
     rule: 'Este = 3 destellos, como las 3 en el reloj.',
     bodyColor: '#0f172a', topShape: 'east', topColor: '#0f172a', bands: ['#0f172a', '#facc15', '#0f172a']
@@ -83,7 +83,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     image: cardinalSouth,
     name: 'Cardinal Sur', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▼ ▼ Dos conos hacia abajo', lightPattern: 'Q(6)+LFl W 15s o VQ(6)+LFl W 10s',
-    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid-double animate-glow-white', lightRgb: '255,255,255',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-iala-six-long animate-glow-white', lightRgb: '255,255,255',
     description: 'Las aguas seguras están al SUR. Cuerpo amarillo sobre negro.',
     rule: 'Sur = 6 destellos más uno largo, como las 6 en el reloj.',
     bodyColor: '#0f172a', topShape: 'south', topColor: '#0f172a', bands: ['#facc15', '#0f172a']
@@ -92,7 +92,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     image: cardinalWest,
     name: 'Cardinal Oeste', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▲ ▼ Conos con puntas enfrentadas', lightPattern: 'Q(9) W 15s o VQ(9) W 10s',
-    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid-double animate-glow-white', lightRgb: '255,255,255',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-iala-nine animate-glow-white', lightRgb: '255,255,255',
     description: 'Las aguas seguras están al OESTE. Bandas amarillo-negro-amarillo.',
     rule: 'Oeste = 9 destellos, como las 9 en el reloj.',
     bodyColor: '#facc15', topShape: 'west', topColor: '#0f172a', bands: ['#facc15', '#0f172a', '#facc15']
@@ -136,7 +136,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     image: newDanger,
     name: 'Nuevo Peligro / Naufragio', color: 'text-blue-300', accentColor: 'border-blue-400/50',
     topMark: '✚ Cruz amarilla vertical', lightPattern: 'Al B/Y 1s — Azul y amarilla alternadas',
-    lightColorClass: 'bg-blue-400', lightAnimClass: 'animate-flash-iso animate-glow-white', lightRgb: '96,165,250',
+    lightColorClass: 'bg-blue-400', lightAnimClass: 'animate-iala-alternate-blue-yellow animate-glow-white', lightRgb: '96,165,250',
     description: 'Marca de emergencia para un naufragio o peligro nuevo que todavía no figura adecuadamente en publicaciones. Franjas verticales azules y amarillas.',
     rule: 'Extremá precauciones, mantenete apartado y verificá Avisos a los Navegantes.',
     bodyColor: '#2563eb', stripeColors: ['#facc15'], stripeDir: 'vertical', topShape: 'cross', topColor: '#facc15'
@@ -151,6 +151,30 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
   useEffect(() => {
     if (focusType) setSelectedBuoy(focusType);
   }, [focusType]);
+
+  if (compact) {
+    return (
+      <figure className="h-full min-h-0 grid grid-cols-2 gap-1.5 bg-slate-950 overflow-hidden" aria-label={`${buoy.name}, comparación diurna y nocturna`}>
+        {(['DAY', 'NIGHT'] as const).map(mode => {
+          const night = mode === 'NIGHT';
+          return <div key={mode} className={`relative min-h-0 overflow-hidden rounded-xl border ${night ? 'border-indigo-500/40 bg-gradient-to-b from-slate-950 via-indigo-950 to-blue-950' : 'border-sky-300/50 bg-gradient-to-b from-sky-200 via-sky-400 to-sky-700'}`}>
+            {night && <div className="absolute inset-0 opacity-70">{[...Array(18)].map((_,i)=><i key={i} className="star absolute rounded-full bg-white" style={{width:2,height:2,top:`${8+(i*23)%58}%`,left:`${5+(i*31)%90}%`}} />)}</div>}
+            <div className={`absolute bottom-0 inset-x-0 h-[30%] ${night ? 'bg-blue-950/80' : 'bg-cyan-700/70'}`} />
+            <div className="absolute inset-0 p-5 flex items-center justify-center">
+              <div className="relative h-full w-full flex items-center justify-center animate-buoy-sway">
+                <img src={buoy.image} alt={`${buoy.name}, vista ${night?'nocturna':'diurna'}`} className={`h-full w-full object-contain drop-shadow-2xl ${night?'brightness-[.28] saturate-[.7] contrast-125':''}`} />
+                {night && <div className={`question-light-animation absolute top-[13%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass}`} aria-label={buoy.lightPattern} />}
+              </div>
+            </div>
+            <div className={`absolute left-2 right-2 bottom-2 rounded-lg px-2 py-1.5 backdrop-blur ${night?'bg-slate-950/85':'bg-white/85'}`}>
+              <p className={`text-[10px] font-black ${night?'text-indigo-200':'text-sky-950'}`}>{night?'NOCHE · LUZ ANIMADA':'DÍA · FORMA Y COLORES'}</p>
+              <p className={`truncate text-[9px] ${night?'text-slate-200':'text-slate-800'}`}>{night?buoy.lightPattern:buoy.topMark}</p>
+            </div>
+          </div>;
+        })}
+      </figure>
+    );
+  }
 
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
@@ -187,7 +211,7 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
       <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
 
         {/* Canvas visual animado (7 cols) */}
-        <div className={`${compact ? 'md:col-span-12' : 'md:col-span-7'} rounded-2xl overflow-hidden border-2 h-full flex items-center justify-center relative transition-all duration-700 ${buoy.accentColor} ${
+        <div className={`md:col-span-7 rounded-2xl overflow-hidden border-2 h-full flex items-center justify-center relative transition-all duration-700 ${buoy.accentColor} ${
           isNight
             ? 'bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-900'
             : 'bg-gradient-to-b from-sky-300 via-sky-400 to-sky-500'

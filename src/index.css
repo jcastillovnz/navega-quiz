@@ -254,6 +254,29 @@ body {
 .animate-flash-rapid-double { animation: flash-rapid-double 4s   ease-in-out infinite; }
 .animate-flash-iso          { animation: flash-iso          3s   ease-in-out infinite; }
 
+/* Ritmos IALA: ciclos didácticos abreviados, conservando cantidad y agrupación. */
+@keyframes iala-triple {
+  0%,5%, 12%,17%, 24%,29% { opacity: 1; }
+  6%,11%, 18%,23%, 30%,100% { opacity: .04; }
+}
+@keyframes iala-six-long {
+  0%,3%, 7%,10%, 14%,17%, 21%,24%, 28%,31%, 35%,38%, 48%,67% { opacity: 1; }
+  4%,6%, 11%,13%, 18%,20%, 25%,27%, 32%,34%, 39%,47%, 68%,100% { opacity: .04; }
+}
+@keyframes iala-nine {
+  0%,3%, 7%,10%, 14%,17%, 21%,24%, 28%,31%, 35%,38%, 42%,45%, 49%,52%, 56%,59% { opacity: 1; }
+  4%,6%, 11%,13%, 18%,20%, 25%,27%, 32%,34%, 39%,41%, 46%,48%, 53%,55%, 60%,100% { opacity: .04; }
+}
+@keyframes iala-continuous { 0%,45% { opacity: 1; } 46%,55% { opacity: .05; } 56%,100% { opacity: 1; } }
+@keyframes iala-alternate-blue-yellow { 0%,45% { opacity:1; background:#60a5fa; } 46%,50% { opacity:.08; } 51%,95% { opacity:1; background:#fde047; } 96%,100% { opacity:.08; } }
+@keyframes iala-two-plus-one { 0%,7%, 14%,21%, 48%,55% { opacity:1; } 8%,13%, 22%,47%, 56%,100% { opacity:.04; } }
+.animate-iala-triple { animation: iala-triple 3.2s linear infinite; }
+.animate-iala-six-long { animation: iala-six-long 5s linear infinite; }
+.animate-iala-nine { animation: iala-nine 5s linear infinite; }
+.animate-iala-continuous { animation: iala-continuous 1.3s linear infinite; }
+.animate-iala-alternate-blue-yellow { animation: iala-alternate-blue-yellow 2s linear infinite; }
+.animate-iala-two-plus-one { animation: iala-two-plus-one 4s linear infinite; }
+
 /* ======================================
    Animaciones de Buque — Navegación
    ====================================== */

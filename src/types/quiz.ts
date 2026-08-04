@@ -71,6 +71,13 @@ export interface LearningMastery {
   correctQuestionIds: string[];
   attempts: number;
   updatedAt: number;
+  questionResults?: Record<string, {
+    attempts: number;
+    correctCount: number;
+    incorrectCount: number;
+    lastCorrect: boolean;
+    lastAnsweredAt: number;
+  }>;
 }
 
 /**

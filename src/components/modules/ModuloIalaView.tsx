@@ -6,6 +6,7 @@ import ripaIalaData from '../../data/ripa_iala.json';
 import ialaAmpliadoData from '../../data/iala_ampliado.json';
 import type { QuizQuestion } from '../../types/quiz';
 import { getVisualSpec } from '../../data/visualManifest';
+import { PreferredChannelBuoyViewer } from '../iala/PreferredChannelBuoyViewer';
 
 export const ModuloIalaView: React.FC = () => {
   const questions = useMemo<QuizQuestion[]>(() => [
@@ -36,6 +37,9 @@ export const ModuloIalaView: React.FC = () => {
           accentClass="bg-blue-500"
           visualForQuestion={question => {
             const family = getVisualSpec(question.id)?.family;
+            if (family === 'IALA_PREFERRED_PORT' || family === 'IALA_PREFERRED_STARBOARD') {
+              return <PreferredChannelBuoyViewer preferred={family === 'IALA_PREFERRED_PORT' ? 'PORT' : 'STARBOARD'} />;
+            }
             const focusType = family === 'IALA_CARDINAL_N' ? 'CARDINAL_N'
               : family === 'IALA_CARDINAL_E' ? 'CARDINAL_E'
                 : family === 'IALA_CARDINAL_S' ? 'CARDINAL_S'

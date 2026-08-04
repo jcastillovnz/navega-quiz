@@ -8,6 +8,7 @@ import cloveSteps from '../../assets/knot_clove_steps.png';
 import sheetBendSteps from '../../assets/knot_sheet_bend_steps.png';
 import figure8Steps from '../../assets/knot_figure8_steps.png';
 import { getVisualSpec } from '../../data/visualManifest';
+import { RopeCoilingViewer } from './RopeCoilingViewer';
 
 const KNOTS = [
   { names: ['as de guía', 'bowline'], name: 'As de Guía', use: 'Gaza fija que no se corre bajo carga', image: bowlineSteps },
@@ -43,6 +44,7 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => (
         accentClass="bg-pink-500"
         visualForQuestion={question => {
           const family = getVisualSpec(question.id)?.family;
+          if (family === 'KNOT_COILING') return <RopeCoilingViewer context={`${question.question} ${question.explanation}`.toLowerCase()} />;
           const knotIndex = family === 'KNOT_REEF' ? 1 : family === 'KNOT_CLOVE' ? 2
             : family === 'KNOT_SHEET_BEND' ? 3 : family === 'KNOT_FIGURE_EIGHT' ? 4 : 0;
           const knot = KNOTS[knotIndex];

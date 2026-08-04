@@ -33,6 +33,7 @@ interface Scenario {
   description: string;
   vessels: Vessel[];
   illustration?: string;
+  observation: string;
 }
 
 const SCENARIOS: Record<ScenarioId, Scenario> = {
@@ -43,6 +44,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     description:
       'Dos buques de propulsión mecánica navegando de vuelta encontrada (rumbo opuesto) con riesgo de abordaje. Ambos deben caer a ESTRIBOR para pasar por babor del otro.',
     illustration: rule14HeadOn,
+    observation: 'Compará los rumbos recíprocos y verificá si ves ambas luces de costado.',
     vessels: [
       { id: 'A', label: 'A', type: 'MOTOR', x: 28, y: 50, heading: 90, color: 'cyan', isStandOn: false, action: 'Caer a estribor', maneuver: 'STARBOARD' },
       { id: 'B', label: 'B', type: 'MOTOR', x: 72, y: 50, heading: 270, color: 'amber', isStandOn: false, action: 'Caer a estribor', maneuver: 'STARBOARD' }
@@ -55,6 +57,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     description:
       'Dos buques de propulsión mecánica se cruzan con riesgo de abordaje. El buque que tenga al otro por su costado de ESTRIBOR se mantiene apartado (cede el paso).',
     illustration: rule15Crossing,
+    observation: 'Ubicate mentalmente en cada puente: ¿por qué banda aparece el otro buque?',
     vessels: [
       { id: 'A', label: 'A', type: 'MOTOR', x: 50, y: 85, heading: 0, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad', maneuver: 'KEEP' },
       { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 35, heading: 90, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)', maneuver: 'STARBOARD' }
@@ -67,6 +70,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     description:
       'Un buque alcanza a otro (viene de un sector de más de 22.5° a popa del través). El buque que ALCANZA debe mantenerse apartado; el alcanzado mantiene rumbo y velocidad.',
     illustration: rule13Overtaking,
+    observation: 'Trazá el través del buque delantero y localizá el sector de 22,5° hacia popa.',
     vessels: [
       { id: 'A', label: 'A', type: 'MOTOR', x: 30, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad', maneuver: 'KEEP' },
       { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 30, heading: 120, color: 'amber', isStandOn: false, action: 'Mantenerse apartado del alcanzado', maneuver: 'STARBOARD' }
@@ -78,6 +82,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     rule: 'RIPA Regla 12',
     description: 'Dos veleros se aproximan con riesgo de abordaje. La prioridad depende de la banda por la que reciben el viento y, si es la misma, de cuál está a barlovento.',
     illustration: rule12Sailboats,
+    observation: 'Seguí las flechas del viento y determiná por qué banda lo recibe cada velero.',
     vessels: [
       { id: 'A', label: 'B', type: 'VELA', x: 20, y: 70, heading: 35, color: 'amber', isStandOn: false, action: 'Recibe viento por babor: ceder', maneuver: 'STARBOARD' },
       { id: 'B', label: 'E', type: 'VELA', x: 72, y: 65, heading: 325, color: 'cyan', isStandOn: true, action: 'Recibe viento por estribor: mantener', maneuver: 'KEEP' }
@@ -88,8 +93,9 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     title: 'Vela vs. Motor (Regla 18)',
     rule: 'RIPA Regla 18',
     description:
-      'Buque de propulsión mecánica vs. velero. El buque a motor SIEMPRE debe mantenerse apartado del velero (prioridad del velero).',
+      'En aguas abiertas, un buque de propulsión mecánica y un velero se aproximan con riesgo de abordaje. Se aplica la Regla 18 sin olvidar las reglas especiales de alcance, canales y separación de tráfico.',
     illustration: rule18SailMotor,
+    observation: 'Identificá primero el medio de propulsión de cada buque y después comprobá el tipo de encuentro.',
     vessels: [
       { id: 'A', label: 'V', type: 'VELA', x: 20, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo (prioridad)', maneuver: 'KEEP' },
       { id: 'B', label: 'M', type: 'MOTOR', x: 15, y: 80, heading: 30, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)', maneuver: 'STARBOARD' }
@@ -256,8 +262,23 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId; compa
               alt={`Ilustración náutica técnica de ${currentScenario.title}: ${currentScenario.description}`}
               className="absolute inset-0 w-full h-full object-contain object-center bg-slate-950"
             />
+            <svg viewBox="0 0 1200 430" preserveAspectRatio="none" className="absolute inset-0 h-full w-full pointer-events-none" aria-hidden="true">
+              <defs>
+                <marker id={`course-arrow-${scenarioId}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#67e8f9"/></marker>
+                <marker id={`wind-arrow-${scenarioId}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#fde047"/></marker>
+              </defs>
+              {scenarioId === 'VUELTA_ENCONTRADA' && <><path d="M220 230 H535 M980 230 H665" stroke="#67e8f9" strokeWidth="7" strokeDasharray="18 12" markerEnd={`url(#course-arrow-${scenarioId})`}/><circle cx="600" cy="230" r="34" fill="none" stroke="#fb7185" strokeWidth="6" strokeDasharray="8 7"/></>}
+              {scenarioId === 'CRUCE' && <><path d="M250 300 H805" stroke="#67e8f9" strokeWidth="7" strokeDasharray="18 12" markerEnd={`url(#course-arrow-${scenarioId})`}/><path d="M730 385 V110" stroke="#fde68a" strokeWidth="7" strokeDasharray="18 12" markerEnd={`url(#wind-arrow-${scenarioId})`}/><circle cx="730" cy="300" r="34" fill="none" stroke="#fb7185" strokeWidth="6" strokeDasharray="8 7"/></>}
+              {scenarioId === 'ALCANCE' && <><path d="M210 250 H960" stroke="#67e8f9" strokeWidth="7" strokeDasharray="18 12" markerEnd={`url(#course-arrow-${scenarioId})`}/><path d="M625 250 L470 130 M625 250 L470 370" stroke="#fde047" strokeWidth="4" strokeDasharray="9 8"/><path d="M470 130 A190 190 0 0 0 470 370" fill="none" stroke="#fde047" strokeWidth="5"/><text x="365" y="245" fill="#fef08a" fontSize="25" fontWeight="800">SECTOR DE ALCANCE</text></>}
+              {scenarioId === 'VELEROS' && <><path d="M590 55 L590 180" stroke="#fde047" strokeWidth="9" markerEnd={`url(#wind-arrow-${scenarioId})`}/><path d="M270 315 L520 190 M930 315 L665 190" stroke="#67e8f9" strokeWidth="6" strokeDasharray="16 12" markerEnd={`url(#course-arrow-${scenarioId})`}/><text x="612" y="78" fill="#fef08a" fontSize="24" fontWeight="900">VIENTO</text></>}
+              {scenarioId === 'VELERO_VS_MOTOR' && <><path d="M250 280 H820" stroke="#67e8f9" strokeWidth="7" strokeDasharray="18 12" markerEnd={`url(#course-arrow-${scenarioId})`}/><path d="M770 390 V150" stroke="#fde68a" strokeWidth="7" strokeDasharray="18 12" markerEnd={`url(#wind-arrow-${scenarioId})`}/></>}
+            </svg>
+            <div className="absolute top-3 right-3 max-w-[42%] rounded-xl border border-cyan-300/30 bg-slate-950/88 px-3 py-2 backdrop-blur">
+              <p className="text-[9px] font-black uppercase tracking-wider text-cyan-300">Qué observar antes de decidir</p>
+              <p className="text-[10px] leading-snug text-slate-100">{currentScenario.observation}</p>
+            </div>
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-transparent px-4 pb-3 pt-12">
-              <p className="text-[10px] font-bold text-white">Leé las proas y las estelas para reconocer rumbo, aproximación y maniobra.</p>
+              <div className="flex flex-wrap gap-2 text-[9px] font-bold text-white"><span className="rounded bg-cyan-950/85 px-2 py-1">1 · Identificá propulsión</span><span className="rounded bg-cyan-950/85 px-2 py-1">2 · Leé rumbo y banda</span><span className="rounded bg-cyan-950/85 px-2 py-1">3 · Determiná la regla</span></div>
             </div>
           </>
         ) : vessels.map(v => (

@@ -7,6 +7,7 @@ import { ModuloIalaView } from './components/modules/ModuloIalaView';
 import { ModuloTeoricoView } from './components/modules/ModuloTeoricoView';
 import { SeguridadViewer } from './components/seguridad/SeguridadViewer';
 import { NomenclaturaViewer } from './components/nomenclatura/NomenclaturaViewer';
+import { MarinePropulsionViewer } from './components/nomenclatura/MarinePropulsionViewer';
 import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer';
 import { MeteorologyConceptViewer } from './components/meteorologia/MeteorologyConceptViewer';
 import { KnotsViewer } from './components/knots/KnotsViewer';
@@ -196,6 +197,8 @@ function App() {
               viewer={<SeguridadViewer compact />}
               visualForQuestion={question => {
                 const family = getVisualSpec(question.id)?.family;
+                if (family === 'NOM_ENGINE') return <MarinePropulsionViewer focus="ENGINE" context={question.question} />;
+                if (family === 'NOM_PROPELLER') return <MarinePropulsionViewer focus="PROPELLER" context={question.question} />;
                 if (family === 'SAFETY_FIRE') return <SeguridadViewer compact focusSection="INCENDIO" />;
                 if (family === 'SAFETY_STORM') return <SeguridadViewer compact focusSection="TEMPORAL" />;
                 if (family === 'SAFETY_DAMAGE') return <SeguridadViewer compact focusSection="AVERIAS" />;
