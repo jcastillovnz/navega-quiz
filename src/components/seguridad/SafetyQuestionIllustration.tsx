@@ -3,6 +3,9 @@ import lifejackets from '../../assets/safety_lifejackets_illustrated.png';
 import anchorSystem from '../../assets/safety_anchor_system_illustrated-v2.png';
 import fireResponse from '../../assets/safety_fire_response_illustrated-v2.png';
 import floodingResponse from '../../assets/safety_flooding_response_illustrated-v2.png';
+import manOverboard from '../../assets/safety_man_overboard_illustrated-v2.png';
+import heavyWeather from '../../assets/safety_heavy_weather_illustrated-v2.png';
+import distressSignals from '../../assets/safety_distress_signals_illustrated-v2.png';
 import type { QuizQuestion } from '../../types/quiz';
 import type { VisualFamily } from '../../data/visualManifest';
 
@@ -18,7 +21,7 @@ const rasterPlate = (question: QuizQuestion): { src: string; alt: string; focus:
         : 'Examiná la forma de las uñas, la caña y cómo trabajan sobre este fondo.';
     return { src: anchorSystem, alt: 'Sistema de fondeo ilustrado completo con velero, cadena, cabo, ancla de uñas y línea auxiliar con boya', focus };
   }
-  if (['seg_7', 'seg_fire_4', 'seg_fire_methods_1', 'seg_fire_technique_1'].includes(question.id)) {
+  if (['seg_fire_4', 'seg_fire_methods_1', 'seg_fire_technique_1'].includes(question.id)) {
     return {
       src: fireResponse,
       alt: 'Tripulación controlando un incendio pequeño dentro de un velero con matafuego y corte de energía',
@@ -32,6 +35,37 @@ const rasterPlate = (question: QuizQuestion): { src: string; alt: string; focus:
       src: floodingResponse,
       alt: 'Corte ilustrado de un velero donde la tripulación tapona una vía de agua y opera una bomba de achique',
       focus: 'Identificá la entrada, el taponamiento, el achique y la descarga al exterior.'
+    };
+  }
+  if (question.id === 'seg_16') {
+    return {
+      src: manOverboard,
+      alt: 'Recuperación ilustrada de una persona desde el agua mediante eslinga, driza y escalera por el costado bajo del velero',
+      focus: 'Observá la banda elegida, el soporte horizontal, la escalera y la posición segura respecto del motor.'
+    };
+  }
+  if (['seg_temporal_1', 'seg_temporal_2', 'seg_temporal_3', 'seg_temporal_4'].includes(question.id)) {
+    const focus = question.id === 'seg_temporal_1'
+      ? 'Compará el tamaño del paño izado con la intensidad del frente que se aproxima.'
+      : question.id === 'seg_temporal_3'
+        ? 'Ubicá la costa respecto del viento y reconocé hacia dónde deriva el barco.'
+        : question.id === 'seg_temporal_4'
+          ? 'Seguí la línea de proa hasta el dispositivo sumergido y observá cómo estabiliza la orientación.'
+          : 'Observá el ángulo de la proa frente al oleaje, la velocidad reducida y el paño disponible.';
+    return {
+      src: heavyWeather,
+      alt: 'Velero ilustrado preparado para temporal con velas reducidas, tripulación asegurada, costa a sotavento y ancla de capa',
+      focus
+    };
+  }
+  if (['seg_2', 'seg_8', 'seg_15'].includes(question.id)) {
+    const focus = question.id === 'seg_8'
+      ? 'Diferenciá la señal manual, el cohete con paracaídas y el humo por su forma y uso previsto.'
+      : 'Observá el equipo fijo, el portátil, la posición disponible y la embarcación que recibe la llamada.';
+    return {
+      src: distressSignals,
+      alt: 'Puesto de comunicaciones ilustrado con radio VHF fija y portátil, carta y señales visuales de socorro separadas',
+      focus
     };
   }
   return null;
