@@ -1,12 +1,15 @@
 import { useState } from 'react';
-// Importar JSONs para evitar tree-shaking y garantizar que se incluyan en el bundle
-import _ripaIala from './data/ripa_iala.json';
-import _teoria from './data/teoria.json';
-import _practicos from './data/practicos.json';
-import _nudos from './data/nudos.json';
-import _nomenclatura from './data/nomenclatura.json';
-// Forzar uso para que el bundler no los descarte
-console.log('Data loaded:', _ripaIala.length, _teoria.length, _practicos.length, _nudos.length, _nomenclatura.length);
+// Importar todos los JSON al inicio para garantizar que se incluyan en el bundle
+// (rolldown/Vite pueden tree-shakear imports no usados en el grafo)
+import ripaIalaData from './data/ripa_iala.json';
+import teoriaData from './data/teoria.json';
+import practicosData from './data/practicos.json';
+import nudosData from './data/nudos.json';
+import nomenclaturaData from './data/nomenclatura.json';
+// Asignar a window para evitar tree-shaking
+if (typeof window !== 'undefined') {
+  Object.assign(window, { __quizData: { ripaIalaData, teoriaData, practicosData, nudosData, nomenclaturaData } });
+}
 import { Layout } from './components/layout/Layout';
 import { RipaLightViewer } from './components/ripa/RipaLightViewer';
 import { IalaBuoyViewer } from './components/iala/IalaBuoyViewer';

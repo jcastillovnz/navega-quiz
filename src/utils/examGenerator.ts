@@ -4,9 +4,6 @@ import practicosData from '../data/practicos.json';
 import nudosData from '../data/nudos.json';
 import type { QuizQuestion, QuizCategory, PracticalExercise } from '../types/quiz';
 
-// Re-exportar para evitar tree-shaking
-export { ripaIalaData, teoriaData, practicosData, nudosData };
-
 export interface ExamConfig {
   theoreticalCount: number; // 35 por defecto
   practicalCount: number; // 5 por defecto

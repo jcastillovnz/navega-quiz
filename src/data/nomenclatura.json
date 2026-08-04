@@ -509,7 +509,7 @@
     "question": "¿Qué es la trinquetilla o 'babystay'?",
     "options": [
       { "id": "A", "text": "Un estay de proa auxiliar que sale de un punto bajo del mástil hacia la proa", "isCorrect": true },
-      "id": "B", "text": "Una vela", "isCorrect": false },
+      { "id": "B", "text": "Una vela", "isCorrect": false },
       { "id": "C", "text": "Una boya de fondeo", "isCorrect": false },
       { "id": "D", "text": "Un ancla pequeña", "isCorrect": false }
     ],
