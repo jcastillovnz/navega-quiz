@@ -6,8 +6,8 @@ import type { QuizQuestion } from '../../types/quiz';
 
 interface KnotStep {
   description: string;
-  // SVG path commands - cada paso es una serie de líneas/curvas que se suman
-  paths: string[];
+  firmePaths: string[];
+  chicotePaths: string[];
 }
 
 interface Knot {
@@ -18,9 +18,7 @@ interface Knot {
   description: string;
   pros: string[];
   cons: string[];
-  // Pasos para dibujarlo
   steps: KnotStep[];
-  // Color identificador
   color: string;
   difficulty: 'Fácil' | 'Medio' | 'Avanzado';
 }
@@ -45,20 +43,47 @@ const KNOTS: Knot[] = [
     difficulty: 'Medio',
     steps: [
       {
-        description: '1. Formá una pequeña gaza (lazo) con el chicote (extremo) del cabo mirando hacia vos.',
-        paths: ['M 20 50 Q 35 35 50 50']
+        description: '1. Formá una pequeña gaza con el firme cruzándolo sobre sí mismo: el firme entra por la izquierda, sube, baja, y vuelve a salir. Esto crea un "agujero" en el medio.',
+        firmePaths: [
+          'M 15 55 Q 25 55 35 50 L 40 30 Q 40 20 50 20 L 60 30 L 60 75 L 50 80 Q 45 80 40 75 L 35 60'
+        ],
+        chicotePaths: []
       },
       {
-        description: '2. Pasá el chicote POR ARRIBA de la parte vertical (el firme) y metélo por dentro de la gaza.',
-        paths: ['M 20 50 Q 35 35 50 50', 'M 50 50 Q 50 70 50 50']
+        description: '2. Tomá el chicote (extremo libre, azul) y pasálo POR ARRIBA de la parte vertical del firme, entrando por la derecha.',
+        firmePaths: [
+          'M 15 55 Q 25 55 35 50 L 40 30 Q 40 20 50 20 L 60 30 L 60 75 L 50 80 Q 45 80 40 75 L 35 60'
+        ],
+        chicotePaths: [
+          'M 80 70 Q 65 55 50 45'
+        ]
       },
       {
-        description: '3. Rodeá el firme por detrás y pasá el chicote NUEVAMENTE por la misma gaza.',
-        paths: ['M 20 50 Q 35 35 50 50', 'M 50 50 Q 50 70 50 50', 'M 50 50 Q 60 60 70 50 Q 75 45 80 50']
+        description: '3. Meté el chicote por el AGUJERO que se forma (de abajo hacia arriba por dentro de la gaza).',
+        firmePaths: [
+          'M 15 55 Q 25 55 35 50 L 40 30 Q 40 20 50 20 L 60 30 L 60 75 L 50 80 Q 45 80 40 75 L 35 60'
+        ],
+        chicotePaths: [
+          'M 80 70 Q 65 55 50 45 L 55 20'
+        ]
       },
       {
-        description: '4. Tirá de los dos extremos (firme y chicote) para ajustar. El lazo queda firme.',
-        paths: ['M 20 50 Q 35 35 50 50', 'M 50 50 Q 50 70 50 50', 'M 50 50 Q 60 60 70 50 Q 75 45 80 50', 'M 50 50 Q 45 50 40 50']
+        description: '4. Ahora el chicote pasa DETRÁS del firme vertical (el de la gaza) y vuelve a entrar por el mismo agujero, pero de arriba hacia abajo.',
+        firmePaths: [
+          'M 15 55 Q 25 55 35 50 L 40 30 Q 40 20 50 20 L 60 30 L 60 75 L 50 80 Q 45 80 40 75 L 35 60'
+        ],
+        chicotePaths: [
+          'M 80 70 Q 65 55 50 45 L 55 20 L 55 50 L 75 65'
+        ]
+      },
+      {
+        description: '5. Tirá del firme (izquierda) y del chicote (derecha) para ajustar. Queda un anillo que NO se corre.',
+        firmePaths: [
+          'M 10 55 Q 20 55 30 50 L 35 32 Q 35 22 45 22 L 52 32 L 52 72 L 45 78 Q 40 78 35 72 L 30 60'
+        ],
+        chicotePaths: [
+          'M 85 70 Q 70 55 50 45 L 52 22 L 52 50 L 80 65'
+        ]
       }
     ]
   },
@@ -82,20 +107,42 @@ const KNOTS: Knot[] = [
     difficulty: 'Fácil',
     steps: [
       {
-        description: '1. Cruzá el chicote IZQUIERDO por ENCIMA del chicote derecho. (La frase "izquierda sobre derecha" ayuda a recordar).',
-        paths: ['M 30 40 L 70 60', 'M 30 60 L 70 40']
+        description: '1. Cruzá los dos chicotes (azules) en el centro. El chicote del cabo A pasa POR ENCIMA del chicote del cabo B.',
+        firmePaths: [
+          'M 10 30 Q 30 35 45 45 L 50 55 L 35 75'
+        ],
+        chicotePaths: [
+          'M 90 30 Q 70 35 55 45 L 65 75'
+        ]
       },
       {
-        description: '2. Pasá el chicote IZQUIERDO por DEBAJO del chicote derecho y sacalo por el otro lado.',
-        paths: ['M 30 40 L 70 60', 'M 30 60 L 70 40', 'M 35 45 L 65 55']
+        description: '2. El chicote de A pasa por DEBAJO del chicote de B y sale hacia la izquierda abajo.',
+        firmePaths: [
+          'M 10 30 Q 30 35 45 45 L 50 55 L 35 75'
+        ],
+        chicotePaths: [
+          'M 90 30 Q 70 35 55 45 Q 35 65 15 75'
+        ]
       },
       {
-        description: '3. Ahora invertí: pasá el chicote DERECHO por ENCIMA del izquierdo.',
-        paths: ['M 30 40 L 70 60', 'M 30 60 L 70 40', 'M 35 45 L 65 55', 'M 50 40 L 50 60']
+        description: '3. Ahora con el chicote de B: pasálo por ENCIMA del chicote de A (la pasada se "invierte" para que el nudo sea simétrico).',
+        firmePaths: [
+          'M 10 30 Q 30 35 45 45 L 50 55 L 35 75'
+        ],
+        chicotePaths: [
+          'M 90 30 Q 70 35 55 45 Q 35 65 15 75',
+          'M 50 50 Q 65 60 80 70'
+        ]
       },
       {
-        description: '4. Tirá de los 4 extremos firmes para ajustar. Quedan dos "orejitas" simétricas a los costados.',
-        paths: ['M 30 40 L 70 60', 'M 30 60 L 70 40', 'M 35 45 L 65 55', 'M 50 40 L 50 60', 'M 25 35 L 50 50 L 75 65']
+        description: '4. Meté el chicote de B por DEBAJO y sacalo hacia abajo a la derecha. Tirá de los 4 extremos firmes: quedan dos "orejitas" simétricas a los costados.',
+        firmePaths: [
+          'M 10 30 Q 30 35 45 45 L 50 55 L 35 75'
+        ],
+        chicotePaths: [
+          'M 90 30 Q 70 35 55 45 Q 35 65 15 75',
+          'M 50 50 Q 65 60 80 70 L 85 90'
+        ]
       }
     ]
   },
@@ -119,20 +166,36 @@ const KNOTS: Knot[] = [
     difficulty: 'Medio',
     steps: [
       {
-        description: '1. Pasá el cabo por DETRÁS del palo (de izquierda a derecha).',
-        paths: ['M 20 40 Q 50 30 80 40']
+        description: '1. Pasá el firme (rojo) por DETRÁS del palo (la línea gris horizontal), de izquierda a derecha.',
+        firmePaths: [
+          'M 10 60 Q 30 50 50 50 Q 70 50 85 60'
+        ],
+        chicotePaths: []
       },
       {
-        description: '2. Cruzá por encima y volvé a pasar por detrás del palo.',
-        paths: ['M 20 40 Q 50 30 80 40', 'M 80 40 Q 50 50 20 40']
+        description: '2. Cruzá por ENCIMA del palo y volvé a pasar por detrás, de derecha a izquierda (espejo del paso 1).',
+        firmePaths: [
+          'M 10 60 Q 30 50 50 50 Q 70 50 85 60 Q 80 75 50 70 Q 20 75 15 60'
+        ],
+        chicotePaths: []
       },
       {
-        description: '3. Hacé una segunda vuelta por encima, en la MISMA dirección.',
-        paths: ['M 20 40 Q 50 30 80 40', 'M 80 40 Q 50 50 20 40', 'M 20 40 Q 50 50 80 40']
+        description: '3. Meté el chicote (azul) por DEBAJO de la última vuelta que cruza sobre el palo. Esto traba el nudo.',
+        firmePaths: [
+          'M 10 60 Q 30 50 50 50 Q 70 50 85 60 Q 80 75 50 70 Q 20 75 15 60'
+        ],
+        chicotePaths: [
+          'M 15 60 Q 50 50 80 75'
+        ]
       },
       {
-        description: '4. Meté el chicote por DEBAJO de la última vuelta para trabarlo. Tirá del firme.',
-        paths: ['M 20 40 Q 50 30 80 40', 'M 80 40 Q 50 50 20 40', 'M 20 40 Q 50 50 80 40', 'M 20 45 Q 50 55 80 45']
+        description: '4. Tirá del firme. El nudo se ajusta solo al palo. Ballestrinque terminado.',
+        firmePaths: [
+          'M 10 60 Q 30 50 50 50 Q 70 50 85 60 Q 80 75 50 70 Q 20 75 15 60'
+        ],
+        chicotePaths: [
+          'M 15 60 Q 50 50 85 80'
+        ]
       }
     ]
   },
@@ -155,20 +218,38 @@ const KNOTS: Knot[] = [
     difficulty: 'Avanzado',
     steps: [
       {
-        description: '1. Formá una gaza con el cabo más GRUESO (el firme). El chicote grueso debe mirar hacia abajo.',
-        paths: ['M 25 35 Q 50 30 75 35 L 60 50 L 75 50']
+        description: '1. Con el cabo más GRUESO (rojo) formá una gaza con el chicote mirando hacia abajo, como una "oreja de conejo".',
+        firmePaths: [
+          'M 10 25 L 35 25 L 55 45 L 35 45 Z'
+        ],
+        chicotePaths: []
       },
       {
-        description: '2. Pasá el chicote del cabo más FINO por arriba de la gaza.',
-        paths: ['M 25 35 Q 50 30 75 35 L 60 50 L 75 50', 'M 30 30 L 60 50']
+        description: '2. Pasá el chicote del cabo FINO (azul) por ARRIBA a través de la gaza, entrando desde abajo.',
+        firmePaths: [
+          'M 10 25 L 35 25 L 55 45 L 35 45 Z'
+        ],
+        chicotePaths: [
+          'M 25 70 L 40 35'
+        ]
       },
       {
-        description: '3. Meté el chicote fino por DEBAJO del firme grueso (la parte que cuelga de la gaza).',
-        paths: ['M 25 35 Q 50 30 75 35 L 60 50 L 75 50', 'M 30 30 L 60 50', 'M 35 55 L 70 65']
+        description: '3. Cruzá el chicote fino por DETRÁS del firme grueso (la parte de la gaza que cuelga) y pasálo por arriba de su propio firme.',
+        firmePaths: [
+          'M 10 25 L 35 25 L 55 45 L 35 45 Z'
+        ],
+        chicotePaths: [
+          'M 25 70 L 40 35 L 55 45 L 75 35'
+        ]
       },
       {
-        description: '4. Para mayor seguridad, trabá el chicote fino con una "cola de perro" sobre su propio firme.',
-        paths: ['M 25 35 Q 50 30 75 35 L 60 50 L 75 50', 'M 30 30 L 60 50', 'M 35 55 L 70 65', 'M 40 60 Q 45 55 40 50 Q 38 47 35 50']
+        description: '4. Para mayor seguridad: trabá el chicote fino con una "cola de perro" (pequeña curva) sobre su propio firme.',
+        firmePaths: [
+          'M 10 25 L 35 25 L 55 45 L 35 45 Z'
+        ],
+        chicotePaths: [
+          'M 25 70 L 40 35 L 55 45 L 75 35 L 70 50 L 80 60'
+        ]
       }
     ]
   },
@@ -192,20 +273,40 @@ const KNOTS: Knot[] = [
     difficulty: 'Fácil',
     steps: [
       {
-        description: '1. Formá un lazo con el chicote cruzando por ENCIMA del firme.',
-        paths: ['M 30 30 Q 50 20 70 30', 'M 50 50 L 30 30']
+        description: '1. Con el chicote (azul), cruzá POR ENCIMA del firme formando un lazo.',
+        firmePaths: [
+          'M 75 80 L 50 60'
+        ],
+        chicotePaths: [
+          'M 30 35 L 50 50'
+        ]
       },
       {
-        description: '2. Pasá el chicote por DEBAJO del firme (dando toda la vuelta).',
-        paths: ['M 30 30 Q 50 20 70 30', 'M 50 50 L 30 30', 'M 50 50 Q 70 50 70 60']
+        description: '2. Pasá el chicote por DEBAJO del firme, rodeándolo por completo.',
+        firmePaths: [
+          'M 75 80 L 50 60'
+        ],
+        chicotePaths: [
+          'M 30 35 L 50 50 L 50 70 L 70 75'
+        ]
       },
       {
-        description: '3. Meté el chicote por DENTRO del lazo inicial.',
-        paths: ['M 30 30 Q 50 20 70 30', 'M 50 50 L 30 30', 'M 50 50 Q 70 50 70 60', 'M 30 30 L 50 30 L 60 40']
+        description: '3. Meté el chicote por DENTRO del lazo inicial, de abajo hacia arriba.',
+        firmePaths: [
+          'M 75 80 L 50 60'
+        ],
+        chicotePaths: [
+          'M 30 35 L 50 50 L 50 70 L 70 75 L 50 30'
+        ]
       },
       {
-        description: '4. Tirá del firme y del chicote para ajustar. Queda la clásica forma de "8".',
-        paths: ['M 30 30 Q 50 20 70 30', 'M 50 50 L 30 30', 'M 50 50 Q 70 50 70 60', 'M 30 30 L 50 30 L 60 40', 'M 30 35 L 70 30']
+        description: '4. Tirá del firme y del chicote. Queda la clásica forma de "8" o "pajarita".',
+        firmePaths: [
+          'M 80 80 L 50 60'
+        ],
+        chicotePaths: [
+          'M 30 35 L 50 50 L 50 70 L 70 75 L 50 25'
+        ]
       }
     ]
   }
@@ -362,35 +463,64 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
                 </button>
               </div>
 
-              <div className="relative w-full aspect-[2/1] bg-slate-900 rounded-lg overflow-hidden">
-                <svg viewBox="0 0 100 50" className="absolute inset-0 w-full h-full">
-                  {/* Palo de referencia (para ballestrinque) */}
+              <div className="relative w-full aspect-[4/3] bg-slate-900 rounded-lg overflow-hidden">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full">
+                  <defs>
+                    <pattern id="dotgrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                      <circle cx="5" cy="5" r="0.4" fill="#1e293b" />
+                    </pattern>
+                  </defs>
+                  <rect width="100" height="100" fill="url(#dotgrid)" />
+
+                  {/* Palo de referencia (solo para ballestrinque) */}
                   {knot.id === 'clove' && (
-                    <line x1="10" y1="20" x2="90" y2="20" stroke="#64748b" strokeWidth="0.6" strokeDasharray="2,1" />
+                    <line x1="5" y1="30" x2="95" y2="30" stroke="#64748b" strokeWidth="1" strokeDasharray="3,2" />
                   )}
 
-                  {/* Trazos del nudo - los pasos anteriores en color más suave */}
-                  {knot.steps.slice(0, stepIdx + 1).map((step, i) => (
-                    <g key={i} opacity={i === stepIdx ? 1 : 0.4}>
-                      {step.paths.map((d, j) => (
-                        <path
-                          key={j}
-                          d={d}
-                          fill="none"
-                          stroke={knot.color}
-                          strokeWidth="2.2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      ))}
-                    </g>
+                  {/* Trazos del FIRME (rojo) - siempre se muestra completo del paso actual */}
+                  {knot.steps[stepIdx].firmePaths.map((d, j) => (
+                    <path
+                      key={`f-${j}`}
+                      d={d}
+                      fill="none"
+                      stroke="#ef4444"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ filter: 'drop-shadow(0 0 1px rgba(0,0,0,0.4))' }}
+                    />
                   ))}
 
-                  {/* Marcas de chicote (extremo) y firme */}
-                  <circle cx="20" cy="50" r="1.5" fill="#f59e0b" />
-                  <text x="22" y="48" fontSize="3" fill="#f59e0b" fontWeight="bold">chicote</text>
-                  <line x1="20" y1="50" x2="80" y2="50" stroke="#f59e0b" strokeWidth="0.15" opacity="0.3" />
+                  {/* Trazos del CHICOTE (azul) - se van sumando por paso */}
+                  {knot.steps[stepIdx].chicotePaths.map((d, j) => (
+                    <path
+                      key={`c-${j}`}
+                      d={d}
+                      fill="none"
+                      stroke="#3b82f6"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ filter: 'drop-shadow(0 0 1px rgba(0,0,0,0.4))' }}
+                    />
+                  ))}
+
+                  {/* Etiquetas en las puntas */}
+                  <text x="3" y="97" fontSize="4" fill="#ef4444" fontWeight="bold">FIRME</text>
+                  <text x="82" y="97" fontSize="4" fill="#3b82f6" fontWeight="bold">CHICOTE</text>
                 </svg>
+
+                {/* Mini leyenda de colores */}
+                <div className="absolute top-1.5 left-1.5 flex flex-col gap-0.5 text-[9px] font-bold bg-slate-900/85 backdrop-blur px-1.5 py-1 rounded border border-slate-700">
+                  <div className="flex items-center gap-1">
+                    <span className="w-2.5 h-1 bg-red-500 rounded" />
+                    <span className="text-red-300">FIRME</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="w-2.5 h-1 bg-blue-500 rounded" />
+                    <span className="text-blue-300">CHICOTE</span>
+                  </div>
+                </div>
               </div>
 
               {/* Descripción del paso */}
