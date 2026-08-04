@@ -1,12 +1,94 @@
 import React from 'react';
 import lifejackets from '../../assets/safety_lifejackets_illustrated.png';
+import anchorSystem from '../../assets/safety_anchor_system_illustrated-v2.png';
+import fireResponse from '../../assets/safety_fire_response_illustrated-v2.png';
+import floodingResponse from '../../assets/safety_flooding_response_illustrated-v2.png';
 import type { QuizQuestion } from '../../types/quiz';
 import type { VisualFamily } from '../../data/visualManifest';
 
 type Props={question:QuizQuestion;family?:VisualFamily};
 const kindFrom=(q:QuizQuestion,f?:VisualFamily)=>{const t=`${q.question} ${q.explanation}`.toLowerCase(); if(q.id==='seg_1')return'lifejackets'; if(/vhf|mayday|canal 16|radio/.test(t))return'radio'; if(/bengala|humo naranja|señal/.test(t))return'flare'; if(f==='SAFETY_FIRE'||/fuego|incendio|matafuego|extintor|combusti/.test(t))return'fire'; if(f==='SAFETY_ANCHOR'||/ancla|fonde|cadena|orinque|garrear/.test(t))return'anchor'; if(f==='SAFETY_HAA'||/hombre al agua|náufrago/.test(t))return'rescue'; if(f==='SAFETY_STORM'||/temporal|costa a sotavento|capear|ancla de capa/.test(t))return'storm'; if(f==='SAFETY_DAMAGE'||/vía de agua|abordaje|varad|timón|remolque|abandono/.test(t))return'damage'; if(/motor|bujía|prensaestopa|ánodo|rayo/.test(t))return'mechanical'; return'document';};
 
-export const SafetyQuestionIllustration:React.FC<Props>=({question,family})=>{const kind=kindFrom(question,family); const hue=[...question.id].reduce((a,c)=>a+c.charCodeAt(0),0)%3; if(kind==='lifejackets')return <figure className="h-full flex flex-col overflow-hidden bg-slate-950"><img src={lifejackets} alt="Tripulación completa navegando con chalecos salvavidas correctamente colocados" className="flex-1 min-h-0 w-full object-contain"/><figcaption className="shrink-0 bg-slate-900 px-4 py-2 text-xs text-slate-200"><strong className="text-rose-200">Observación:</strong> comprobá colocación, ajuste y cantidad de chalecos respecto de la tripulación.</figcaption></figure>;
+const rasterPlate = (question: QuizQuestion): { src: string; alt: string; focus: string } | null => {
+  if (['seg_3', 'seg_4', 'seg_18', 'seg_24', 'seg_catenary_1'].includes(question.id)) {
+    const focus = question.id === 'seg_24'
+      ? 'Seguí la línea auxiliar desde la boya hasta la parte posterior del ancla.'
+      : question.id === 'seg_catenary_1' || question.id === 'seg_4'
+        ? 'Observá cómo la línea se curva y llega casi horizontal al fondo.'
+        : 'Examiná la forma de las uñas, la caña y cómo trabajan sobre este fondo.';
+    return { src: anchorSystem, alt: 'Sistema de fondeo ilustrado completo con velero, cadena, cabo, ancla de uñas y línea auxiliar con boya', focus };
+  }
+  if (['seg_7', 'seg_fire_4', 'seg_fire_methods_1', 'seg_fire_technique_1'].includes(question.id)) {
+    return {
+      src: fireResponse,
+      alt: 'Tripulación controlando un incendio pequeño dentro de un velero con matafuego y corte de energía',
+      focus: question.id === 'seg_fire_technique_1'
+        ? 'Observá el punto donde impacta el agente y la posición segura del operador.'
+        : 'Relacioná combustible, energía y agente extintor antes de elegir.'
+    };
+  }
+  if (['seg_averia_1', 'seg_watertight_1'].includes(question.id)) {
+    return {
+      src: floodingResponse,
+      alt: 'Corte ilustrado de un velero donde la tripulación tapona una vía de agua y opera una bomba de achique',
+      focus: 'Identificá la entrada, el taponamiento, el achique y la descarga al exterior.'
+    };
+  }
+  return null;
+};
+
+const DetailedRasterPlate: React.FC<{ plate: NonNullable<ReturnType<typeof rasterPlate>> }> = ({ plate }) => (
+  <figure className="relative h-full overflow-hidden bg-slate-950">
+    <img src={plate.src} alt={plate.alt} className="h-full w-full object-contain" />
+    <figcaption className="absolute inset-x-2 bottom-2 rounded-lg border border-cyan-300/25 bg-slate-950/88 px-2.5 py-1.5 shadow-xl backdrop-blur-sm">
+      <p className="text-[9px] sm:text-[11px] leading-snug text-slate-100"><strong className="text-cyan-200">Pista de observación:</strong> {plate.focus}</p>
+    </figcaption>
+  </figure>
+);
+
+const FondeoManeuverPlate: React.FC<{ id: string }> = ({ id }) => {
+  const isTwoAnchors = id === 'seg_6';
+  const isDragging = id === 'seg_25';
+  return (
+    <figure className="relative h-full overflow-hidden bg-slate-950">
+      <svg viewBox="0 0 1000 430" className="h-full w-full" role="img" aria-label={isTwoAnchors ? 'Vista superior de un velero afirmado con dos anclas abiertas desde la proa' : isDragging ? 'Secuencia de un velero cuya ancla pierde agarre y se desplaza sobre el fondo' : 'Vista superior del círculo de borneo de un velero fondeado con una sola ancla'}>
+        <defs>
+          <radialGradient id={`anchoringWater-${id}`}><stop stopColor="#0891b2"/><stop offset="1" stopColor="#082f49"/></radialGradient>
+          <marker id={`anchorArrow-${id}`} markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#fbbf24"/></marker>
+          <filter id={`anchorShadow-${id}`}><feDropShadow dx="4" dy="6" stdDeviation="5" floodOpacity=".5"/></filter>
+        </defs>
+        <rect width="1000" height="430" fill={`url(#anchoringWater-${id})`}/>
+        {[70,145,220,295,370].map(y=><path key={y} d={`M0 ${y} Q125 ${y-15} 250 ${y} T500 ${y} T750 ${y} T1000 ${y}`} fill="none" stroke="#67e8f9" strokeWidth="3" opacity=".18"/>)}
+        {!isTwoAnchors && !isDragging && <circle cx="500" cy="225" r="165" fill="none" stroke="#a5f3fc" strokeWidth="5" strokeDasharray="13 12"/>}
+        {isDragging && <>
+          <path d="M250 220 Q450 220 675 275" fill="none" stroke="#fbbf24" strokeWidth="8" strokeDasharray="15 10" markerEnd={`url(#anchorArrow-${id})`}/>
+          <g opacity=".35" transform="translate(300 185)"><path d="M0 -75 C45 -55 55 45 0 92 C-55 45 -45 -55 0 -75Z" fill="#e2e8f0" stroke="#334155" strokeWidth="7"/><path d="M0 -75 V92" stroke="#64748b" strokeWidth="6"/></g>
+          <path d="M700 285 L748 322 M724 304 L760 276 M748 322 L780 298" stroke="#cbd5e1" strokeWidth="12" strokeLinecap="round"/>
+          <path d="M700 286 q-70 25 -125 0" fill="none" stroke="#d6a45d" strokeWidth="8" strokeDasharray="8 7"/>
+        </>}
+        <g transform={`translate(${isDragging ? 700 : 500} ${isDragging ? 180 : 190})`} filter={`url(#anchorShadow-${id})`}>
+          <path d="M0 -80 C48 -55 58 48 0 100 C-58 48 -48 -55 0 -80Z" fill="#f8fafc" stroke="#334155" strokeWidth="8"/>
+          <path d="M0 -80 V100" stroke="#64748b" strokeWidth="7"/>
+          <rect x="-26" y="-32" width="52" height="48" rx="8" fill="#dbeafe" stroke="#475569" strokeWidth="5"/>
+        </g>
+        {isTwoAnchors ? <>
+          <path d="M500 285 Q350 315 210 350 M500 285 Q650 315 790 350" fill="none" stroke="#d6a45d" strokeWidth="10"/>
+          <g stroke="#cbd5e1" strokeWidth="12" strokeLinecap="round"><path d="M185 350 L225 385 M205 368 L245 340 M225 385 L260 360"/><path d="M815 350 L775 385 M795 368 L755 340 M775 385 L740 360"/></g>
+          <path d="M350 332 A170 170 0 0 1 650 332" fill="none" stroke="#fbbf24" strokeWidth="6" strokeDasharray="10 8"/>
+        </> : !isDragging && <>
+          <path d="M500 285 Q500 335 500 380" fill="none" stroke="#d6a45d" strokeWidth="10"/>
+          <path d="M475 380 L515 415 M495 398 L535 370 M515 415 L550 390" stroke="#cbd5e1" strokeWidth="12" strokeLinecap="round"/>
+          <path d="M365 95 A165 165 0 0 1 625 88" fill="none" stroke="#fbbf24" strokeWidth="7" markerEnd={`url(#anchorArrow-${id})`}/>
+        </>}
+      </svg>
+      <figcaption className="absolute inset-x-2 bottom-2 rounded-lg border border-amber-300/30 bg-slate-950/88 px-2.5 py-1.5">
+        <p className="text-[9px] sm:text-[11px] text-slate-100"><strong className="text-amber-200">Leé la geometría:</strong> {isTwoAnchors ? 'compará la apertura de ambas líneas y cómo limitan el giro.' : isDragging ? 'compará la posición inicial con el desplazamiento y la huella del ancla.' : 'seguí el radio entre el ancla fija y las posibles posiciones del barco.'}</p>
+      </figcaption>
+    </figure>
+  );
+};
+
+export const SafetyQuestionIllustration:React.FC<Props>=({question,family})=>{const plate=rasterPlate(question); if(plate)return <DetailedRasterPlate plate={plate}/>; if(['seg_5','seg_6','seg_25'].includes(question.id))return <FondeoManeuverPlate id={question.id}/>; const kind=kindFrom(question,family); const hue=[...question.id].reduce((a,c)=>a+c.charCodeAt(0),0)%3; if(kind==='lifejackets')return <figure className="h-full flex flex-col overflow-hidden bg-slate-950"><img src={lifejackets} alt="Tripulación completa navegando con chalecos salvavidas correctamente colocados" className="flex-1 min-h-0 w-full object-contain"/><figcaption className="shrink-0 bg-slate-900 px-4 py-2 text-xs text-slate-200"><strong className="text-rose-200">Observación:</strong> comprobá colocación, ajuste y cantidad de chalecos respecto de la tripulación.</figcaption></figure>;
 return <figure className="h-full flex flex-col overflow-hidden bg-slate-950"><svg viewBox="0 0 1200 430" className="flex-1 min-h-0 w-full" role="img" aria-label={`Escena de seguridad para ${question.question}`}><defs><linearGradient id={`safeSea${hue}`} x1="0" y1="0" x2="0" y2="1"><stop stopColor={['#bae6fd','#dbeafe','#cffafe'][hue]}/><stop offset=".52" stopColor="#38bdf8"/><stop offset=".53" stopColor="#075985"/><stop offset="1" stopColor="#082f49"/></linearGradient><filter id={`safeShadow${hue}`}><feDropShadow dx="5" dy="7" stdDeviation="5" floodOpacity=".5"/></filter></defs><rect width="1200" height="430" fill={`url(#safeSea${hue})`}/>
 {kind==='radio'&&<><rect x="390" y="70" width="420" height="300" rx="35" fill="#1e293b" stroke="#94a3b8" strokeWidth="8"/><rect x="455" y="120" width="290" height="92" rx="12" fill="#164e63" stroke="#67e8f9" strokeWidth="5"/><path d="M490 165 H710" stroke="#22d3ee" strokeWidth="6" strokeDasharray="8 7"/><circle cx="505" cy="285" r="43" fill="#334155" stroke="#cbd5e1" strokeWidth="6"/><rect x="590" y="255" width="155" height="65" rx="12" fill="#ef4444"/><path d="M780 65 L850 15" stroke="#0f172a" strokeWidth="10"/></>}
 {kind==='flare'&&<><path d="M600 340 L600 160" stroke="#334155" strokeWidth="45"/><path d="M600 160 C505 100 565 32 600 65 C635 32 695 100 600 160Z" fill="#fb923c" stroke="#ef4444" strokeWidth="8"/><path d="M390 345 Q600 280 810 345" fill="none" stroke="#e0f2fe" strokeWidth="10"/><circle cx="600" cy="95" r="115" fill="#fb923c" opacity=".2"/></>}
