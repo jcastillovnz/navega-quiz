@@ -9,6 +9,8 @@
 - No repetir una misma imagen mediante paneles, acercamientos laterales o mosaicos.
 - Cada ilustración debe corresponder directamente con el objeto o situación preguntada: vela, motor, luces, marca diurna, boya, ancla, cabo, instrumento o fenómeno.
 - Cada pregunta debe tener exactamente una ilustración principal coherente con su enunciado, sus opciones y la explicación de la respuesta. La ilustración no puede ser meramente decorativa ni pertenecer solo al tema general del módulo.
+- Ninguna pregunta puede reutilizar una ilustración idéntica de otra pregunta. Cada ID debe resolver a una `variantKey` única y producir una composición, foco o escena diferenciada y semánticamente relevante.
+- Compartir imagen base, asset o componente solo es válido si el resultado renderizado adapta elementos técnicos sustanciales al enunciado; cambiar únicamente color del marco, posición de una etiqueta o identificador no alcanza para considerar la ilustración diferente.
 - La correspondencia debe validarse semánticamente antes de entregar: si se pregunta por una vela debe verse esa vela; si se pregunta por un buque a motor debe verse ese tipo de buque; si se evalúan luces, marcas, boyas, señales, piezas o maniobras, deben representarse su configuración, color, posición, orientación y contexto reglamentario correctos.
 - No usar una ilustración genérica como fallback silencioso cuando falte una escena específica. En ese caso se debe crear o asignar un recurso adecuado y registrar explícitamente su evidencia visual.
 - La imagen previa a responder debe aportar las pistas necesarias para observar y razonar la situación, pero no debe revelar la respuesta mediante rótulos que nombren directamente la opción correcta.

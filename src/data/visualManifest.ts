@@ -11,17 +11,20 @@ export type VisualFamily =
   | 'NOM_HULL' | 'NOM_RIGGING' | 'NOM_ANCHOR' | 'NOM_ENGINE' | 'NOM_PROPELLER'
   | 'MET_FORECAST' | 'MET_PRESSURE' | 'MET_BREEZE' | 'MET_WAVES' | 'MET_WIND'
   | 'MET_PAMPERO' | 'MET_SUDESTADA' | 'MET_BEAUFORT'
-  | 'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_COILING'
+  | 'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_ANCHOR_BEND' | 'KNOT_COILING'
+  | 'ROPE_KINK' | 'ROPE_CONSTRUCTION' | 'ROPE_SAIL_PART' | 'ROPE_RIGGING' | 'ROPE_DINGHY' | 'ROPE_END'
   | 'PRACTICAL_CHART' | 'PRACTICAL_CALCULATION';
 
 export interface VisualSpec {
   family: VisualFamily;
   evidence: string;
+  /** Identidad única: dos preguntas nunca pueden resolver a la misma variante renderizada. */
+  variantKey: string;
 }
 
 const manifest: Record<string, VisualSpec> = {};
 const assign = (ids: string[], family: VisualFamily, evidence: string) => {
-  ids.forEach(id => { manifest[id] = { family, evidence }; });
+  ids.forEach(id => { manifest[id] = { family, evidence, variantKey: `${id}:${family.toLowerCase()}` }; });
 };
 
 assign(['ripa_1', 'ripa_22'], 'RIPA_RULE_12', 'Banda de entrada del viento y posición de ambos veleros');
@@ -87,10 +90,16 @@ assign(['met_3', 'met_4', 'met_5', 'met_6', 'met_7'], 'MET_BEAUFORT', 'Fuerza de
 assign(['nudo_1', 'nudo_6'], 'KNOT_BOWLINE', 'Chicote, firme, seno y gaza fija terminada');
 assign(['nudo_2', 'nudo_8', 'nudo_17'], 'KNOT_REEF', 'Cruces simétricos y resultado del nudo llano');
 assign(['nudo_3', 'nudo_18'], 'KNOT_CLOVE', 'Vueltas del cabo alrededor del soporte');
-assign(['nudo_4', 'nudo_7'], 'KNOT_SHEET_BEND', 'Unión de cabos de distinto diámetro');
+assign(['nudo_4'], 'KNOT_SHEET_BEND', 'Seno del cabo grueso, recorrido del fino y ambos chicotes del mismo lado');
+assign(['nudo_7'], 'KNOT_ANCHOR_BEND', 'Dos vueltas por el arganeo, chicote alrededor del firme y remate asegurado');
 assign(['nudo_5', 'nudo_15'], 'KNOT_FIGURE_EIGHT', 'Nudo de tope y recorrido del chicote');
-assign(['nudo_9', 'nudo_10', 'nudo_11', 'nudo_12', 'nudo_13', 'nudo_14', 'nudo_16'], 'KNOT_BOWLINE', 'Cabo o elemento de jarcia observado en detalle');
-assign(['nudo_19', 'nudo_20', 'nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');
+assign(['nudo_9'], 'ROPE_KINK', 'Coca visible, torsión acumulada y diferencia frente a un seno sano');
+assign(['nudo_11'], 'ROPE_CONSTRUCTION', 'Filásticas, cordones y cabo terminado con sentidos de torsión alternados');
+assign(['nudo_10', 'nudo_12'], 'ROPE_SAIL_PART', 'Vela completa con gratil y aparejo Cunningham destacados en su ubicación real');
+assign(['nudo_16'], 'ROPE_RIGGING', 'Jarcia de labor diferenciada de obenques y estays mediante recorridos funcionales');
+assign(['nudo_14'], 'ROPE_DINGHY', 'Chinchorro completo y bosa afirmada específicamente en la proa');
+assign(['nudo_18'], 'ROPE_END', 'Chicote protegido y estructura del cabo impedida de descolcharse');
+assign(['nudo_13', 'nudo_19', 'nudo_20', 'nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');
 
 assign(['prac_carta_1', 'prac_carta_2', 'prac_carta_3'], 'PRACTICAL_CHART', 'Carta, escala de latitud y medición de distancia');
 assign(Array.from({ length: 18 }, (_, i) => `prac_${i + 1}`), 'PRACTICAL_CALCULATION', 'Datos, fórmula, unidades y secuencia de resolución');

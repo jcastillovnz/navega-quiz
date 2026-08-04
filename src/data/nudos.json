@@ -2,26 +2,26 @@
   {
     "id": "nudo_1",
     "category": "NUDOS",
-    "question": "¿Cuál es el nudo más utilizado para crear un anillo fijo que no se corre ni se aprieta bajo carga, y se desata con un tirón?",
+    "question": "¿Qué nudo forma una gaza fija que no se corre ni se aprieta bajo carga y normalmente puede deshacerse después de trabajar?",
     "options": [
       { "id": "A", "text": "Nudo Llano", "isCorrect": false },
       { "id": "B", "text": "As de Guía (Bowline)", "isCorrect": true },
       { "id": "C", "text": "Ballestrinque (Clove Hitch)", "isCorrect": false },
       { "id": "D", "text": "Nudo de Ocho (Figure Eight)", "isCorrect": false }
     ],
-    "explanation": "El As de Guía es EL nudo náutico por excelencia: forma un lazo que no se ajusta ni se desliza bajo carga, y se desata con un tirón incluso después de soportar mucha tensión. Imprescindible para rescate y HAA. [TIP: 'As de Guía' = 'el nudo rey'. Su forma de lazo lo hace perfecto para rescatar personas.]"
+    "explanation": "El as de guía forma una gaza fija: el tamaño del ojo no disminuye al cargarlo. Para reconocerlo, seguí el firme, el seno que forma la gaza y el chicote que rodea el firme antes de volver por la coca inicial. Suele poder deshacerse después de trabajar, pero no simplemente tirando de cualquier extremo."
   },
   {
     "id": "nudo_2",
     "category": "NUDOS",
-    "question": "Para unir DOS cabos del MISMO diámetro y material, ¿qué nudo se utiliza?",
+    "question": "Para tomar rizos o unir temporalmente dos chicotes del mismo diámetro sin someterlos a una carga crítica, ¿qué nudo se utiliza?",
     "options": [
       { "id": "A", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": false },
       { "id": "B", "text": "As de Guía (Bowline)", "isCorrect": false },
       { "id": "C", "text": "Nudo Llano (Reef Knot)", "isCorrect": true },
       { "id": "D", "text": "Ballestrinque (Clove Hitch)", "isCorrect": false }
     ],
-    "explanation": "El Nudo Llano (Reef Knot) une dos cabos del mismo diámetro. Es fácil de recordar con la frase 'izquierda sobre derecha, derecha sobre izquierda'. Si los diámetros son distintos, se desliza: ahí se usa la Vuelta de Escota. [TIP: 'Llano' = llano, plano. Solo para MISMO diámetro.]"
+    "explanation": "El nudo llano se usa para tomar rizos, aferrar o ligar objetos con dos chicotes semejantes. Se forma con dos medios nudos opuestos y debe quedar simétrico. No es un nudo seguro para unir cabos sometidos a carga importante, variable o de salvamento."
   },
   {
     "id": "nudo_3",
@@ -33,19 +33,19 @@
       { "id": "C", "text": "As de Guía", "isCorrect": false },
       { "id": "D", "text": "Vuelta de Escota", "isCorrect": false }
     ],
-    "explanation": "El Ballestrinque (Clove Hitch) es el nudo de amarre por excelencia: rápido, se ajusta solo con la carga y funciona en cualquier dirección. Se usa para colgar defensas del barandal, fondeos temporales y amarres a postes. [TIP: 'Ballestrinque' = 'ballesta' (arma antigua). El nudo tiene forma de ballesta cruzando el palo.]"
+    "explanation": "El ballestrinque se realiza con dos vueltas cruzadas alrededor de un soporte. Es rápido para defensas y trabajos temporales, pero puede deslizar o aflojarse con carga variable; cuando la seguridad importa debe rematarse con uno o dos cotes o elegirse un amarre más seguro."
   },
   {
     "id": "nudo_4",
     "category": "NUDOS",
-    "question": "Para unir dos cabos de DISTINTO diámetro (por ejemplo, nylon con cadena, o dos cabos de diferente grosor), ¿qué nudo es el correcto?",
+    "question": "Para unir temporalmente dos cabos de distinto diámetro, ¿qué nudo es el apropiado?",
     "options": [
       { "id": "A", "text": "Nudo Llano", "isCorrect": false },
       { "id": "B", "text": "Nudo de Ocho", "isCorrect": false },
       { "id": "C", "text": "As de Guía", "isCorrect": false },
       { "id": "D", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": true }
     ],
-    "explanation": "La Vuelta de Escota (Sheet Bend) está diseñada específicamente para unir cabos de distinto diámetro. A diferencia del Nudo Llano, no se desliza cuando los grosores son diferentes. Se usa mucho para prolongar la línea de fondeo cabo-cadena. [TIP: 'Sheet' = 'escota' (cabo de la vela). 'Bend' = 'vuelta'. Por eso se llama Vuelta de Escota.]"
+    "explanation": "La vuelta de escota une dos cabos de diferente mena: el cabo más grueso forma un seno y el más fino lo rodea, pasando finalmente por debajo de sí mismo. Ambos chicotes deben quedar del mismo lado. Para una carga importante se prefiere la vuelta de escota doble. No se enseña como unión directa cabo-cadena."
   },
   {
     "id": "nudo_5",
@@ -62,26 +62,26 @@
   {
     "id": "nudo_6",
     "category": "NUDOS",
-    "question": "En una situación de Hombre al Agua (HAA), ¿cuál es el nudo más adecuado para hacer un anillo al que subir al náufrago?",
+    "question": "¿Qué nudo permite preparar una gaza fija en una línea de rescate sin que el ojo se cierre bajo carga?",
     "options": [
       { "id": "A", "text": "Nudo Llano", "isCorrect": false },
       { "id": "B", "text": "Ballestrinque", "isCorrect": false },
       { "id": "C", "text": "As de Guía (Bowline)", "isCorrect": true },
       { "id": "D", "text": "Nudo de Ocho", "isCorrect": false }
     ],
-    "explanation": "El As de Guía es el indicado para HAA: forma un anillo seguro alrededor del náufrago, no se aprieta (no lo estrangula) y se puede desatar rápidamente para liberarlo. Por eso es obligatorio aprenderlo y dominarlo. [TIP: HAA = As de Guía. Es la regla nemotécnica del rescate.]"
+    "explanation": "El as de guía produce una gaza cuyo diámetro no se reduce al cargar. Puede formar parte de una línea de rescate, pero no debe asumirse que una gaza improvisada reemplaza un arnés o equipo de izado: durante un HAA se priorizan aro, eslinga y medios adecuados, evitando cargar el cuello o comprimir el tórax."
   },
   {
     "id": "nudo_7",
     "category": "NUDOS",
-    "question": "Si necesitás prolongar la línea de fondeo uniendo un cabo de nylon a un tramo de cadena, ¿qué nudo usás?",
+    "question": "Para afirmar un cabo a un arganeo o anilla de ancla, ¿qué nudo específico se utiliza?",
     "options": [
       { "id": "A", "text": "Nudo Llano (Reef Knot)", "isCorrect": false },
-      { "id": "B", "text": "Vuelta de Escota (Sheet Bend)", "isCorrect": true },
+      { "id": "B", "text": "Vuelta de ancla o rezón (Anchor Bend)", "isCorrect": true },
       { "id": "C", "text": "As de Guía", "isCorrect": false },
       { "id": "D", "text": "Ballestrinque", "isCorrect": false }
     ],
-    "explanation": "La Vuelta de Escota une cabos de distinto diámetro y material, lo que la hace perfecta para nylon-cadena. El Nudo Llano NO sirve acá porque se desliza al haber distintos grosores. [TIP: Nylon-cadena = Vuelta de Escota. Es la unión clásica de fondeo.]"
+    "explanation": "La vuelta de ancla se hace pasando dos vueltas por el arganeo y llevando el chicote alrededor del firme, rematándolo con un cote y asegurándolo. En una línea permanente cabo-cadena se utiliza una unión o empalme diseñado para la cadena, guardacabo y grillete según el aparejo; no una vuelta de escota improvisada."
   },
   {
     "id": "nudo_8",
@@ -105,7 +105,7 @@
       { "id": "C", "text": "Anudar el cabo", "isCorrect": false },
       { "id": "D", "text": "Cortar el cabo", "isCorrect": false }
     ],
-    "explanation": "Una coca es una torcedura o vuelta anormal en un cabo. Si no se deshace a tiempo, puede dañar el cabo permanentemente. Se previene 'abozando' (enrollando) el cabo correctamente. [TIP: 'Coca' = torcedura. No confundir con 'cocaína'. Siempre verifica que tus cabos no tengan cocas.]"
+    "explanation": "Una coca es una vuelta cerrada producida por torsión acumulada. Puede trabarse al correr, reducir momentáneamente la resistencia y dañar la estructura si se carga. Se previene descargando la torsión y adujando de acuerdo con la construcción del cabo, o en ocho cuando corresponda."
   },
   {
     "id": "nudo_10",
@@ -129,7 +129,7 @@
       { "id": "C", "text": "Entalingar un cabo", "isCorrect": false },
       { "id": "D", "text": "Cortar el cabo", "isCorrect": false }
     ],
-    "explanation": "Colchar significa unir los cordones o filásticas de un cabo retorciéndolos entre sí. Es una técnica para empalmar dos cabos o reparar una zona dañada trenzando sus fibras. [TIP: 'Colcha' = cubierta, revestimiento. Colchar = 'cubrir' un cabo con el trenzado de otro.]"
+    "explanation": "Colchar es torcer filásticas para formar cordones y luego torcer esos cordones para formar un cabo. Los sentidos de torsión se alternan para que la estructura se equilibre. No significa por sí mismo empalmar o reparar dos cabos."
   },
   {
     "id": "nudo_12",

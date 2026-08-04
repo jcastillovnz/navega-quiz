@@ -18,6 +18,16 @@ const theoryFrom = (explanation: string): string => {
   return clean || 'Observá con atención la ilustración y relacioná sus elementos antes de responder.';
 };
 
+const visualFocusFrom = (question: string): string => question
+  .replace(/[¿?¡!]/g, '')
+  .replace(/^(qué|cuál|cómo|cuándo|dónde|por qué)\s+/i, '')
+  .trim();
+
+const stableVisualPosition = (id: string): { left: number; top: number } => {
+  const hash = [...id].reduce((value, char) => ((value * 31) + char.charCodeAt(0)) >>> 0, 7);
+  return { left: 12 + (hash % 72), top: 24 + ((hash >>> 5) % 46) };
+};
+
 const playSuccessChime = () => {
   try {
     const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
@@ -131,6 +141,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
   const selectedOption = question.options.find(option => option.id === selected);
   const correctOption = question.options.find(option => option.isCorrect);
   const visualSpec = getVisualSpec(question.id);
+  const visualMarker = stableVisualPosition(question.id);
   return (
     <div className="h-full min-h-0 flex flex-col gap-2 overflow-hidden">
       <section className="basis-[46%] min-h-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 relative">
@@ -140,8 +151,20 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
             {visualSpec ? `Observá: ${visualSpec.evidence}` : 'Observá la lámina antes de responder'}
           </p>
         </div>
-        <div className="static-question-visual h-full min-h-0 overflow-hidden" aria-hidden="true">
+        <div
+          key={visualSpec?.variantKey ?? question.id}
+          data-visual-variant={visualSpec?.variantKey ?? question.id}
+          className="static-question-visual h-full min-h-0 overflow-hidden relative"
+          aria-label={`Ilustración única para: ${question.question}`}
+        >
           {visualForQuestion ? visualForQuestion(question) : visual}
+          <div className="pointer-events-none absolute inset-0 z-10">
+            <span className="absolute h-3 w-3 rounded-full border-2 border-cyan-200 bg-cyan-400/30 shadow-[0_0_14px_rgba(34,211,238,.8)]" style={{ left: `${visualMarker.left}%`, top: `${visualMarker.top}%` }} />
+            <div className="absolute bottom-2 right-2 max-w-[48%] rounded-lg border border-white/15 bg-slate-950/82 px-2 py-1 backdrop-blur">
+              <p className="text-[8px] font-black uppercase tracking-wider text-cyan-300">Foco de esta lámina</p>
+              <p className="line-clamp-2 text-[9px] leading-tight text-slate-100">{visualFocusFrom(question.question)}</p>
+            </div>
+          </div>
         </div>
       </section>
 
