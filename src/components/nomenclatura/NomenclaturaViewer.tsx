@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import sailboatAnatomy from '../../assets/sailboat_anatomy.png';
 import sailboatRigging from '../../assets/sailboat_rigging.png';
+import anchorDanforth from '../../assets/anchor_danforth_realistic.png';
 
 const HULL_TERMS = [
   { term: 'Eslora', def: 'Longitud total del barco de proa a popa (ej: 10 m). La eslora en la línea de flotación (ELF) es la que va a la quilla.', color: 'text-amber-300' },
@@ -24,10 +25,10 @@ const RIGGING_TERMS = [
   { term: 'Driza de Foque', type: 'MOVIL', def: 'Cabo para izar el foque o génova por el estay de proa.' },
 ];
 
-type Section = 'CASCO' | 'JARCIA';
+type Section = 'CASCO' | 'JARCIA' | 'FONDEO';
 
 export const NomenclaturaViewer: React.FC<{ compact?: boolean; focusSection?: Section }> = ({ compact = false, focusSection }) => {
-  const [section, setSection] = useState<Section>('CASCO');
+  const [section, setSection] = useState<Section>(focusSection ?? 'CASCO');
   const [filter, setFilter] = useState<'TODOS' | 'FIJA' | 'MOVIL'>('TODOS');
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export const NomenclaturaViewer: React.FC<{ compact?: boolean; focusSection?: Se
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
       {/* Control Bar */}
-      <div className="flex items-center justify-between bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
+      {!compact && <div className="flex items-center justify-between bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
         <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button
             onClick={() => setSection('CASCO')}
@@ -58,6 +59,14 @@ export const NomenclaturaViewer: React.FC<{ compact?: boolean; focusSection?: Se
             }`}
           >
             ⛵ Arboladura y Jarcia
+          </button>
+          <button
+            onClick={() => setSection('FONDEO')}
+            className={`px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+              section === 'FONDEO' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            ⚓ Ancla y Fondeo
           </button>
         </div>
 
@@ -76,7 +85,7 @@ export const NomenclaturaViewer: React.FC<{ compact?: boolean; focusSection?: Se
             ))}
           </div>
         )}
-      </div>
+      </div>}
 
       {/* CASCO SECTION */}
       {section === 'CASCO' && (
@@ -145,6 +154,16 @@ export const NomenclaturaViewer: React.FC<{ compact?: boolean; focusSection?: Se
               </div>
             ))}
           </div>}
+        </div>
+      )}
+
+      {section === 'FONDEO' && (
+        <div className="flex-1 min-h-0 rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden relative">
+          <img src={anchorDanforth} alt="Ancla Danforth realista con cadena, arganeo, caña, cepo, cruz y uñas" className="w-full h-full object-contain" />
+          <div className="absolute inset-x-2 bottom-2 rounded-xl border border-amber-400/30 bg-slate-950/90 backdrop-blur px-3 py-2">
+            <p className="text-xs font-black text-amber-200">Ancla tipo Danforth · pieza completa de fondeo</p>
+            <p className="text-[10px] leading-relaxed text-slate-300">Desde la cadena hacia las uñas: grillete y arganeo → caña → cruz y cepo → uñas que penetran el fondo. La cadena aporta peso y mantiene el tiro lo más horizontal posible.</p>
+          </div>
         </div>
       )}
     </div>

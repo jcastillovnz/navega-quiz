@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
-import ripaBowImg from '../../assets/ripa_lights_bow.png';
+import ripaBowImg from '../../assets/ripa_navigation_lights_illustrated.png';
 
 type Perspective = 'PROA' | 'POPA' | 'BABOR' | 'ESTRIBOR';
 type ShipType = 'MOTOR' | 'VELA';
@@ -82,8 +82,8 @@ export const RipaLightViewer: React.FC<{
   focusPerspective?: Perspective;
 }> = ({ compact = false, focusShipType, focusPerspective }) => {
   const [isNight, setIsNight] = useState(true);
-  const [perspective, setPerspective] = useState<Perspective>('PROA');
-  const [shipType, setShipType] = useState<ShipType>('MOTOR');
+  const [perspective, setPerspective] = useState<Perspective>(focusPerspective ?? 'PROA');
+  const [shipType, setShipType] = useState<ShipType>(focusShipType ?? 'MOTOR');
 
   const info = PERSPECTIVE_INFO[perspective];
   const visibleLights = getVisibleLights(perspective, shipType);
@@ -96,7 +96,7 @@ export const RipaLightViewer: React.FC<{
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
       {/* Controles compactos */}
-      <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
+      {!compact && <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
         <button
           onClick={() => setIsNight(!isNight)}
           className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
@@ -128,7 +128,7 @@ export const RipaLightViewer: React.FC<{
             </button>
           ))}
         </div>
-      </div>
+      </div>}
 
       {/* Grid 2 cols */}
       <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
@@ -160,7 +160,7 @@ export const RipaLightViewer: React.FC<{
             isNight ? 'bg-gradient-to-t from-slate-900 to-blue-950/50' : 'bg-gradient-to-t from-sky-600/70 to-transparent'
           }`} />
 
-          {/* PROA noche: usa la foto real con luces CSS superpuestas */}
+          {/* PROA noche: ilustración técnica con luces CSS superpuestas */}
           {perspective === 'PROA' && isNight ? (
             <div className="relative z-10 w-full h-full flex items-center justify-center p-2">
               <div className="animate-ship-bob relative">

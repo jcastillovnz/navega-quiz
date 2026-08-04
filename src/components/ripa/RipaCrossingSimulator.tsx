@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Play, RotateCcw, Info, Ship, Anchor } from 'lucide-react';
-import rule12Sailboats from '../../assets/ripa_rule12_sailboats_realistic.png';
-import rule13Overtaking from '../../assets/ripa_rule13_overtaking_realistic.png';
-import rule14HeadOn from '../../assets/ripa_rule14_headon_realistic.png';
-import rule15Crossing from '../../assets/ripa_rule15_crossing_realistic.png';
-import rule18SailMotor from '../../assets/ripa_rule18_sail_motor_realistic.png';
+import rule12Sailboats from '../../assets/ripa_rule12_sailboats_illustrated.png';
+import rule13Overtaking from '../../assets/ripa_rule13_overtaking_illustrated.png';
+import rule14HeadOn from '../../assets/ripa_rule14_headon_illustrated.png';
+import rule15Crossing from '../../assets/ripa_rule15_crossing_illustrated.png';
+import rule18SailMotor from '../../assets/ripa_rule18_sail_motor_illustrated.png';
 
 type ScenarioId = 'VUELTA_ENCONTRADA' | 'CRUCE' | 'ALCANCE' | 'VELEROS' | 'VELERO_VS_MOTOR';
 
@@ -158,7 +158,7 @@ const ShipSVG: React.FC<{ vessel: Vessel; size?: number }> = ({ vessel, size = 4
   );
 };
 
-export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = ({ focusScenario }) => {
+export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId; compact?: boolean }> = ({ focusScenario, compact = false }) => {
   const [scenarioId, setScenarioId] = useState<ScenarioId>(focusScenario ?? 'VUELTA_ENCONTRADA');
   const [isPlaying, setIsPlaying] = useState(false);
   const [vessels, setVessels] = useState<Vessel[]>(SCENARIOS.VUELTA_ENCONTRADA.vessels);
@@ -210,9 +210,9 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = (
   const currentScenario = SCENARIOS[scenarioId];
 
   return (
-    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
+    <div className={`h-full min-h-0 flex flex-col w-full max-w-full mx-auto ${compact ? 'p-0' : 'gap-3 p-1'}`}>
       {/* Selector de Escenarios */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+      {!compact && <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
         {(Object.keys(SCENARIOS) as ScenarioId[]).map(id => (
           <button
             key={id}
@@ -226,10 +226,10 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = (
             {SCENARIOS[id].title.split(' (')[0]}
           </button>
         ))}
-      </div>
+      </div>}
 
       {/* Canvas de Simulación */}
-      <div className="relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden border border-slate-700 bg-gradient-to-b from-slate-900 to-slate-950">
+      <div className={`relative w-full min-h-0 overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 ${compact ? 'h-full flex-1' : 'h-64 sm:h-72 rounded-2xl border border-slate-700'}`}>
         {/* Grilla náutica sutil (rosa de los vientos) */}
         <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
@@ -253,8 +253,8 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = (
           <>
             <img
               src={currentScenario.illustration}
-              alt={`Escena náutica realista de ${currentScenario.title}: ${currentScenario.description}`}
-              className="absolute inset-0 w-full h-full object-cover"
+              alt={`Ilustración náutica técnica de ${currentScenario.title}: ${currentScenario.description}`}
+              className="absolute inset-0 w-full h-full object-contain object-center bg-slate-950"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-transparent px-4 pb-3 pt-12">
               <p className="text-[10px] font-bold text-white">Leé las proas y las estelas para reconocer rumbo, aproximación y maniobra.</p>
@@ -274,7 +274,7 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = (
       </div>
 
       {/* Controles */}
-      <div className="flex flex-wrap gap-3 items-center justify-center">
+      {!compact && <div className="flex flex-wrap gap-3 items-center justify-center">
         <button
           onClick={() => setIsPlaying(!isPlaying)}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all duration-300 ${
@@ -302,10 +302,10 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = (
           <RotateCcw className="w-4 h-4" />
           Reiniciar
         </button>
-      </div>
+      </div>}
 
       {/* Tarjeta de Explicación */}
-      <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 p-5 rounded-xl">
+      {!compact && <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 p-5 rounded-xl">
         <div className="flex items-start gap-3 mb-3">
           <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-2">
             <Info className="w-5 h-5 text-cyan-400" />
@@ -345,7 +345,7 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = (
             </div>
           ))}
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

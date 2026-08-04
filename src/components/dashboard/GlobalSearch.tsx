@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Search, X, BookOpen, BrainCircuit, Lightbulb } from 'lucide-react';
 import ripaIala from '../../data/ripa_iala.json';
+import ripaSound from '../../data/ripa_senales_auditivas.json';
 import teoria from '../../data/teoria.json';
 import nudos from '../../data/nudos.json';
 import nomenclatura from '../../data/nomenclatura.json';
@@ -29,6 +30,7 @@ const PRACTICOS_QUESTIONS: AllQuestion[] = (practicos as unknown as Array<{
 
 const ALL_QUESTIONS: AllQuestion[] = [
   ...(ripaIala as QuizQuestion[]).map(q => ({ ...q, _source: 'RIPA/IALA' })),
+  ...(ripaSound as QuizQuestion[]).map(q => ({ ...q, _source: 'RIPA/IALA' })),
   ...(teoria as QuizQuestion[]).map(q => ({ ...q, _source: 'Teoría' })),
   ...(nudos as QuizQuestion[]).map(q => ({ ...q, _source: 'Nudos' })),
   ...(nomenclatura as QuizQuestion[]).map(q => ({ ...q, _source: 'Nomenclatura' })),

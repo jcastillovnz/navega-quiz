@@ -66,9 +66,9 @@ const PHENOMENA: Record<Phenomenon, { title: string; color: string; description:
   }
 };
 
-export const MeteorologiaViewer: React.FC<{ focusPhenomenon?: Phenomenon; focusBeaufort?: number }> = ({ focusPhenomenon, focusBeaufort }) => {
-  const [beaufort, setBeaufort] = useState(0);
-  const [phenomenon, setPhenomenon] = useState<Phenomenon | null>(null);
+export const MeteorologiaViewer: React.FC<{ focusPhenomenon?: Phenomenon; focusBeaufort?: number; compact?: boolean }> = ({ focusPhenomenon, focusBeaufort, compact = false }) => {
+  const [beaufort, setBeaufort] = useState(focusBeaufort === undefined ? 0 : Math.min(12, Math.max(0, focusBeaufort)));
+  const [phenomenon, setPhenomenon] = useState<Phenomenon | null>(focusPhenomenon ?? null);
   const step = BEAUFORT[beaufort];
 
   useEffect(() => {
@@ -77,9 +77,9 @@ export const MeteorologiaViewer: React.FC<{ focusPhenomenon?: Phenomenon; focusB
   }, [focusPhenomenon, focusBeaufort]);
 
   return (
-    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
+    <div className="h-full min-h-0 overflow-y-auto flex flex-col gap-3 w-full max-w-full mx-auto p-1">
       {/* Selector de fenómeno (Pampero / Sudestada) */}
-      <div className="grid grid-cols-2 gap-3">
+      {!compact && <div className="grid grid-cols-2 gap-3">
         {(['PAMPERO', 'SUDESTADA'] as Phenomenon[]).map(p => {
           const isActive = phenomenon === p;
           const ph = PHENOMENA[p];
@@ -96,7 +96,7 @@ export const MeteorologiaViewer: React.FC<{ focusPhenomenon?: Phenomenon; focusB
             </button>
           );
         })}
-      </div>
+      </div>}
 
       {/* Panel del fenómeno activo */}
       {phenomenon && (
@@ -114,7 +114,7 @@ export const MeteorologiaViewer: React.FC<{ focusPhenomenon?: Phenomenon; focusB
       )}
 
       {/* --- Escala de Beaufort --- */}
-      <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5">
+      {!phenomenon && <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5">
         <div className="flex items-center gap-2 mb-1">
           <Wind className="w-5 h-5 text-cyan-400" />
           <h3 className="text-xl font-bold text-white">Escala de Beaufort Interactiva</h3>
@@ -238,7 +238,7 @@ export const MeteorologiaViewer: React.FC<{ focusPhenomenon?: Phenomenon; focusB
             <p className="text-xs text-slate-300 mt-1">{step.description}</p>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

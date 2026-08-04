@@ -189,7 +189,7 @@
       { "id": "C", "text": "Dos conos negros opuestos por la base", "isCorrect": false },
       { "id": "D", "text": "Un cilindro negro", "isCorrect": false }
     ],
-    "explanation": "Un buque varado exhibe de día TRES bolas negras en línea vertical (Regla 30 c)). De noche: 2 luces de fondeo (proa+popa) + 2 luces rojas de alcance (Regla 30 c)). [REGLA: RIPA - Regla 30 c)] [TIP: 1 bola = fondeado. 2 conos opuestos = pescando. 3 bolas = varado. Escala de emergencias.]"
+    "explanation": "Un buque varado exhibe de día TRES bolas negras en línea vertical. De noche muestra las luces de fondeo que correspondan a su eslora y, además, DOS luces rojas todo horizonte en línea vertical. Las rojas no son luces de alcance: se ven desde cualquier dirección. [REGLA: RIPA - Regla 30 d)] [TIP: 1 bola = fondeado; 3 bolas = varado.]"
   },
   {
     "id": "ripa_17",
@@ -197,11 +197,11 @@
     "question": "¿Qué marca exhibe de día un buque de pesca de arrastre?",
     "options": [
       { "id": "A", "text": "Una bola negra", "isCorrect": false },
-      { "id": "B", "text": "Dos conos negros unidos por sus vértices (opuestos por la base)", "isCorrect": true },
+      { "id": "B", "text": "Dos conos negros unidos por sus vértices, en línea vertical", "isCorrect": true },
       { "id": "C", "text": "Una luz blanca sobre una roja", "isCorrect": false },
       { "id": "D", "text": "Tres bolas negras", "isCorrect": false }
     ],
-    "explanation": "Pesquero de arrastre: dos conos negros opuestos por la base (vertical). Pesquero de cerco: dos conos opuestos por el vértice (horizontal). [REGLA: RIPA - Regla 26 c) y d)] [TIP: 'Arrastre' = conos punta abajo+arriba (vertical). 'Cerco' = conos punta a punta (horizontal).]"
+    "explanation": "Todo buque dedicado a la pesca exhibe de día dos conos con sus vértices unidos, dispuestos en línea vertical. En buques menores de 20 m puede sustituirse por un cesto. La maniobra y las luces adicionales permiten distinguir el arrastre de otras artes. [REGLA: RIPA - Regla 26] [TIP: pesca = vértice con vértice.]"
   },
   {
     "id": "ripa_18",
@@ -225,19 +225,19 @@
       { "id": "C", "text": "2 luces rojas en vertical", "isCorrect": false },
       { "id": "D", "text": "3 luces blancas en vertical", "isCorrect": false }
     ],
-    "explanation": "Buque con capacidad de maniobra restringida: 3 luces en línea vertical: ROJA-BLANCA-ROJA. De día: 3 marcas en línea vertical (bola-diamante-bola). [REGLA: RIPA - Regla 27] [TIP: Sin gobierno: 2 rojas. Restringido: 3 (R-B-R). Restringido por calado: 3 rojas. Piloto: 2 blancas verticales.]"
+    "explanation": "Buque con capacidad de maniobra restringida: tres luces todo horizonte en línea vertical, ROJA-BLANCA-ROJA. De día: bola-rombo-bola. [REGLA: RIPA - Regla 27] [TIP: sin gobierno = dos rojas; maniobra restringida = roja-blanca-roja; restringido por calado = tres rojas; práctico = blanca sobre roja.]"
   },
   {
     "id": "ripa_20",
     "category": "RIPA",
     "question": "Un remolcador de más de 200m de eslora total (remolque + remolcado) exhibe:",
     "options": [
-      { "id": "A", "text": "2 luces de tope blancas en vertical + luces de costado + alcance amarilla", "isCorrect": true },
+      { "id": "A", "text": "3 luces de tope blancas en vertical, costados, alcance y una amarilla de remolque", "isCorrect": true },
       { "id": "B", "text": "1 luz de tope + luces de costado rojas", "isCorrect": false },
       { "id": "C", "text": "Luz de tope + 2 luces amarillas en vertical", "isCorrect": false },
       { "id": "D", "text": "3 luces rojas en vertical", "isCorrect": false }
     ],
-    "explanation": "Remolcador con eslora total >200m: 3 luces de tope blancas (no 2) en línea vertical. Si <=200m: 2 luces de tope blancas. [REGLA: RIPA - Regla 24 a)] [TIP: A mayor eslora, más luces. La luz de alcance es AMARILLA en remolcadores, no blanca.]"
+    "explanation": "Cuando la longitud del remolque, medida desde la popa del remolcador hasta el extremo final, supera 200 m, el remolcador exhibe TRES luces de tope blancas en vertical; además, luces de costado, luz de alcance blanca y una luz de remolque amarilla sobre la de alcance. De día, el conjunto muestra un rombo. [REGLA: RIPA - Regla 24 a)]"
   },
   {
     "id": "ripa_21",
@@ -398,14 +398,14 @@
   {
     "id": "ripa_34",
     "category": "RIPA",
-    "question": "¿Qué es un 'hidroavión amarrado' según la Regla 18?",
+    "question": "¿Qué obligación general tiene un hidroavión cuando maniobra sobre el agua?",
     "options": [
-      { "id": "A", "text": "Un avión que está en el agua sin moverse", "isCorrect": true },
-      { "id": "B", "text": "Un barco sumergible", "isCorrect": false },
-      { "id": "C", "text": "Un tipo de velero", "isCorrect": false },
-      { "id": "D", "text": "Una boya especial", "isCorrect": false }
+      { "id": "A", "text": "Mantenerse alejado de los buques y evitar estorbar su navegación", "isCorrect": true },
+      { "id": "B", "text": "Exigir siempre que todos los buques le cedan el paso", "isCorrect": false },
+      { "id": "C", "text": "Aplicar únicamente las reglas de los veleros", "isCorrect": false },
+      { "id": "D", "text": "Fondear en el centro del canal", "isCorrect": false }
     ],
-    "explanation": "Regla 18 e): Un hidroavión amarrado se mantendrá alejado de todos los buques. Es decir, los aviones/hidroaviones que flotan en el agua tienen prioridad como si fueran buques con maniobra restringida. [REGLA: RIPA - Regla 18 e)]"
+    "explanation": "Un hidroavión sobre el agua debe, en general, mantenerse alejado de todos los buques y evitar estorbar su navegación. Cuando exista riesgo de abordaje debe cumplir las reglas aplicables en la medida de lo posible. No obtiene prioridad automática de buque con maniobra restringida. [REGLA: RIPA - Regla 18 e)]"
   },
   {
     "id": "ripa_35",
@@ -417,7 +417,7 @@
       { "id": "C", "text": "Buque sin gobierno", "isCorrect": false },
       { "id": "D", "text": "Buque de pesca", "isCorrect": false }
     ],
-    "explanation": "Regla 28: Buque restringido por su calado = 3 luces rojas todo horizonte en vertical. (3 marcas rojas en vertical de día). [REGLA: RIPA - Regla 28] [TIP: Distinguir: restringido normal = R-B-R. Restringido por calado = R-R-R. Sin gobierno = R-R.]"
+    "explanation": "Un buque restringido por su calado puede exhibir tres luces rojas todo horizonte en vertical además de las luces de un buque de propulsión mecánica. De día, la marca equivalente es UN cilindro negro, no tres marcas. [REGLA: RIPA - Regla 28] [TIP: maniobra restringida = roja-blanca-roja; calado restringido = roja-roja-roja y cilindro.]"
   },
   {
     "id": "ripa_36",
@@ -429,7 +429,7 @@
       { "id": "C", "text": "Velero > Sin gobierno > Motor > Pesca", "isCorrect": false },
       { "id": "D", "text": "Pesca > Motor > Velero > Sin gobierno", "isCorrect": false }
     ],
-    "explanation": "Orden de prioridad (mayor a menor): 1) Sin gobierno, 2) Capacidad de maniobra restringida, 3) Pesca, 4) Velero, 5) Motor. Cada categoría cede paso a la anterior. [REGLA: RIPA - Regla 18] [TIP: 'SRPMV' = Sin gobierno, Restringido, Pesca, Motor, Velero (de mayor a menor prioridad que tienen los otros sobre mí).]"
+    "explanation": "Como esquema inicial en aguas abiertas: sin gobierno > capacidad de maniobra restringida > pesca > vela > propulsión mecánica. Es una ayuda de estudio, no una prioridad absoluta: también mandan las reglas de alcance, canales angostos y dispositivos de separación del tráfico. [REGLA: RIPA - Reglas 9, 10, 13 y 18] [TIP: S-R-P-V-M.]"
   },
   {
     "id": "iala_1",

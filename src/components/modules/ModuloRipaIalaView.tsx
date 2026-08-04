@@ -2,13 +2,21 @@ import React, { useMemo } from 'react';
 import { Route } from 'lucide-react';
 import { RipaLightViewer } from '../ripa/RipaLightViewer';
 import { RipaCrossingSimulator } from '../ripa/RipaCrossingSimulator';
+import { RipaSoundSignalViewer } from '../ripa/RipaSoundSignalViewer';
 import { IntegratedLearningView } from '../learning/IntegratedLearningView';
 import ripaIalaData from '../../data/ripa_iala.json';
+import ripaSoundData from '../../data/ripa_senales_auditivas.json';
+import anchoredDayShape from '../../assets/ripa_anchored_day_shape_illustrated.png';
+import agroundDayShape from '../../assets/ripa_aground_day_shape_illustrated.png';
+import trawlerDayShape from '../../assets/ripa_trawler_day_shape_illustrated.png';
+import { getVisualSpec } from '../../data/visualManifest';
 import type { QuizQuestion } from '../../types/quiz';
 
 export const ModuloRipaIalaView: React.FC = () => {
-  const questions = useMemo<QuizQuestion[]>(() =>
-    (ripaIalaData as QuizQuestion[]).filter(question => question.category === 'RIPA'), []);
+  const questions = useMemo<QuizQuestion[]>(() => [
+    ...(ripaIalaData as QuizQuestion[]).filter(question => question.category === 'RIPA'),
+    ...(ripaSoundData as QuizQuestion[])
+  ], []);
 
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
@@ -28,22 +36,53 @@ export const ModuloRipaIalaView: React.FC = () => {
           moduleId="RIPA"
           title="RIPA"
           questions={questions}
-          visual={<RipaCrossingSimulator />}
+          visual={<RipaCrossingSimulator compact />}
           visualForQuestion={question => {
             const text = `${question.id} ${question.question} ${question.explanation}`.toLowerCase();
-            if (/luz|luces|marca de día|fondead|noche|arco de visibilidad|pitada|señal acústica/.test(text)) {
+            const family = getVisualSpec(question.id)?.family;
+            if (family === 'RIPA_DAY_ANCHORED' || family === 'RIPA_DAY_AGROUND' || family === 'RIPA_DAY_TRAWLING') {
+              const dayShape = family === 'RIPA_DAY_AGROUND' ? {
+                image: agroundDayShape,
+                alt: 'Buque varado sobre un bajo con tres esferas negras en línea vertical',
+                title: 'Marca diurna de buque varado',
+                detail: 'Tres esferas negras en línea vertical. El casco apoyado en el bajo y la ausencia de estela refuerzan que el buque está varado.'
+              } : family === 'RIPA_DAY_TRAWLING' ? {
+                image: trawlerDayShape,
+                alt: 'Pesquero de arrastre con dos conos negros unidos por sus vértices y redes trabajando',
+                title: 'Marca diurna de pesca de arrastre',
+                detail: 'Dos conos negros con los vértices unidos. Las redes extendidas a popa contextualizan que el pesquero está faenando.'
+              } : {
+                image: anchoredDayShape,
+                alt: 'Buque fondeado de día con una esfera negra izada en la parte de proa',
+                title: 'Marca diurna de fondeo',
+                detail: 'Una esfera negra donde mejor se vea en la parte de proa. La cadena confirma que el buque está fondeado y sin arrancada.'
+              };
+              return (
+                <div className="h-full relative overflow-hidden bg-slate-950">
+                  <img src={dayShape.image} alt={dayShape.alt} className="w-full h-full object-contain bg-slate-950" />
+                  <div className="absolute bottom-2 left-2 right-2 rounded-xl border border-amber-300/30 bg-slate-950/85 px-3 py-2">
+                    <p className="text-xs font-black text-amber-200">{dayShape.title}</p>
+                    <p className="text-[10px] text-slate-200">{dayShape.detail}</p>
+                  </div>
+                </div>
+              );
+            }
+            if (family === 'RIPA_SOUND') {
+              return <RipaSoundSignalViewer context={text} />;
+            }
+            if (family === 'RIPA_LIGHTS') {
               const focusShipType = /velero|vela/.test(text) ? 'VELA' : 'MOTOR';
               const focusPerspective = /alcance|popa/.test(text) ? 'POPA'
                 : /babor/.test(text) && !/estribor/.test(text) ? 'BABOR'
                   : /estribor/.test(text) && !/babor/.test(text) ? 'ESTRIBOR' : 'PROA';
               return <RipaLightViewer compact focusShipType={focusShipType} focusPerspective={focusPerspective} />;
             }
-            if (/alcanz/.test(text)) return <RipaCrossingSimulator focusScenario="ALCANCE" />;
-            if (/vuelta encontrada|regla 14/.test(text)) return <RipaCrossingSimulator focusScenario="VUELTA_ENCONTRADA" />;
-            if (/cruce|regla 15|costado de estribor/.test(text)) return <RipaCrossingSimulator focusScenario="CRUCE" />;
-            if (/regla 12|dos veleros|buques de vela/.test(text)) return <RipaCrossingSimulator focusScenario="VELEROS" />;
-            if (/velero|vela|regla 18|prioridad/.test(text)) return <RipaCrossingSimulator focusScenario="VELERO_VS_MOTOR" />;
-            return <RipaCrossingSimulator focusScenario="CRUCE" />;
+            if (family === 'RIPA_RULE_13') return <RipaCrossingSimulator compact focusScenario="ALCANCE" />;
+            if (family === 'RIPA_RULE_14') return <RipaCrossingSimulator compact focusScenario="VUELTA_ENCONTRADA" />;
+            if (family === 'RIPA_RULE_15') return <RipaCrossingSimulator compact focusScenario="CRUCE" />;
+            if (family === 'RIPA_RULE_12') return <RipaCrossingSimulator compact focusScenario="VELEROS" />;
+            if (family === 'RIPA_RULE_18') return <RipaCrossingSimulator compact focusScenario="VELERO_VS_MOTOR" />;
+            return <RipaCrossingSimulator compact focusScenario="CRUCE" />;
           }}
         />
       </div>

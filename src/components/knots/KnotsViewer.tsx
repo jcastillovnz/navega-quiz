@@ -7,6 +7,7 @@ import reefSteps from '../../assets/knot_reef_steps.png';
 import cloveSteps from '../../assets/knot_clove_steps.png';
 import sheetBendSteps from '../../assets/knot_sheet_bend_steps.png';
 import figure8Steps from '../../assets/knot_figure8_steps.png';
+import { getVisualSpec } from '../../data/visualManifest';
 
 const KNOTS = [
   { names: ['as de guía', 'bowline'], name: 'As de Guía', use: 'Gaza fija que no se corre bajo carga', image: bowlineSteps },
@@ -41,8 +42,10 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => (
         visual={null}
         accentClass="bg-pink-500"
         visualForQuestion={question => {
-          const text = `${question.question} ${question.explanation}`.toLowerCase();
-          const knot = KNOTS.find(item => item.names.some(name => text.includes(name))) ?? KNOTS[0];
+          const family = getVisualSpec(question.id)?.family;
+          const knotIndex = family === 'KNOT_REEF' ? 1 : family === 'KNOT_CLOVE' ? 2
+            : family === 'KNOT_SHEET_BEND' ? 3 : family === 'KNOT_FIGURE_EIGHT' ? 4 : 0;
+          const knot = KNOTS[knotIndex];
           return (
             <div className="h-full min-h-0 flex flex-col bg-slate-950 p-2 overflow-hidden">
               <img src={knot.image} alt={`Secuencia detallada para realizar ${knot.name}`} className="flex-1 min-h-0 w-full object-contain rounded-xl" />

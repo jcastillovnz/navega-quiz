@@ -5,6 +5,7 @@ import { IntegratedLearningView } from '../learning/IntegratedLearningView';
 import ripaIalaData from '../../data/ripa_iala.json';
 import ialaAmpliadoData from '../../data/iala_ampliado.json';
 import type { QuizQuestion } from '../../types/quiz';
+import { getVisualSpec } from '../../data/visualManifest';
 
 export const ModuloIalaView: React.FC = () => {
   const questions = useMemo<QuizQuestion[]>(() => [
@@ -34,16 +35,16 @@ export const ModuloIalaView: React.FC = () => {
           visual={<IalaBuoyViewer compact />}
           accentClass="bg-blue-500"
           visualForQuestion={question => {
-            const text = `${question.id} ${question.question}`.toLowerCase();
-            const focusType = text.includes('norte') || text.includes('card_n') ? 'CARDINAL_N'
-              : text.includes('este') || text.includes('card_e') ? 'CARDINAL_E'
-                : text.includes('sur') || text.includes('card_s') ? 'CARDINAL_S'
-                  : text.includes('oeste') || text.includes('card_w') ? 'CARDINAL_W'
-                    : text.includes('aislado') ? 'PELIGRO_AISLADO'
-                      : text.includes('segura') || text.includes('safe') ? 'AGUAS_SEGURAS'
-                        : text.includes('especial') ? 'ESPECIAL'
-                          : text.includes('nuevo') || text.includes('naufragio') ? 'NUEVO_PELIGRO'
-                            : text.includes('estribor') ? 'ESTRIBOR' : 'BABOR';
+            const family = getVisualSpec(question.id)?.family;
+            const focusType = family === 'IALA_CARDINAL_N' ? 'CARDINAL_N'
+              : family === 'IALA_CARDINAL_E' ? 'CARDINAL_E'
+                : family === 'IALA_CARDINAL_S' ? 'CARDINAL_S'
+                  : family === 'IALA_CARDINAL_W' ? 'CARDINAL_W'
+                    : family === 'IALA_ISOLATED' ? 'PELIGRO_AISLADO'
+                      : family === 'IALA_SAFE' ? 'AGUAS_SEGURAS'
+                        : family === 'IALA_SPECIAL' ? 'ESPECIAL'
+                          : family === 'IALA_NEW_DANGER' ? 'NUEVO_PELIGRO'
+                            : family === 'IALA_STARBOARD' ? 'ESTRIBOR' : 'BABOR';
             return <IalaBuoyViewer compact focusType={focusType} />;
           }}
         />

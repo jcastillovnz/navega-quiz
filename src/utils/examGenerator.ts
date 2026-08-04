@@ -7,6 +7,7 @@ import ialaAmpliadoData from '../data/iala_ampliado.json';
 import seguridadIncendiosData from '../data/seguridad_incendios.json';
 import seguridadEmergenciasData from '../data/seguridad_emergencias.json';
 import meteorologiaExtendidaData from '../data/meteorologia_extendida.json';
+import ripaSoundData from '../data/ripa_senales_auditivas.json';
 import type { QuizQuestion, QuizCategory, PracticalExercise } from '../types/quiz';
 
 export interface ExamConfig {
@@ -120,6 +121,7 @@ export const DEFAULT_EXAM_CONFIG: ExamConfig = {
 export const generateExam = (config: ExamConfig = DEFAULT_EXAM_CONFIG): GeneratedExam => {
   const theoreticalPool = [
     ...(ripaIalaData as QuizQuestion[]),
+    ...(ripaSoundData as QuizQuestion[]),
     ...(ialaAmpliadoData as QuizQuestion[]),
     ...(teoriaData as QuizQuestion[]),
     ...(seguridadIncendiosData as QuizQuestion[]),

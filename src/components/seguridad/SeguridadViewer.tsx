@@ -84,8 +84,8 @@ const HEAVY_WEATHER = [
 
 type SafetySection = 'INVENTARIO' | 'INCENDIO' | 'AVERIAS' | 'TEMPORAL' | 'HAA' | 'FONDEO';
 
-export const SeguridadViewer: React.FC<{ focusSection?: SafetySection }> = ({ focusSection }) => {
-  const [section, setSection] = useState<SafetySection>('INVENTARIO');
+export const SeguridadViewer: React.FC<{ focusSection?: SafetySection; compact?: boolean }> = ({ focusSection, compact = false }) => {
+  const [section, setSection] = useState<SafetySection>(focusSection ?? 'INVENTARIO');
   const [checked, setChecked] = useState<Set<string>>(new Set(['chalecos', 'bengalas', 'cohetes', 'matafuegos', 'vhf']));
   const [haStep, setHaStep] = useState<HaStep>(0);
 
@@ -119,7 +119,7 @@ export const SeguridadViewer: React.FC<{ focusSection?: SafetySection }> = ({ fo
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
       {/* Sub-Tabs de Seguridad */}
-      <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 shrink-0 mx-auto w-full">
+      {!compact && <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 shrink-0 mx-auto w-full">
         {([
           { id: 'INVENTARIO', label: 'Inventario PNA', icon: Shield },
           { id: 'INCENDIO', label: 'Fuego y Extintores', icon: Flame },
@@ -142,7 +142,7 @@ export const SeguridadViewer: React.FC<{ focusSection?: SafetySection }> = ({ fo
             </button>
           );
         })}
-      </div>
+      </div>}
 
       {/* --- INVENTARIO --- */}
       {section === 'INVENTARIO' && (
@@ -163,10 +163,36 @@ export const SeguridadViewer: React.FC<{ focusSection?: SafetySection }> = ({ fo
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 flex-1">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 flex-1 min-h-0">
             {SAFETY_ITEMS.map(item => {
               const isChecked = checked.has(item.id);
-              return (
+              const content = <>
+                <div className="flex items-start justify-between mb-1.5">
+                  <div className={`p-1.5 rounded-lg border ${COLOR_MAP[item.icon]}`}>
+                    {ICON_MAP[item.icon]}
+                  </div>
+                  <div className={`w-5 h-5 rounded flex items-center justify-center border transition-all ${
+                    isChecked ? 'bg-emerald-500 border-emerald-500' : 'border-slate-700'
+                  }`}>
+                    {isChecked && <Check className="w-3.5 h-3.5 text-white" />}
+                  </div>
+                </div>
+                <p className={`text-xs font-bold ${isChecked ? 'text-emerald-200' : 'text-slate-200'}`}>
+                  {item.name}
+                </p>
+                <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-2">{item.description}</p>
+              </>;
+
+              return compact ? (
+                <div
+                  key={item.id}
+                  className={`text-left rounded-xl border p-2.5 ${
+                    isChecked ? 'bg-emerald-500/10 border-emerald-500/50' : 'bg-slate-900/60 border-slate-800'
+                  }`}
+                >
+                  {content}
+                </div>
+              ) : (
                 <button
                   key={item.id}
                   onClick={() => toggleCheck(item.id)}
@@ -176,20 +202,7 @@ export const SeguridadViewer: React.FC<{ focusSection?: SafetySection }> = ({ fo
                       : 'bg-slate-900/60 border-slate-800 hover:border-slate-700'
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-1.5">
-                    <div className={`p-1.5 rounded-lg border ${COLOR_MAP[item.icon]}`}>
-                      {ICON_MAP[item.icon]}
-                    </div>
-                    <div className={`w-5 h-5 rounded flex items-center justify-center border transition-all ${
-                      isChecked ? 'bg-emerald-500 border-emerald-500' : 'border-slate-700'
-                    }`}>
-                      {isChecked && <Check className="w-3.5 h-3.5 text-white" />}
-                    </div>
-                  </div>
-                  <p className={`text-xs font-bold ${isChecked ? 'text-emerald-200' : 'text-slate-200'}`}>
-                    {item.name}
-                  </p>
-                  <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-2">{item.description}</p>
+                  {content}
                 </button>
               );
             })}

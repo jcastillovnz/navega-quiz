@@ -143,68 +143,9 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
   }
 };
 
-function BuoyTopMark({ shape, color }: { shape: string; color: string }) {
-  if (shape === 'cylinder') return <rect x="26" y="4" width="28" height="18" rx="4" fill={color} />;
-  if (shape === 'cone') return <polygon points="40,4 20,22 60,22" fill={color} />;
-  if (shape === 'two-spheres') return (
-    <>
-      <circle cx="30" cy="10" r="9" fill="#0f172a" stroke="#475569" strokeWidth="1" />
-      <circle cx="50" cy="10" r="9" fill="#0f172a" stroke="#475569" strokeWidth="1" />
-    </>
-  );
-  if (shape === 'sphere') return <circle cx="40" cy="11" r="10" fill={color} />;
-  if (shape === 'x') return <g stroke={color} strokeWidth="6"><line x1="25" y1="2" x2="55" y2="22"/><line x1="55" y1="2" x2="25" y2="22"/></g>;
-  if (shape === 'cross') return <g stroke={color} strokeWidth="6"><line x1="40" y1="0" x2="40" y2="24"/><line x1="26" y1="12" x2="54" y2="12"/></g>;
-  if (shape === 'north') return <g fill={color}><polygon points="40,0 25,15 55,15"/><polygon points="40,13 25,28 55,28"/></g>;
-  if (shape === 'south') return <g fill={color}><polygon points="25,0 55,0 40,15"/><polygon points="25,13 55,13 40,28"/></g>;
-  if (shape === 'east') return <g fill={color}><polygon points="25,0 55,0 40,15"/><polygon points="40,13 25,28 55,28"/></g>;
-  if (shape === 'west') return <g fill={color}><polygon points="40,0 25,15 55,15"/><polygon points="25,13 55,13 40,28"/></g>;
-  return null;
-}
-
-function BuoyBody({ bodyColor, stripeColors, stripeDir }: {
-  bodyColor: string;
-  stripeColors?: string[]; stripeDir?: 'horizontal' | 'vertical';
-}) {
-  return (
-    <g>
-      {/* Cuerpo principal */}
-      <ellipse cx="40" cy="72" rx="24" ry="36" fill={bodyColor} />
-      {/* Franjas */}
-      {stripeDir === 'horizontal' && stripeColors?.map((c, i) => (
-        <rect key={i} x="17" y={57 + i * 20} width="46" height="10" fill={c} rx="1" />
-      ))}
-      {stripeDir === 'vertical' && (
-        <>
-          <rect x="22" y="40" width="8" height="62" fill="#ffffff" rx="1" />
-          <rect x="36" y="40" width="8" height="62" fill="#ffffff" rx="1" />
-          <rect x="50" y="40" width="8" height="62" fill="#ffffff" rx="1" />
-          {/* clip al cuerpo de la boya */}
-          <ellipse cx="40" cy="72" rx="24" ry="36" fill="none" stroke={bodyColor} strokeWidth="2" />
-        </>
-      )}
-      {/* Aro flotador */}
-      <ellipse cx="40" cy="104" rx="28" ry="8" fill={bodyColor} opacity="0.7" />
-      {/* Reflejo metálico */}
-      <ellipse cx="32" cy="56" rx="6" ry="14" fill="white" opacity="0.07" />
-    </g>
-  );
-}
-
-function CardinalBands({ bands }: { bands: string[] }) {
-  const height = 64 / bands.length;
-  return (
-    <g clipPath="url(#buoy-body-clip)">
-      <defs><clipPath id="buoy-body-clip"><ellipse cx="40" cy="72" rx="24" ry="36" /></clipPath></defs>
-      {bands.map((color, index) => <rect key={`${color}-${index}`} x="16" y={36 + index * height} width="48" height={height + 1} fill={color} />)}
-      <ellipse cx="32" cy="56" rx="6" ry="14" fill="white" opacity="0.08" />
-    </g>
-  );
-}
-
 export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType }> = ({ compact = false, focusType }) => {
   const [isNight, setIsNight] = useState(true);
-  const [selectedBuoy, setSelectedBuoy] = useState<BuoyType>('BABOR');
+  const [selectedBuoy, setSelectedBuoy] = useState<BuoyType>(focusType ?? 'BABOR');
   const buoy = BUOY_DATA[selectedBuoy];
 
   useEffect(() => {
@@ -214,7 +155,7 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
       {/* Controles */}
-      <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
+      {!compact && <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
         <button
           onClick={() => setIsNight(!isNight)}
           className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
@@ -240,7 +181,7 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
             </button>
           ))}
         </div>
-      </div>
+      </div>}
 
       {/* Grid 2 cols */}
       <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
