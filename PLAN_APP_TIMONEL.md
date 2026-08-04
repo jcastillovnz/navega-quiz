@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `4 / 25 Tareas completadas (16%)`
+- **Progreso Global**: `5 / 25 Tareas completadas (20%)`
 - **Estado Actual**: 🔴 **Listo para Iniciar**
-- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 05**
+- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 06**
 
 ---
 
@@ -100,7 +100,7 @@ Leyenda de Estados:
 - `[COMPLETADO]` ✅ **Tarea 04**: Crear el Layout principal (`Navbar` Náutica con indicador de Racha Diaria 🔥).
 
 ### 📄 FASE 2: Schemas de Datos y JSONs Náuticos (Tareas 05 - 08)
-- `[PENDIENTE]` ⏳ **Tarea 05**: Tipos TypeScript (`src/types/quiz.ts` incluyendo tipos para XP, Rachas y Repetición Espaciada).
+- `[COMPLETADO]` ✅ **Tarea 05**: Tipos TypeScript (`src/types/quiz.ts` incluyendo tipos para XP, Rachas y Repetición Espaciada).
 - `[PENDIENTE]` ⏳ **Tarea 06**: `src/data/ripa_iala.json` (JSON con Legislación, RIPA Reglas 12-18, Luces y Balizamiento IALA Región B. ~80 preguntas).
 - `[PENDIENTE]` ⏳ **Tarea 07**: `src/data/teoria.json` (JSON de Nomenclatura, Jarcia, Seguridad Náutica, Fondeo y Meteorología. ~120 preguntas).
 - `[PENDIENTE]` ⏳ **Tarea 08**: `src/data/practicos.json`.
