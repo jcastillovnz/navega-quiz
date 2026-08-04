@@ -1,14 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { RotateCcw, BookOpen, BrainCircuit, Trophy, AlertTriangle, Check, ChevronRight, ChevronLeft, Lightbulb } from 'lucide-react';
+import { RotateCcw, BookOpen, BrainCircuit, Trophy, AlertTriangle, Check, Lightbulb } from 'lucide-react';
 import { QuizCard } from '../quiz/QuizCard';
 import { addXP, addManyToReview, registerStudy } from '../../utils/storage';
 import type { QuizQuestion } from '../../types/quiz';
 
-interface KnotStep {
-  description: string;
-  firmePaths: string[];
-  chicotePaths: string[];
-}
+// Imágenes hiperrealistas paso a paso
+import bowlineSteps from '../../assets/knot_bowline_steps.png';
+import reefSteps from '../../assets/knot_reef_steps.png';
+import cloveSteps from '../../assets/knot_clove_steps.png';
+import sheetBendSteps from '../../assets/knot_sheet_bend_steps.png';
+import figure8Steps from '../../assets/knot_figure8_steps.png';
 
 interface Knot {
   id: string;
@@ -18,9 +19,11 @@ interface Knot {
   description: string;
   pros: string[];
   cons: string[];
-  steps: KnotStep[];
   color: string;
+  accent: string;
   difficulty: 'Fácil' | 'Medio' | 'Avanzado';
+  stepsImage: string;
+  stepsCaption: string[];
 }
 
 const KNOTS: Knot[] = [
@@ -29,92 +32,35 @@ const KNOTS: Knot[] = [
     name: 'As de Guía',
     otherNames: ['Bowline', 'Nudo de Marinero'],
     use: 'Crear un anillo fijo que NO se corre ni se aprieta bajo carga',
-    description: 'Es EL nudo náutico por excelencia. Forma un lazo que no se ajusta ni se desliza, y se desata con un tirón incluso después de haber soportado mucha carga. Imprescindible para rescate, amarre a boyas y HAA.',
-    pros: [
-      'No se corre ni se aprieta bajo carga',
-      'Fácil de desatar después de cargado',
-      'Funciona con cualquier tipo de cabo'
-    ],
-    cons: [
-      'Se deshace si no hay carga',
-      'Pierde resistencia si el cabo está mojado o sucio'
-    ],
-    color: '#22d3ee',
+    description: 'EL nudo náutico por excelencia. Forma un lazo que no se ajusta ni se desliza, y se desata con un tirón incluso después de haber soportado mucha carga.',
+    pros: ['No se corre ni se aprieta bajo carga', 'Fácil de desatar', 'Universal — funciona con cualquier cabo'],
+    cons: ['Se deshace sin tensión', 'No apto para cabos muy rígidos o mojados'],
+    color: '#22d3ee', accent: 'border-cyan-500/50',
     difficulty: 'Medio',
-    steps: [
-      {
-        description: '1. Formá una pequeña gaza con el firme. El firme entra por arriba y vuelve a salir por abajo, formando un pequeño "agujero" en el medio.',
-        firmePaths: ['M 15 50 Q 25 50 35 45 L 40 30 Q 40 20 50 20 L 60 30 L 60 65 L 50 70 Q 45 70 40 65 L 35 55'],
-        chicotePaths: []
-      },
-      {
-        description: '2. Tomá el chicote (extremo libre) y pasálo POR ARRIBA de la parte vertical del firme.',
-        firmePaths: ['M 15 50 Q 25 50 35 45 L 40 30 Q 40 20 50 20 L 60 30 L 60 65 L 50 70 Q 45 70 40 65 L 35 55'],
-        chicotePaths: ['M 75 70 Q 65 60 50 50']
-      },
-      {
-        description: '3. Meté el chicote por el AGUJERO que se forma (de abajo hacia arriba por dentro de la gaza).',
-        firmePaths: ['M 15 50 Q 25 50 35 45 L 40 30 Q 40 20 50 20 L 60 30 L 60 65 L 50 70 Q 45 70 40 65 L 35 55'],
-        chicotePaths: ['M 75 70 Q 65 60 50 50 L 55 25']
-      },
-      {
-        description: '4. El chicote pasa DETRÁS del firme vertical. Rodealo y meté el chicote NUEVAMENTE por la gaza, de arriba hacia abajo.',
-        firmePaths: ['M 15 50 Q 25 50 35 45 L 40 30 Q 40 20 50 20 L 60 30 L 60 65 L 50 70 Q 45 70 40 65 L 35 55'],
-        chicotePaths: [
-          'M 75 70 Q 65 60 50 50 L 55 25 L 55 50 L 80 75'
-        ]
-      },
-      {
-        description: '5. Tirá del firme (izquierda) y del chicote (derecha) para ajustar. Queda un lazo firme que NO se corre. ¡LISTO!',
-        firmePaths: ['M 10 50 Q 20 50 30 45 L 35 32 Q 35 22 45 22 L 52 32 L 52 65 L 45 72 Q 40 72 35 67 L 30 55'],
-        chicotePaths: [
-          'M 85 75 Q 70 60 50 50 L 52 25 L 52 50 L 80 70'
-        ]
-      }
+    stepsImage: bowlineSteps,
+    stepsCaption: [
+      '① Formá una pequeña gaza con el firme (rojo)',
+      '② Pasá el chicote (azul) hacia arriba por el agujero de la gaza',
+      '③ Rodeá el chicote detrás del firme vertical',
+      '④ Volvé a pasar el chicote por la gaza, ajustá — ¡As de Guía listo!'
     ]
   },
   {
     id: 'reef',
     name: 'Nudo Llano',
     otherNames: ['Reef Knot', 'Nudo de Rizo', 'Square Knot'],
-    use: 'Unir DOS cabos del MISMO diámetro y del mismo material',
-    description: 'Es el clásico nudo de unión. Rápido de hacer y fácil de recordar (izquierda sobre derecha, derecha sobre izquierda). Solo sirve para unir cabos iguales — si los diámetros son distintos, se desliza.',
-    pros: [
-      'Muy fácil de hacer y recordar',
-      'Rápido para uniones temporales',
-      'Simétrico y prolijo'
-    ],
-    cons: [
-      'SOLO funciona con cabos del mismo diámetro',
-      'Se desliza con cabos mojados o de distinta rigidez',
-      'No apto para cargas críticas'
-    ],
-    color: '#22c55e',
+    use: 'Unir DOS cabos del MISMO diámetro y material',
+    description: 'Clásico nudo de unión simétrico. "Izquierda sobre derecha, derecha sobre izquierda." Solo para cabos del mismo grosor.',
+    pros: ['Muy fácil y rápido', 'Prolijo y simétrico', 'Deshace solo con los chicotes'],
+    cons: ['SOLO cabos de igual diámetro', 'Se desliza con cabos mojados o diferentes'],
+    color: '#22c55e', accent: 'border-emerald-500/50',
     difficulty: 'Fácil',
-    steps: [
-      {
-        description: '1. Cruzá los dos chicotes: el del cabo A por ENCIMA del cabo B. La frase "izquierda sobre derecha" ayuda.',
-        firmePaths: ['M 10 30 Q 30 35 45 45'],
-        chicotePaths: ['M 90 30 Q 70 35 55 45']
-      },
-      {
-        description: '2. El chicote de A pasa por DEBAJO del chicote de B y sale hacia tu izquierda.',
-        firmePaths: ['M 10 30 Q 30 35 45 45'],
-        chicotePaths: ['M 90 30 Q 70 35 55 45 Q 35 65 15 75']
-      },
-      {
-        description: '3. Con el chicote de B: pasálo por ENCIMA del chicote de A (la pasada se "invierte" para que sea simétrico).',
-        firmePaths: ['M 10 30 Q 30 35 45 45'],
-        chicotePaths: ['M 90 30 Q 70 35 55 45 Q 35 65 15 75', 'M 50 50 Q 65 60 80 70']
-      },
-      {
-        description: '4. Meté el chicote de B por DEBAJO del firme de A y sacalo hacia abajo a la derecha. Tirá de los 4 extremos firmes: quedan dos "orejitas" simétricas.',
-        firmePaths: ['M 10 30 Q 30 35 45 45'],
-        chicotePaths: [
-          'M 90 30 Q 70 35 55 45 Q 35 65 15 75',
-          'M 50 50 Q 65 60 80 70 L 85 90'
-        ]
-      }
+    stepsImage: reefSteps,
+    stepsCaption: [
+      '① Cruzá rojo POR ENCIMA del azul',
+      '② Pasá rojo por DEBAJO del azul (primer seminudo)',
+      '③ Cruzá azul POR ENCIMA del rojo (dirección opuesta)',
+      '④ Ajustá los 4 extremos — Nudo Llano simétrico finalizado'
     ]
   },
   {
@@ -122,49 +68,17 @@ const KNOTS: Knot[] = [
     name: 'Ballestrinque',
     otherNames: ['Clove Hitch', 'Nudo de Dos Cotes'],
     use: 'Amarrar un cabo a un palo, poste, cáncamo o barandal',
-    description: 'Nudo de amarre rápido. Se ajusta solo cuando hay carga tirando del firme. Es el nudo que se usa para empezar y terminar un fondeo temporal, y para colgar defensas del barandal.',
-    pros: [
-      'Muy rápido de hacer',
-      'Se ajusta solo con la carga',
-      'Funciona en cualquier dirección'
-    ],
-    cons: [
-      'Puede deslizar si el cabo está mojado',
-      'No es seguro para cargas dinámicas (puede destrabarse)',
-      'Difícil de desatar bajo tensión'
-    ],
-    color: '#a855f7',
+    description: 'Nudo de amarre rápido sobre cualquier poste o barandal. Se ajusta con la carga. Ideal para defensas y fondeos temporales.',
+    pros: ['Muy rápido de ejecutar', 'Se ajusta solo con la carga', 'Funciona en cualquier dirección'],
+    cons: ['Puede deslizar mojado', 'No para cargas dinámicas o sacudidas'],
+    color: '#a855f7', accent: 'border-purple-500/50',
     difficulty: 'Medio',
-    steps: [
-      {
-        description: '1. Pasá el firme por DETRÁS del palo (la línea gris horizontal), de izquierda a derecha.',
-        firmePaths: ['M 10 30 Q 30 30 50 35 Q 70 30 90 30'],
-        chicotePaths: []
-      },
-      {
-        description: '2. Cruzá por ENCIMA del palo y volvé a pasar por detrás, de derecha a izquierda (espejo del paso 1).',
-        firmePaths: [
-          'M 10 30 Q 30 30 50 35 Q 70 30 90 30',
-          'M 90 30 Q 80 50 50 50 Q 20 50 10 30'
-        ],
-        chicotePaths: []
-      },
-      {
-        description: '3. Meté el chicote (extremo) por DEBAJO de la última vuelta que cruza sobre el palo. Esto traba el nudo.',
-        firmePaths: [
-          'M 10 30 Q 30 30 50 35 Q 70 30 90 30',
-          'M 90 30 Q 80 50 50 50 Q 20 50 10 30'
-        ],
-        chicotePaths: ['M 10 30 Q 50 40 80 55']
-      },
-      {
-        description: '4. Tirá del firme. El nudo se ajusta solo al palo. ¡Ballestrinque firme!',
-        firmePaths: [
-          'M 10 30 Q 30 30 50 35 Q 70 30 90 30',
-          'M 90 30 Q 80 50 50 50 Q 20 50 10 30'
-        ],
-        chicotePaths: ['M 10 30 Q 50 40 85 60']
-      }
+    stepsImage: cloveSteps,
+    stepsCaption: [
+      '① Primera vuelta alrededor del palo (de izq. a der.)',
+      '② Segunda vuelta cruzando encima de la primera',
+      '③ Metés el chicote por debajo del cruce',
+      '④ Ajustás tirando del firme — Ballestrinque firme al palo'
     ]
   },
   {
@@ -172,82 +86,35 @@ const KNOTS: Knot[] = [
     name: 'Vuelta de Escota',
     otherNames: ['Sheet Bend', 'Nudo de Vela'],
     use: 'Unir DOS cabos de DISTINTO diámetro o material',
-    description: 'El nudo de unión por excelencia cuando los cabos son diferentes. Es más seguro que el nudo llano para unir cabos de nylon con cabos más gruesos, o cabo con cadena. Usado para prolongar la línea de fondeo.',
-    pros: [
-      'Funciona con cabos de distinto diámetro',
-      'No se desliza con carga',
-      'Resiste mejor que el nudo llano'
-    ],
-    cons: [
-      'Más difícil de aprender que el nudo llano',
-      'Hay que hacer una "cola de perro" extra al chicote más fino para mayor seguridad'
-    ],
-    color: '#f59e0b',
+    description: 'El nudo de unión cuando los cabos son diferentes. Más seguro que el Nudo Llano para unir cabo fino con cabo grueso o cadena.',
+    pros: ['Funciona con diámetros distintos', 'No se desliza bajo carga'],
+    cons: ['Más difícil de aprender', 'Requiere "cola de perro" extra para mayor seguridad'],
+    color: '#f59e0b', accent: 'border-amber-500/50',
     difficulty: 'Avanzado',
-    steps: [
-      {
-        description: '1. Con el cabo más GRUESO (rojo) formá una gaza con el chicote mirando hacia abajo, como una "oreja de conejo".',
-        firmePaths: ['M 10 25 L 35 25 L 55 45 L 35 45 Z'],
-        chicotePaths: []
-      },
-      {
-        description: '2. Pasá el chicote del cabo FINO (azul) por ARRIBA a través de la gaza, entrando desde abajo.',
-        firmePaths: ['M 10 25 L 35 25 L 55 45 L 35 45 Z'],
-        chicotePaths: ['M 25 70 L 40 35']
-      },
-      {
-        description: '3. Cruzá el chicote fino por DETRÁS del firme grueso (la parte de la gaza que cuelga) y pasálo por arriba de su propio firme.',
-        firmePaths: ['M 10 25 L 35 25 L 55 45 L 35 45 Z'],
-        chicotePaths: ['M 25 70 L 40 35 L 55 45 L 75 35']
-      },
-      {
-        description: '4. Para mayor seguridad: trabá el chicote fino con una "cola de perro" sobre su propio firme.',
-        firmePaths: ['M 10 25 L 35 25 L 55 45 L 35 45 Z'],
-        chicotePaths: [
-          'M 25 70 L 40 35 L 55 45 L 75 35 L 70 50 L 85 65'
-        ]
-      }
+    stepsImage: sheetBendSteps,
+    stepsCaption: [
+      '① Formá una gaza con el cabo GRUESO (rojo)',
+      '② Pasá el cabo FINO (azul) hacia arriba por dentro de la gaza',
+      '③ Rodeá el azul detrás de ambas colas del rojo',
+      '④ Pasá el azul por encima de sí mismo — ajustá. ¡Vuelta de Escota!'
     ]
   },
   {
     id: 'figure8',
     name: 'Nudo de Ocho',
     otherNames: ['Figure Eight', 'Nudo Stopper', 'Nudo de Pajarita'],
-    use: 'Tope de cabo / stopper — evita que un cabo se deslice por un ojo, polea o mordaza',
-    description: 'El nudo más confiable para "frenar" un cabo. Se hace en el extremo (chicote) y crea un tope grueso que no pasa por los agujeros, ojos o mordazas. Se usa para que el chicote no se pierda dentro del muelle o para evitar que un cabo se deslice por una polea.',
-    pros: [
-      'Muy fácil de hacer y recordar',
-      'Muy resistente y seguro',
-      'No se desliza bajo carga',
-      'Fácil de identificar visualmente'
-    ],
-    cons: [
-      'Ocupa más cabo que otros topes',
-      'A veces es difícil de desatar si se moja'
-    ],
-    color: '#ec4899',
+    use: 'Tope de cabo — evita que el chicote se pase por una polea o ojo',
+    description: 'El stopper más seguro. Se hace en el extremo del chicote para impedir que se escape por un ojo, polea o mordaza.',
+    pros: ['Fácil y rápido', 'Muy resistente', 'No se desliza', 'Identificable visualmente'],
+    cons: ['Difícil de desatar si se moja', 'Ocupa más cabo que otros stopper'],
+    color: '#ec4899', accent: 'border-pink-500/50',
     difficulty: 'Fácil',
-    steps: [
-      {
-        description: '1. Con el chicote, cruzá POR ENCIMA del firme formando una lazada. Imaginá un círculo.',
-        firmePaths: ['M 80 75 L 50 60'],
-        chicotePaths: ['M 30 35 L 50 50']
-      },
-      {
-        description: '2. Pasá el chicote por DEBAJO del firme (rodeándolo por completo), como dando la vuelta.',
-        firmePaths: ['M 80 75 L 50 60'],
-        chicotePaths: ['M 30 35 L 50 50 L 50 70 L 70 75']
-      },
-      {
-        description: '3. Meté el chicote por DENTRO del lazo inicial (de abajo hacia arriba, a través del primer cruce).',
-        firmePaths: ['M 80 75 L 50 60'],
-        chicotePaths: ['M 30 35 L 50 50 L 50 70 L 70 75 L 50 30']
-      },
-      {
-        description: '4. Tirá del firme y del chicote. Queda la clásica forma de "8" o "pajarita". ¡Listo!',
-        firmePaths: ['M 85 80 L 50 60'],
-        chicotePaths: ['M 30 35 L 50 50 L 50 70 L 70 75 L 50 25']
-      }
+    stepsImage: figure8Steps,
+    stepsCaption: [
+      '① Cruzá el chicote POR ENCIMA del firme — forma un lazo',
+      '② Rodeá el chicote por DEBAJO del firme',
+      '③ Pasá el chicote por DENTRO del lazo inicial',
+      '④ Ajustá — queda la clásica forma de "8". ¡Stopper listo!'
     ]
   }
 ];
@@ -262,7 +129,6 @@ interface KnotsViewerProps {
 export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
   const [tab, setTab] = useState<'ESTUDIO' | 'QUIZ'>('ESTUDIO');
   const [activeKnot, setActiveKnot] = useState(0);
-  const [stepIdx, setStepIdx] = useState(0);
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [result, setResult] = useState<{ correct: number; total: number; xpEarned: number } | null>(null);
@@ -298,232 +164,159 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
 
   const shuffledQuestions = useMemo(() => [...questions].sort(() => Math.random() - 0.5), [questions]);
 
-  const selectKnot = (idx: number) => {
-    setActiveKnot(idx);
-    setStepIdx(0);
-  };
-
   return (
-    <div className="flex flex-col gap-2 h-full overflow-hidden">
-      <p className="text-[11px] text-slate-400 shrink-0">
-        Los 5 nudos fundamentales que te pueden tomar en el examen. Aprendé el uso, los pasos y practicá con el quiz.
-      </p>
+    <div className="h-full flex flex-col gap-2 overflow-hidden">
+      {/* Barra de control unificada */}
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
+        {/* Toggle Modo */}
+        <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
+          <button
+            onClick={() => setTab('ESTUDIO')}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+              tab === 'ESTUDIO' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            Guía Paso a Paso
+          </button>
+          <button
+            onClick={() => setTab('QUIZ')}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+              tab === 'QUIZ' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            Práctica Quiz
+          </button>
+        </div>
 
-      {/* Tabs Estudio / Práctica */}
-      <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full shrink-0">
-        <button
-          onClick={() => setTab('ESTUDIO')}
-          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-            tab === 'ESTUDIO' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <BookOpen className="w-4 h-4" />
-          Estudio
-        </button>
-        <button
-          onClick={() => setTab('QUIZ')}
-          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-            tab === 'QUIZ' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <BrainCircuit className="w-4 h-4" />
-          Práctica
-        </button>
-      </div>
-
-      {tab === 'ESTUDIO' && (
-        <div className="grid md:grid-cols-12 gap-2 flex-1 min-h-0 overflow-hidden">
-          {/* Lista de nudos */}
-          <div className="md:col-span-3 space-y-1.5 overflow-y-auto pr-1">
+        {/* Pills de nudos */}
+        {tab === 'ESTUDIO' && (
+          <div className="flex items-center gap-1.5 overflow-x-auto">
             {KNOTS.map((k, i) => (
               <button
                 key={k.id}
-                onClick={() => selectKnot(i)}
-                className={`w-full text-left p-2 rounded-lg border transition-all ${
+                onClick={() => setActiveKnot(i)}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap transition-all cursor-pointer border ${
                   activeKnot === i
-                    ? 'border-cyan-500 bg-cyan-500/10'
-                    : 'border-slate-700 bg-slate-800/40 hover:border-slate-500'
+                    ? `${k.accent} text-white bg-slate-800`
+                    : 'border-slate-800 text-slate-400 hover:text-slate-200 bg-slate-950'
                 }`}
+                style={activeKnot === i ? { borderColor: k.color + '80' } : {}}
               >
-                <div className="flex items-center justify-between mb-0.5">
-                  <div className="flex items-center gap-1.5">
-                    <span
-                      className="w-2.5 h-2.5 rounded-full shrink-0"
-                      style={{ backgroundColor: k.color, boxShadow: `0 0 6px ${k.color}` }}
-                    />
-                    <span className="font-bold text-white text-xs">{i + 1}. {k.name}</span>
-                  </div>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded font-bold bg-slate-700 text-slate-300 shrink-0">
-                    {k.difficulty}
-                  </span>
-                </div>
-                <p className="text-[10px] text-slate-400 line-clamp-1">{k.use}</p>
+                <span style={{ color: k.color }}>{i + 1}.</span> {k.name}
               </button>
             ))}
           </div>
+        )}
+      </div>
 
-          {/* Detalle del nudo activo */}
-          <div className="md:col-span-9 bg-slate-800/60 border border-slate-700 rounded-xl p-3 flex flex-col gap-2 overflow-y-auto custom-scroll">
-            <div className="flex items-start justify-between shrink-0">
-              <div>
-                <h3 className="text-base font-bold text-white">{knot.name}</h3>
-                <p className="text-[10px] text-slate-400 italic">{knot.otherNames.join(' · ')}</p>
+      {/* ESTUDIO: Grid 2 columnas */}
+      {tab === 'ESTUDIO' && (
+        <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
+
+          {/* Imagen paso a paso hiperrealista (7 cols) */}
+          <div
+            className={`md:col-span-7 bg-slate-950 border-2 rounded-2xl overflow-hidden flex flex-col h-full relative`}
+            style={{ borderColor: knot.color + '40' }}
+          >
+            <div className="flex-1 min-h-0 flex items-center justify-center p-2 overflow-hidden">
+              <img
+                key={knot.id}
+                src={knot.stepsImage}
+                alt={`Pasos para armar el ${knot.name} en cuerda de poliéster con FIRME rojo y CHICOTE azul`}
+                className="w-full h-full object-contain rounded-xl"
+              />
+            </div>
+
+            {/* Leyenda de colores */}
+            <div className="bg-slate-900 border-t border-slate-800 px-3 py-2 flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-4 text-[11px] font-bold">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-red-500 inline-block" />
+                  <span className="text-red-400">🔴 FIRME (standing part)</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-blue-500 inline-block" />
+                  <span className="text-blue-400">🔵 CHICOTE (working end)</span>
+                </span>
               </div>
               <span
-                className="text-[10px] px-2 py-0.5 rounded-full font-bold shrink-0"
-                style={{ backgroundColor: `${knot.color}20`, color: knot.color }}
+                className="text-[10px] font-extrabold px-2 py-0.5 rounded-full"
+                style={{ color: knot.color, backgroundColor: knot.color + '20' }}
               >
                 {knot.difficulty}
               </span>
             </div>
+          </div>
 
-            <div className="bg-slate-900/50 rounded-lg p-2 border border-slate-700 shrink-0">
-              <p className="text-[10px] uppercase tracking-wider text-slate-500">Uso principal</p>
-              <p className="text-xs text-slate-200 font-medium">{knot.use}</p>
+          {/* Panel informativo (5 cols) */}
+          <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto h-full">
+            {/* Encabezado */}
+            <div>
+              <h3 className="text-base font-extrabold text-white mb-0.5">{knot.name}</h3>
+              <p className="text-[10px] text-slate-500 italic">{knot.otherNames.join(' · ')}</p>
             </div>
 
-            {/* Visor SVG paso a paso */}
-            <div className="bg-slate-950/70 rounded-xl p-2 border border-slate-800 shrink-0">
-              <div className="flex items-center justify-between mb-1.5">
-                <p className="text-[10px] uppercase tracking-wider text-slate-500">
-                  Paso {stepIdx + 1} de {knot.steps.length}
-                </p>
-                <button
-                  onClick={() => setStepIdx(0)}
-                  className="text-[10px] text-slate-500 hover:text-slate-300 flex items-center gap-1"
-                >
-                  <RotateCcw className="w-2.5 h-2.5" /> Reiniciar
-                </button>
-              </div>
-
-              <div className="relative w-full aspect-[4/3] bg-slate-900 rounded-lg overflow-hidden">
-                <svg
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="xMidYMid meet"
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <defs>
-                    <pattern id={`dotgrid-${knot.id}`} width="10" height="10" patternUnits="userSpaceOnUse">
-                      <circle cx="5" cy="5" r="0.4" fill="#1e293b" />
-                    </pattern>
-                  </defs>
-                  <rect width="100" height="100" fill={`url(#dotgrid-${knot.id})`} />
-
-                  {/* Palo de referencia para ballestrinque */}
-                  {knot.id === 'clove' && (
-                    <line x1="5" y1="30" x2="95" y2="30" stroke="#64748b" strokeWidth="1" strokeDasharray="3,2" />
-                  )}
-
-                  {/* Trazos del FIRME (rojo) */}
-                  {knot.steps[stepIdx].firmePaths.map((d, j) => (
-                    <path
-                      key={`f-${j}`}
-                      d={d}
-                      fill="none"
-                      stroke="#ef4444"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  ))}
-
-                  {/* Trazos del CHICOTE (azul) */}
-                  {knot.steps[stepIdx].chicotePaths.map((d, j) => (
-                    <path
-                      key={`c-${j}`}
-                      d={d}
-                      fill="none"
-                      stroke="#3b82f6"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  ))}
-
-                  {/* Etiquetas */}
-                  <text x="3" y="97" fontSize="3.5" fill="#ef4444" fontWeight="bold">FIRME</text>
-                  <text x="83" y="97" fontSize="3.5" fill="#3b82f6" fontWeight="bold">CHICOTE</text>
-                </svg>
-
-                {/* Mini leyenda */}
-                <div className="absolute top-1 left-1 flex flex-col gap-0.5 text-[9px] font-bold bg-slate-900/85 backdrop-blur px-1.5 py-1 rounded border border-slate-700">
-                  <div className="flex items-center gap-1">
-                    <span className="w-2.5 h-1 bg-red-500 rounded" />
-                    <span className="text-red-300">FIRME</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="w-2.5 h-1 bg-blue-500 rounded" />
-                    <span className="text-blue-300">CHICOTE</span>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-[11px] text-slate-200 mt-2 leading-relaxed">
-                {knot.steps[stepIdx].description}
+            {/* Uso */}
+            <div className="bg-slate-950 border border-slate-800 rounded-xl p-3">
+              <p className="text-[10px] font-black uppercase tracking-wider mb-1" style={{ color: knot.color }}>
+                ⚓ Uso a Bordo
               </p>
+              <p className="text-xs text-slate-200 font-medium leading-relaxed">{knot.use}</p>
+            </div>
 
-              <div className="flex gap-1.5 mt-2">
-                <button
-                  onClick={() => setStepIdx(s => Math.max(0, s - 1))}
-                  disabled={stepIdx === 0}
-                  className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-[10px] font-medium hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                >
-                  <ChevronLeft className="w-3 h-3" /> Anterior
-                </button>
-                <button
-                  onClick={() => setStepIdx(s => Math.min(knot.steps.length - 1, s + 1))}
-                  disabled={stepIdx === knot.steps.length - 1}
-                  className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg bg-cyan-500 text-slate-950 text-[10px] font-bold hover:bg-cyan-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                >
-                  Siguiente <ChevronRight className="w-3 h-3" />
-                </button>
+            {/* Instrucciones paso a paso */}
+            <div className="bg-slate-950 border border-slate-800 rounded-xl p-3">
+              <p className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2">📋 Pasos en la Imagen</p>
+              <ol className="space-y-1.5">
+                {knot.stepsCaption.map((caption, i) => (
+                  <li key={i} className="text-[11px] text-slate-300 leading-snug flex gap-2">
+                    <span className="font-extrabold shrink-0" style={{ color: knot.color }}>
+                      {i + 1}.
+                    </span>
+                    <span>{caption.replace(/^①|②|③|④/, '').trim()}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* Pros y Cons */}
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-2.5">
+                <p className="text-[10px] uppercase font-bold text-emerald-300 mb-1 flex items-center gap-1">
+                  <Check className="w-3 h-3" /> Ventajas
+                </p>
+                <ul className="space-y-1">
+                  {knot.pros.map((p, i) => (
+                    <li key={i} className="text-[10px] text-slate-300 leading-tight">• {p}</li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="flex gap-1 mt-1.5">
-                {knot.steps.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-0.5 flex-1 rounded-full transition-all ${i <= stepIdx ? '' : 'bg-slate-700'}`}
-                    style={i <= stepIdx ? { backgroundColor: knot.color } : {}}
-                  />
-                ))}
+              <div className="bg-rose-500/10 border border-rose-500/30 rounded-xl p-2.5">
+                <p className="text-[10px] uppercase font-bold text-rose-300 mb-1 flex items-center gap-1">
+                  <AlertTriangle className="w-3 h-3" /> Limitaciones
+                </p>
+                <ul className="space-y-1">
+                  {knot.cons.map((c, i) => (
+                    <li key={i} className="text-[10px] text-slate-300 leading-tight">• {c}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-300 leading-relaxed shrink-0">{knot.description}</p>
-
-            <div className="grid grid-cols-2 gap-1.5 shrink-0">
-              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-2">
-                <p className="text-[9px] uppercase tracking-wider text-emerald-300 mb-1 flex items-center gap-1 font-bold">
-                  <Check className="w-2.5 h-2.5" /> Ventajas
-                </p>
-                <ul className="space-y-0.5">
-                  {knot.pros.map((p, i) => (
-                    <li key={i} className="text-[10px] text-slate-300 flex gap-1">
-                      <span className="text-emerald-400 shrink-0">•</span>{p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-rose-500/10 border border-rose-500/30 rounded-lg p-2">
-                <p className="text-[9px] uppercase tracking-wider text-rose-300 mb-1 flex items-center gap-1 font-bold">
-                  <AlertTriangle className="w-2.5 h-2.5" /> Desventajas
-                </p>
-                <ul className="space-y-0.5">
-                  {knot.cons.map((c, i) => (
-                    <li key={i} className="text-[10px] text-slate-300 flex gap-1">
-                      <span className="text-rose-400 shrink-0">•</span>{c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Tip */}
+            <div className="bg-amber-500/10 border border-amber-500/25 rounded-xl p-2.5 text-[11px] text-amber-300 leading-relaxed mt-auto">
+              💡 {knot.description}
             </div>
           </div>
         </div>
       )}
 
+      {/* QUIZ */}
       {tab === 'QUIZ' && !finished && questions.length > 0 && (
-        <div className="flex-1 min-h-0 overflow-y-auto custom-scroll">
+        <div className="flex-1 min-h-0 overflow-y-auto">
           <QuizCard
             question={shuffledQuestions[currentIdx]}
             questionNumber={currentIdx + 1}
@@ -535,48 +328,49 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
         </div>
       )}
 
+      {/* RESULTADOS */}
       {tab === 'QUIZ' && finished && result && (
-        <div className="flex-1 min-h-0 overflow-y-auto custom-scroll">
-          <div className="bg-slate-800/70 border border-white/10 rounded-2xl p-6 max-w-xl mx-auto w-full text-center my-auto shadow-2xl">
+        <div className="flex-1 flex items-center justify-center">
+          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 max-w-lg w-full text-center shadow-2xl">
             {passed ? (
               <>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500 mb-3">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/20 border border-amber-500 mb-3">
                   <Trophy className="w-8 h-8 text-amber-400" />
                 </div>
-                <h3 className="text-xl font-bold text-amber-300 mb-2">¡Maestro de Nudos!</h3>
-                <p className="text-slate-300 text-xs mb-4">Ya podés amarrar cualquier cosa a bordo.</p>
+                <h3 className="text-xl font-extrabold text-amber-300 mb-1">¡Maestro de Nudos!</h3>
+                <p className="text-slate-300 text-xs mb-4">Podés amarrar cualquier cosa a bordo con seguridad.</p>
               </>
             ) : (
               <>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500/20 border-2 border-cyan-500 mb-3">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500/20 border border-cyan-500 mb-3">
                   <Lightbulb className="w-8 h-8 text-cyan-400" />
                 </div>
-                <h3 className="text-xl font-bold text-cyan-300 mb-2">A repasar nudos</h3>
-                <p className="text-slate-300 text-xs mb-4">Necesitas 70% para aprobar. Repasá los usos y volvé a intentar.</p>
+                <h3 className="text-xl font-extrabold text-cyan-300 mb-1">Repasá los nudos</h3>
+                <p className="text-slate-300 text-xs mb-4">Necesitas 70% para aprobar. Mirá los pasos en la Guía.</p>
               </>
             )}
 
             <div className="grid grid-cols-3 gap-2 mb-4">
-              <div className="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
-                <p className="text-2xl font-bold text-cyan-400">{accuracy.toFixed(0)}%</p>
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-cyan-400">{accuracy.toFixed(0)}%</p>
                 <p className="text-[10px] text-slate-400">Precisión</p>
               </div>
-              <div className="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
-                <p className="text-2xl font-bold text-emerald-400">{result.correct}/{result.total}</p>
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-emerald-400">{result.correct}/{result.total}</p>
                 <p className="text-[10px] text-slate-400">Aciertos</p>
               </div>
-              <div className="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
-                <p className="text-2xl font-bold text-amber-400">+{result.xpEarned}</p>
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-amber-400">+{result.xpEarned}</p>
                 <p className="text-[10px] text-slate-400">XP</p>
               </div>
             </div>
 
             <button
               onClick={handleRestart}
-              className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2.5 px-5 rounded-xl text-xs transition-all mx-auto shadow-md"
+              className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2.5 px-5 rounded-xl text-xs transition-all mx-auto shadow-md cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              Reintentar
+              Reintentar Quiz
             </button>
           </div>
         </div>
