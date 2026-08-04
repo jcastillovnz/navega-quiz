@@ -26,8 +26,8 @@
       }
     ],
     "explanation": "La línea de crujía recorre el casco longitudinalmente de proa a popa y divide al buque en dos mitades simétricas. Coincide con la quilla.",
-    "concept": "Línea de Crujía: División Longitudinal del Casco",
-    "theory": "La línea de crujía recorre el casco de proa a popa dividiendo el buque en dos mitades simétricas. Coincide con la quilla y es la referencia para babor y estribor. Es el eje longitudinal del buque."
+    "concept": "Línea de Crujía: Eje Longitudinal del Casco",
+    "theory": "La línea de crujía es una línea imaginaria que recorre el casco desde proa a popa, dividiendo el buque en dos mitades perfectamente simétricas: babor (izquierdo) y estribor (derecho). Coincide exactamente con la quilla. Es el eje de referencia fundamental para toda navegación."
   },
   {
     "id": "nom_2",
@@ -57,7 +57,7 @@
     ],
     "explanation": "Babor es el costado IZQUIERDO del buque mirando de popa a proa (convención argentina PNA). Estribor es el costado DERECHO.",
     "concept": "Babor y Estribor: Costados del Buque",
-    "theory": "Babor es el lado IZQUIERDO mirando de popa a proa. Estribor es el lado DERECHO. Se definen desde la perspectiva de una persona EN el buque mirando hacia proa. Esto es UNIVERSAL en navegación."
+    "theory": "Babor es el lado IZQUIERDO del buque cuando se observa desde la popa mirando hacia proa. Estribor es el lado DERECHO. Esta definición es universal y no cambia según la posición del observador. Se identifica fácilmente: babor es 4 letras como izquierdo."
   },
   {
     "id": "nom_3",
@@ -86,8 +86,8 @@
       }
     ],
     "explanation": "La roda es la pieza estructural que prolonga la quilla rematando el casco por la proa. Es la parte que CORTA el agua mientras el buque avanza. También llamada tajamar. [REGLA: Apunte 'La Barca Náutica' - Cap. 2: Casco y Estructura] [TIP: 'Roda' viene del francés 'roue' (rueda), porque la proa es curva como una rueda]",
-    "concept": "Roda y Tajamar: Estructura de Proa",
-    "theory": "La roda es la pieza estructural que prolonga la quilla rematando el casco por proa. Es la parte que 'corta' el agua mientras el buque avanza. También llamada tajamar o proa. Parte más frontal del barco."
+    "concept": "Proa: Parte Frontal del Casco",
+    "theory": "La proa es la parte frontal del casco que corta el agua mientras el buque avanza. Estructuralmente comienza en la roda y se extiende hasta aproximadamente 1/3 de la eslora. En veleros, la proa es punto crítico para navegación a vela. Se identifica por la roda que sostiene el casco."
   },
   {
     "id": "nom_4",
@@ -116,8 +116,8 @@
       }
     ],
     "explanation": "El codaste es la pieza estructural que prolonga la quilla por la popa. Une las bordas del casco en la parte trasera y sirve de soporte al timón.",
-    "concept": "Espejo o Codaste: Estructura de Popa",
-    "theory": "El espejo es la parte posterior del casco que remata la popa. Es donde va montado el timón. En veleros, es donde se pinta el nombre del barco. Es la superficie vertical de popa."
+    "concept": "Popa: Parte Posterior del Casco",
+    "theory": "La popa es la parte posterior del casco donde va el timón. Es donde se pinta el nombre del buque y el puerto de origen. Estructuralmente termina en el espejo o codaste. Es punto crítico para maniobra del buque. La forma de popa afecta la estabilidad direccional."
   },
   {
     "id": "nom_5",
@@ -146,8 +146,8 @@
       }
     ],
     "explanation": "La eslora es la longitud total del buque de proa a popa, SIN considerar elementos no estructurales. Es la medida más importante para determinar el tamaño del barco.",
-    "concept": "Quilla: Columna Vertebral del Casco",
-    "theory": "La quilla es la pieza longitudinal fundamental del casco, como la 'columna vertebral' del buque. Proporciona estabilidad, reduce la deriva lateral y es donde se conectan otras estructuras. Base estructural del barco."
+    "concept": "Quilla: Estructura Fundamental del Casco",
+    "theory": "La quilla es la pieza longitudinal más importante del casco, como la columna vertebral de un barco. Proporciona estabilidad estructural, reduce la deriva lateral durante navegación y es donde se conectan otras estructuras principales. Su profundidad determina el calado mínimo en la que el barco puede navegar."
   },
   {
     "id": "nom_6",
@@ -177,7 +177,7 @@
     ],
     "explanation": "La manga es la distancia horizontal máxima entre babor y estribor, con las estructuras fijas. Se toma perpendicularmente a la eslora.",
     "concept": "Eslora, Manga y Puntal: Dimensiones Principales",
-    "theory": "Eslora = largo del buque (proa a popa). Manga = ancho máximo. Puntal = altura desde quilla a cubierta. Estas tres medidas definen el volumen y categoría de navegación. Dimensiones esenciales de un barco."
+    "theory": "Eslora (E) = largo del buque de proa a popa. Manga (M) = ancho máximo. Puntal (P) = altura desde la quilla a la cubierta principal. Estas tres medidas definen el volumen total y determinan categoría de navegación según regulaciones (Timonel de Yate: máx 7m eslora). Son críticas para maniobra y seguridad."
   },
   {
     "id": "nom_7",
@@ -206,8 +206,8 @@
       }
     ],
     "explanation": "El calado es la distancia vertical desde la línea de flotación hasta la parte más baja de la quilla. NO se cuentan el timón, la orza ni las colas de motores. Indica cuánto se 'hunde' el barco. [REGLA: Apunte 'La Barca Náutica' - Cap. 3: Dimensiones del Barco] [TIP: Hay calado a proa, a popa y al medio. El asiento es la diferencia entre calado de popa y proa.]",
-    "concept": "Francobordo: Borda sobre el Agua",
-    "theory": "Francobordo es la distancia vertical entre la línea de flotación y la borda (canto de cubierta). Mide cuánto del casco está fuera del agua. Mayor francobordo = más reserva de flotabilidad."
+    "concept": "Francobordo: Distancia Casco-Agua",
+    "theory": "Francobordo es la altura vertical entre la línea de flotación y la borda (canto de cubierta). Mayor francobordo = más reserva de flotabilidad. Se marca con línea Plimsoll en cascos de acero. Un francobordo insuficiente indica sobrecarga y es peligroso. Se debe revisar antes de zarpar."
   },
   {
     "id": "nom_8",
@@ -236,8 +236,8 @@
       }
     ],
     "explanation": "El francobordo es la distancia vertical desde la línea de flotación en carga máxima hasta la cubierta superior. Es la RESERVA DE FLOTABILIDAD del buque.",
-    "concept": "Amura: Costados Anteriores",
-    "theory": "Las amuras son los costados anteriores del buque, desde proa hasta el través (punto más ancho). Cada amura lleva el número de matrícula pintado. 'Amura de babor' y 'amura de estribor'."
+    "concept": "Amuras: Costados Anteriores",
+    "theory": "Las amuras son los costados anteriores del buque, desde la proa hasta el través (punto más ancho). El número de matrícula se pinta en ambas amuras. La amura de babor lleva matrícula de un lado, amura de estribor del otro. Forma característica que determina como el agua fluye alrededor del casco."
   },
   {
     "id": "nom_9",
@@ -266,8 +266,8 @@
       }
     ],
     "explanation": "El puntal es la altura interior del casco: la distancia vertical desde la parte más baja de la cubierta principal hasta la línea de flotación, a la altura de la parte superior de la quilla.",
-    "concept": "Través: Punto de Máxima Anchura",
-    "theory": "El través es el punto del buque de máxima anchura (manga máxima). 'Por el través' significa por el costado perpendicular a la línea de crujía. Punto de referencia importante en navegación."
+    "concept": "Través: Línea de Máxima Ancho",
+    "theory": "El través es una línea perpendicular a la crujía en el punto de máxima anchura (manga). 'Por el través' significa por los costados perpendiculares a la crujía. Los términos 'a través de babor' o 'a través de estribor' indican dirección. El través divide el casco en proa y popa."
   },
   {
     "id": "nom_10",
@@ -296,8 +296,8 @@
       }
     ],
     "explanation": "La obra viva (o carena) es la parte del casco que está permanentemente debajo de la línea de flotación. Contribuye a la flotabilidad y estabilidad.",
-    "concept": "Jarcia Fija: Cables Inmóviles del Mástil",
-    "theory": "La jarcia fija son los cables que sostienen el mástil en posición fija (obenques, vientos, crucetas). NO se mueve ni se ajusta durante la navegación. Es la 'estructura' del sistema de velas."
+    "concept": "Roda: Estructura de Refuerzo en Proa",
+    "theory": "La roda es una pieza estructural muy robusta que prolonga la quilla formando la forma frontal del casco. Es la parte que impacta primero contra olas o obstáculos. Debe ser resistente porque soporta esfuerzos enormes. Su forma determina cómo el agua se divide alrededor del casco."
   },
   {
     "id": "nom_11",
@@ -326,8 +326,8 @@
       }
     ],
     "explanation": "La obra muerta es la parte del casco que se encuentra por ENCIMA de la línea de flotación, expuesta al aire.",
-    "concept": "Concepto de Nomenclatura 11",
-    "theory": "Explicación teórica para el concepto de nomenclatura 11. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Codaste o Espejo: Estructura de Popa",
+    "theory": "El codaste es la pieza estructural vertical que remata la popa del casco. En él van montados el timón y el eje de la hélice. El espejo es la superficie exterior plana del codaste. En barcos de madera, se llama 'madero de popa'. Es estructura crítica de toda la sistema de dirección."
   },
   {
     "id": "nom_12",
@@ -356,8 +356,8 @@
       }
     ],
     "explanation": "La amura es la parte DELANTERA de cada costado del barco, desde el través convergiendo hacia la proa.",
-    "concept": "Concepto de Nomenclatura 12",
-    "theory": "Explicación teórica para el concepto de nomenclatura 12. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Timón: Sistema de Dirección del Buque",
+    "theory": "El timón es la superficie plana verticalmontada en el codaste que controla la dirección del buque. Girando el timón de babor hace girar la popa a babor (proa a estribor). Se controla desde la rueda o caña del timón en la cabina. Es el sistema crítico de maniobra."
   },
   {
     "id": "nom_13",
@@ -386,8 +386,8 @@
       }
     ],
     "explanation": "La aleta es la parte TRASERA de cada costado del barco, desde el través convergiendo hacia la popa.",
-    "concept": "Concepto de Nomenclatura 13",
-    "theory": "Explicación teórica para el concepto de nomenclatura 13. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Eje de Hélice y Propela: Sistema de Propulsión",
+    "theory": "El eje de hélice transmite la rotación del motor a la propela. Pasa a través del casco mediante el prensaestopa que impide entrada de agua. La propela (hélice) gira en el agua propulsando el buque. La rotación es específica: derecha o izquierda según diseño."
   },
   {
     "id": "nom_14",
@@ -416,8 +416,8 @@
       }
     ],
     "explanation": "La línea de flotación es la intersección entre la parte sumergida y la parte que emerge del agua. Divide obra viva de obra muerta.",
-    "concept": "Concepto de Nomenclatura 14",
-    "theory": "Explicación teórica para el concepto de nomenclatura 14. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Prensaestopa: Sello del Eje de Propulsión",
+    "theory": "El prensaestopa es un sello mecánico ubicado donde el eje de la hélice atraviesa el casco. Su función es IMPEDIR que el agua entre al interior del barco. Sin prensaestopa, el buque se hundiría rápidamente. Requiere mantenimiento y lubricación periódica."
   },
   {
     "id": "nom_15",
@@ -446,8 +446,8 @@
       }
     ],
     "explanation": "La quilla es una viga que se extiende a lo largo de la parte INFERIOR del casco. Va de proa a popa, sirve de base a las cuadernas y es la 'columna vertebral' de la embarcación. Aporta estabilidad y resistencia.",
-    "concept": "Concepto de Nomenclatura 15",
-    "theory": "Explicación teórica para el concepto de nomenclatura 15. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Cubierta Principal: Superficie Superior del Casco",
+    "theory": "La cubierta principal es la cubierta más baja que forma el techo del casco. Es la superficie superior que define el francobordo. En yates, es donde se camina y se trabaja con velas. Debe ser resistente al agua y permitir escurrimiento de lluvia."
   },
   {
     "id": "nom_16",
@@ -476,8 +476,8 @@
       }
     ],
     "explanation": "Los mamparos son tabiques que dividen el interior de la embarcación en compartimentos. Contribuyen a la seguridad e integridad estructural ante una vía de agua.",
-    "concept": "Concepto de Nomenclatura 16",
-    "theory": "Explicación teórica para el concepto de nomenclatura 16. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Borda: Canto Superior del Casco",
+    "theory": "La borda es el canto superior del casco que sigue la línea de la cubierta. Define el perímetro del buque. La altura de la borda sobre el agua es el francobordo. Debe resistir olas que golpean constantemente. Una borda baja indica barco cargado."
   },
   {
     "id": "nom_17",
@@ -506,8 +506,8 @@
       }
     ],
     "explanation": "La sentina es la parte MÁS BAJA del casco, donde se acumula el agua que entra accidentalmente. Equipada con bombas de achique para mantener el buque seco.",
-    "concept": "Concepto de Nomenclatura 17",
-    "theory": "Explicación teórica para el concepto de nomenclatura 17. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Jarcia Fija: Cables que Sostienen el Mástil",
+    "theory": "La jarcia fija son los cables de acero que sostienen el mástil en posición vertical (obenques, vientos, crucetas). NO se mueve ni se ajusta durante navegación. Es la 'estructura' estática del sistema de velas. Debe estar tensa y bien ajustada antes de zarpar."
   },
   {
     "id": "nom_18",
@@ -536,8 +536,8 @@
       }
     ],
     "explanation": "Las cuadernas son piezas estructurales que salen de la quilla hacia los costados. Aportan rigidez y definen la FORMA de la embarcación.",
-    "concept": "Concepto de Nomenclatura 18",
-    "theory": "Explicación teórica para el concepto de nomenclatura 18. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Jarcia Móvil: Cables de Trabajo de Velas",
+    "theory": "La jarcia móvil son los cabos que se usan para trabajar las velas (escotas, drizas, amantillos). Se ajustan constantemente durante navegación. Se utilizan para cambiar forma de velas según condiciones de viento. Diferencia clave: móvil se ajusta, fija no."
   },
   {
     "id": "nom_19",
@@ -566,8 +566,8 @@
       }
     ],
     "explanation": "Los baos son refuerzos transversales (de babor a estribor) que unen las cuadernas en la parte superior y sostienen las cubiertas.",
-    "concept": "Concepto de Nomenclatura 19",
-    "theory": "Explicación teórica para el concepto de nomenclatura 19. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Mastelerillos: Extensiones del Mástil",
+    "theory": "Los mastelerillos son palos horizontales que se extienden lateralmente desde el mástil. En barcos antiguos sostenían el 'palo mesana'. En yates modernos, se usan para sostener espar de espinaque. Son estructuras secundarias pero importantes para navegación a vela."
   },
   {
     "id": "nom_20",
@@ -596,8 +596,8 @@
       }
     ],
     "explanation": "El arrufo es la curvatura que recibe la cubierta principal, elevándose hacia proa y popa. Mejora el desagüe y la estética del barco.",
-    "concept": "Concepto de Nomenclatura 20",
-    "theory": "Explicación teórica para el concepto de nomenclatura 20. Contenido sobre anatomía del barco y estructuras náuticas."
+    "concept": "Driza: Cabo para Izar Velas",
+    "theory": "La driza es el cabo que se usa para izar la vela a la altura del mástil. Va desde la vela hasta el tope del mástil. Se enreda en poleas. Al tirar la driza, la vela sube; al largarla, baja. Cada vela tiene su propia driza (driza de mayor, de foque, etc.)"
   },
   {
     "id": "nom_21",
@@ -626,8 +626,8 @@
       }
     ],
     "explanation": "El espejo es la parte posterior (plana) del casco, ubicada en la popa. Allí se pinta el nombre y número de matrícula.",
-    "concept": "Concepto nom_21",
-    "theory": "Explicación teórica para nom_21"
+    "concept": "Escota: Cable de Control de Vela",
+    "theory": "La escota es el cabo que controla el ángulo de la vela respecto al viento. Cada vela tiene escotas (estribor y babor). Al tensar la escota, se cierra la vela; al largarla, se abre. Es ajuste fino para optimizar navegación. El control de escotas es habilidad fundamental en vela."
   },
   {
     "id": "nom_22",
@@ -656,8 +656,8 @@
       }
     ],
     "explanation": "El pantoque es una viga o refuerzo longitudinal en la parte superior del costado, debajo de la regala, donde el casco se inclina hacia el fondo.",
-    "concept": "Concepto nom_22",
-    "theory": "Explicación teórica para nom_22"
+    "concept": "Mayor: Vela Principal",
+    "theory": "La mayor es la vela grande que va del mástil a la botavara. Es la vela principal que proporciona la mayoría de potencia. Se controla con driza de mayor, escota de mayor. En navegación a motor, la mayor se amuina (recoge). Es vela de identidad del yate."
   },
   {
     "id": "nom_23",
@@ -686,8 +686,8 @@
       }
     ],
     "explanation": "La regala es el refuerzo del borde superior del costado. En veleros, es útil para apoyarse al escorar el barco.",
-    "concept": "Concepto nom_23",
-    "theory": "Explicación teórica para nom_23"
+    "concept": "Foque: Vela Frontal",
+    "theory": "El foque es la vela pequeña que va delante del mástil (hacia la proa). Proporciona control y equilibrio. Diferentes tamaños de foques se usan según condiciones (Working jib, Genoa). Se controla con driza de foque y escota de foque. Es complemento de la mayor."
   },
   {
     "id": "nom_24",
@@ -716,8 +716,8 @@
       }
     ],
     "explanation": "La borda es la parte lateral del casco que se eleva por encima del nivel del agua, entre la cubierta y la regala.",
-    "concept": "Concepto nom_24",
-    "theory": "Explicación teórica para nom_24"
+    "concept": "Espinaque o Spinnaker: Vela de Proa al Viento",
+    "theory": "El espinaque es una vela especial que solo se usa cuando el viento viene de popa (navegación corrida). Proporciona mucha velocidad pero es difícil de manejar. Requiere espar horizontal (tangon) para sostenerlo. Se usa en regatas y navegación rápida."
   },
   {
     "id": "nom_25",
@@ -746,8 +746,8 @@
       }
     ],
     "explanation": "Monocasco = armazón de una sola pieza. Multicasco = 2 (catamarán) o 3 (trimarán) cascos, que aportan estabilidad adicional.",
-    "concept": "Concepto nom_25",
-    "theory": "Explicación teórica para nom_25"
+    "concept": "Botavara: Estructura Horizontal de Mayor",
+    "theory": "La botavara es el palo horizontal que sostiene el pico (esquina inferior) de la mayor. Se une al mástil mediante el motón. La longitud de botavara afecta tamaño de mayor. Debe ser resistente porque soporta mucha tensión cuando hay viento fuerte."
   },
   {
     "id": "nom_26",
@@ -776,8 +776,8 @@
       }
     ],
     "explanation": "Barlovento = la dirección DE DONDE VIENE el viento. Sotavento = hacia donde VA el viento.",
-    "concept": "Concepto nom_26",
-    "theory": "Explicación teórica para nom_26"
+    "concept": "Crucetas o Cruces: Soporte de Obenques",
+    "theory": "Las crucetas son estructuras horizontales que se extienden del mástil. Los obenques pasan sobre crucetas para mejor ángulo de soporte. Múltiples crucetas aumentan resistencia del mástil. Son estructuras críticas para la integridad del sistema de velas."
   },
   {
     "id": "nom_27",
@@ -806,8 +806,8 @@
       }
     ],
     "explanation": "Sotavento = hacia donde VA el viento. Lo opuesto a barlovento.",
-    "concept": "Concepto nom_27",
-    "theory": "Explicación teórica para nom_27"
+    "concept": "Poleas y Motones: Sistemas de Transmisión",
+    "theory": "Las poleas y motones son mecanismos que distribuyen fuerzas de cabos. Permiten cambiar dirección de cabos sin fricción. Están colocados en mástil, boom y otros puntos. Un sistema de poleas bien diseñado reduce esfuerzo necesario para manejar velas."
   },
   {
     "id": "nom_28",
@@ -836,8 +836,8 @@
       }
     ],
     "explanation": "La cubierta es la parte horizontal superior del casco; asegura la estanqueidad. Cada uno de los pisos de la embarcación.",
-    "concept": "Concepto nom_28",
-    "theory": "Explicación teórica para nom_28"
+    "concept": "Boca de Hombre: Acceso al Interior del Casco",
+    "theory": "La boca de hombre es una abertura en la cubierta que permite acceso a compartimientos interiores. Debe ser estanca (impermeable cuando se cierra). Típicamente hay bocas para acceso a tanques, bodegas y camarotes. Debe estar asegurada antes de zarpar."
   },
   {
     "id": "nom_29",
@@ -866,8 +866,8 @@
       }
     ],
     "explanation": "El plan es el piso más bajo de la embarcación.",
-    "concept": "Concepto nom_29",
-    "theory": "Explicación teórica para nom_29"
+    "concept": "Escotillas: Tapas de Acceso",
+    "theory": "Las escotillas son tapas que cierran las bocas de hombre. Deben ser robustas y apretarse firmemente para evitar filtraciones. En tormentas, todas las escotillas deben estar cerradas. Son puntos críticos de potencial entrada de agua."
   },
   {
     "id": "nom_30",
@@ -896,8 +896,8 @@
       }
     ],
     "explanation": "Barlovento es la parte del barco de donde VIENE el viento. Determina el lado de mayor presión del viento sobre la embarcación.",
-    "concept": "Concepto nom_30",
-    "theory": "Explicación teórica para nom_30"
+    "concept": "Lumbreras: Ventilación del Casco",
+    "theory": "Las lumbreras son pequeñas aberturas que permiten ventilación de los compartimientos interiores. Tienen tapas que se cierran en caso de lluvia fuerte o mar gruesa. La ventilación previene acumulación de gases tóxicos. Deben revisarse periódicamente."
   },
   {
     "id": "nom_31",
@@ -926,8 +926,8 @@
       }
     ],
     "explanation": "El náufrago debe subir a bordo por BARLOVENTO (la parte de donde viene el viento), para evitar que el barco derive hacia él y lo atropelle.",
-    "concept": "Concepto nom_31",
-    "theory": "Explicación teórica para nom_31"
+    "concept": "Bombas de Sentina: Extracción de Agua",
+    "theory": "Las bombas de sentina extraen agua que se acumula en el fondo del casco (sentina). Pueden ser manuales o eléctricas. Toda embarcación debe tener bombas de sentina funcionales. Una falla de bombas es emergencia porque el agua se acumula rápidamente."
   },
   {
     "id": "nom_32",
@@ -956,8 +956,8 @@
       }
     ],
     "explanation": "Amurado a babor = la banda de babor (costado izquierdo mirando hacia proa) es la que RECIBE el viento. Lo opuesto a amurado a estribor.",
-    "concept": "Concepto nom_32",
-    "theory": "Explicación teórica para nom_32"
+    "concept": "Tanques: Almacenamiento de Líquidos",
+    "theory": "Los tanques almacenan combustible, agua dulce, agua salada de lastre. Están localizados estratégicamente en el casco. Tienen conexiones para llenar y extraer líquidos. Deben estar marcados claramente (COMBUSTIBLE, AGUA). La contaminación de tanques es problema grave."
   },
   {
     "id": "nom_33",
@@ -986,8 +986,8 @@
       }
     ],
     "explanation": "La escora es el ángulo de inclinación LATERAL de la embarcación, producido por el viento o por el peso de los tripulantes.",
-    "concept": "Concepto nom_33",
-    "theory": "Explicación teórica para nom_33"
+    "concept": "Aberturas de Popa: Sistemas de Ventilación",
+    "theory": "Las aberturas de popa (mamparos) permiten ventilación y movimiento de aire. Deben mantenerse limpias para flujo de aire. Agua acumulada en aberturas puede causar problemas de estabilidad. Se reviean regularmente durante mantenimiento."
   },
   {
     "id": "nom_34",
@@ -1016,8 +1016,8 @@
       }
     ],
     "explanation": "El asiento es la diferencia de inclinación longitudinal entre el calado de popa y el de proa. Si es positivo (apopante) el calado de proa es menor; si es negativo (aproante) el calado de proa es mayor.",
-    "concept": "Concepto nom_34",
-    "theory": "Explicación teórica para nom_34"
+    "concept": "Estructura Interna: Mamparos y Cuadernas",
+    "theory": "Los mamparos son paredes internas que dividen compartimientos. Las cuadernas son vigas internas que sostienen estructura del casco. Juntos crean resistencia y rigidez. Deben estar en buen estado para mantener integridad estructural del buque."
   },
   {
     "id": "nom_35",
@@ -1046,8 +1046,8 @@
       }
     ],
     "explanation": "El bulbo de proa (en algunos casos) es una estructura en forma de bulbo ubicada en la parte DELANTERA del casco. Reduce la resistencia al avance y mejora la eficiencia.",
-    "concept": "Concepto nom_35",
-    "theory": "Explicación teórica para nom_35"
+    "concept": "Armaduras de Defensa: Protección del Casco",
+    "theory": "Las armaduras de defensa (defensas, protectores) se cuelgan en costados para proteger el casco de rozaduras contra muelles o barcos. Son de goma o espuma. Se colocan estratégicamente cuando se fondea o atraca. Sin defensa, rozaduras pueden dañar pintura."
   },
   {
     "id": "nom_36",
@@ -1076,8 +1076,8 @@
       }
     ],
     "explanation": "El principio de Arquímedes: todo cuerpo sumergido en un fluido experimenta un empuje VERTICAL y hacia arriba igual al peso del fluido DESALOJADO. Esto explica por qué los barcos flotan.",
-    "concept": "Concepto nom_36",
-    "theory": "Explicación teórica para nom_36"
+    "concept": "Línea de Flotación: Altura Cargado del Buque",
+    "theory": "La línea de flotación es la línea donde el agua toca el casco cuando el buque está navegando. Se marca con línea Plimsoll en cascos profesionales. La altura de la línea indica carga del buque. Una línea muy baja indica sobrecarga."
   },
   {
     "id": "nom_37",
@@ -1106,8 +1106,8 @@
       }
     ],
     "explanation": "La orza es una pieza que se baja por debajo del casco y OPONE resistencia al desplazamiento lateral, evitando la deriva. No es lo mismo que la quilla (que es estructural).",
-    "concept": "Concepto nom_37",
-    "theory": "Explicación teórica para nom_37"
+    "concept": "Centro de Gravedad: Balance y Estabilidad",
+    "theory": "El centro de gravedad (CG) es el punto donde actúa el peso total del buque. Debe estar lo más bajo posible para estabilidad. En yates, se mantiene bajo colocando carga pesada (baterías, motor) en la quilla. Un CG alto causa escora excesiva."
   },
   {
     "id": "nom_38",
@@ -1136,8 +1136,8 @@
       }
     ],
     "explanation": "El desplazamiento es el PESO de la embarcación, equivalente al peso del agua desplazada. Se mide en toneladas métricas.",
-    "concept": "Concepto nom_38",
-    "theory": "Explicación teórica para nom_38"
+    "concept": "Estabilidad Lateral: Resistencia a la Escora",
+    "theory": "La estabilidad lateral es la capacidad del buque de resistir el vuelco cuando hay viento fuerte. La quilla, que es pesada, crea momento restaurador. Un buque con baja estabilidad puede volcar en condiciones extremas. Es factor crítico de seguridad."
   },
   {
     "id": "nom_39",
@@ -1166,8 +1166,8 @@
       }
     ],
     "explanation": "Los obenques son cables que sostienen el mástil LATERALMENTE (hacia babor y estribor). Son parte de la jarcia firme.",
-    "concept": "Concepto nom_39",
-    "theory": "Explicación teórica para nom_39"
+    "concept": "Calado: Profundidad del Casco en el Agua",
+    "theory": "El calado es la profundidad vertical desde la línea de flotación a la quilla. Determina la profundidad mínima de agua necesaria para navegar. Aumenta cuando el buque se carga. Se debe conocer el calado para evitar encallamiento."
   },
   {
     "id": "nom_40",
@@ -1196,8 +1196,8 @@
       }
     ],
     "explanation": "Los estays (estay proel y estay popel/backstay) son cables que sostienen el mástil LONGITUDINALMENTE, hacia proa o popa. Son parte de la jarcia firme.",
-    "concept": "Concepto nom_40",
-    "theory": "Explicación teórica para nom_40"
+    "concept": "Encallamiento: Contacto Casco con Fondo",
+    "theory": "Encallarse es cuando el casco toca el fondo marino. Puede causar daño estructural, entrada de agua, pérdida total. Se evita conociendo carta náutica y manteniendo vigía. En caso de encallamiento, se debe detener inmediatamente y evaluar daño."
   },
   {
     "id": "nom_41",
@@ -1226,8 +1226,8 @@
       }
     ],
     "explanation": "Las crucetas o baudillos son cables transversales que evitan que los obenques se junten hacia el casco, dando rigidez lateral al palo.",
-    "concept": "Concepto nom_41",
-    "theory": "Explicación teórica para nom_41"
+    "concept": "Protección del Casco: Pintura y Antifouling",
+    "theory": "El casco se pinta con pintura especial que protege del agua y corrosión. Se aplica pintura antifouling para prevenir crecimiento de algas y percebes. El mantenimiento de pintura previene herrumbre y daño estructural. Se repinta periódicamente."
   },
   {
     "id": "nom_42",
@@ -1256,8 +1256,8 @@
       }
     ],
     "explanation": "Las burdas son cables que refuerzan la verticalidad del mástil, manteniéndolo recto hacia popa y hacia abajo. Forman parte de la jarcia firme.",
-    "concept": "Concepto nom_42",
-    "theory": "Explicación teórica para nom_42"
+    "concept": "Ánodos de Sacrificio: Protección Anticorrosión",
+    "theory": "Los ánodos de sacrificio son piezas de zinc o magnesio colocadas en el casco. Se corroen en lugar del metal del casco, protegiéndolo de corrosión galvánica. Se desgastan con el tiempo y deben reemplazarse. Sin ánodos, el casco se corroe rápidamente."
   },
   {
     "id": "nom_43",
@@ -1286,8 +1286,8 @@
       }
     ],
     "explanation": "La trinquetilla (babystay) es un estay auxiliar que va desde un punto BAJO del mástil hacia proa. Sirve para izar velas de proa adicionales.",
-    "concept": "Concepto nom_43",
-    "theory": "Explicación teórica para nom_43"
+    "concept": "Sistemas de Tuberías Internas",
+    "theory": "Las tuberías transportan agua de sentina, combustible, agua dulce. Deben estar protegidas de impactos. Las fugas de tuberías pueden causar entrada de agua. Se deben revisar regularmente en mantenimiento. Tuberías rotas en mar es emergencia grave."
   },
   {
     "id": "nom_44",
@@ -1316,8 +1316,8 @@
       }
     ],
     "explanation": "Las drizas son los cabos que sirven para IZAR (subir) las velas por el mástil. Una driza por cada vela (mayor, foque, etc.).",
-    "concept": "Concepto nom_44",
-    "theory": "Explicación teórica para nom_44"
+    "concept": "Válvulas de Agua Salada: Control del Flujo",
+    "theory": "Las válvulas de agua salada controlan entrada de agua del mar para enfriamiento de motor. Deben cerrarse antes de zarpar si no están en uso. Una válvula abierta pero olvidada puede causar hundimiento. Son críticas para supervivencia del motor."
   },
   {
     "id": "nom_45",
@@ -1346,8 +1346,8 @@
       }
     ],
     "explanation": "Las escotas son cabos que CAZAN (tensan) o FILAN (aflojan) las velas, regulando su ángulo con respecto al viento.",
-    "concept": "Concepto nom_45",
-    "theory": "Explicación teórica para nom_45"
+    "concept": "Sistemas de Drenaje: Evacuación de Agua",
+    "theory": "Los sistemas de drenaje evacuan agua de lluvia de la cubierta. Las scuppers (orificios de drenaje) permiten que agua lluvia corra hacia el mar. Deben estar limpios y funcionales. Un drenaje bloqueado causa acumulación de agua en cubierta."
   },
   {
     "id": "nom_46",
@@ -1376,8 +1376,8 @@
       }
     ],
     "explanation": "El amantillo es el cabo que se usa para IZAR o ARRIAR las perchas (mástiles, botavara, botalón, etc.). Va desde la parte alta hasta la base.",
-    "concept": "Concepto nom_46",
-    "theory": "Explicación teórica para nom_46"
+    "concept": "Red de Tierra Eléctrica (Ground): Seguridad Eléctrica",
+    "theory": "La red de tierra es el sistema de referencia eléctrica del buque. Protege contra descargas eléctricas. Todos los equipos eléctricos se conectan a la tierra. Un sistema de tierra deficiente es riesgo de electrocución. Se verifica regularmente."
   },
   {
     "id": "nom_47",
@@ -1406,8 +1406,8 @@
       }
     ],
     "explanation": "El amantillo es el cabo que va al penol (extremo) de la botavara y permite subirla o bajarla.",
-    "concept": "Concepto nom_47",
-    "theory": "Explicación teórica para nom_47"
+    "concept": "Asideros y Barandillas: Seguridad a Bordo",
+    "theory": "Los asideros y barandillas permiten moverse seguramente en cubierta. Son críticos cuando hay movimiento del barco. Se colocan en lugares donde se camina frecuentemente. Deben ser robustos para soportar persona en movimiento violento."
   },
   {
     "id": "nom_48",
@@ -1436,8 +1436,8 @@
       }
     ],
     "explanation": "El amante de rizo es el cabo específico que se usa para ATAR los rizos, reduciendo la superficie de la vela sin cambiarla. Se usa con mal tiempo.",
-    "concept": "Concepto nom_48",
-    "theory": "Explicación teórica para nom_48"
+    "concept": "Escalerillas y Escalerones: Acceso Vertical",
+    "theory": "Las escalerillas permiten acceso vertical entre cubiertas. Deben ser robustas y bien aseguradas. En mar grueso, usar escalerilla es peligroso. Se deben usar siempre barandillas cuando se baja escalerilla."
   },
   {
     "id": "nom_49",
@@ -1466,8 +1466,8 @@
       }
     ],
     "explanation": "El cunningham es un aparejo o cabo que sirve para TENSAR (repicar) el gratil de la vela mayor contra el palo (gansera), modificando la forma de la vela.",
-    "concept": "Concepto nom_49",
-    "theory": "Explicación teórica para nom_49"
+    "concept": "Camarotes: Espacios de Descanso",
+    "theory": "Los camarotes son los dormitorios del buque. En yates pequeños, muy compactos. Deben tener ventilación y drenaje de agua. La comodidad en camarotes afecta seguridad porque la tripulación descansa mejor. Deben mantenerse secos."
   },
   {
     "id": "nom_50",
@@ -1496,8 +1496,8 @@
       }
     ],
     "explanation": "Los matafiones son pequeñas cuerdas o cintas cosidas en las velas, que se usan para ATAR (aferrar) las velas arriadas a la botavara o al pie del mástil.",
-    "concept": "Concepto nom_50",
-    "theory": "Explicación teórica para nom_50"
+    "concept": "Cocina o Galera: Preparación de Comida",
+    "theory": "La galera es la cocina del buque, típicamente muy pequeña. Tiene estufa que debe estar asegurada para no caerse en mar gruesa. La comida es crítica para moral de tripulación. Debe estar limpia para evitar contaminación de alimentos."
   },
   {
     "id": "nom_51",
@@ -1526,8 +1526,8 @@
       }
     ],
     "explanation": "El tangón es un palo que sale de la cara de proa del mástil y se usa principalmente para IZAR el spinaker (vela grande de empopada).",
-    "concept": "Concepto nom_51",
-    "theory": "Explicación teórica para nom_51"
+    "concept": "Cabina de Control: Centro de Mando",
+    "theory": "La cabina de control es donde están rueda de timón, instrumentos de navegación, comunicaciones. Es el corazón del buque. Debe estar equipada con todos los instrumentos necesarios. La organización de instrumentos afecta eficiencia de navegación."
   },
   {
     "id": "nom_52",
@@ -1556,8 +1556,8 @@
       }
     ],
     "explanation": "Ketche = dos palos de IGUAL tamaño. Cuter = dos palos (mayor + mesana menor). Yawl = dos palos con mesana detrás del timón. Sloop = un solo palo.",
-    "concept": "Concepto nom_52",
-    "theory": "Explicación teórica para nom_52"
+    "concept": "Instrumentos de Navegación: Brújula, GPS, Carta",
+    "theory": "Los instrumentos básicos son: brújula (rumbo), GPS (posición), carta (ruta). Se complementan con sonda (profundidad), VHF (comunicación), radar (otros buques). Todo navegante debe saber usar estos instrumentos. Son herramientas de supervivencia."
   },
   {
     "id": "nom_53",
@@ -1586,8 +1586,8 @@
       }
     ],
     "explanation": "El grosor de un cabo se mide por su DIÁMETRO (no por radio ni espesor). Se expresa generalmente en milímetros.",
-    "concept": "Concepto nom_53",
-    "theory": "Explicación teórica para nom_53"
+    "concept": "Velocímetro y Tacómetro: Medición de Velocidad",
+    "theory": "El velocímetro mide velocidad del barco a través del agua. El tacómetro mide RPM del motor. Ambos son críticos para navegación segura. Un velocímetro defectuoso pueden llevar a velocidad incorrecta."
   },
   {
     "id": "nom_54",
@@ -1616,8 +1616,8 @@
       }
     ],
     "explanation": "La estropada es la INERCIA del barco: la tendencia del barco a mantener su rumbo actual. Un barco con mucha estropada es difícil de detener o cambiar de dirección.",
-    "concept": "Concepto nom_54",
-    "theory": "Explicación teórica para nom_54"
+    "concept": "Sonda de Profundidad: Medición del Fondo",
+    "theory": "La sonda de profundidad mide distancia desde el casco al fondo marino. Crítica para evitar encallamiento. Funciona con ondas ultrasónicas. Una sonda defectuosa puede llevar a encallamiento no detectado. Debe verificarse contra carta."
   },
   {
     "id": "nom_55",
@@ -1646,8 +1646,8 @@
       }
     ],
     "explanation": "Para reducir la escora, se FILE (afloja) la escota de mayor: menos viento en la vela = menor fuerza lateral = barco más adrizado.",
-    "concept": "Concepto nom_55",
-    "theory": "Explicación teórica para nom_55"
+    "concept": "Radar: Detección de Buques y Clima",
+    "theory": "El radar detecta buques y sistemas de tormenta a distancia incluso en niebla. Es crítico para navegación en aguas congestionadas. Requiere entrenamiento para interpretar pantalla. Una lectura incorrecta de radar puede llevar a colisión."
   },
   {
     "id": "nom_56",
@@ -1676,8 +1676,8 @@
       }
     ],
     "explanation": "Correr el temporal = navegar a favor del temporal (con el viento y la ola en popa). Capear = quedarse en posición para recibir el temporal.",
-    "concept": "Concepto nom_56",
-    "theory": "Explicación teórica para nom_56"
+    "concept": "AIS: Sistema de Identificación Automática",
+    "theory": "El AIS transmite posición, velocidad, rumbo del buque a otros buques cercanos. Se reciben posiciones de otros buques. Aumenta significativamente conciencia situacional. No reemplaza radar, complementa el sistema de navegación."
   },
   {
     "id": "nom_57",
@@ -1706,8 +1706,8 @@
       }
     ],
     "explanation": "Capear = mantener el barco en posición con la proa hacia el viento y la ola, reduciendo la superficie expuesta. Se logra arriendo la mayor.",
-    "concept": "Concepto nom_57",
-    "theory": "Explicación teórica para nom_57"
+    "concept": "Sistema de Sonería de Alarma: Advertencia de Peligro",
+    "theory": "Los sistemas de alarma alertan de situaciones críticas: baja presión aceite, sobrecalentamiento motor, bajo combustible. Deben escucharse claramente en toda la cabina. Alarma silenciada inadvertidamente es causa de desastre."
   },
   {
     "id": "nom_58",
@@ -1736,8 +1736,8 @@
       }
     ],
     "explanation": "Velar = estar de guardia o atención mientras se navega. Hacer guardia de navegación, atento a otros buques, luces, etc.",
-    "concept": "Concepto nom_58",
-    "theory": "Explicación teórica para nom_58"
+    "concept": "Extintor Automático de Incendio",
+    "theory": "Los extintores automáticos se accionan cuando temperatura sube mucho (incendio de motor). Están en compartimiento de motor. Se deben revisar regularmente. El mantenimiento de extintores es obligatorio por regulaciones."
   },
   {
     "id": "nom_59",
@@ -1766,8 +1766,8 @@
       }
     ],
     "explanation": "La derrota aparente es la trayectoria teórica que seguiría el barco si SOLO se moviera por su propulsión. NO considera los efectos de viento (abatimiento) y corriente (deriva).",
-    "concept": "Concepto nom_59",
-    "theory": "Explicación teórica para nom_59"
+    "concept": "Chalecos Salvavidas: Equipo de Emergencia",
+    "theory": "Los chalecos salvavidas son obligatorios en cantidades según regulaciones. Deben tener luz reflectante y silbato. Se deben revisar regularmente que estén en buen estado. Cada persona a bordo debe saber dónde está su chaleco."
   },
   {
     "id": "nom_60",
@@ -1796,8 +1796,8 @@
       }
     ],
     "explanation": "El abatimiento es el desplazamiento LATERAL del barco causado por el VIENTO (presión sobre el casco y la obra muerta) y la ola. Es distinto de la deriva (causada por la corriente).",
-    "concept": "Concepto nom_60",
-    "theory": "Explicación teórica para nom_60"
+    "concept": "Balsa Salvavidas: Bote de Emergencia",
+    "theory": "La balsa salvavidas es el último recurso en emergencia. Se despliega si hay riesgo de hundimiento. Requiere entrenamiento para desplegar correctamente. Debe revisarse anualmente para funcionalidad. Es equipo crítico de seguridad."
   },
   {
     "id": "nom_61",
@@ -1826,8 +1826,8 @@
       }
     ],
     "explanation": "La bosa es el cabo de amarre de PROA del bote auxiliar (chinchorro o tender). Sirve para remolcarlo o atarlo al yate madre.",
-    "concept": "Concepto nom_61",
-    "theory": "Explicación teórica para nom_61"
+    "concept": "Botiquín de Primeros Auxilios",
+    "theory": "El botiquín contiene medicamentos y vendajes para emergencias médicas. Debe estar accesible pero seguro. Alguien en tripulación debe tener entrenamiento de primeros auxilios. El botiquín debe revisarse regularmente para reposición."
   },
   {
     "id": "nom_62",
@@ -1856,8 +1856,8 @@
       }
     ],
     "explanation": "El clinómetro mide el ángulo de inclinación lateral (escora) del barco. Es mal llamado 'escorímetro' aunque su nombre correcto es clinómetro.",
-    "concept": "Concepto nom_62",
-    "theory": "Explicación teórica para nom_62"
+    "concept": "Campana: Señal de Emergencia Audible",
+    "theory": "La campana es señal sonora de emergencia. Se toca en caso de hombre al agua, incendio, u otra situación crítica. Todos deben saber significado de señales de campana. El sonido debe escucharse en toda la embarcación."
   },
   {
     "id": "nom_63",
@@ -1886,8 +1886,8 @@
       }
     ],
     "explanation": "El anemómetro mide la VELOCIDAD y DIRECCIÓN del viento. La veleta indica la dirección; las cazoletas giran indicando la velocidad.",
-    "concept": "Concepto nom_63",
-    "theory": "Explicación teórica para nom_63"
+    "concept": "Bengalas de Emergencia: Señalización Visual",
+    "theory": "Las bengalas son dispositivos pirotécnicos que indican emergencia. Rojo = urgencia, Blanca = posición de noche. Se lanzan a barlovento. Deben verificarse fechas de vencimiento (3 años). Son cruciales para rescate de persona."
   },
   {
     "id": "nom_64",
@@ -1916,8 +1916,8 @@
       }
     ],
     "explanation": "El barómetro mide la PRESIÓN atmosférica. Una baja repentina de presión anuncia mal tiempo.",
-    "concept": "Concepto nom_64",
-    "theory": "Explicación teórica para nom_64"
+    "concept": "Reflector de Radar: Visibilidad en Radar",
+    "theory": "El reflector de radar aumenta la visibilidad del barco en radar. Los barcos pequeños pueden ser invisibles en radar sin reflector. Se monta en lo alto del mástil. Es equipo de seguridad obligatorio para yates."
   },
   {
     "id": "nom_65",
@@ -1946,7 +1946,7 @@
       }
     ],
     "explanation": "El higrómetro mide la humedad del aire. Complementa al barómetro para pronosticar el tiempo.",
-    "concept": "Concepto nom_65",
-    "theory": "Explicación teórica para nom_65"
+    "concept": "Luces de Navegación: Identificación Visual Nocturna",
+    "theory": "Las luces de navegación identifican la posición y rumbo del barco de noche. Blanco a popa, rojo-verde a proa. Deben encenderse al atardecer y apagarse al amanecer. Una falla de luces es infracción y peligro de colisión."
   }
 ]

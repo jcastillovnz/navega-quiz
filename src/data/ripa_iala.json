@@ -27,7 +27,7 @@
     ],
     "explanation": "Regla 12 a) i): Cuando dos buques de vela se aproximen recibiendo el viento por bandas contrarias, el que lo reciba por babor se mantendrá apartado de la derrota del otro. [REGLA: RIPA - Regla 12 a) i)] [TIP: Mnemotecnia: 'Babor cede' (Bc). Si el viento te llega por babor, cedés el paso.]",
     "concept": "Regla 12 - Veleros: Viento por Bandas Contrarias",
-    "theory": "Cuando dos veleros reciben viento por bandas contrarias, el que lo recibe por BABOR debe ceder el paso. Mnemotecnia: 'Babor cede' (Bc). Esta es una regla fundamental de prevención de abordajes."
+    "theory": "Cuando dos veleros reciben viento por bandas contrarias, el que lo recibe por BABOR debe ceder el paso al que lo recibe por ESTRIBOR. Mnemotecnia: 'Babor cede' (Bc). El velero que debe apartarse mantendrá esta maniobra hasta que haya seguridad completa. Esta es una regla fundamental de prevención de abordajes entre veleros."
   },
   {
     "id": "ripa_2",
@@ -57,7 +57,7 @@
     ],
     "explanation": "Regla 13: Todo buque que alcance a otro se mantendrá apartado de la derrota del buque alcanzado. El buque alcanzado mantiene rumbo y velocidad. [REGLA: RIPA - Regla 13] [TIP: 'Alcanzar' = venir desde un sector de más de 22.5° a popa del través del alcanzado. El que viene por detrás cede.]",
     "concept": "Regla 13 - Buque que Alcanza",
-    "theory": "El buque que ALCANZA a otro debe mantenerse apartado del alcanzado. El buque alcanzado mantiene rumbo y velocidad. 'Alcanzar' significa venir desde un sector de más de 22.5° a popa del través del buque."
+    "theory": "El buque que ALCANZA a otro debe mantenerse apartado del alcanzado, cualquiera sea su rumbo. El buque alcanzado mantiene su rumbo y velocidad sin maniobrar. 'Alcanzar' significa venir desde un sector de más de 22.5° a popa del través. Es responsabilidad del alcanzador maniobrar para pasar seguramente a distancia prudencial."
   },
   {
     "id": "ripa_3",
@@ -87,7 +87,7 @@
     ],
     "explanation": "Regla 14: Cuando dos buques de propulsión mecánica naveguen de vuelta encontrada, cada uno caerá a estribor para pasar por babor del otro. [REGLA: RIPA - Regla 14 (Vuelta encontrada)] [TIP: 'Vuelta encontrada' = se ven de frente, rumbos opuestos. 'A estribor' significa caer a la DERECHA del propio barco.]",
     "concept": "Regla 14 - Vuelta Encontrada: Caer a Estribor",
-    "theory": "Cuando dos buques de propulsión mecánica navegan de frente (rumbos opuestos), AMBOS caen a ESTRIBOR para pasar por babor del otro. 'Vuelta encontrada' = se ven de frente, rumbos completamente opuestos."
+    "theory": "Cuando dos buques de propulsión mecánica navegan de frente (rumbos opuestos o casi opuestos), AMBOS caen a ESTRIBOR para pasar por babor del otro. 'Vuelta encontrada' es cuando se ven frente a frente, rumbos completamente opuestos o con diferencia de hasta 6° a ambos lados. Esta regla es simétrica: ambos maniobran."
   },
   {
     "id": "ripa_4",
@@ -117,7 +117,7 @@
     ],
     "explanation": "Regla 15: Cuando dos buques de propulsión mecánica se cruzan, el buque que tenga al otro por su costado de estribor se mantendrá apartado. [REGLA: RIPA - Regla 15] [TIP: 'Estribor tiene prioridad' (EP). Si lo veo por mi estribor, ese barco tiene prioridad. CEDO.]",
     "concept": "Regla 15 - Situación de Cruzamiento",
-    "theory": "En situación de cruzamiento (rumbos que no son vuelta encontrada ni alcance), el buque que ve al otro por su ESTRIBOR debe ceder el paso. El que ve por babor tiene el derecho de paso."
+    "theory": "En situación de cruzamiento (rumbos que no son vuelta encontrada ni alcance), el buque que ve al otro por su ESTRIBOR debe ceder el paso (caer a estribor o reducir velocidad). El que ve por babor tiene el derecho de paso (mantiene rumbo y velocidad). El buque obligado a apartarse debe hacerlo de forma clara y con tiempo suficiente."
   },
   {
     "id": "ripa_5",
@@ -147,7 +147,7 @@
     ],
     "explanation": "Regla 18: Los buques a motor deben apartarse de buques sin gobierno, con capacidad de maniobra restringida, dedicados a la pesca, y buques de vela. [REGLA: RIPA - Regla 18] [TIP: Prioridad de mayor a menor: Sin gobierno > Restringido > Pesca > Velero > Motor]",
     "concept": "Regla 16 - Obligación de Apartarse",
-    "theory": "El buque obligado a apartarse debe hacerlo de forma clara y con tiempo suficiente. Hacer maniobras contradictorias o demasiado tarde puede causar abordaje. La seguridad depende de maniobras decididas y tempranas."
+    "theory": "El buque obligado a apartarse debe hacerlo de forma clara, decidida y con tiempo suficiente. Hacer maniobras contradictorias o tardar demasiado puede causar abordaje. La seguridad de la navegación depende de maniobras decididas, tempranas y coherentes. No debe hacer maniobras evasivas de último momento."
   },
   {
     "id": "ripa_6",
@@ -177,7 +177,7 @@
     ],
     "explanation": "Un buque fondeado exhibe de día una esfera (bola) negra en la parte de proa donde mejor se vea. [REGLA: RIPA - Regla 30 (Fondeados y varados)] [TIP: De NOCHE, el mismo buque exhibe una luz blanca todo horizonte (360°) visible a más de 2 millas.]",
     "concept": "Regla 17 - Obligación del Buque con Derecho de Paso",
-    "theory": "El buque con derecho de paso debe mantener su rumbo y velocidad. NO puede hacer maniobras evasivas. Solo si ve que la maniobra del otro es INSUFICIENTE, puede maniobrar para evitar colisión."
+    "theory": "El buque con derecho de paso debe mantener su rumbo y velocidad sin variaciones. NO puede hacer maniobras evasivas. Solo si ve que la maniobra del otro es INSUFICIENTE para evitar colisión, puede maniobrar para evitar abordaje. Su deber es mantenerse previsible para el otro navegante."
   },
   {
     "id": "ripa_7",
@@ -207,7 +207,7 @@
     ],
     "explanation": "La luz roja es para la banda de babor (izquierda) y la luz verde para la banda de estribor (derecha), visto desde la proa del barco. [REGLA: RIPA - Regla 23 y Regla 21 b)] [TIP: Mnemotecnia: 'Rojo a la Izquierda' como el semáforo. Verde a la derecha = 'Go' en inglés.]",
     "concept": "Regla 18 - Buques de Propulsión Mecánica: Aproximación de Frente",
-    "theory": "Dos buques a motor que se aproximan de frente deben caer a ESTRIBOR ambos. Esta es la ÚNICA situación donde ambos buques tienen obligación de maniobrar simétricamente."
+    "theory": "Dos buques a motor que se aproximan de frente deben caer a ESTRIBOR ambos. Esta es la ÚNICA situación donde ambos buques tienen obligación de maniobrar simétricamente. Es una regla de suma importancia en tráfico marítimo intenso para evitar abordajes."
   },
   {
     "id": "ripa_8",
@@ -236,8 +236,8 @@
       }
     ],
     "explanation": "La luz de tope es blanca, visible desde la proa hasta 22,5° a popa del través de cada banda, formando un arco de 225° (12 + 225 + 12 = 225°). [REGLA: RIPA - Regla 21 a)] [TIP: Las luces de costado son 112.5° cada una. La de tope = 225° (de proa a casi popa por ambas bandas).]",
-    "concept": "Regla 19 - Buques Especiales: Remolcadores",
-    "theory": "Un remolcador está LIMITADO en su capacidad de maniobra. Los veleros deben mantener apartados de remolcadores. Los remolcadores tienen restricciones de movimiento por el tamaño del remolque."
+    "concept": "Regla 19 - Buques Especiales: Remolcadores y Dragadores",
+    "theory": "Un remolcador está LIMITADO en su capacidad de maniobra. Los veleros deben mantener apartados de remolcadores. Los dragadores que realizan operaciones también tienen restricciones. Estos buques no pueden girar rápidamente por la naturaleza de su operación, por lo que otros deben ceder."
   },
   {
     "id": "ripa_9",
@@ -267,7 +267,7 @@
     ],
     "explanation": "Las luces de costado (roja a babor, verde a estribor) muestran su luz en un arco de 112.5° (desde la proa hasta 22.5° a popa del través de su banda). [REGLA: RIPA - Regla 21 b)] [TIP: Cada luz cubre 90° a cada banda de la proa + 22.5° hacia popa = 112.5°]",
     "concept": "Regla 2 - Responsabilidad Compartida",
-    "theory": "Ambos capitanes SIEMPRE tienen responsabilidad de prevenir abordajes. Incluso si otro buque viola RIPA, tú debes maniobrar si es necesario para evitar colisión. Responsabilidad compartida por seguridad."
+    "theory": "Ambos capitanes SIEMPRE tienen responsabilidad de prevenir abordajes. Incluso si otro buque viola RIPA, tú debes maniobrar si es necesario para evitar colisión. La responsabilidad es compartida y no se puede escudarse solo en las reglas. Primero está la seguridad, luego el cumplimiento de reglas."
   },
   {
     "id": "ripa_10",
@@ -296,8 +296,8 @@
       }
     ],
     "explanation": "La luz de alcance es blanca, visible en un arco de 135° (67.5° a cada banda desde la popa). [REGLA: RIPA - Regla 21 c)] [TIP: 67.5° a banda + 67.5° a la otra = 135°]. Es la luz que te permite ver qué viene POR DETRÁS.",
-    "concept": "Regla 3 - Definición de Situaciones",
-    "theory": "Las situaciones de riesgo se clasifican en: VUELTA ENCONTRADA (rumbos opuestos), ALCANCE (viniendo de atrás) y CRUZAMIENTO (otros ángulos). Cada situación tiene reglas específicas de ceda y paso."
+    "concept": "Regla 3 - Definición de Situaciones de Riesgo",
+    "theory": "Las situaciones de riesgo se clasifican en tres categorías: VUELTA ENCONTRADA (rumbos casi opuestos), ALCANCE (viniendo de atrás) y CRUZAMIENTO (otros ángulos). Cada situación tiene reglas específicas de quién cede y quién tiene derecho de paso. El navegante debe identificar correctamente la situación."
   },
   {
     "id": "ripa_11",
@@ -326,8 +326,8 @@
       }
     ],
     "explanation": "Regla 17 a) i): Cuando uno de los buques deba mantenerse apartado, el otro (el que 'sigue rumbo') mantendrá rumbo y velocidad. No obstante, puede actuar si es evidente que el otro no maniobra correctamente. [REGLA: RIPA - Regla 17]",
-    "concept": "Concepto RIPA 11",
-    "theory": "Explicación teórica para el concepto RIPA 11. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 4 - Aplicación de las Reglas de Cruzamiento",
+    "theory": "Las reglas de cruzamiento se aplican cuando dos buques a motor se acercan y hay riesgo de abordaje. El buque que ve al otro por estribor debe ceder. La regla busca crear un sistema predecible y consistente en todas las aguas. No hay excepciones una vez que se identifica la situación de riesgo."
   },
   {
     "id": "ripa_12",
@@ -356,8 +356,8 @@
       }
     ],
     "explanation": "Regla 17 c): Un buque a motor en cruce que maniobra para evitar abordaje con otro a motor NO cambiará rumbo a babor para maniobrar a un buque que se encuentre por esa misma banda, si las circunstancias lo permiten. [REGLA: RIPA - Regla 17 c)] [TIP: Evita pasar por la proa del otro buque si está por tu babor.]",
-    "concept": "Concepto RIPA 12",
-    "theory": "Explicación teórica para el concepto RIPA 12. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 5 - Vigía y Aviso de Presencia",
+    "theory": "Todo buque debe mantener una vigía constante mediante vista, oído y todos los medios disponibles. Debe avisar de su presencia mediante señales de luz, sonido o radio cuando sea apropiado. La vigía es responsabilidad personal del capitán. El uso de AIS y radar complementa pero no reemplaza la vigía visual."
   },
   {
     "id": "ripa_13",
@@ -386,8 +386,8 @@
       }
     ],
     "explanation": "Regla 19 b): En visibilidad reducida, todos los buques navegarán a velocidad de seguridad adaptada a las circunstancias. Los buques a motor tendrán sus máquinas listas para maniobrar inmediatamente. [REGLA: RIPA - Regla 19]",
-    "concept": "Concepto RIPA 13",
-    "theory": "Explicación teórica para el concepto RIPA 13. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 6 - Precaución Segura",
+    "theory": "La velocidad segura es aquella que permite al buque tomar medidas evasivas eficaces. Depende de: visibilidad, tráfico, tamaño del buque, viento, corriente y estado del mar. En aguas restringidas, a la noche o con visibilidad limitada, se debe reducir velocidad. La seguridad prevalece siempre."
   },
   {
     "id": "ripa_14",
@@ -416,8 +416,8 @@
       }
     ],
     "explanation": "Regla 19 e): Todo buque que oiga una señal de niebla de otro buque a proa del través reducirá su velocidad hasta la mínima de gobierno. Si fuera necesario, suprimirá su arrancada. [REGLA: RIPA - Regla 19 e)] [TIP: 'Pitada larga' = 4-6 segundos. 'Pitadas cortas' = ~1 segundo cada una.]",
-    "concept": "Concepto RIPA 14",
-    "theory": "Explicación teórica para el concepto RIPA 14. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 7 - Evaluación de Riesgo de Abordaje",
+    "theory": "Se debe evaluar constantemente si hay riesgo de abordaje. Si otro buque se ve desde la misma marcación y se acerca, hay riesgo. Los buques en converso o alcance pueden estar en riesgo de colisión. El radar y AIS ayudan a detectar buques lejanos. Se debe actuar ANTES de que el riesgo sea inminente."
   },
   {
     "id": "ripa_15",
@@ -446,8 +446,8 @@
       }
     ],
     "explanation": "Buques fondeados de más de 50m exhiben una luz blanca todo horizonte en proa Y otra en popa (Regla 30). Buques menores de 50m solo una luz blanca todo horizonte. [REGLA: RIPA - Regla 30] [TIP: A >50m: 2 luces blancas (proa+popa). A <50m: 1 luz blanca. De día: 1 bola negra en proa.]",
-    "concept": "Concepto RIPA 15",
-    "theory": "Explicación teórica para el concepto RIPA 15. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 8 - Medidas para Evitar Abordaje",
+    "theory": "Cualquier maniobra para evitar abordaje debe ser AMPLIA y CLARA. Cambios pequeños de rumbo no son suficientes. Puede ser necesario cambiar rumbo, reducir velocidad o detener. La maniobra debe ser visible desde el otro buque para que sepa que se está tomando acción. La comunicación por radio es útil."
   },
   {
     "id": "ripa_16",
@@ -476,8 +476,8 @@
       }
     ],
     "explanation": "Un buque varado exhibe de día TRES bolas negras en línea vertical (Regla 30 c)). De noche: 2 luces de fondeo (proa+popa) + 2 luces rojas de alcance (Regla 30 c)). [REGLA: RIPA - Regla 30 c)] [TIP: 1 bola = fondeado. 2 conos opuestos = pescando. 3 bolas = varado. Escala de emergencias.]",
-    "concept": "Concepto RIPA 16",
-    "theory": "Explicación teórica para el concepto RIPA 16. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 9 - Responsabilidad de Buques Restringidos en Maniobra",
+    "theory": "Buques restringidos en maniobra (dragadores, tendidores de cables, buques trabajando) deben llevar las luces y señales reglamentarias. Otros buques deben reconocer estas señales y mantener apartados. No pueden ser penalizados por violar RIPA si están cumpliendo operaciones esenciales. Deben avisar por radio."
   },
   {
     "id": "ripa_17",
@@ -506,8 +506,8 @@
       }
     ],
     "explanation": "Pesquero de arrastre: dos conos negros opuestos por la base (vertical). Pesquero de cerco: dos conos opuestos por el vértice (horizontal). [REGLA: RIPA - Regla 26 c) y d)] [TIP: 'Arrastre' = conos punta abajo+arriba (vertical). 'Cerco' = conos punta a punta (horizontal).]",
-    "concept": "Concepto RIPA 17",
-    "theory": "Explicación teórica para el concepto RIPA 17. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 10 - Buques sin Propulsión Mecánica",
+    "theory": "Los buques sin propulsión (vela únicamente, botes a remo) deben ceder el paso a buques con motores. Los veleros ceden a motoristas en cruzamiento. Un buque a la deriva o sin gobierno debe señalizar su estado. Otros buques deben reconocer estas limitaciones y mantener apartados."
   },
   {
     "id": "ripa_18",
@@ -536,8 +536,8 @@
       }
     ],
     "explanation": "Buque sin gobierno: 2 luces rojas todo horizonte en línea vertical. Con capacidad de maniobra restringida: 3 luces (roja-blanca-roja). Restringido por calado: 3 luces rojas. [REGLA: RIPA - Regla 27]",
-    "concept": "Concepto RIPA 18",
-    "theory": "Explicación teórica para el concepto RIPA 18. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 11 - Limitación en Maniobra",
+    "theory": "Los buques limitados en maniobra (drenadores, perforadores, buques limpiando minas) deben llevar luces especiales. Otros buques deben ceder. Estos buques no pueden maniobrar como buques normales por la naturaleza de su operación. La seguridad de la operación prevalece sobre RIPA."
   },
   {
     "id": "ripa_19",
@@ -566,8 +566,8 @@
       }
     ],
     "explanation": "Buque con capacidad de maniobra restringida: 3 luces en línea vertical: ROJA-BLANCA-ROJA. De día: 3 marcas en línea vertical (bola-diamante-bola). [REGLA: RIPA - Regla 27] [TIP: Sin gobierno: 2 rojas. Restringido: 3 (R-B-R). Restringido por calado: 3 rojas. Piloto: 2 blancas verticales.]",
-    "concept": "Concepto RIPA 19",
-    "theory": "Explicación teórica para el concepto RIPA 19. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 20 - Situación de Última Hora",
+    "theory": "Si tras haber cumplido las reglas sigue habiendo riesgo de abordaje INMINENTE, se puede hacer cualquier maniobra para evitarlo, incluso violando las reglas. Es el último recurso. Se debe documentar la situación. La prioridad máxima es evitar la colisión a cualquier costo."
   },
   {
     "id": "ripa_20",
@@ -596,8 +596,8 @@
       }
     ],
     "explanation": "Remolcador con eslora total >200m: 3 luces de tope blancas (no 2) en línea vertical. Si <=200m: 2 luces de tope blancas. [REGLA: RIPA - Regla 24 a)] [TIP: A mayor eslora, más luces. La luz de alcance es AMARILLA en remolcadores, no blanca.]",
-    "concept": "Concepto RIPA 20",
-    "theory": "Explicación teórica para el concepto RIPA 20. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Canal 16 VHF - Emergencia y Llamada",
+    "theory": "El Canal 16 VHF es el canal internacional de emergencia, socorro y llamada inicial. Todos los navegantes deben monitorear constantemente. MAYDAY es para peligro grave e inminente. PAN PAN es para urgencia. Una vez establecido contacto, cambiar a canal de trabajo. Silencio absoluto cuando alguien transmite MAYDAY."
   },
   {
     "id": "ripa_21",
@@ -626,8 +626,8 @@
       }
     ],
     "explanation": "Regla 14 es OBLIGATORIA: ambos deben caer a estribor para pasar por babor del otro. Si uno cae a babor, está violando la regla. [REGLA: RIPA - Regla 14] [TIP: Es OBLIGATORIA, no opcional. Si el otro cae a babor y vos caés a estribor, NO hay abordaje pero el otro está en falta.]",
-    "concept": "Concepto RIPA 21",
-    "theory": "Explicación teórica para el concepto RIPA 21. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Señales de Neblina y Visibilidad Reducida",
+    "theory": "En niebla, lluvia o visibilidad reducida, se deben hacer señales sonoras cada 2 minutos: toque largo (5 seg) para buques a motor, dos toques largos para veleros. Se debe reducir velocidad y mantener vigía constante. Radar debe estar operando. Las colisiones en niebla son potencialmente catastróficas."
   },
   {
     "id": "ripa_22",
@@ -656,8 +656,8 @@
       }
     ],
     "explanation": "Regla 12 a) ii): Si dos veleros reciben el viento por la misma banda, el que esté a sotavento (más lejos del viento) se mantendrá apartado del que esté a barlovento. [REGLA: RIPA - Regla 12 a) ii)] [TIP: 'Sotavento cede' (Sc). Barlovento tiene prioridad porque está mejor posicionado para apartarse.]",
-    "concept": "Concepto RIPA 22",
-    "theory": "Explicación teórica para el concepto RIPA 22. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Sistema de Separación del Tráfico (TSS)",
+    "theory": "Los TSS son zonas de navegación organizadas (en pasos estrechos, golfo, etc.). Buques deben navegar en la vía de circulación apropiada a su rumbo. No se debe cruzar las vías de circulación a menos que sea necesario. Reduce significativamente el riesgo de abordaje en aguas congestionadas."
   },
   {
     "id": "ripa_23",
@@ -686,8 +686,8 @@
       }
     ],
     "explanation": "Regla 18 a) iv): Los buques a motor deben mantenerse apartados de los veleros. La posición (babor/estribor) no importa: el motor SIEMPRE cede ante el velero. [REGLA: RIPA - Regla 18]",
-    "concept": "Concepto RIPA 23",
-    "theory": "Explicación teórica para el concepto RIPA 23. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Responsabilidad del Armador y Capitán",
+    "theory": "El capitán es responsable de la navegación segura del buque. El armador es responsable de proporcionar un buque seguro. Ambos pueden ser penalizados por violaciones de RIPA. Las decisiones de navegación deben documentarse. La responsabilidad legal por abordajes es severa."
   },
   {
     "id": "ripa_24",
@@ -716,8 +716,8 @@
       }
     ],
     "explanation": "Luz de tope (blanca) + luces de costado (roja babor, verde estribor) + luz de alcance (blanca) = buque a motor en navegación. Si las ves todas: el barco está frente a vos. [REGLA: RIPA - Regla 23] [TIP: Si ves solo 2 luces (sin blanca arriba), puede ser un velero. Si solo roja o solo verde: ves el barco de costado.]",
-    "concept": "Concepto RIPA 24",
-    "theory": "Explicación teórica para el concepto RIPA 24. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Comunicación entre Buques",
+    "theory": "La comunicación por radio o señales visuales entre buques es crítica para evitar malentendidos. Si no estás seguro de las intenciones del otro buque, comunícate. El protocolo marítimo establece frases estándar (Receiving, Altering, Proceeding). La claridad elimina ambigüedades."
   },
   {
     "id": "ripa_25",
@@ -746,8 +746,8 @@
       }
     ],
     "explanation": "Si ves solo luz ROJA: estás viendo la banda de babor del otro buque. Esto significa que el otro está a tu ESTRIBOR (mirando hacia proa, su babor queda a tu derecha). [REGLA: RIPA - Regla 21 b)] [TIP: Mnemotecnia: 'Rojo a babor del otro' = 'Babor a tu estribor' = PRIORIDAD para el otro. ¡CEDE!]",
-    "concept": "Concepto RIPA 25",
-    "theory": "Explicación teórica para el concepto RIPA 25. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Documentación de Incidentes",
+    "theory": "Todo incidente o situación cercana a abordaje debe documentarse en el cuaderno de bitácora con hora exacta, posición, rumbos, distancia y acciones tomadas. Fotografías y grabaciones de radar son valiosas. La documentación protege al capitán y ayuda a investigaciones futuras."
   },
   {
     "id": "ripa_26",
@@ -776,8 +776,8 @@
       }
     ],
     "explanation": "Si ves solo luz VERDE: estás viendo la banda de estribor del otro. Esto significa que el otro está a tu BABOR (mirando hacia proa, su estribor queda a tu izquierda). [REGLA: RIPA - Regla 21 b)] [TIP: 'Verde a estribor del otro' = 'Estribor a tu babor' = Regla 15 CRUCE. ¡CEDE!]",
-    "concept": "Concepto RIPA 26",
-    "theory": "Explicación teórica para el concepto RIPA 26. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Buques Fondeados o Amarrados",
+    "theory": "Los buques fondeados o amarrados deben mostrar las luces y banderas reglamentarias. No deben transitar por su proximidad sin necesidad. Si un buque fondeado obstruye el paso, se debe avisar por radio. El buque fondeado es responsable de llevar sus señales."
   },
   {
     "id": "ripa_27",
@@ -806,8 +806,8 @@
       }
     ],
     "explanation": "Regla 32: Una pitada larga dura entre 4 y 6 segundos. Una pitada corta dura aproximadamente 1 segundo. [REGLA: RIPA - Regla 32] [TIP: 'Larga' = 4-6 seg. 'Corta' = ~1 seg. La diferencia debe ser notable para distinguir señales.]",
-    "concept": "Concepto RIPA 27",
-    "theory": "Explicación teórica para el concepto RIPA 27. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Riesgo de Abordaje en Puertos",
+    "theory": "En puertos, canales y aguas restringidas aplican reglas locales además de RIPA. Las prácticas locales prevalecen a menudo. Se debe seguir instrucciones de autoridades portuarias. La velocidad debe ser mínima, la vigía máxima. Los remolcadores son obligatorios en muchos puertos."
   },
   {
     "id": "ripa_28",
@@ -836,8 +836,8 @@
       }
     ],
     "explanation": "Regla 34: 1 pitada corta = 'caigo a estribor'. 2 pitadas cortas = 'caigo a babor'. 3 pitadas cortas = 'doy marcha atrás'. 5 pitadas cortas = 'duda' o 'incomprensión'. [REGLA: RIPA - Regla 34]",
-    "concept": "Concepto RIPA 28",
-    "theory": "Explicación teórica para el concepto RIPA 28. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Análisis de Riesgo - Banda de Seguridad",
+    "theory": "Se mantiene una 'banda de seguridad' de distancia prudencial alrededor del buque propio. Si otro buque entra en esta banda, se evalúa riesgo. Se puede usar AIS para monitorear buques lejanos. Se deben seguir situaciones que crecen en cercania."
   },
   {
     "id": "ripa_29",
@@ -866,8 +866,8 @@
       }
     ],
     "explanation": "Regla 34 a): 3 pitadas cortas = 'estoy dando marcha atrás'. 5 pitadas cortas o más = señal de duda o de incomprensión. [REGLA: RIPA - Regla 34 a)] [TIP: 1=estribor, 2=babor, 3=atrás, 5=duda. La cantidad importa: 4 pitadas = señal de peligro.]",
-    "concept": "Concepto RIPA 29",
-    "theory": "Explicación teórica para el concepto RIPA 29. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Factores Ambientales - Viento y Corriente",
+    "theory": "El viento y la corriente afectan la estabilidad y capacidad de maniobra del buque. En vientos fuertes, la maniobrabilidad se reduce. Las corrientes pueden desviar el buque de su rumbo. Se deben considerar estos factores al evaluar riesgo de abordaje."
   },
   {
     "id": "ripa_30",
@@ -896,8 +896,8 @@
       }
     ],
     "explanation": "Regla 35 a): Un buque con propulsión mecánica, parado o navegando, debe emitir UNA PITADA LARGA cada 2 minutos. [REGLA: RIPA - Regla 35 a)] [TIP: Fondeado = campana 5 seg + gong 5 seg alternados. A motor = pitada larga. Velero = campana. Remolcador = pitada larga + 2 cortas + larga.]",
-    "concept": "Concepto RIPA 30",
-    "theory": "Explicación teórica para el concepto RIPA 30. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Limitaciones de Buques Grandes",
+    "theory": "Los buques grandes (tanqueros, portacontenedores) tienen limitada capacidad de maniobra. Necesitan mucho espacio para girar y distancia para detenerse. Los buques pequeños deben reconocer estas limitaciones y ceder. Un buque grande puede ser impredecible a corta distancia."
   },
   {
     "id": "ripa_31",
@@ -926,8 +926,8 @@
       }
     ],
     "explanation": "Regla 35 b): Un velero de eslora >=12m debe emitir un repique de campana durante aprox. 5 segundos cada minuto. [REGLA: RIPA - Regla 35 b)] [TIP: A motor = pitada larga cada 2 min. Velero = campana cada 1 min. Fondeado = campana + gong alternados.]",
-    "concept": "Concepto RIPA 31",
-    "theory": "Explicación teórica para el concepto RIPA 31. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 24 - Luces de Remolque",
+    "theory": "Un buque remolcador debe llevar luces especiales: dos faroles redondos en línea vertical (blanco). El remolque también lleva luces si es largo. Se deben reconocer estas señales y mantener apartados. El remolque es vulnerable a cambios bruscos de rumbo."
   },
   {
     "id": "ripa_32",
@@ -956,8 +956,8 @@
       }
     ],
     "explanation": "Regla 35 c): Un remolcador debe emitir una pitada larga seguida de dos pitadas cortas Y una pitada larga (L-C-C-L) cada 2 minutos. [REGLA: RIPA - Regla 35 c)] [TIP: Patrón 'Larga-Corta-Corta-Larga' = 'LCCL' para identificar al remolcador auditivamente.]",
-    "concept": "Concepto RIPA 32",
-    "theory": "Explicación teórica para el concepto RIPA 32. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 26 - Buques Pesqueros",
+    "theory": "Los buques pesqueros con redes desplegadas tienen luces especiales (verde sobre blanca). Si están navegando sin redes son buques normales. Otros buques deben reconocer redes de pesca y mantener apartados. Las redes pueden enganchar otros buques causando desastre."
   },
   {
     "id": "ripa_33",
@@ -986,8 +986,8 @@
       }
     ],
     "explanation": "Regla 23 c): Buques a motor de eslora <7m y velocidad <=7 nudos pueden usar una luz blanca todo horizonte y, si es posible, luces de costado. [REGLA: RIPA - Regla 23 c)] [TIP: Es una excepción práctica para embarcaciones pequeñas. Si no podés montar todas las luces, una blanca es lo mínimo legal.]",
-    "concept": "Concepto RIPA 33",
-    "theory": "Explicación teórica para el concepto RIPA 33. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Regla 27 - Buques Dragadores y Limpiadores de Minas",
+    "theory": "Los dragadores tienen luces especiales (rojo-rojo-rojo u otras combinaciones). No pueden maniobrar por la naturaleza de su trabajo. Otros buques deben mantener gran distancia. Una colisión podría dañar equipos críticos de seguridad."
   },
   {
     "id": "ripa_34",
@@ -1016,8 +1016,8 @@
       }
     ],
     "explanation": "Regla 18 e): Un hidroavión amarrado se mantendrá alejado de todos los buques. Es decir, los aviones/hidroaviones que flotan en el agua tienen prioridad como si fueran buques con maniobra restringida. [REGLA: RIPA - Regla 18 e)]",
-    "concept": "Concepto RIPA 34",
-    "theory": "Explicación teórica para el concepto RIPA 34. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Buques Sin Gobierno",
+    "theory": "Un buque sin gobierno (falla de timón, máquinas) no puede maniobrar. Debe llevar bandera especial (cuadrada negra) y luz roja en tope. Otros buques deben ceder paso. Se debe avisar por radio inmediatamente. Es situación de emergencia potencial."
   },
   {
     "id": "ripa_35",
@@ -1046,8 +1046,8 @@
       }
     ],
     "explanation": "Regla 28: Buque restringido por su calado = 3 luces rojas todo horizonte en vertical. (3 marcas rojas en vertical de día). [REGLA: RIPA - Regla 28] [TIP: Distinguir: restringido normal = R-B-R. Restringido por calado = R-R-R. Sin gobierno = R-R.]",
-    "concept": "Concepto RIPA 35",
-    "theory": "Explicación teórica para el concepto RIPA 35. Contenido sobre reglas de navegación y prevención de abordajes."
+    "concept": "Protocolo de Aproximación en Aguas Territoriales",
+    "theory": "Al aproximarse a aguas territoriales, se debe contactar por radio a autoridades locales. Se debe cumplir con regulaciones locales, rebasar compulsoriamente remolcadores y seguir TSS local. No hay derecho de paso en aguas territoriales, solo permiso de entrada."
   },
   {
     "id": "ripa_36",
@@ -1076,8 +1076,8 @@
       }
     ],
     "explanation": "Orden de prioridad (mayor a menor): 1) Sin gobierno, 2) Capacidad de maniobra restringida, 3) Pesca, 4) Velero, 5) Motor. Cada categoría cede paso a la anterior. [REGLA: RIPA - Regla 18] [TIP: 'SRPMV' = Sin gobierno, Restringido, Pesca, Motor, Velero (de mayor a menor prioridad que tienen los otros sobre mí).]",
-    "concept": "Concepto ripa_36",
-    "theory": "Explicación teórica para ripa_36"
+    "concept": "Investigación de Abordajes",
+    "theory": "Todo abordaje debe ser investigado por autoridades. Se toman testimonios del capitán, tripulación y registros. Se analiza radar, AIS y testimonios de testigos. Se determina responsabilidad y se pueden aplicar multas o cargos criminales. El capitán es responsable aunque sea negligencia de tripulación."
   },
   {
     "id": "iala_1",
@@ -1106,8 +1106,8 @@
       }
     ],
     "explanation": "IALA Región B (América): Entrando desde el mar, la marca lateral de babor es ROJA (cilíndrica) y la de estribor es VERDE (cónica). [REGLA: IALA Sistema de Balizamiento Marítimo] [TIP: En IALA B: 'Babor = Rojo' (cuando volvés al puerto o 'retorning to port from seaward').]",
-    "concept": "Concepto iala_1",
-    "theory": "Explicación teórica para iala_1"
+    "concept": "Sistema IALA: Balizamiento Internacional",
+    "theory": "IALA (International Association of Lighthouse Authorities) regula balizamiento en todo el mundo. Dos sistemas: A (Europa, Africa, Asia) y B (Americas, Japón, Australia). Sistema A usa boyas cardinales y laterales. Sistema B similar pero con boyas laterales invertidas. Argentina usa sistema A."
   },
   {
     "id": "iala_2",
@@ -1136,8 +1136,8 @@
       }
     ],
     "explanation": "En IALA Región B, la boya de estribor es verde y su luz es verde. [REGLA: IALA Sistema de Balizamiento Marítimo] [TIP: En Región B, los colores son: babor=rojo, estribor=verde. Diferencia con Región A (Europa, Asia) donde es al revés.]",
-    "concept": "Concepto iala_2",
-    "theory": "Explicación teórica para iala_2"
+    "concept": "Boyas Cardinales: Referencia por Ubicación",
+    "theory": "Las boyas cardinales marcan peligro en dirección cardinal (N, S, E, O). Boya Norte (blanca-negra rayada) = peligro norte, pasar por sur. Boya Sur (blanca-negra rayada) = peligro sur, pasar por norte. Boya Este (negra-blanca-negra) = peligro este, pasar por oeste. Boya Oeste (blanca-negra-blanca) = peligro oeste, pasar por este."
   },
   {
     "id": "iala_3",
@@ -1166,8 +1166,8 @@
       }
     ],
     "explanation": "La marca de Peligro Aislado se pinta de negro con una o más franjas rojas, y tiene como marca de tope DOS ESFERAS NEGRAS superpuestas. Indica un peligro de poca extensión rodeado de aguas navegables. [REGLA: IALA - Marca de peligro aislado] [TIP: Luz: blanca destellante en grupos de 2 (Fl(2)W 5s). Forma: 2 esferas negras = '2 peligros juntos' = peligro concentrado.]",
-    "concept": "Concepto iala_3",
-    "theory": "Explicación teórica para iala_3"
+    "concept": "Boyas Laterales: Referencia por Entrada a Puerto",
+    "theory": "Las boyas laterales marcan los costados de un canal de entrada a puerto. Babor (rojo, lado izquierdo) y Estribor (verde, lado derecho). En sistema A: babor = rojo cilíndrico, estribor = verde cónico. Se navega entre ambas manteniendo boya roja a babor."
   },
   {
     "id": "iala_4",
@@ -1196,8 +1196,8 @@
       }
     ],
     "explanation": "Las marcas de Aguas Seguras tienen franjas verticales rojas y blancas y una marca de tope esférica roja. Indican que hay aguas navegables alrededor de la marca (ej. eje de un canal). [REGLA: IALA - Marca de aguas seguras] [TIP: Luz: blanca isofase (ocultación-regular), destellos largos, o letras Morse 'A'. Marca de tope = esfera roja = 'estoy seguro'.]",
-    "concept": "Concepto iala_4",
-    "theory": "Explicación teórica para iala_4"
+    "concept": "Boyas de Peligro Aislado",
+    "theory": "Boya de Peligro Aislado marca un peligro específico que puede navegarse por todos los lados. Tiene dos esferas negras superpuestas. Color rojo-blanco rayado. Se puede pasar por cualquier costado pero se debe mantener distancia prudencial. Indica roca, banco de arena, u otro peligro específico."
   },
   {
     "id": "iala_5",
@@ -1226,8 +1226,8 @@
       }
     ],
     "explanation": "Las marcas de Peligro Aislado emiten luz blanca en un grupo de dos destellos (Fl(2)W), para coincidir con sus dos esferas negras de tope. [REGLA: IALA - Marca de peligro aislado]",
-    "concept": "Concepto iala_5",
-    "theory": "Explicación teórica para iala_5"
+    "concept": "Boyas de Agua Segura",
+    "theory": "Boya de Agua Segura marca agua profunda y segura. Tiene esfera roja sobre esfera blanca. Indica zona navegable. Se usa como referencia de entrada a puerto o como punto de viraje. Es punto confiable para navegación. Típicamente en centro de canal navegable."
   },
   {
     "id": "iala_6",
@@ -1256,8 +1256,8 @@
       }
     ],
     "explanation": "Cardinal Norte: 1 cono con vértice hacia ARRIBA. Cardinal Sur: 1 cono con vértice hacia ABAJO. Cardinal Este: 2 conos opuestos por la BASE (horizontal). Cardinal Oeste: 2 conos opuestos por el VÉRTICE (apuntándose). [REGLA: IALA - Marcas cardinales] [TIP: 'Norte = arriba' (1 cono ↑). 'Sur = abajo' (1 cono ↓). 'Este = cintura' (2 conos juntos horizontalmente). 'Oeste = panza' (2 conos apuntándose).]",
-    "concept": "Concepto iala_6",
-    "theory": "Explicación teórica para iala_6"
+    "concept": "Boyas de Especial Aplicación",
+    "theory": "Boyas de Especial Aplicación marcan zonas específicas (descarga, investigación científica, zona de prácticas militares). Color amarillo. Significado no estandarizado, se especifica en carta náutica. Requieren consulta de carta para interpretación correcta. Se evita si no estoy habilitado."
   },
   {
     "id": "iala_7",
@@ -1286,8 +1286,8 @@
       }
     ],
     "explanation": "Cardinal Norte: negro arriba, amarillo abajo (franjas horizontales), marca de tope = cono hacia arriba, luz blanca centelleante continua (rapidez). [REGLA: IALA - Cardinales] [TIP: Número de destellos = posición del reloj apuntando al norte: 3=N, 6=E, 9=S, 12=O. Pero Cardinal N = centelleante CONTINUO, no de 3.]",
-    "concept": "Concepto iala_7",
-    "theory": "Explicación teórica para iala_7"
+    "concept": "Luces en Boyas: Patrones de Destellos",
+    "theory": "Las boyas nocturnales tienen luces que parpadean según patrón: rojo, verde, blanco. Patrón rápido = 100+ destellos/minuto. Patrón muy rápido = 120+ destellos/minuto. Se usan para identificar boya de noche. Se consiguen en carta náutica patrones exactos."
   },
   {
     "id": "iala_8",
@@ -1316,8 +1316,8 @@
       }
     ],
     "explanation": "Las marcas especiales son amarillas, con una 'X' como marca de tope. Indican áreas especiales: SPA (Sistema de Protección Ambiental), cables submarinos, zonas de ejercicios militares, etc. Luz: amarilla con cualquier ritmo. [REGLA: IALA - Marca especial] [TIP: Color amarillo = 'algo especial, no es peligro'. Forma: X = 'cruce de información' (no es de peligro, es informativa).]",
-    "concept": "Concepto iala_8",
-    "theory": "Explicación teórica para iala_8"
+    "concept": "Boyas Numeradas: Identificación en Cartas",
+    "theory": "Las boyas pueden estar numeradas para identificación en cartas náuticas. El número coincide con número en carta. Permite navegación precisa. Se usa GPS + numeración de boya para verificar posición. Numeración es referencia importante de posición."
   },
   {
     "id": "iala_9",
@@ -1346,8 +1346,8 @@
       }
     ],
     "explanation": "En IALA Región B (América, Argentina): al entrar desde el mar, babor = ROJA y estribor = VERDE. Al salir (rumbo al mar), es al revés. [REGLA: IALA - Boyas laterales Región B]",
-    "concept": "Concepto iala_9",
-    "theory": "Explicación teórica para iala_9"
+    "concept": "Balizamiento en Ríos: Navegación Fluvial",
+    "theory": "En ríos, el balizamiento es diferente al oceánico. Se usan boyas más pequeñas. Los canales navegables se marcan con boyas de babor (rojo) y estribor (verde). Se navega por el canal marcado. Profundidad variable requiere atención especial en ríos."
   },
   {
     "id": "iala_10",
@@ -1376,7 +1376,7 @@
       }
     ],
     "explanation": "En Región B: babor = cilíndrica (roja), estribor = cónica (verde). [REGLA: IALA - Boyas laterales Región B] [TIP: 'Cónica = verde' suena a 'cono verde' (cono apunta hacia arriba como el árbol). 'Cilíndrica = roja' como un cilindro/barril rojo.]",
-    "concept": "Concepto iala_10",
-    "theory": "Explicación teórica para iala_10"
+    "concept": "Cambios en Balizamiento: Revisión de Cartas",
+    "theory": "El balizamiento puede cambiar temporalmente (reparación, cambios de navegabilidad). Se publica Aviso a Navegantes (Notice to Airmen). Se debe revisar cartas actualizadas. El no seguir aviso puede llevar a encallamiento. La actualización de carta es responsabilidad del navegante."
   }
 ]

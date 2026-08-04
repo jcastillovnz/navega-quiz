@@ -776,8 +776,8 @@
       }
     ],
     "explanation": "El Pampero es un frente frío proveniente del SW (Sudoeste). Suele presentarse con fuertes ráfagas, marcado descenso de la temperatura, baja humedad y rápido aumento de la presión. [TIP: 'Pampero = SW frío y seco'. 'Sudestada = SE húmedo y persistente'. 'Viento Norte = cálido y húmedo'. 'Viento Sud = fresco']",
-    "concept": "Presión Atmosférica: Indicador de Cambio de Tiempo",
-    "theory": "Una BAJA REPENTINA de presión preanuncia empeoramiento brusco (tormenta, vientos fuertes). Una presión CONSTANTE indica tiempo estable. Presión SUBIENDO = mejora. Los barómetros náuticos detectan cambios rápidos."
+    "concept": "Presión Atmosférica: Indicador Crítico de Cambio de Tiempo",
+    "theory": "Una BAJA REPENTINA de presión preanuncia empeoramiento brusco e inminente (tormenta, vientos violentos). Una presión CONSTANTE indica tiempo estable. Presión SUBIENDO = mejora. Los barómetros náuticos están diseñados para detectar cambios rápidos. Cambios de 5 mb en 3 horas es alerta de tormenta."
   },
   {
     "id": "met_2",
@@ -806,8 +806,8 @@
       }
     ],
     "explanation": "La Sudestada represa las aguas del Río de la Plata contra la costa argentina impidiendo el desagüe normal hacia el océano, provocando crecidas excepcionales. [TIP: 'Sudestada' = SE persistente = agua acumulada contra la costa = crecidas en Buenos Aires, La Plata, Quilmes.]",
-    "concept": "Escala Beaufort: Clasificación de Vientos",
-    "theory": "La Escala Beaufort clasifica vientos del 0 (calma) al 12 (huracán). Es universal en navegación. A partir de Beaufort 6 (23-27 nudos) es prudente no zarpar. Es referencia clave en decisiones de navegación."
+    "concept": "Escala Beaufort: Clasificación Universal de Vientos",
+    "theory": "La Escala Beaufort clasifica vientos del 0 (calma) al 12 (huracán). A partir de Beaufort 3 (7-10 nudos) hay ondas pequeñas. A Beaufort 6 (23-27 nudos) es prudente no zarpar. A Beaufort 8+ (34+ nudos) es peligro grave. Es referencia clave en decisiones de navegación."
   },
   {
     "id": "met_3",
@@ -836,8 +836,8 @@
       }
     ],
     "explanation": "Fuerza 8 en la escala de Beaufort corresponde a 'Temporal' (34-40 nudos). F12 es Huracán (>64 nudos). [TIP: F0 calma, F4 brisa moderada, F8 temporal, F12 huracán. Mnemotecnia: 8=Temporal, 12=Huracán.]",
-    "concept": "Pampero: Viento del Sudoeste Violento",
-    "theory": "El Pampero es un viento del sudoeste que azota el Río de la Plata y costas atlánticas. Es VIOLENTO, repentino y acompaña cambios de presión y temperatura. Requiere mucha precaución."
+    "concept": "Pampero: Viento Violento del Sudoeste",
+    "theory": "El Pampero es un viento violento del sudoeste que azota el Río de la Plata y costas atlánticas de Argentina. Es REPENTINO y VIOLENTO, alcanzando 40+ nudos en minutos. Acompaña cambios bruscos de presión y temperatura. Requiere precaución extrema. Dura tipicamente 12-24 horas."
   },
   {
     "id": "met_4",
@@ -866,8 +866,8 @@
       }
     ],
     "explanation": "Los Cumulonimbus son nubes de gran desarrollo vertical (hasta 12 km) que generan inestabilidad severa, turbonadas (squalls), granizo y rayos. Clásicas en el ingreso de un Pampero. [TIP: 'Cumulonimbus = CB = la nube de tormenta'. Base oscura, tope en 'yunque' (forma de martillo). PELIGRO: rayos, granizo, ráfagas violentas.]",
-    "concept": "Sudestada: Temporal del Sudeste",
-    "theory": "La Sudestada es un temporal persistente del sudeste que levanta olas altas en el Río de la Plata. Causa inundaciones costeras. Dura horas o días. Fenómeno local importante para navegación fluvial."
+    "concept": "Sudestada: Temporal Persistente del Sudeste",
+    "theory": "La Sudestada es un temporal persistente del sudeste que levanta olas altas en el Río de la Plata. Causa inundaciones costeras. Dura horas o días, a diferencia del Pampero que es repentino. Es fenómeno local importante para navegación fluvial. Requiere fondeo seguro."
   },
   {
     "id": "met_5",
@@ -896,8 +896,8 @@
       }
     ],
     "explanation": "Fuerza 4 = Brisa moderada (11-16 nudos). El mar tiene olas moderadas y los 'whitecaps' (rompientes blancas) son numerosos. [TIP: F0 calma, F1-2 ventolina, F3-4 brisa, F5 fresca, F6-7 fuerte, F8-9 temporal, F10-11 tormenta, F12 huracán.]",
-    "concept": "Cumulonimbus (CB): Tormenta Severa",
-    "theory": "Las nubes Cumulonimbus (CB) son TORMENTAS ELÉCTRICAS severas con granizo, vientos violentos y rayos. Visibles a gran distancia. Requieren evitar (desvío) o refugiarse. Peligrosas para navegación."
+    "concept": "Cumulonimbus (CB): La Tormenta Eléctrica Severa",
+    "theory": "Las nubes Cumulonimbus son TORMENTAS ELÉCTRICAS severas con granizo, vientos violentos 40-60 nudos y rayos frecuentes. Visibles a gran distancia (oscuridad, base plana). Requieren evitar por desvío o refugiarse en puerto. Peligrosas para navegación. Son impredecibles."
   },
   {
     "id": "met_6",
@@ -926,8 +926,8 @@
       }
     ],
     "explanation": "Fuerza 5 = 'Fresquito' (17-21 nudos). Olas alargadas, salpicaduras. [TIP: F0=Calma, F1=Ventolina, F2=Brisa muy débil, F3=Brisa débil, F4=Brisa moderada, F5=Fresquito, F6=Brisa fuerte, F7=Viento fuerte, F8=Temporal.]",
-    "concept": "Concepto de Meteorología 6",
-    "theory": "Explicación teórica para el concepto de meteorología 6. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Frentes Fríos: Cambio Brusco de Temperatura",
+    "theory": "Un frente frío es avance de aire frío que reemplaza aire cálido. Causa cambio brusco de temperatura (10°C+ en horas). Vientos girar al sudoeste. Presión sube tras paso del frente. Se detecta en cartas meteorológicas como línea azul dentada. Causa transición rápida de condiciones."
   },
   {
     "id": "met_7",
@@ -956,8 +956,8 @@
       }
     ],
     "explanation": "Fuerza 9 = 'Temporal fuerte' o 'Strong Gale' (41-47 nudos). Olas muy grandes, visibilidad reducida por spray, los barcos pequeños desaparecen entre las olas. [TIP: F8 = Temporal (34-40). F9 = Temporal fuerte (41-47). F10 = Tormenta (48-55). F11 = Tormenta violenta (56-63). F12 = Huracán (>64).]",
-    "concept": "Concepto de Meteorología 7",
-    "theory": "Explicación teórica para el concepto de meteorología 7. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Frentes Cálidos: Elevación de Temperatura Gradual",
+    "theory": "Un frente cálido es avance de aire cálido que reemplaza aire frío. Causa elevación gradual de temperatura. Típicamente trae nubes y lluvia, luego mejora. Vientos girar al norte. Se dibuja en cartas con línea roja semicircular. Transición más lenta que frente frío."
   },
   {
     "id": "met_8",
@@ -986,8 +986,8 @@
       }
     ],
     "explanation": "Las isobaras son líneas que unen puntos de igual presión atmosférica en un mapa meteorológico. Cuando están muy juntas, indican vientos fuertes. [TIP: 'Isobaras' = misma presión. 'Isotermas' = misma temperatura. 'Isóbatas' = misma profundidad (en cartas náuticas). 'Isohipsas' = misma altitud.]",
-    "concept": "Concepto de Meteorología 8",
-    "theory": "Explicación teórica para el concepto de meteorología 8. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Niebla: Visibilidad Reducida al Agua",
+    "theory": "La niebla reduce visibilidad al agua, a veces a solo 50 metros. Se forma cuando aire cálido pasa sobre agua fría. Se disipa con calor del sol o con viento que mezcla capas de aire. Es peligro grave de colisión. Requiere radar y AIS funcionales."
   },
   {
     "id": "met_9",
@@ -1016,8 +1016,8 @@
       }
     ],
     "explanation": "La niebla se forma cuando el aire cercano a la superficie se enfría y condensa el vapor de agua que contiene, formando gotitas en suspensión que reducen la visibilidad a menos de 1 km. [TIP: 'Niebla de advección' = aire cálido sobre superficie fría. 'Niebla de radiación' = noches claras con viento calmo. 'Niebla orográfica' = montañas.]",
-    "concept": "Concepto de Meteorología 9",
-    "theory": "Explicación teórica para el concepto de meteorología 9. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Lluvia Costera: Estallidos Locales de Agua",
+    "theory": "La lluvia costera es descarga intensas de agua en zonas costeras. Se forma por interacción entre vientos del mar y tierra. Dura minutos a horas. Reduce visibilidad temporalmente. No es lo mismo que tormenta eléctrica (no hay rayos)."
   },
   {
     "id": "met_10",
@@ -1046,8 +1046,8 @@
       }
     ],
     "explanation": "El higrómetro mide la humedad del aire (vapor de agua contenido). Complementa al barómetro para pronosticar el tiempo. [TIP: 'Higrómetro' = humedad. 'Barómetro' = presión. 'Anemómetro' = viento. 'Termómetro' = temperatura.]",
-    "concept": "Concepto de Meteorología 10",
-    "theory": "Explicación teórica para el concepto de meteorología 10. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Rocío y Escarcha: Condensación en Cubierta",
+    "theory": "El rocío se forma cuando agua del aire se condensa en superficies frías por la noche. La escarcha es rocío congelado. Crean pisos resbaladizos en cubierta. Se previenen ventilando cubierta. Rocío abundante indica presión baja cerca."
   },
   {
     "id": "met_11",
@@ -1076,8 +1076,8 @@
       }
     ],
     "explanation": "Una baja rápida de presión (más de 1-2 hPa por hora) indica el paso de un sistema de baja presión con mal tiempo, viento fuerte y lluvia. [TIP: Caída rápida = tormenta. Subida rápida = mejoría (post-frente). Constante = estable.]",
-    "concept": "Concepto de Meteorología 11",
-    "theory": "Explicación teórica para el concepto de meteorología 11. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Humedad Relativa: Contenido de Agua en el Aire",
+    "theory": "Humedad relativa es cantidad de agua en el aire comparada a máximo posible a esa temperatura. 100% = aire saturado (lluvia próxima). Baja humedad = aire seco. Se mide con higrómetro. Afecta comodidad a bordo y velocidad de secado."
   },
   {
     "id": "met_12",
@@ -1106,8 +1106,8 @@
       }
     ],
     "explanation": "Con olas altas se debe navegar a una velocidad ACORDE a la frecuencia de las olas (sincronizar la velocidad del barco con el período de las olas), para que el barco suba y baje suavemente sin golpear. [TIP: 'Velocidad de sincronía' = navegar a la misma velocidad que la ola. Si vas más rápido, golpeás con el casco. Si vas más lento, te revolca.]",
-    "concept": "Concepto de Meteorología 12",
-    "theory": "Explicación teórica para el concepto de meteorología 12. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Punto de Rocío: Temperatura de Condensación",
+    "theory": "El punto de rocío es temperatura a la que el aire se satura y forma rocío. Si diferencia entre temperatura y punto de rocío es pequeña, rocío inminente. Se usa en predicción de niebla. Diferencia pequeña + temperatura baja = niebla."
   },
   {
     "id": "met_13",
@@ -1136,8 +1136,8 @@
       }
     ],
     "explanation": "En zonas de bajo fondo, navegar a velocidad REDUCIDA minimiza el 'calado dinámico' (el barco se hunde más al moverse rápido por la presión hidrodinámica). [TIP: 'Calado dinámico' = a mayor velocidad, el barco se hunde más. En bajo fondo, lento = más margen.]",
-    "concept": "Concepto de Meteorología 13",
-    "theory": "Explicación teórica para el concepto de meteorología 13. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Corrientes Marinas: Movimiento de Masas de Agua",
+    "theory": "Las corrientes marinas son movimientos horizontales de agua oceánica. La Corriente de Brasil trae agua cálida. Corriente de Malvinas trae agua fría. Afectan navegación: aumentan o disminuyen velocidad real. Se consultan cartas de corrientes."
   },
   {
     "id": "met_14",
@@ -1166,8 +1166,8 @@
       }
     ],
     "explanation": "La Sudestada es un viento fuerte y PERSISTENTE del Sudeste (SE) que afecta principalmente al Río de la Plata y la costa atlántica argentina, causando crecidas por acumulación de agua contra la costa. [TIP: 'Sudestada' = SE persistente. 'Pampero' = SW frío y seco. 'Viento Norte' = cálido y húmedo.]",
-    "concept": "Concepto de Meteorología 14",
-    "theory": "Explicación teórica para el concepto de meteorología 14. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Mareas: Movimiento Vertical del Nivel del Mar",
+    "theory": "Las mareas son oscilaciones diarias del nivel del mar causadas por atracción lunar. Pleamar = máximo nivel. Bajamar = mínimo nivel. Rango de marea es diferencia entre pleamar y bajamar. Afecta navegación en estuarios y ríos. Se consulta tabla de mareas."
   },
   {
     "id": "met_15",
@@ -1196,8 +1196,8 @@
       }
     ],
     "explanation": "El anemómetro mide la velocidad y dirección del viento. Consta de cazoletas giratorias (velocidad) y una veleta (dirección). [TIP: 'Cazoletas' = miden velocidad (rpm proporcional a viento). 'Veleta' = indica dirección.]",
-    "concept": "Concepto de Meteorología 15",
-    "theory": "Explicación teórica para el concepto de meteorología 15. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Olas: Formación y Clasificación",
+    "theory": "Las olas se forman por viento que sopla sobre agua. Altura depende de: velocidad viento, duración, fetch (distancia que viento sopla). Olas menores = mar de viento. Olas mayores = mar de fondo (swell residual). Combinación crea condiciones complejas."
   },
   {
     "id": "met_16",
@@ -1226,7 +1226,7 @@
       }
     ],
     "explanation": "La niebla de radiación se forma en noches despejadas, sin viento y con alta humedad: la superficie terrestre se enfría por irradiación, condensa la humedad del aire cercano. [TIP: 'Radiación' = suelo se enfría. 'Advección' = aire cálido llega a zona fría. 'Orográfica' = aire sube por montaña.]",
-    "concept": "Concepto de Meteorología 16",
-    "theory": "Explicación teórica para el concepto de meteorología 16. Contenido educativo relacionado con la navegación y condiciones meteorológicas marítimas."
+    "concept": "Resonancia de Olas: Interacción de Oleajes",
+    "theory": "Cuando oleaje de diferentes direcciones interfieren, pueden amplificarse creando olas anormalmente grandes (freak waves). Se producen cuando mar de viento interfiere con swell de tormenta lejana. Pueden volcar barcos pequeños. Requieren atención especial en aguas abiertas."
   }
 ]

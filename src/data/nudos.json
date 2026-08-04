@@ -26,8 +26,8 @@
       }
     ],
     "explanation": "El As de Guía es EL nudo náutico por excelencia: forma un lazo que no se ajusta ni se desliza bajo carga, y se desata con un tirón incluso después de soportar mucha tensión. Imprescindible para rescate y HAA. [TIP: 'As de Guía' = 'el nudo rey'. Su forma de lazo lo hace perfecto para rescatar personas.]",
-    "concept": "As de Guía (Bowline): El Nudo Rey",
-    "theory": "El As de Guía forma un lazo que NO se ajusta ni se desliza bajo carga y se desata con un tirón. Es EL nudo náutico por excelencia. Imprescindible para rescate, HAA y trabajo en altura."
+    "concept": "As de Guía (Bowline): El Nudo Náutico Fundamental",
+    "theory": "El As de Guía forma un lazo que NO se ajusta ni se desliza bajo carga y se desata con un tirón. Es EL nudo náutico por excelencia para rescate, amarres de seguridad, trabajo en altura. Imprescindible en toda emergencia. Se enseña en primera clase de navegación. También llamado 'nudo de vida' porque ha salvado muchas vidas."
   },
   {
     "id": "nudo_2",
@@ -56,8 +56,8 @@
       }
     ],
     "explanation": "El Nudo Llano (Reef Knot) une dos cabos del mismo diámetro. Es fácil de recordar con la frase 'izquierda sobre derecha, derecha sobre izquierda'. Si los diámetros son distintos, se desliza: ahí se usa la Vuelta de Escota. [TIP: 'Llano' = llano, plano. Solo para MISMO diámetro.]",
-    "concept": "Nudo Llano: Unión de Cabos del Mismo Diámetro",
-    "theory": "El Nudo Llano une dos cabos de MISMO diámetro. Se recuerda: 'izquierda sobre derecha, derecha sobre izquierda'. Si los diámetros son distintos, se desliza y FALLA."
+    "concept": "Nudo Llano: Unión de Dos Cabos Iguales",
+    "theory": "El Nudo Llano une dos cabos de MISMO DIÁMETRO. Se recuerda: 'izquierda sobre derecha, derecha sobre izquierda' (como un bucle doble). Si los diámetros son muy diferentes, se desliza y FALLA completamente. Es rápido pero requiere cabos similares."
   },
   {
     "id": "nudo_3",
@@ -86,8 +86,8 @@
       }
     ],
     "explanation": "El Ballestrinque (Clove Hitch) es el nudo de amarre por excelencia: rápido, se ajusta solo con la carga y funciona en cualquier dirección. Se usa para colgar defensas del barandal, fondeos temporales y amarres a postes. [TIP: 'Ballestrinque' = 'ballesta' (arma antigua). El nudo tiene forma de ballesta cruzando el palo.]",
-    "concept": "Ballestrinque: Nudo de Amarre a Palos",
-    "theory": "El Ballestrinque amarra un cabo a un palo, cáncamo o barandal. Es rápido, se ajusta solo con carga y funciona en cualquier dirección. Nudo de amarre por excelencia en navegación."
+    "concept": "Ballestrinque: El Nudo de Amarre Universal",
+    "theory": "El Ballestrinque amarra un cabo a un palo, cáncamo, barandal u otro objeto fijo. Es rápido de hacer, se aprieta solo con la carga y funciona en cualquier dirección de tracción. Es EL nudo más usado en navegación para amarres temporales. Se aprende temprano."
   },
   {
     "id": "nudo_4",
@@ -117,7 +117,7 @@
     ],
     "explanation": "La Vuelta de Escota (Sheet Bend) está diseñada específicamente para unir cabos de distinto diámetro. A diferencia del Nudo Llano, no se desliza cuando los grosores son diferentes. Se usa mucho para prolongar la línea de fondeo cabo-cadena. [TIP: 'Sheet' = 'escota' (cabo de la vela). 'Bend' = 'vuelta'. Por eso se llama Vuelta de Escota.]",
     "concept": "Vuelta de Escota: Unión de Cabos Diferentes",
-    "theory": "La Vuelta de Escota une dos cabos de DIFERENTE diámetro o material. Es más segura que el Nudo Llano para esta situación. Se usa cuando los cabos no son iguales."
+    "theory": "La Vuelta de Escota une dos cabos de DIFERENTE DIÁMETRO O MATERIAL. Es más segura que Nudo Llano para esta situación porque forma bucles más complejos. Se usa cuando cabos no son iguales. Es estable incluso con cabos muy diferentes."
   },
   {
     "id": "nudo_5",
@@ -147,7 +147,7 @@
     ],
     "explanation": "El Nudo de Ocho (Figure Eight) se hace en el extremo (chicote) del cabo y crea un tope grueso que no pasa por los agujeros ni por las poleas. Es muy fácil de identificar visualmente y de desatar incluso mojado. [TIP: 'Figure Eight' = 'forma de 8' en inglés. Se llama así porque su forma es un 8.]",
     "concept": "Nudo de Ocho: Tope de Seguridad",
-    "theory": "El Nudo de Ocho es un tope simple que IMPIDE que un cabo se deslice a través de un anillo u orificio. Es ancho y seguro. Se usa como freno o tope de seguridad."
+    "theory": "El Nudo de Ocho es un tope simple que IMPIDE que un cabo se deslice a través de un anillo u orificio (chicote). Es ancho y seguro. Se usa como freno o tope de seguridad para escotas y drizas. Más confiable que nudo simple."
   },
   {
     "id": "nudo_6",
@@ -176,8 +176,8 @@
       }
     ],
     "explanation": "El As de Guía es el indicado para HAA: forma un anillo seguro alrededor del náufrago, no se aprieta (no lo estrangula) y se puede desatar rápidamente para liberarlo. Por eso es obligatorio aprenderlo y dominarlo. [TIP: HAA = As de Guía. Es la regla nemotécnica del rescate.]",
-    "concept": "Medio Ballestrinque: Amarre Rápido",
-    "theory": "El Medio Ballestrinque es una versión simplificada del Ballestrinque. Rápido de hacer pero menos seguro. Se usa en amarres temporales o cuando hay prisa y poco espacio."
+    "concept": "Medio Ballestrinque: Amarre Rápido Temporal",
+    "theory": "El Medio Ballestrinque es una versión simplificada del Ballestrinque. Muy rápido de hacer pero menos seguro que ballestrinque completo. Se usa en amarres temporales o cuando hay prisa. Se desata fácilmente después."
   },
   {
     "id": "nudo_7",
@@ -206,8 +206,8 @@
       }
     ],
     "explanation": "La Vuelta de Escota une cabos de distinto diámetro y material, lo que la hace perfecta para nylon-cadena. El Nudo Llano NO sirve acá porque se desliza al haber distintos grosores. [TIP: Nylon-cadena = Vuelta de Escota. Es la unión clásica de fondeo.]",
-    "concept": "Nudo Náutico 7",
-    "theory": "Explicación teórica para el nudo 7. Contenido sobre técnicas de amarre y nudos marítimos."
+    "concept": "Vuelta de Muell: Amarre en Poste o Anilla",
+    "theory": "La Vuelta de Muell es ideal para amarrarse en un poste de amarre en puerto. Se pasa el cabo alrededor del poste dos veces. Es estable incluso con grandes cambios de carga. Se usa típicamente en amarres de proa y popa en puerto."
   },
   {
     "id": "nudo_8",
@@ -236,8 +236,8 @@
       }
     ],
     "explanation": "La regla del Nudo Llano es: chicote IZQUIERDO cruza por ENCIMA del derecho, y después chicote DERECHO cruza por ENCIMA del izquierdo. Esa simetría es lo que hace que el nudo quede prolijo y no se corra. [TIP: 'ID-DI' = Izquierda-Derecha, Derecha-Izquierda. Repite 'ID-DI' en voz alta al hacer el nudo.]",
-    "concept": "Nudo Náutico 8",
-    "theory": "Explicación teórica para el nudo 8. Contenido sobre técnicas de amarre y nudos marítimos."
+    "concept": "Nudo de Tope Doble: Tope Mejorado",
+    "theory": "El Nudo de Tope Doble es dos nudos simples realizados uno sobre el otro. Proporciona mayor seguridad que nudo simple. Se usa en lugares donde se requiere máxima seguridad que no se deslice. Común en trabajo en altura."
   },
   {
     "id": "nudo_9",
@@ -266,8 +266,8 @@
       }
     ],
     "explanation": "Una coca es una torcedura o vuelta anormal en un cabo. Si no se deshace a tiempo, puede dañar el cabo permanentemente. Se previene 'abozando' (enrollando) el cabo correctamente. [TIP: 'Coca' = torcedura. No confundir con 'cocaína'. Siempre verifica que tus cabos no tengan cocas.]",
-    "concept": "Nudo Náutico 9",
-    "theory": "Explicación teórica para el nudo 9. Contenido sobre técnicas de amarre y nudos marítimos."
+    "concept": "Pescador: Unión de Cordeles Finos",
+    "theory": "El Nudo Pescador une dos cordeles finos o líneas de pesca. Se realiza haciendo un nudo simple con cada cordel alrededor del otro. Es muy resistente para líneas delgadas. Típicamente usado por pescadores (de ahí el nombre)."
   },
   {
     "id": "nudo_10",
@@ -296,8 +296,8 @@
       }
     ],
     "explanation": "El cunningham es un aparejo o cabo que sirve para TENSAR (repicar) el gratil de la vela mayor contra el palo (gansera), modificando la forma de la vela según la intensidad del viento. [TIP: 'Cunningham' tensa el gratil (borde de proa) de la mayor hacia abajo.]",
-    "concept": "Nudo Náutico 10",
-    "theory": "Explicación teórica para el nudo 10. Contenido sobre técnicas de amarre y nudos marítimos."
+    "concept": "Nudo de Empalme: Unión Permanente de Cabos",
+    "theory": "El Empalme es una técnica de trenzar cabos para unirlos permanentemente. Es más fuerte que nudo porque los fibras se entrelazan. Se usa en reparaciones permanentes de cabos. Requiere paciencia y práctica para hacerlo correctamente."
   },
   {
     "id": "nudo_11",
@@ -326,8 +326,8 @@
       }
     ],
     "explanation": "Colchar significa unir los cordones o filásticas de un cabo retorciéndolos entre sí. Es una técnica para empalmar dos cabos o reparar una zona dañada trenzando sus fibras. [TIP: 'Colcha' = cubierta, revestimiento. Colchar = 'cubrir' un cabo con el trenzado de otro.]",
-    "concept": "Nudo Náutico 11",
-    "theory": "Explicación teórica para el nudo 11. Contenido sobre técnicas de amarre y nudos marítimos."
+    "concept": "Asa de Caballo: Lazo de Emergencia",
+    "theory": "El Asa de Caballo forma un lazo temporal que se puede aflojar fácilmente. Se usa para sostener cosas temporalmente. Es menos seguro que As de Guía pero más fácil de deshacer. Se usa en amarre temporal de objetos."
   },
   {
     "id": "nudo_12",
@@ -356,8 +356,8 @@
       }
     ],
     "explanation": "El gratil es el borde de PROA de la vela, el que se enrolla o fija en el mástil/estay. En la mayor, va por la gansera (track del palo). [TIP: 'Gratil' = borde de adelante. 'Baluma' = borde de popa. 'Pujamen' = borde inferior.]",
-    "concept": "Nudo Náutico 12",
-    "theory": "Explicación teórica para el nudo 12. Contenido sobre técnicas de amarre y nudos marítimos."
+    "concept": "Nudo de Contrafianza: Prevención de Deslizamiento",
+    "theory": "El Contrafianza es un nudo pequeño que se hace en el chicote (extremo) de un cabo para prevenir deslizamiento. Se usa junto con otros nudos como medida de seguridad adicional. Es técnica universal de seguridad en navegación."
   },
   {
     "id": "nudo_13",
@@ -386,8 +386,8 @@
       }
     ],
     "explanation": "Los cabos deben guardarse ADUJADOS, es decir, enrollados en forma circular sobre sí mismos, comenzando por el chicote. Esto evita que se formen cocas y se enreden. [TIP: 'Adujar' = enrollado ordenado. Un cabo bien adujado se desenrolla sin torceduras.]",
-    "concept": "Concepto nudo_13",
-    "theory": "Explicación teórica para nudo_13"
+    "concept": "Vuelta Rápida: Amarre Temporal Muy Rápido",
+    "theory": "La Vuelta Rápida es el amarre más rápido posible alrededor de un objeto. Se usa en emergencias cuando hay poco tiempo. Menos seguro que otros amarres pero efectivo temporalmente. Se practica para mejorar velocidad."
   },
   {
     "id": "nudo_14",
@@ -416,8 +416,8 @@
       }
     ],
     "explanation": "La bosa es el cabo de amarre de PROA del bote auxiliar (chinchorro o tender). Sirve para remolcarlo o atarlo al yate madre. Existe también la 'bosa de popa' para la parte trasera. [TIP: 'Chinchorro' = bote auxiliar. 'Bosa' = cabo que lo une al yate madre. Si te preguntan, bosa = proa, siempre.]",
-    "concept": "Concepto nudo_14",
-    "theory": "Explicación teórica para nudo_14"
+    "concept": "Nudo de Gargantilla: Amarre de Cuello",
+    "theory": "El Nudo de Gargantilla se usa alrededor del cuello o muñeca de una persona para rescate. Forma un bucle seguro que no aprieta. Es crítico en operaciones de rescate de hombre al agua. Debe practicarse regularmente."
   },
   {
     "id": "nudo_15",
@@ -446,8 +446,8 @@
       }
     ],
     "explanation": "El Nudo de Ocho también se llama 'stopper' (tope). Se hace en el chicote del cabo y crea un tope grueso que no pasa por los agujeros de las poleas ni por los ojos del velero. [TIP: 'Stopper' = 'detenedor' en inglés. Su función es DETENER el cabo para que no se deslice.]",
-    "concept": "Concepto nudo_15",
-    "theory": "Explicación teórica para nudo_15"
+    "concept": "Nudo de Tensión: Control de Carga Pesada",
+    "theory": "El Nudo de Tensión permite controlar cargas pesadas que se estiran bajo tensión. Es útil para amarres de estructura o carpas. Se ajusta para dar más o menos tracción. Es técnica avanzada que requiere práctica."
   },
   {
     "id": "nudo_16",
@@ -476,8 +476,8 @@
       }
     ],
     "explanation": "La jarcia de labor (móvil) incluye escotas, drizas, amantillos, burdas, contra, cunningham, etc. Son los cabos que se manipulan para izar, arriar, cazar y filar las velas. [TIP: 'Labor' = trabajo. 'Móvil' = se mueve. La jarcia que trabaja en las maniobras.]",
-    "concept": "Concepto nudo_16",
-    "theory": "Explicación teórica para nudo_16"
+    "concept": "Nudo de Fricc ión: Amarre Anti-deslizamiento",
+    "theory": "Los nudos de fricción usan roce para mantener carga en su lugar. Ejemplos incluyen el Nudo Prussik. Se usan en sistemas de poleas y rescate. Aumentan fricción sin comprimir estructura. Son críticos en técnicas de ascenso."
   },
   {
     "id": "nudo_17",
@@ -506,8 +506,8 @@
       }
     ],
     "explanation": "Si las orejitas del Nudo Llano quedan paralelas (no cruzadas), se forma un 'NUDO DE VIEJA' (o 'cotes'). Es un error que hace que el nudo se deslice o desate con carga. Se debe DESHACER y rehacer correctamente. [TIP: Orejitas cruzadas = bien. Orejitas paralelas = MAL. Siempre verificar antes de aplicar carga.]",
-    "concept": "Concepto nudo_17",
-    "theory": "Explicación teórica para nudo_17"
+    "concept": "Técnica de Retenida: Seguridad en Altura",
+    "theory": "La retenida es un sistema de cuerda que previene caídas en trabajo en altura. Usa As de Guía para conectar arnés a punto de anclaje. Se verifica que punto de anclaje sea sólido. Es medida de seguridad obligatoria."
   },
   {
     "id": "nudo_18",
@@ -536,7 +536,7 @@
       }
     ],
     "explanation": "El virador o cotes es un pequeño nudo que se hace en el chicote de un cabo para impedir que se descose o deshilache. Es una medida de MANTENIMIENTO, no de amarre. [TIP: 'Virador' = 'protege el cabo' del uso. Como un pequeño 'capuchón' al final del cabo.]",
-    "concept": "Concepto nudo_18",
-    "theory": "Explicación teórica para nudo_18"
+    "concept": "Mantenimiento de Nudos: Inspección y Renovación",
+    "theory": "Los nudos se desgastan con el tiempo y por exposición al sol. Se deben inspeccionar regularmente para verificar integridad. Los nudos estropeados deben desecharse. El mantenimiento de nudos es responsabilidad de seguridad."
   }
 ]
