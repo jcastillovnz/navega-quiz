@@ -1,59 +1,184 @@
-# NavegaQuiz - Reglas y Directivas para Agentes de IA
+# NavegaQuiz — Reglas y Directivas para Agentes de IA
 
-Bienvenido Agente. Estás trabajando en **NavegaQuiz**, una aplicación web estática (100% Client-Side, sin backend) para el estudio interactivo y la preparación del examen de **Timonel de Yate a Vela y Motor** en Argentina.
+Bienvenido Agente. Estás trabajando en **NavegaQuiz**, una app web 100% estática (GitHub Pages) para el examen de **Timonel de Yate a Vela y Motor** en Argentina.
 
-Este archivo `.agents/AGENTS.md` es la fuente de verdad y las reglas operativas que debes seguir **estrictamente** durante toda tu ejecución en este workspace.
-
----
-
-## 📖 1. Tu Misión y Metodología de Trabajo
-
-Tu objetivo principal es construir la aplicación siguiendo **al pie de la letra** el plan maestro detallado en el archivo `PLAN_APP_TIMONEL.md` ubicado en la raíz del repositorio. 
-
-El proyecto está organizado en un **Mapa de 25 Micro-Tareas Atómicas** (diseñadas para ejecutarse en < 2 minutos). 
-
-**Flujo de Trabajo Obligatorio:**
-1. Al recibir una petición del usuario (Ej: *"Ejecuta la Tarea 01"* o *"Siguiente tarea"*), **siempre** debes leer el archivo `PLAN_APP_TIMONEL.md` primero.
-2. Identifica la tarea que se te pide en la sección "Mapa de Micro-Tareas Atomic".
-3. Revisa su estado (debería ser `[PENDIENTE]` ⏳ o `[EN PROGRESO]` 🔄).
-4. Ejecuta el código y los comandos necesarios para **completar únicamente esa tarea**. No te adelantes a tareas futuras.
-5. Al finalizar tu trabajo exitosamente, **debes actualizar el archivo `PLAN_APP_TIMONEL.md`** cambiando el estado de esa tarea a `[COMPLETADO]` ✅ y actualizando la sección `Estado Actual de Ejecución` (Progreso global y Próxima Tarea).
+> **Proyecto completado al 100%.** Ya no existe un plan de micro-tareas. Las reglas ahora definen el **estándar de calidad continuo** que debes mantener en cada modificación.
 
 ---
 
-## 🛠️ 2. Restricciones Tecnológicas
+## 🛠️ 1. Stack Tecnológico (Inamovible)
 
-- **Arquitectura**: La app debe funcionar como una **Página Estática en GitHub Pages**. **NO** utilices bases de datos (ni Firebase, ni Supabase), **NO** uses APIs externas (a menos que sean recursos públicos estáticos), y **NO** uses backends (Node.js/Express, Next.js API Routes).
-- **Stack**: **Vite + React + TypeScript**.
-- **Estilos**: **Tailwind CSS** + CSS puro (si se requieren animaciones complejas/glow effects).
-- **Iconos**: Utiliza la librería **Lucide React** (`lucide-react`).
-- **Persistencia de Datos**: Todo el progreso del usuario (notas de exámenes, "Caja de Repaso" de errores, rachas diarias) se debe guardar en **`localStorage`**.
-- **Contenido Teórico**: Todo el texto teórico, preguntas y ejercicios prácticos debe estar hardcodeado o servido desde archivos `.json` ubicados en `src/data/` que tú mismo crearás basándote en la teoría náutica general requerida.
-
----
-
-## 🎨 3. Estética y Diseño Visual (UX/UI)
-
-El usuario espera una aplicación web de alta calidad. 
-- **La estética es crucial.** Debes crear un diseño "Premium" y "Náutico".
-- **Colores Principales**: Tonos profundos de azul marino (Dark Navy/Slate `bg-slate-900`), blanco puro, y acentos de color cian (`cyan-500`) o dorado (`amber-500`) para elementos destacados. 
-- **Modo Oscuro (Glassmorphism)**: Prioriza fondos oscuros y marinos con tarjetas semi-transparentes (blur/glassmorphism) cuando el simulador (como el Visor RIPA nocturno) lo requiera.
-- **Micro-interacciones**: Asegúrate de que los botones tengan efectos `hover` atractivos, transiciones suaves y feedback visual al responder una pregunta (verde para éxito, rojo para error, con sutiles sacudidas o pings de Tailwind).
-- **Skill de UI & Gráficos**: Consulta y aplica **estrictamente** las directivas en [.agents/skills/marine-ui-design/SKILL.md](file:///Users/jose-castillo/navega-quiz/.agents/skills/marine-ui-design/SKILL.md) para garantizar una arquitectura **Zero-Scroll (`100dvh`)** sin desplazamiento horizontal/vertical e **ilustraciones vectoriales fotorrealistas** (Sombras 3D, Glow de luces, Anatomía de cabos Chicote/Firme).
+- **Framework**: Vite + React + TypeScript
+- **Estilos**: Tailwind CSS + CSS puro para animaciones/glow
+- **Iconos**: Lucide React
+- **Persistencia**: Solo `localStorage` (no Firebase, no Supabase, no backend)
+- **Deploy**: GitHub Pages (build estático en `/dist`)
 
 ---
 
-## 🗺️ 4. Reglas Críticas del Simulador de Examen (Fase 6)
+## 🎨 2. Estética y Diseño Visual (Zero-Scroll Premium)
 
-Cuando construyas la parte del **Simulador de Examen Real**:
-- El simulador de examen debe ser **riguroso**. No puede dar feedback en tiempo real.
-- Debe combinar **ambos tipos de preguntas**: Opción múltiple (teoría) y Ejercicios Prácticos Numéricos ($D_m$, Mareas, Marcaciones).
-- Debe tener un reloj de cuenta regresiva (45 a 60 min).
-- Al finalizar, debe generar un "Boletín" (si es posible, usando un Radar Chart o gráficos simples CSS/SVG) para mostrar los puntos fuertes y débiles.
+- **Paleta**: Navy `bg-slate-900/950`, acentos `cyan-500` y `amber-500`
+- **Modo Oscuro + Glassmorphism** para visores nocturnos (RIPA, IALA)
+- **Micro-interacciones obligatorias** en todos los botones e inputs
+- **Zero-Scroll absoluto**: Toda vista debe encajar en `100dvh` sin scroll global
+- Consulta las skills en `.agents/skills/` para detalles adicionales de diseño
 
 ---
 
-## 🏁 Instrucciones de Inicialización
-Si estás creando el proyecto por primera vez, recuerda correr el comando de Vite sin modo interactivo para crear el template de React + TS en el directorio actual, o en su defecto construir la estructura de carpetas a mano asegurándote de usar los presets correctos de Tailwind.
+## 🎬 3. Regla de Ilustraciones Animadas (OBLIGATORIA)
 
-¡Respeta el plan `PLAN_APP_TIMONEL.md`, escribe buen código TypeScript y buena suerte!
+Todo contenido que involucre conceptos dinámicos o visuales **debe usar animaciones**, según este orden de prioridad:
+
+### 3a. Nudos Náuticos — Animaciones SVG Paso a Paso
+- **Regla**: No usar imágenes estáticas para nudos. Usar **animaciones SVG con `stroke-dashoffset`/`SMIL`** o **Lottie JSON** que muestren el trazado del cabo en tiempo real.
+- **Por qué**: knots3d.com usa X-Frame-Options DENY (no permite iframes). La alternativa correcta es SVG animado propio o Lottie.
+- **Fuente recomendada de assets gratuitos**: https://lottiefiles.com (buscar "rope knot", "nautical knot")
+- **Implementación**: Usar `useLottie` de `@lottie-react` con JSONs en `src/assets/lottie/`
+- **Alternativa**: `<svg>` con `<path>` animado via `stroke-dasharray` + `stroke-dashoffset` CSS keyframes
+
+### 3b. Luces de Navegación RIPA — Animación CSS Glow Pulsante
+- **Regla**: Las luces nocturnas (tope, babor, estribor, alcance) deben ser **puntos luminosos con glow pulsante en CSS**.
+- **Implementación**: `div.rounded-full` con `box-shadow` animado (`keyframes`) + `animate-pulse` de Tailwind
+- **Colores**: `#ef4444` (babor rojo), `#22c55e` (estribor verde), `#ffffff` (tope y alcance blanco)
+- **Patrones de destello**: Animaciones CSS custom para `flash-single`, `flash-double`, `flash-isophase` en `index.css`
+
+### 3c. Boyas IALA — Animación de Luz Nocturna + Meceo de Oleaje
+- **Regla**: En modo noche, cada boya debe tener:
+  1. Una luz de color con glow pulsante (CSS `@keyframes`)
+  2. Un suave movimiento de balanceo (`transform: rotate()` + CSS keyframes `sway`)
+- **Patrones IALA**: Fl R (destello simple rojo), Fl G (verde), Fl(2) W (doble blanco), Iso W (isofásica)
+
+### 3d. Meteorología — Animaciones de Estado del Mar
+- **Regla**: Cada nivel de la Escala Beaufort debe tener animación CSS que simule el estado del mar correspondiente.
+- **Elementos animados**: Olas con `transform: translateY()`, lluvia con `@keyframes`, relámpagos `opacity` flash
+
+### 3e. Simulador de Cruceros RIPA — Animación de Trayectorias
+- **Regla**: Las trayectorias de los buques en situaciones de cruce deben animarse con CSS `transition`/`transform`.
+
+---
+
+## 🖼️ 4. Imágenes Hiperrealistas en `src/assets/`
+
+Todas las imágenes del proyecto están en `src/assets/`. Son generadas por IA:
+- `sailboat_anatomy.png` — Anatomía del casco etiquetada (Nomenclatura)
+- `sailboat_rigging.png` — Arboladura 3D etiquetada (Nomenclatura)
+- `ripa_lights_bow.png` — Foto nocturna de buque con luces RIPA (RIPA)
+- `iala_buoy_babor.png` — Foto de boya de babor real (IALA)
+- `knot_bowline_steps.png` — As de Guía 4 pasos (Nudos)
+- `knot_reef_steps.png` — Nudo Llano 4 pasos (Nudos)
+- `knot_clove_steps.png` — Ballestrinque 4 pasos (Nudos)
+- `knot_sheet_bend_steps.png` — Vuelta de Escota 4 pasos (Nudos)
+- `knot_figure8_steps.png` — Nudo de Ocho 4 pasos (Nudos)
+
+**Regla**: Para nuevas ilustraciones, usar la herramienta `generate_image` y copiar el PNG a `src/assets/`.
+
+---
+
+## 🗺️ 5. Módulos de la App (Referencia)
+
+La app tiene 7 módulos accesibles desde el Dashboard:
+1. **RIPA & IALA** — Luces de navegación + Balizamiento
+2. **Seguridad & Fondeo** — Inventario PNA + HAA + Fondeo
+3. **Nomenclatura** — Anatomía del casco + Jarcia
+4. **Meteorología** — Escala Beaufort + Pampero/Sudestada
+5. **Prácticos de Navegación** — Declinación, Mareas, Marcaciones
+6. **Nudos Náuticos** — 5 nudos esenciales con pasos animados
+7. **Simulador de Examen Real PNA** — 40 preguntas + cronómetro + boletín
+
+---
+
+## 📚 6. Regla de Aprendizaje Unificado (OBLIGATORIA — UX Core)
+
+**Principio**: La Guía Teórica y el Quiz Práctico deben estar **unificados por cada ítem/concepto del módulo**. No se usan pestañas separadas "Teoría" vs "Quiz". El usuario aprende un concepto y lo practica de inmediato en la misma pantalla.
+
+### Patrón de Layout por Módulo
+
+Cada módulo debe usar un **grid de 2 columnas** (`md:grid-cols-12`):
+
+```
+┌─────────────────────────────┬──────────────────────────┐
+│   7 cols — Visor Visual     │   5 cols — Panel Derecho │
+│   (animación / imagen /     │   ┌─ Info teórica ───┐   │
+│    SVG interactivo)         │   │  del concepto    │   │
+│                             │   └──────────────────┘   │
+│                             │   ┌─ InlineQuizPanel ┐   │
+│                             │   │  pregunta del    │   │
+│                             │   │  mismo concepto  │   │
+│                             │   └──────────────────┘   │
+└─────────────────────────────┴──────────────────────────┘
+```
+
+### Flujo de Interacción
+
+1. **El usuario ve** el concepto visual (boya, luz, nudo, barco) en la columna izquierda
+2. **Simultáneamente**, la columna derecha muestra:
+   - La explicación teórica del concepto (breve, 2-4 líneas)
+   - **Inmediatamente debajo**: 1 pregunta de quiz relacionada con ese concepto específico
+3. **Al responder** la pregunta → aparece feedback inmediato (verde/rojo) + explicación
+4. **Al hacer "Siguiente"** → avanza al próximo concepto del módulo (cambia tanto el visual como la pregunta)
+5. **Al completar todos los conceptos** → pantalla de resultados `ModuleResultPanel`
+
+### Componentes Clave
+
+- **`InlineQuizPanel`** (`src/components/quiz/InlineQuizPanel.tsx`): Panel compacto de pregunta inline. Incluye barra de progreso, opciones, feedback con animación y sonido, floater de XP. Diseñado para encajar en 5 columnas sin scroll.
+- **`ModuleResultPanel`** (mismo archivo): Pantalla de resultado final del módulo con precisión, aciertos y XP ganado.
+
+### Reglas de Implementación
+
+- **NO usar tabs `'ESTUDIO' | 'QUIZ'`** en nuevos módulos ni en modificaciones de los existentes.
+- El `viewer` izquierdo y el `InlineQuizPanel` derecho deben **estar sincronizados**: el índice activo del visor determina qué pregunta se muestra.
+- Si un módulo tiene sub-secciones (ej. RIPA: Luces / Cruces / IALA), cada sub-sección tiene su propio bloque de pregunta.
+- Las preguntas se filtran por `category` del JSON de datos y se asignan al concepto más cercano por orden.
+- Si hay más preguntas que conceptos visuales, las preguntas sobrantes se muestran como preguntas de "repaso general" al final.
+
+### Ejemplo de Estructura en Código
+
+```tsx
+// Patrón correcto — unificado:
+<div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0">
+  <div className="md:col-span-7">
+    <VisualViewer concept={currentConcept} />
+  </div>
+  <div className="md:col-span-5 flex flex-col gap-2">
+    <ConceptInfoPanel concept={currentConcept} />
+    <InlineQuizPanel
+      question={questions[currentIdx]}
+      questionNumber={currentIdx + 1}
+      totalQuestions={questions.length}
+      onNext={handleNext}
+    />
+  </div>
+</div>
+
+// Patrón PROHIBIDO — tabs separados:
+// ❌ <TabButton onClick={() => setTab('ESTUDIO')}>Guía Teórica</TabButton>
+// ❌ <TabButton onClick={() => setTab('QUIZ')}>Quiz Práctico</TabButton>
+```
+
+---
+
+## 🚀 7. Flujo de Trabajo para Nuevas Mejoras
+
+1. **Entender** el pedido del usuario y qué módulo/componente afecta
+2. **Consultar** las skills relevantes en `.agents/skills/`
+3. **Implementar** respetando:
+   - Zero-Scroll (`100dvh`, sin scroll global)
+   - Reglas de animación (Sección 3)
+   - **Aprendizaje Unificado** (Sección 6) — nunca tabs separados
+4. **Verificar**: `npm run build` debe compilar sin errores
+5. **Commitear y pushear** siempre al finalizar: `git add . && git commit -m "..." && git push origin main`
+
+---
+
+## ⚙️ 8. Reglas de Código TypeScript
+
+- No dejar variables sin usar (error TS6133)
+- Siempre declarar tipos con `type` keyword en imports
+- Preferir `interface` para props de componentes React
+- No usar `any` salvo casos extremos documentados
+- Todos los componentes deben ser `React.FC` con tipado explícito
+
+---
+
+¡Mantené el estándar premium náutico en cada mejora!

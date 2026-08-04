@@ -166,3 +166,104 @@ body {
   25% { transform: rotate(-2deg); }
   75% { transform: rotate(2deg); }
 }
+
+/* ======================================
+   Animaciones de Nudos — Trazado de cabo
+   ====================================== */
+@keyframes rope-draw {
+  0%   { stroke-dashoffset: 2000; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes rope-draw-step {
+  0%   { stroke-dashoffset: 600; }
+  100% { stroke-dashoffset: 0; }
+}
+.animate-rope-draw {
+  animation: rope-draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.animate-rope-draw-step {
+  animation: rope-draw-step 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ======================================
+   Animaciones de Boyas — Balanceo + Luz
+   ====================================== */
+@keyframes buoy-sway {
+  0%, 100% { transform: rotate(-3deg) translateY(0px); }
+  25%       { transform: rotate(3deg)  translateY(-2px); }
+  75%       { transform: rotate(-2deg) translateY(1px); }
+}
+.animate-buoy-sway {
+  animation: buoy-sway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes glow-pulse-red {
+  0%, 100% { box-shadow: 0 0 8px 3px rgba(239,68,68,0.4); }
+  50%       { box-shadow: 0 0 28px 12px rgba(239,68,68,0.9); }
+}
+@keyframes glow-pulse-green {
+  0%, 100% { box-shadow: 0 0 8px 3px rgba(34,197,94,0.4); }
+  50%       { box-shadow: 0 0 28px 12px rgba(34,197,94,0.9); }
+}
+@keyframes glow-pulse-white {
+  0%, 100% { box-shadow: 0 0 8px 3px rgba(255,255,255,0.35); }
+  50%       { box-shadow: 0 0 28px 12px rgba(255,255,255,0.85); }
+}
+.animate-glow-red   { animation: glow-pulse-red   2s ease-in-out infinite; }
+.animate-glow-green { animation: glow-pulse-green 2s ease-in-out infinite; }
+.animate-glow-white { animation: glow-pulse-white 2s ease-in-out infinite; }
+
+/* Destello Rápido (Fl = Flash) */
+@keyframes flash-rapid {
+  0%, 8%  { opacity: 1; }
+  9%, 100% { opacity: 0.05; }
+}
+/* Destello Doble (Fl(2)) */
+@keyframes flash-rapid-double {
+  0%, 8%   { opacity: 1; }
+  9%, 18%  { opacity: 0.05; }
+  19%, 27% { opacity: 1; }
+  28%, 100%{ opacity: 0.05; }
+}
+/* Isofásica (Iso) — igual tiempo encendida y apagada */
+@keyframes flash-iso {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0.05; }
+}
+.animate-flash-rapid        { animation: flash-rapid        2.5s ease-in-out infinite; }
+.animate-flash-rapid-double { animation: flash-rapid-double 4s   ease-in-out infinite; }
+.animate-flash-iso          { animation: flash-iso          3s   ease-in-out infinite; }
+
+/* ======================================
+   Animaciones de Buque — Navegación
+   ====================================== */
+@keyframes ship-bob {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-3px) rotate(-0.8deg); }
+  66%       { transform: translateY(2px) rotate(0.5deg); }
+}
+.animate-ship-bob { animation: ship-bob 4s ease-in-out infinite; }
+
+/* ======================================
+   Luces RIPA — Sectores angulares
+   ====================================== */
+@keyframes light-sector-red {
+  0%, 100% { opacity: 0.7; filter: blur(0px); }
+  50%       { opacity: 1;   filter: blur(1px); }
+}
+@keyframes light-sector-green {
+  0%, 100% { opacity: 0.7; filter: blur(0px); }
+  50%       { opacity: 1;   filter: blur(1px); }
+}
+.animate-sector-red   { animation: light-sector-red   1.8s ease-in-out infinite; }
+.animate-sector-green { animation: light-sector-green 1.8s ease-in-out infinite 0.3s; }
+
+/* ======================================
+   Estrellas nocturnas — Parpadeo suave
+   ====================================== */
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+.star { animation: star-twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s); }

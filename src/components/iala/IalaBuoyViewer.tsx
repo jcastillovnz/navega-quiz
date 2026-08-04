@@ -10,74 +10,117 @@ interface BuoyInfo {
   accentColor: string;
   topMark: string;
   lightPattern: string;
-  lightColor: string;
-  lightClass: string;
+  lightColorClass: string;
+  lightAnimClass: string;
+  lightRgb: string;
   description: string;
   rule: string;
-  bgGradient: string;
+  bodyColor: string;
+  stripeColors?: string[];
+  stripeDir?: 'horizontal' | 'vertical';
+  topShape: 'cylinder' | 'cone' | 'two-spheres' | 'sphere';
+  topColor: string;
 }
 
 const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
   BABOR: {
     name: 'Boya de Babor (Región B)',
-    color: 'text-red-400',
-    accentColor: 'border-red-500/50',
+    color: 'text-red-400', accentColor: 'border-red-500/50',
     topMark: '🟥 Cilíndrica Roja',
-    lightPattern: 'Fl R — Destello simple Rojo',
-    lightColor: 'bg-red-500',
-    lightClass: 'animate-[flash-single_2s_ease-in-out_infinite]',
-    description: 'En IALA Región B (Sudamérica), al entrar a puerto dejes la boya ROJA a tu BABOR (izquierda). Esta boya marca el límite de la canal navegable por babor.',
-    rule: '🇦🇷 Argentina usa IALA B: "ROJO a Babor al ENTRAR"',
-    bgGradient: 'from-red-950/60 to-slate-950',
+    lightPattern: 'Fl R — Destello simple Rojo cada 2.5s',
+    lightColorClass: 'bg-red-500', lightAnimClass: 'animate-flash-rapid animate-glow-red',
+    lightRgb: '239,68,68',
+    description: 'En IALA B (Sudamérica), al entrar a puerto dejás la boya ROJA a tu BABOR. Marca el límite de babor del canal navegable.',
+    rule: '🇦🇷 Argentina IALA B: "ROJO a Babor al ENTRAR"',
+    bodyColor: '#dc2626', topShape: 'cylinder', topColor: '#dc2626',
   },
   ESTRIBOR: {
     name: 'Boya de Estribor (Región B)',
-    color: 'text-emerald-400',
-    accentColor: 'border-emerald-500/50',
+    color: 'text-emerald-400', accentColor: 'border-emerald-500/50',
     topMark: '🔺 Cónica Verde',
-    lightPattern: 'Fl G — Destello simple Verde',
-    lightColor: 'bg-emerald-500',
-    lightClass: 'animate-[flash-single_2s_ease-in-out_infinite]',
-    description: 'En IALA Región B, al entrar a puerto dejes la boya VERDE a tu ESTRIBOR (derecha). Marca el límite de estribor del canal.',
-    rule: '✅ Verde a Estribor al entrar. Lo opuesto a IALA A (Europa).',
-    bgGradient: 'from-emerald-950/60 to-slate-950',
+    lightPattern: 'Fl G — Destello simple Verde cada 2.5s',
+    lightColorClass: 'bg-emerald-500', lightAnimClass: 'animate-flash-rapid animate-glow-green',
+    lightRgb: '34,197,94',
+    description: 'En IALA B, al entrar a puerto dejás la boya VERDE a tu ESTRIBOR. Marca el límite de estribor del canal.',
+    rule: '✅ Verde a Estribor al entrar. Opuesto a IALA A (Europa).',
+    bodyColor: '#16a34a', topShape: 'cone', topColor: '#16a34a',
   },
   PELIGRO_AISLADO: {
     name: 'Peligro Aislado',
-    color: 'text-white',
-    accentColor: 'border-white/30',
+    color: 'text-white', accentColor: 'border-white/30',
     topMark: '⚫⚫ Dos Esferas Negras',
-    lightPattern: 'Fl(2) W — Grupo de 2 destellos Blancos',
-    lightColor: 'bg-white',
-    lightClass: 'animate-[flash-double_3s_ease-in-out_infinite]',
-    description: 'Señaliza un peligro aislado (bajo fondo, arrecife, pecio) rodeado de aguas navegables. Franjas horizontales negras y rojas alternadas.',
-    rule: '⚠️ ESQUIVAR en todos los rumbos. Aguas libres alrededor pero peligro en el centro.',
-    bgGradient: 'from-slate-800/60 to-slate-950',
+    lightPattern: 'Fl(2) W — Grupo 2 destellos Blancos cada 4s',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid-double animate-glow-white',
+    lightRgb: '255,255,255',
+    description: 'Señaliza un peligro aislado (bajo, arrecife, pecio) rodeado de aguas navegables. Franjas horizontales negras y rojas.',
+    rule: '⚠️ ESQUIVAR en todos los rumbos. Aguas libres alrededor, peligro en el punto central.',
+    bodyColor: '#0f172a', stripeColors: ['#dc2626'], stripeDir: 'horizontal',
+    topShape: 'two-spheres', topColor: '#0f172a',
   },
   AGUAS_SEGURAS: {
-    name: 'Aguas Seguras (Midchannel)',
-    color: 'text-cyan-400',
-    accentColor: 'border-cyan-500/50',
+    name: 'Aguas Seguras (Canal Central)',
+    color: 'text-cyan-400', accentColor: 'border-cyan-500/50',
     topMark: '🔴 Esfera Roja',
-    lightPattern: 'Iso W — Isofásica Blanca',
-    lightColor: 'bg-white',
-    lightClass: 'animate-[flash-isophase_2s_ease-in-out_infinite]',
-    description: 'Indica aguas navegables en los 360° alrededor. Franjas verticales rojas y blancas alternadas. Se coloca en el eje central del canal o en la entrada de un puerto.',
-    rule: '✅ Seguro navegar en todos los rumbos. Puedes pasarla por cualquier costado.',
-    bgGradient: 'from-cyan-950/60 to-slate-950',
+    lightPattern: 'Iso W — Isofásica Blanca (igual tiempo ON/OFF)',
+    lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-iso animate-glow-white',
+    lightRgb: '255,255,255',
+    description: 'Aguas navegables en 360° alrededor. Franjas VERTICALES rojas y blancas. Se coloca en el eje del canal o en entradas de puerto.',
+    rule: '✅ Seguro en todos los rumbos. Podés pasarla por cualquier costado.',
+    bodyColor: '#dc2626', stripeColors: ['#ffffff'], stripeDir: 'vertical',
+    topShape: 'sphere', topColor: '#dc2626',
   },
 };
 
+function BuoyTopMark({ shape, color }: { shape: string; color: string }) {
+  if (shape === 'cylinder') return <rect x="26" y="4" width="28" height="18" rx="4" fill={color} />;
+  if (shape === 'cone') return <polygon points="40,4 20,22 60,22" fill={color} />;
+  if (shape === 'two-spheres') return (
+    <>
+      <circle cx="30" cy="10" r="9" fill="#0f172a" stroke="#475569" strokeWidth="1" />
+      <circle cx="50" cy="10" r="9" fill="#0f172a" stroke="#475569" strokeWidth="1" />
+    </>
+  );
+  if (shape === 'sphere') return <circle cx="40" cy="11" r="10" fill={color} />;
+  return null;
+}
+
+function BuoyBody({ bodyColor, stripeColors, stripeDir }: {
+  bodyColor: string;
+  stripeColors?: string[]; stripeDir?: 'horizontal' | 'vertical';
+}) {
+  return (
+    <g>
+      {/* Cuerpo principal */}
+      <ellipse cx="40" cy="72" rx="24" ry="36" fill={bodyColor} />
+      {/* Franjas */}
+      {stripeDir === 'horizontal' && stripeColors?.map((c, i) => (
+        <rect key={i} x="17" y={57 + i * 20} width="46" height="10" fill={c} rx="1" />
+      ))}
+      {stripeDir === 'vertical' && (
+        <>
+          <rect x="22" y="40" width="8" height="62" fill="#ffffff" rx="1" />
+          <rect x="36" y="40" width="8" height="62" fill="#ffffff" rx="1" />
+          <rect x="50" y="40" width="8" height="62" fill="#ffffff" rx="1" />
+          {/* clip al cuerpo de la boya */}
+          <ellipse cx="40" cy="72" rx="24" ry="36" fill="none" stroke={bodyColor} strokeWidth="2" />
+        </>
+      )}
+      {/* Aro flotador */}
+      <ellipse cx="40" cy="104" rx="28" ry="8" fill={bodyColor} opacity="0.7" />
+      {/* Reflejo metálico */}
+      <ellipse cx="32" cy="56" rx="6" ry="14" fill="white" opacity="0.07" />
+    </g>
+  );
+}
 
 export const IalaBuoyViewer: React.FC = () => {
   const [isNight, setIsNight] = useState(true);
   const [selectedBuoy, setSelectedBuoy] = useState<BuoyType>('BABOR');
-
   const buoy = BUOY_DATA[selectedBuoy];
 
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
-      {/* Controles Top */}
+      {/* Controles */}
       <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 shrink-0">
         <button
           onClick={() => setIsNight(!isNight)}
@@ -86,7 +129,7 @@ export const IalaBuoyViewer: React.FC = () => {
           }`}
         >
           {isNight ? <Moon size={13} /> : <Sun size={13} />}
-          {isNight ? 'Modo Noche' : 'Modo Día'}
+          {isNight ? 'Modo Noche 🌙' : 'Modo Día ☀️'}
         </button>
 
         <div className="flex flex-wrap gap-1.5">
@@ -109,125 +152,138 @@ export const IalaBuoyViewer: React.FC = () => {
       {/* Grid 2 cols */}
       <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
 
-        {/* Visual Canvas (7 cols) */}
-        <div className={`md:col-span-7 rounded-2xl overflow-hidden border h-full flex items-center justify-center relative transition-all duration-500 bg-gradient-to-b ${buoy.bgGradient} ${buoy.accentColor}`}>
+        {/* Canvas visual animado (7 cols) */}
+        <div className={`md:col-span-7 rounded-2xl overflow-hidden border-2 h-full flex items-center justify-center relative transition-all duration-700 ${buoy.accentColor} ${
+          isNight
+            ? 'bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-900'
+            : 'bg-gradient-to-b from-sky-300 via-sky-400 to-sky-500'
+        }`}>
+
+          {/* Estrellas (solo noche) */}
           {isNight && (
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(30)].map((_, i) => (
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              {[...Array(35)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute rounded-full bg-white"
+                  className="star absolute rounded-full bg-white"
                   style={{
-                    width: `${1 + Math.random()}px`,
-                    height: `${1 + Math.random()}px`,
-                    top: `${Math.random() * 50}%`,
-                    left: `${Math.random() * 100}%`,
-                    opacity: 0.4 + Math.random() * 0.4,
-                  }}
+                    width: `${1 + (i % 3) * 0.8}px`,
+                    height: `${1 + (i % 3) * 0.8}px`,
+                    top: `${5 + (i * 17 % 50)}%`,
+                    left: `${(i * 13 % 100)}%`,
+                    '--dur': `${2 + (i % 4)}s`,
+                    '--delay': `${(i % 6) * 0.5}s`,
+                  } as React.CSSProperties}
                 />
               ))}
             </div>
           )}
 
-          {/* Para Babor real: usar foto hiperrealista */}
-          {selectedBuoy === 'BABOR' && (
-            <div className="relative w-full h-full z-10">
-              <img
-                src={ialaBuoyImg}
-                alt="Boya de babor IALA Región B — roja con marca de tope cilíndrica"
-                className="w-full h-full object-contain p-2"
-              />
+          {/* Agua */}
+          <div className={`absolute bottom-0 w-full h-1/3 ${
+            isNight ? 'bg-gradient-to-t from-slate-900 to-blue-950/60' : 'bg-gradient-to-t from-sky-600 to-sky-400/40'
+          }`} />
+
+          {/* Reflejo de luz en el agua (noche) */}
+          {isNight && (
+            <div
+              className="absolute bottom-0 w-8 opacity-20 pointer-events-none"
+              style={{
+                height: '35%',
+                left: 'calc(50% - 16px)',
+                background: `radial-gradient(ellipse at top, rgba(${buoy.lightRgb}, 0.8) 0%, transparent 70%)`,
+              }}
+            />
+          )}
+
+          {/* BABOR: usa foto real */}
+          {selectedBuoy === 'BABOR' ? (
+            <div className="relative z-10 w-full h-full flex items-center justify-center p-2">
+              <div className="animate-buoy-sway relative">
+                <img
+                  src={ialaBuoyImg}
+                  alt="Boya de babor IALA Región B — roja"
+                  className="h-56 md:h-72 object-contain drop-shadow-2xl"
+                />
+                {isNight && (
+                  <div
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass}`}
+                  />
+                )}
+              </div>
+            </div>
+          ) : (
+            /* Otras boyas: SVG animado */
+            <div className="relative z-10 flex flex-col items-center justify-center gap-2">
+              {/* Luz pulsante nocturna */}
               {isNight && (
-                <div className="absolute top-4 left-1/2 -translate-x-1/2">
-                  <div className="w-4 h-4 rounded-full bg-red-500 shadow-[0_0_20px_8px_rgba(239,68,68,0.6)] animate-[flash-single_2s_ease-in-out_infinite]" />
-                </div>
+                <div className={`w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass} mb-1`} />
               )}
-              <div className="absolute bottom-2 left-2 bg-slate-950/80 backdrop-blur px-2 py-1 rounded-lg border border-red-900/60 text-[10px] font-bold text-red-300">
-                📷 Boya Real — Puerto Argentino
+
+              {/* Boya SVG con balanceo */}
+              <div className="animate-buoy-sway">
+                <svg viewBox="0 0 80 130" className="w-28 h-44 drop-shadow-2xl filter">
+                  {/* Tope */}
+                  <BuoyTopMark shape={buoy.topShape} color={buoy.topColor} />
+                  {/* Varilla */}
+                  <line x1="40" y1="23" x2="40" y2="38" stroke="#94a3b8" strokeWidth="2.5" />
+                  {/* Cuerpo */}
+                  <BuoyBody
+                    bodyColor={buoy.bodyColor}
+                    stripeColors={buoy.stripeColors}
+                    stripeDir={buoy.stripeDir}
+                  />
+                  {/* Cadena de fondeo */}
+                  <path d="M40,112 Q38,120 36,128" stroke="#64748b" strokeWidth="2" strokeDasharray="3,2" fill="none" />
+                </svg>
+              </div>
+
+              {/* Ondas en el agua */}
+              <div className="flex gap-1 opacity-40">
+                {[0, 1, 2].map(i => (
+                  <div
+                    key={i}
+                    className="border border-slate-400 rounded-full"
+                    style={{
+                      width: `${28 + i * 18}px`,
+                      height: `${10 + i * 5}px`,
+                      animation: `wave-calm ${2 + i * 0.4}s ease-in-out infinite ${i * 0.3}s`,
+                    }}
+                  />
+                ))}
               </div>
             </div>
           )}
 
-          {/* Para otras boyas: ilustración SVG compacta */}
-          {selectedBuoy !== 'BABOR' && (
-            <div className="relative z-10 flex flex-col items-center justify-center gap-3">
-              {/* Luz nocturna */}
-              {isNight && (
-                <div className={`w-5 h-5 rounded-full ${buoy.lightColor} ${buoy.lightClass} shadow-[0_0_24px_10px_rgba(255,255,255,0.3)]`} />
-              )}
-
-              {/* Cuerpo de la boya SVG compacto */}
-              <svg viewBox="0 0 80 120" className="w-28 h-36 drop-shadow-xl">
-                {/* Tope de boya */}
-                {selectedBuoy === 'ESTRIBOR' && (
-                  <polygon points="40,5 20,25 60,25" fill="#16a34a" />
-                )}
-                {selectedBuoy === 'PELIGRO_AISLADO' && (
-                  <>
-                    <circle cx="30" cy="12" r="8" fill="#1e293b" />
-                    <circle cx="50" cy="12" r="8" fill="#1e293b" />
-                  </>
-                )}
-                {selectedBuoy === 'AGUAS_SEGURAS' && (
-                  <circle cx="40" cy="12" r="10" fill="#dc2626" />
-                )}
-                {/* Palo */}
-                <line x1="40" y1="25" x2="40" y2="50" stroke="#94a3b8" strokeWidth="2" />
-                {/* Cuerpo de la boya */}
-                {selectedBuoy === 'PELIGRO_AISLADO' && (
-                  <>
-                    <ellipse cx="40" cy="70" rx="22" ry="35" fill="#0f172a" />
-                    <rect x="18" y="58" width="44" height="8" fill="#dc2626" rx="2" />
-                    <rect x="18" y="74" width="44" height="8" fill="#dc2626" rx="2" />
-                  </>
-                )}
-                {selectedBuoy === 'AGUAS_SEGURAS' && (
-                  <>
-                    <ellipse cx="40" cy="70" rx="22" ry="35" fill="#dc2626" />
-                    {[...Array(4)].map((_, i) => (
-                      <rect key={i} x={18 + i * 11} y="50" width="5" height="42" fill="white" rx="1" />
-                    ))}
-                  </>
-                )}
-                {selectedBuoy === 'ESTRIBOR' && (
-                  <ellipse cx="40" cy="70" rx="22" ry="35" fill="#16a34a" />
-                )}
-                {/* Flotación */}
-                <ellipse cx="40" cy="100" rx="26" ry="6" fill={
-                  selectedBuoy === 'ESTRIBOR' ? '#166534' :
-                  selectedBuoy === 'PELIGRO_AISLADO' ? '#1e293b' :
-                  '#991b1b'
-                } />
-                {/* Agua */}
-                <ellipse cx="40" cy="104" rx="30" ry="8" fill={isNight ? '#0c1a2e' : '#0ea5e9'} opacity="0.8" />
-              </svg>
-
-              <p className={`text-sm font-extrabold ${buoy.color} text-center px-4`}>
-                {buoy.name}
-              </p>
-            </div>
-          )}
+          {/* Etiqueta de modo */}
+          <div className={`absolute bottom-2 left-2 px-2 py-1 rounded-lg border text-[10px] font-bold backdrop-blur ${
+            isNight
+              ? 'bg-slate-950/80 border-indigo-900/60 text-indigo-300'
+              : 'bg-white/70 border-sky-300 text-sky-800'
+          }`}>
+            {isNight ? '🌙 Vista Nocturna — Luz animada' : '☀️ Vista Diurna — Identificación visual'}
+          </div>
         </div>
 
-        {/* Panel Explicativo (5 cols) */}
+        {/* Panel explicativo (5 cols) */}
         <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto h-full">
           <div>
             <h3 className={`text-base font-extrabold ${buoy.color} mb-0.5`}>{buoy.name}</h3>
           </div>
 
           <div className="bg-slate-950 border border-slate-800 rounded-xl p-3 space-y-2 text-xs">
-            <div className="flex justify-between items-center">
-              <span className="text-slate-400">Marca de Tope:</span>
-              <span className="font-bold text-white">{buoy.topMark}</span>
+            <div className="flex justify-between items-start gap-2">
+              <span className="text-slate-400 shrink-0">Marca de Tope:</span>
+              <span className="font-bold text-white text-right">{buoy.topMark}</span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-slate-400">Ritmo Luminoso:</span>
-              <span className="font-bold text-cyan-300">{buoy.lightPattern}</span>
+            <div className="flex justify-between items-start gap-2 border-t border-slate-800 pt-2">
+              <span className="text-slate-400 shrink-0">Ritmo Luminoso:</span>
+              <span className="font-bold text-cyan-300 text-right text-[11px]">{buoy.lightPattern}</span>
             </div>
             {isNight && (
-              <div className="flex items-center gap-2 pt-1 border-t border-slate-800">
-                <div className={`w-3 h-3 rounded-full ${buoy.lightColor} animate-pulse`} />
-                <span className="text-slate-300 text-[10px]">Luz activa — Modo noche</span>
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-800">
+                <div className={`w-3 h-3 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass} shrink-0`} />
+                <span className="text-slate-300 text-[10px]">Animación en tiempo real — patrón {buoy.lightPattern.split('—')[0].trim()}</span>
               </div>
             )}
           </div>
@@ -235,6 +291,25 @@ export const IalaBuoyViewer: React.FC = () => {
           <div className="bg-slate-950 border border-slate-800 rounded-xl p-3 text-[11px] text-slate-200 leading-relaxed">
             {buoy.description}
           </div>
+
+          {/* Diferencia IALA A vs B */}
+          {(selectedBuoy === 'BABOR' || selectedBuoy === 'ESTRIBOR') && (
+            <div className="bg-slate-950 border border-slate-700 rounded-xl p-3 text-[11px]">
+              <p className="font-bold text-slate-300 mb-2">🌍 IALA A (Europa) vs IALA B (América):</p>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-blue-950/60 rounded-lg p-2 text-center">
+                  <p className="text-[9px] text-blue-400 font-bold uppercase">IALA A (Europa)</p>
+                  <p className="text-[10px] text-slate-300 mt-1">🔴 Rojo → <strong>Estribor</strong> al entrar</p>
+                  <p className="text-[10px] text-slate-300">🟢 Verde → <strong>Babor</strong> al entrar</p>
+                </div>
+                <div className="bg-emerald-950/60 rounded-lg p-2 text-center">
+                  <p className="text-[9px] text-emerald-400 font-bold uppercase">IALA B (Arg 🇦🇷)</p>
+                  <p className="text-[10px] text-slate-300 mt-1">🔴 Rojo → <strong>Babor</strong> al entrar</p>
+                  <p className="text-[10px] text-slate-300">🟢 Verde → <strong>Estribor</strong> al entrar</p>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="bg-amber-500/10 border border-amber-500/25 rounded-xl p-3 text-[11px] text-amber-300 font-medium leading-relaxed mt-auto">
             {buoy.rule}
