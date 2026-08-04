@@ -4,11 +4,40 @@ import practicosData from '../../data/practicos.json';
 import type { PracticalExercise } from '../../types/quiz';
 
 const TYPE_LABELS: Record<PracticalExercise['type'], string> = {
+  CARTA_LAT_LONG: 'Latitud, longitud, millas y tiempo',
   DECLINACION: 'Declinación magnética',
   MAREAS: 'Mareas y paso crítico',
   MARCACIONES: 'Marcaciones y posición',
   RUMBO_VELOCIDAD: 'Rumbo, distancia y tiempo'
 };
+
+const ChartScaleGuide: React.FC = () => (
+  <div className="mt-4 rounded-xl border border-cyan-500/30 bg-slate-950 p-3">
+    <div className="grid grid-cols-[1fr_92px] gap-3 items-center">
+      <svg viewBox="0 0 260 145" className="w-full rounded-lg border border-slate-700 bg-[#082f49]" role="img" aria-label="Carta con paralelos de latitud, meridianos de longitud y derrota entre A y B">
+        <defs>
+          <pattern id="chart-grid" width="52" height="36" patternUnits="userSpaceOnUse">
+            <path d="M52 0H0V36" fill="none" stroke="#67e8f9" strokeOpacity=".28" strokeWidth="1" />
+          </pattern>
+          <marker id="route-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#fbbf24" /></marker>
+        </defs>
+        <rect width="260" height="145" fill="url(#chart-grid)" />
+        <path d="M48 108L203 34" stroke="#fbbf24" strokeWidth="4" strokeDasharray="7 4" markerEnd="url(#route-arrow)" />
+        <circle cx="48" cy="108" r="7" fill="#22d3ee" stroke="white" strokeWidth="2" />
+        <circle cx="203" cy="34" r="7" fill="#f59e0b" stroke="white" strokeWidth="2" />
+        <text x="34" y="130" fill="white" fontSize="12" fontWeight="700">A</text>
+        <text x="211" y="29" fill="white" fontSize="12" fontWeight="700">B</text>
+        <text x="8" y="17" fill="#a5f3fc" fontSize="9">paralelos</text>
+        <text x="178" y="138" fill="#a5f3fc" fontSize="9">meridianos</text>
+      </svg>
+      <div className="space-y-2 text-[10px] leading-snug">
+        <div className="rounded-lg bg-cyan-500/10 border border-cyan-500/25 p-2 text-cyan-100"><strong>Escala lateral</strong><br />1′ latitud = 1 MN</div>
+        <div className="rounded-lg bg-amber-500/10 border border-amber-500/25 p-2 text-amber-100"><strong>Tiempo</strong><br />T = D ÷ V</div>
+      </div>
+    </div>
+    <p className="mt-2 text-[10px] leading-relaxed text-slate-400"><strong className="text-rose-300">No midas millas en la escala horizontal de longitud.</strong> Abrí el compás entre A y B y trasladá esa abertura a la escala de latitudes, a la altura media de la derrota.</p>
+  </div>
+);
 
 export const PracticalExercisesView: React.FC = () => {
   const exercises = practicosData as PracticalExercise[];
@@ -44,6 +73,7 @@ export const PracticalExercisesView: React.FC = () => {
             <span className="text-[10px] uppercase tracking-wider font-black">Enunciado</span>
           </div>
           <p className="text-sm text-slate-100 leading-relaxed font-semibold whitespace-pre-line">{exercise.statement}</p>
+          {exercise.type === 'CARTA_LAT_LONG' && <ChartScaleGuide />}
         </div>
 
         <div className="shrink-0 p-3 border-t border-slate-800 space-y-2">

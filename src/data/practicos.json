@@ -1,5 +1,29 @@
 [
   {
+    "id": "prac_carta_1",
+    "category": "PRACTICO",
+    "type": "CARTA_LAT_LONG",
+    "statement": "En una carta náutica, la abertura del compás entre A y B ocupa 7 minutos sobre la escala lateral de latitudes. ¿Qué distancia representa y por qué se lee allí?",
+    "expectedResult": "7 millas náuticas",
+    "explanationStepByStep": "1. Identificar la escala correcta: la graduación vertical de LATITUD situada en los márgenes laterales de la carta.\n2. Llevar con el compás la distancia A–B hasta esa escala, cerca de la latitud media del recorrido.\n3. Leer la abertura: abarca 7 minutos de latitud.\n4. Aplicar la equivalencia náutica fundamental: 1 minuto de latitud = 1 milla náutica.\n5. Calcular: 7′ × 1 MN/′ = 7 MN.\n6. No usar la escala horizontal de longitud: la longitud se estrecha hacia los polos y un minuto de longitud no conserva una milla náutica salvo en el ecuador."
+  },
+  {
+    "id": "prac_carta_2",
+    "category": "PRACTICO",
+    "type": "CARTA_LAT_LONG",
+    "statement": "La posición A es 34° 27′ S / 058° 29′ W y la posición B es 34° 34′ S / 058° 22′ W. Estimá la distancia usando diferencias de latitud y longitud a una latitud media de 34,5° S.",
+    "expectedResult": "Aproximadamente 9,1 MN",
+    "explanationStepByStep": "1. Diferencia de latitud: 34° 34′ − 34° 27′ = 7′. Por definición, ΔLat = 7 MN.\n2. Diferencia de longitud: 58° 29′ − 58° 22′ = 7′ de longitud.\n3. Corregir la longitud a la latitud media: apartamiento = ΔLong × cos(latitud media).\n4. Calcular: 7 × cos(34,5°) ≈ 7 × 0,824 = 5,77 MN.\n5. Formar el triángulo de navegación: distancia = √(ΔLat² + apartamiento²).\n6. Calcular: √(7² + 5,77²) = √82,3 ≈ 9,07 MN.\n7. Redondear según la precisión de la carta: 9,1 MN. En una carta Mercator, se confirma llevando la abertura A–B a la escala lateral de latitudes próxima al recorrido."
+  },
+  {
+    "id": "prac_carta_3",
+    "category": "PRACTICO",
+    "type": "CARTA_LAT_LONG",
+    "statement": "La derrota entre A y B mide 9,1 MN en la escala de latitudes. Si la embarcación mantiene 9 nudos, calculá la duración y la hora estimada de llegada si zarpa a las 10:20.",
+    "expectedResult": "1 h 1 min de navegación; llegada aproximada 11:21",
+    "explanationStepByStep": "1. Recordar que 1 nudo equivale a 1 milla náutica por hora.\n2. Usar Tiempo = Distancia ÷ Velocidad.\n3. Calcular: 9,1 MN ÷ 9 kn = 1,011 horas.\n4. Separar la hora completa: 1 hora y 0,011 horas.\n5. Convertir la fracción a minutos: 0,011 × 60 ≈ 0,67 minutos, que se redondea a 1 minuto.\n6. Duración estimada: 1 h 1 min.\n7. Sumar a la salida: 10:20 + 1:01 = 11:21. El resultado supone velocidad constante y no contempla corriente, viento, maniobras ni demoras."
+  },
+  {
     "id": "prac_1",
     "category": "PRACTICO",
     "type": "DECLINACION",

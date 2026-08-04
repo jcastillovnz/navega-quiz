@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { BookOpen, Check, ChevronRight, Lightbulb, RotateCcw, X } from 'lucide-react';
 import type { QuizQuestion } from '../../types/quiz';
 import * as storage from '../../utils/storage';
@@ -30,7 +30,12 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
   const question = ordered[index];
+
+  useLayoutEffect(() => {
+    contentRef.current?.scrollTo({ top: 0, behavior: 'instant' });
+  }, [index, selected]);
 
   if (!question) {
     return <div className="h-full grid place-items-center text-xs text-slate-400">No hay lecciones disponibles.</div>;
@@ -95,7 +100,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
           </div>
         </div>
 
-        <div className="flex-1 min-h-0 overflow-y-auto p-3">
+        <div ref={contentRef} className="flex-1 min-h-0 overflow-y-auto custom-scroll p-3 scroll-pt-3">
           {!selected ? (
             <div className="space-y-3">
               <div className="rounded-xl border border-cyan-500/25 bg-cyan-500/10 p-3">
@@ -127,13 +132,13 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
               </div>
             </div>
           ) : (
-            <div className="min-h-full flex flex-col gap-2.5 animate-[fade-in_0.25s_ease-out]">
-              <div className={`rounded-xl border px-3 py-2.5 ${isCorrect ? 'border-emerald-400/50 bg-emerald-500/15' : 'border-rose-400/50 bg-rose-500/15'}`}>
+            <div className="flex flex-col gap-2 animate-[fade-in_0.25s_ease-out]">
+              <div className={`rounded-xl border px-3 py-2 ${isCorrect ? 'border-emerald-400/50 bg-emerald-500/15' : 'border-rose-400/50 bg-rose-500/15'}`}>
                 <div className={`flex items-center gap-2 text-sm font-black ${isCorrect ? 'text-emerald-200' : 'text-rose-200'}`}>
                   {isCorrect ? <Check className="w-5 h-5 shrink-0" /> : <X className="w-5 h-5 shrink-0" />}
                   {isCorrect ? 'Respuesta correcta' : 'Respuesta a revisar'}
                 </div>
-                <p className="mt-1.5 text-xs leading-snug text-slate-100">{question.question}</p>
+                <p className="mt-1 text-[11px] leading-snug text-slate-100">{question.question}</p>
               </div>
 
               <div className="grid gap-1.5 text-[11px] leading-relaxed">
@@ -156,7 +161,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
                 <p className="text-xs sm:text-[13px] leading-relaxed text-slate-100">{question.explanation}</p>
               </div>
 
-              <div className="rounded-xl border border-amber-400/25 bg-amber-500/10 px-3 py-2.5">
+              <div className="rounded-xl border border-amber-400/25 bg-amber-500/10 px-3 py-2">
                 <div className="flex gap-2">
                   <Lightbulb className="w-4 h-4 shrink-0 mt-0.5 text-amber-300" />
                   <p className="text-[11px] leading-relaxed text-slate-300">

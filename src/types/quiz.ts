@@ -33,7 +33,7 @@ export interface QuizQuestion {
 export interface PracticalExercise {
   id: string;
   category: 'PRACTICO';
-  type: 'DECLINACION' | 'MAREAS' | 'MARCACIONES' | 'RUMBO_VELOCIDAD';
+  type: 'CARTA_LAT_LONG' | 'DECLINACION' | 'MAREAS' | 'MARCACIONES' | 'RUMBO_VELOCIDAD';
   statement: string; // Enunciado del ejercicio
   expectedResult: number | string; // Resultado numérico o texto esperado
   explanationStepByStep: string; // Explicación resolutiva paso a paso

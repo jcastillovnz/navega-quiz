@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Play, RotateCcw, Info, Ship, Anchor } from 'lucide-react';
+import rule12Sailboats from '../../assets/ripa_rule12_sailboats_realistic.png';
+import rule13Overtaking from '../../assets/ripa_rule13_overtaking_realistic.png';
+import rule14HeadOn from '../../assets/ripa_rule14_headon_realistic.png';
+import rule15Crossing from '../../assets/ripa_rule15_crossing_realistic.png';
+import rule18SailMotor from '../../assets/ripa_rule18_sail_motor_realistic.png';
 
 type ScenarioId = 'VUELTA_ENCONTRADA' | 'CRUCE' | 'ALCANCE' | 'VELEROS' | 'VELERO_VS_MOTOR';
 
@@ -37,6 +42,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     rule: 'RIPA Regla 14',
     description:
       'Dos buques de propulsión mecánica navegando de vuelta encontrada (rumbo opuesto) con riesgo de abordaje. Ambos deben caer a ESTRIBOR para pasar por babor del otro.',
+    illustration: rule14HeadOn,
     vessels: [
       { id: 'A', label: 'A', type: 'MOTOR', x: 28, y: 50, heading: 90, color: 'cyan', isStandOn: false, action: 'Caer a estribor', maneuver: 'STARBOARD' },
       { id: 'B', label: 'B', type: 'MOTOR', x: 72, y: 50, heading: 270, color: 'amber', isStandOn: false, action: 'Caer a estribor', maneuver: 'STARBOARD' }
@@ -48,6 +54,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     rule: 'RIPA Regla 15',
     description:
       'Dos buques de propulsión mecánica se cruzan con riesgo de abordaje. El buque que tenga al otro por su costado de ESTRIBOR se mantiene apartado (cede el paso).',
+    illustration: rule15Crossing,
     vessels: [
       { id: 'A', label: 'A', type: 'MOTOR', x: 50, y: 85, heading: 0, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad', maneuver: 'KEEP' },
       { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 35, heading: 90, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)', maneuver: 'STARBOARD' }
@@ -59,6 +66,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     rule: 'RIPA Regla 13',
     description:
       'Un buque alcanza a otro (viene de un sector de más de 22.5° a popa del través). El buque que ALCANZA debe mantenerse apartado; el alcanzado mantiene rumbo y velocidad.',
+    illustration: rule13Overtaking,
     vessels: [
       { id: 'A', label: 'A', type: 'MOTOR', x: 30, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad', maneuver: 'KEEP' },
       { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 30, heading: 120, color: 'amber', isStandOn: false, action: 'Mantenerse apartado del alcanzado', maneuver: 'STARBOARD' }
@@ -69,6 +77,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     title: 'Dos Veleros (Regla 12)',
     rule: 'RIPA Regla 12',
     description: 'Dos veleros se aproximan con riesgo de abordaje. La prioridad depende de la banda por la que reciben el viento y, si es la misma, de cuál está a barlovento.',
+    illustration: rule12Sailboats,
     vessels: [
       { id: 'A', label: 'B', type: 'VELA', x: 20, y: 70, heading: 35, color: 'amber', isStandOn: false, action: 'Recibe viento por babor: ceder', maneuver: 'STARBOARD' },
       { id: 'B', label: 'E', type: 'VELA', x: 72, y: 65, heading: 325, color: 'cyan', isStandOn: true, action: 'Recibe viento por estribor: mantener', maneuver: 'KEEP' }
@@ -80,6 +89,7 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     rule: 'RIPA Regla 18',
     description:
       'Buque de propulsión mecánica vs. velero. El buque a motor SIEMPRE debe mantenerse apartado del velero (prioridad del velero).',
+    illustration: rule18SailMotor,
     vessels: [
       { id: 'A', label: 'V', type: 'VELA', x: 20, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo (prioridad)', maneuver: 'KEEP' },
       { id: 'B', label: 'M', type: 'MOTOR', x: 15, y: 80, heading: 30, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)', maneuver: 'STARBOARD' }
@@ -240,11 +250,16 @@ export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = (
         <div className="absolute right-2 top-1/2 -translate-y-1/2 text-cyan-500/60 text-[10px] font-bold tracking-widest">E</div>
 
         {currentScenario.illustration && !isPlaying ? (
-          <img
-            src={currentScenario.illustration}
-            alt="Dos embarcaciones a motor de vuelta encontrada, ambas iniciando caída a estribor para pasar babor con babor"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+          <>
+            <img
+              src={currentScenario.illustration}
+              alt={`Escena náutica realista de ${currentScenario.title}: ${currentScenario.description}`}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-transparent px-4 pb-3 pt-12">
+              <p className="text-[10px] font-bold text-white">Leé las proas y las estelas para reconocer rumbo, aproximación y maniobra.</p>
+            </div>
+          </>
         ) : vessels.map(v => (
           <ShipSVG key={v.id} vessel={v} />
         ))}
