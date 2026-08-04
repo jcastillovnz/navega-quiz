@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `0 / 25 Tareas completadas (0%)`
+- **Progreso Global**: `3 / 25 Tareas completadas (12%)`
 - **Estado Actual**: 🔴 **Listo para Iniciar**
-- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 01**
+- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 04**
 
 ---
 
@@ -94,9 +94,9 @@ Leyenda de Estados:
 - `[COMPLETADO]` ✅: Tarea finalizada y verificada.
 
 ### 🚀 FASE 1: Setup & Despliegue en GitHub Pages (Tareas 01 - 04)
-- `[PENDIENTE]` ⏳ **Tarea 01**: Inicializar la estructura base Vite + React + TypeScript + Tailwind CSS con iconos (`lucide-react`).
-- `[PENDIENTE]` ⏳ **Tarea 02**: Configurar `vite.config.ts` (`base: '/navega-quiz/'`).
-- `[PENDIENTE]` ⏳ **Tarea 03**: Crear `.github/workflows/deploy.yml` para GitHub Pages.
+- `[COMPLETADO]` ✅ **Tarea 01**: Inicializar la estructura base Vite + React + TypeScript + Tailwind CSS con paquetes de iconos (`lucide-react`).
+- `[COMPLETADO]` ✅ **Tarea 02**: Configurar `vite.config.ts` (`base: '/navega-quiz/'`).
+- `[COMPLETADO]` ✅ **Tarea 03**: Crear `.github/workflows/deploy.yml` para GitHub Pages.
 - `[PENDIENTE]` ⏳ **Tarea 04**: Crear el Layout principal (`Navbar` Náutica con indicador de Racha Diaria 🔥).
 
 ### 📄 FASE 2: Schemas de Datos y JSONs Náuticos (Tareas 05 - 08)
