@@ -2,16 +2,10 @@
 // Estrategia: cache-first para assets estáticos, network-first para navegación.
 
 const CACHE_NAME = 'navega-quiz-v1';
-const CORE_ASSETS = [
-  '/navega-quiz/',
-  '/navega-quiz/manifest.json',
-  '/navega-quiz/favicon.svg'
-];
 
+// No pre-cacheamos rutas absolutas porque el SW no sabe el base path.
+// En su lugar, cacheamos bajo demanda en el primer fetch.
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)).catch(() => {})
-  );
   self.skipWaiting();
 });
 
@@ -40,7 +34,7 @@ self.addEventListener('fetch', event => {
           caches.open(CACHE_NAME).then(c => c.put(request, copy));
           return res;
         })
-        .catch(() => caches.match('/navega-quiz/').then(r => r || caches.match('/navega-quiz/index.html')))
+        .catch(() => caches.match(request).then(r => r || caches.match('./')))
     );
     return;
   }
