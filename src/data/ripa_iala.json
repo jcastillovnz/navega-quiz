@@ -436,24 +436,24 @@
     "category": "IALA",
     "question": "En el Sistema de Balizamiento IALA Región B, al entrar a un canal desde el mar, ¿de qué color es la boya que debe dejarse a babor?",
     "options": [
-      { "id": "A", "text": "Verde", "isCorrect": false },
+      { "id": "A", "text": "Verde", "isCorrect": true },
       { "id": "B", "text": "Amarillo", "isCorrect": false },
-      { "id": "C", "text": "Rojo", "isCorrect": true },
+      { "id": "C", "text": "Rojo", "isCorrect": false },
       { "id": "D", "text": "Negro", "isCorrect": false }
     ],
-    "explanation": "IALA Región B (América): Entrando desde el mar, la marca lateral de babor es ROJA (cilíndrica) y la de estribor es VERDE (cónica). [REGLA: IALA Sistema de Balizamiento Marítimo] [TIP: En IALA B: 'Babor = Rojo' (cuando volvés al puerto o 'retorning to port from seaward').]"
+    "explanation": "IALA Región B (Argentina): entrando desde el mar, la marca lateral de babor es VERDE y cilíndrica; la de estribor es ROJA y cónica. [REGLA: Sistema de Boyado Marítimo IALA Región B]"
   },
   {
     "id": "iala_2",
     "category": "IALA",
     "question": "En IALA Región B, entrando a puerto, la boya de estribor exhibe una luz de color:",
     "options": [
-      { "id": "A", "text": "Roja", "isCorrect": false },
+      { "id": "A", "text": "Roja", "isCorrect": true },
       { "id": "B", "text": "Blanca", "isCorrect": false },
-      { "id": "C", "text": "Verde", "isCorrect": true },
+      { "id": "C", "text": "Verde", "isCorrect": false },
       { "id": "D", "text": "Amarilla", "isCorrect": false }
     ],
-    "explanation": "En IALA Región B, la boya de estribor es verde y su luz es verde. [REGLA: IALA Sistema de Balizamiento Marítimo] [TIP: En Región B, los colores son: babor=rojo, estribor=verde. Diferencia con Región A (Europa, Asia) donde es al revés.]"
+    "explanation": "En IALA Región B, la marca de estribor entrando es roja, cónica y su luz es roja. La marca de babor es verde y cilíndrica. [REGLA: Sistema de Boyado Marítimo IALA Región B]"
   },
   {
     "id": "iala_3",
@@ -496,12 +496,12 @@
     "category": "IALA",
     "question": "Las marcas cardinales indican peligro en una dirección específica. ¿Cuántos conos tiene la marca Cardinal NORTE?",
     "options": [
-      { "id": "A", "text": "1 cono con el vértice hacia arriba", "isCorrect": true },
-      { "id": "B", "text": "2 conos con los vértices hacia arriba", "isCorrect": false },
+      { "id": "A", "text": "1 cono con el vértice hacia arriba", "isCorrect": false },
+      { "id": "B", "text": "2 conos con los vértices hacia arriba", "isCorrect": true },
       { "id": "C", "text": "1 cono con el vértice hacia abajo", "isCorrect": false },
       { "id": "D", "text": "2 conos opuestos por la base", "isCorrect": false }
     ],
-    "explanation": "Cardinal Norte: 1 cono con vértice hacia ARRIBA. Cardinal Sur: 1 cono con vértice hacia ABAJO. Cardinal Este: 2 conos opuestos por la BASE (horizontal). Cardinal Oeste: 2 conos opuestos por el VÉRTICE (apuntándose). [REGLA: IALA - Marcas cardinales] [TIP: 'Norte = arriba' (1 cono ↑). 'Sur = abajo' (1 cono ↓). 'Este = cintura' (2 conos juntos horizontalmente). 'Oeste = panza' (2 conos apuntándose).]"
+    "explanation": "Cardinal Norte: dos conos con vértices hacia arriba. Sur: dos hacia abajo. Este: bases enfrentadas. Oeste: puntas enfrentadas. [REGLA: IALA - Marcas cardinales]"
   },
   {
     "id": "iala_7",
@@ -513,7 +513,7 @@
       { "id": "C", "text": "Rojo y verde; luz roja fija", "isCorrect": false },
       { "id": "D", "text": "Blanco y rojo a franjas verticales; luz blanca Morse A", "isCorrect": false }
     ],
-    "explanation": "Cardinal Norte: negro arriba, amarillo abajo (franjas horizontales), marca de tope = cono hacia arriba, luz blanca centelleante continua (rapidez). [REGLA: IALA - Cardinales] [TIP: Número de destellos = posición del reloj apuntando al norte: 3=N, 6=E, 9=S, 12=O. Pero Cardinal N = centelleante CONTINUO, no de 3.]"
+    "explanation": "Cardinal Norte: negro arriba, amarillo abajo, dos conos hacia arriba y luz blanca rápida o muy rápida continua. Este usa 3 destellos, Sur 6 más uno largo y Oeste 9. [REGLA: IALA - Cardinales]"
   },
   {
     "id": "iala_8",
@@ -532,12 +532,12 @@
     "category": "IALA",
     "question": "¿Cuál es el orden de las boyas laterales al entrar a puerto desde el mar en IALA Región B?",
     "options": [
-      { "id": "A", "text": "Verde a babor, roja a estribor", "isCorrect": false },
-      { "id": "B", "text": "Roja a babor, verde a estribor", "isCorrect": true },
+      { "id": "A", "text": "Verde a babor, roja a estribor", "isCorrect": true },
+      { "id": "B", "text": "Roja a babor, verde a estribor", "isCorrect": false },
       { "id": "C", "text": "Amarilla a babor, verde a estribor", "isCorrect": false },
       { "id": "D", "text": "No hay orden específico", "isCorrect": false }
     ],
-    "explanation": "En IALA Región B (América, Argentina): al entrar desde el mar, babor = ROJA y estribor = VERDE. Al salir (rumbo al mar), es al revés. [REGLA: IALA - Boyas laterales Región B]"
+    "explanation": "En IALA Región B (Argentina), entrando desde el mar: verde a babor y roja a estribor. [REGLA: IALA Región B]"
   },
   {
     "id": "iala_10",
@@ -549,6 +549,6 @@
       { "id": "C", "text": "Ambas cónicas", "isCorrect": false },
       { "id": "D", "text": "Babor: cónica; Estribor: cilíndrica", "isCorrect": false }
     ],
-    "explanation": "En Región B: babor = cilíndrica (roja), estribor = cónica (verde). [REGLA: IALA - Boyas laterales Región B] [TIP: 'Cónica = verde' suena a 'cono verde' (cono apunta hacia arriba como el árbol). 'Cilíndrica = roja' como un cilindro/barril rojo.]"
+    "explanation": "En Región B: babor = cilíndrica verde; estribor = cónica roja. [REGLA: IALA Región B]"
   }
 ]

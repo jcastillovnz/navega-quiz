@@ -72,6 +72,25 @@ body {
   background: rgba(100, 116, 139, 0.6);
 }
 
+/* Las láminas que acompañan preguntas son observacionales: sin controles ni movimiento. */
+.static-question-visual button,
+.static-question-visual input,
+.static-question-visual select {
+  display: none !important;
+}
+
+.static-question-visual *:not(.question-light-animation),
+.static-question-visual *:not(.question-light-animation)::before,
+.static-question-visual *:not(.question-light-animation)::after {
+  animation: none !important;
+  transition: none !important;
+  pointer-events: none !important;
+}
+
+.static-question-visual .question-light-animation {
+  pointer-events: none !important;
+}
+
 /* Efectos Fotorrealistas (Luces y Faros) para el Modo Noche */
 .glow-red { 
   box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.7); 

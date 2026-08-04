@@ -11,9 +11,7 @@ import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer
 import { MeteorologyConceptViewer } from './components/meteorologia/MeteorologyConceptViewer';
 import { KnotsViewer } from './components/knots/KnotsViewer';
 import { RealExamView } from './components/exam/RealExamView';
-import { DeclinationCalculator } from './components/practico/DeclinationCalculator';
-import { TideCalculator } from './components/practico/TideCalculator';
-import { BearingsSimulator } from './components/practico/BearingsSimulator';
+import { PracticalExercisesView } from './components/practico/PracticalExercisesView';
 import { 
   Shield, 
   Sailboat, 
@@ -24,8 +22,6 @@ import {
   GraduationCap, 
   Home, 
   Compass,
-  MapPin,
-  Waves,
   Anchor
 } from 'lucide-react';
 import nudosData from './data/nudos.json';
@@ -35,7 +31,6 @@ type ActiveView = 'HOME' | ModuleId;
 
 function App() {
   const [activeView, setActiveView] = useState<ActiveView>('HOME');
-  const [practicoTab, setPracticoTab] = useState<'DECLINACION' | 'MAREAS' | 'MARCACIONES'>('DECLINACION');
 
   // Banco específico de cabuyería: evita mezclar preguntas de Seguridad.
   const knotsQuestions = nudosData as QuizQuestion[];
@@ -209,6 +204,11 @@ function App() {
                 icon: Sailboat
               }}
               viewer={<NomenclaturaViewer compact />}
+              visualForQuestion={question => {
+                const text = `${question.question} ${question.explanation}`.toLowerCase();
+                const focusSection = /jarcia|vela|mástil|mastil|obenque|estay|driza|escota|botavara/.test(text) ? 'JARCIA' : 'CASCO';
+                return <NomenclaturaViewer compact focusSection={focusSection} />;
+              }}
             />
           )}
 
@@ -232,50 +232,17 @@ function App() {
                 if (/breeze|brisa/.test(text)) return <MeteorologyConceptViewer focus="BRISAS" />;
                 if (/wave|oleaje|douglas|fetch/.test(text)) return <MeteorologyConceptViewer focus="OLEAJE" />;
                 if (/wind|viento|anemómetro|veleta/.test(text)) return <MeteorologyConceptViewer focus="VIENTO" />;
-                return <MeteorologiaViewer />;
+                if (/pampero/.test(text)) return <MeteorologiaViewer focusPhenomenon="PAMPERO" />;
+                if (/sudestada/.test(text)) return <MeteorologiaViewer focusPhenomenon="SUDESTADA" />;
+                if (/beaufort|fuerza del viento|nudos/.test(text)) return <MeteorologiaViewer focusBeaufort={6} />;
+                return <MeteorologiaViewer focusBeaufort={3} />;
               }}
             />
           )}
 
           {/* MÓDULO 5: EJERCICIOS PRÁCTICOS DE NAVEGACIÓN */}
           {activeView === 'PRACTICOS' && (
-            <div className="h-full flex flex-col gap-2 overflow-hidden">
-              <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 shrink-0 max-w-md mx-auto w-full">
-                <button
-                  onClick={() => setPracticoTab('DECLINACION')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    practicoTab === 'DECLINACION' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  <Calculator className="w-3.5 h-3.5" />
-                  Declinación (Dm)
-                </button>
-                <button
-                  onClick={() => setPracticoTab('MAREAS')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    practicoTab === 'MAREAS' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  <Waves className="w-3.5 h-3.5" />
-                  Mareas
-                </button>
-                <button
-                  onClick={() => setPracticoTab('MARCACIONES')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    practicoTab === 'MARCACIONES' ? 'bg-emerald-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  <MapPin className="w-3.5 h-3.5" />
-                  Marcaciones
-                </button>
-              </div>
-
-              <div className="flex-1 min-h-0 overflow-y-auto">
-                {practicoTab === 'DECLINACION' && <DeclinationCalculator />}
-                {practicoTab === 'MAREAS' && <TideCalculator />}
-                {practicoTab === 'MARCACIONES' && <BearingsSimulator />}
-              </div>
-            </div>
+            <PracticalExercisesView />
           )}
 
           {/* MÓDULO 6: NUDOS NÁUTICOS */}

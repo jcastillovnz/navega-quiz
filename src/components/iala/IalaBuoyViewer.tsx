@@ -29,25 +29,25 @@ interface BuoyInfo {
 const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
   BABOR: {
     name: 'Boya de Babor (Región B)',
-    color: 'text-red-400', accentColor: 'border-red-500/50',
-    topMark: '🟥 Cilíndrica Roja',
-    lightPattern: 'Fl R — Destello simple Rojo cada 2.5s',
-    lightColorClass: 'bg-red-500', lightAnimClass: 'animate-flash-rapid animate-glow-red',
-    lightRgb: '239,68,68',
-    description: 'En IALA B (Sudamérica), al entrar a puerto dejás la boya ROJA a tu BABOR. Marca el límite de babor del canal navegable.',
-    rule: '🇦🇷 Argentina IALA B: "ROJO a Babor al ENTRAR"',
-    bodyColor: '#dc2626', topShape: 'cylinder', topColor: '#dc2626',
+    color: 'text-emerald-400', accentColor: 'border-emerald-500/50',
+    topMark: '🟩 Cilíndrica Verde',
+    lightPattern: 'Fl G — Destello simple Verde',
+    lightColorClass: 'bg-emerald-500', lightAnimClass: 'animate-flash-rapid animate-glow-green',
+    lightRgb: '34,197,94',
+    description: 'En IALA B, entrando desde el mar, la marca VERDE cilíndrica delimita el lado de BABOR del canal.',
+    rule: '🇦🇷 Argentina · IALA B: VERDE a BABOR entrando',
+    bodyColor: '#16a34a', topShape: 'cylinder', topColor: '#16a34a',
   },
   ESTRIBOR: {
     name: 'Boya de Estribor (Región B)',
-    color: 'text-emerald-400', accentColor: 'border-emerald-500/50',
-    topMark: '🔺 Cónica Verde',
-    lightPattern: 'Fl G — Destello simple Verde cada 2.5s',
-    lightColorClass: 'bg-emerald-500', lightAnimClass: 'animate-flash-rapid animate-glow-green',
-    lightRgb: '34,197,94',
-    description: 'En IALA B, al entrar a puerto dejás la boya VERDE a tu ESTRIBOR. Marca el límite de estribor del canal.',
-    rule: '✅ Verde a Estribor al entrar. Opuesto a IALA A (Europa).',
-    bodyColor: '#16a34a', topShape: 'cone', topColor: '#16a34a',
+    color: 'text-red-400', accentColor: 'border-red-500/50',
+    topMark: '🔺 Cónica Roja',
+    lightPattern: 'Fl R — Destello simple Rojo',
+    lightColorClass: 'bg-red-500', lightAnimClass: 'animate-flash-rapid animate-glow-red',
+    lightRgb: '239,68,68',
+    description: 'En IALA B, entrando desde el mar, la marca ROJA cónica delimita el lado de ESTRIBOR del canal.',
+    rule: '🇦🇷 Argentina · IALA B: ROJO a ESTRIBOR entrando',
+    bodyColor: '#dc2626', topShape: 'cone', topColor: '#dc2626',
   },
   CARDINAL_N: {
     name: 'Cardinal Norte', color: 'text-amber-300', accentColor: 'border-amber-400/50',
@@ -269,18 +269,18 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
             />
           )}
 
-          {/* BABOR: usa foto real */}
-          {selectedBuoy === 'BABOR' ? (
+          {/* La foto roja corresponde a la lateral de estribor en Región B */}
+          {selectedBuoy === 'ESTRIBOR' ? (
             <div className="relative z-10 w-full h-full flex items-center justify-center p-2">
               <div className="animate-buoy-sway relative">
                 <img
                   src={ialaBuoyImg}
-                  alt="Boya de babor IALA Región B — roja"
+                  alt="Boya lateral de estribor IALA Región B — roja y cónica"
                   className="h-56 md:h-72 object-contain drop-shadow-2xl"
                 />
                 {isNight && (
                   <div
-                    className={`absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass}`}
+                    className={`question-light-animation absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass}`}
                   />
                 )}
               </div>
@@ -290,7 +290,7 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
             <div className="relative z-10 flex flex-col items-center justify-center gap-2">
               {/* Luz pulsante nocturna */}
               {isNight && (
-                <div className={`w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass} mb-1`} />
+                <div className={`question-light-animation w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass} mb-1`} />
               )}
 
               {/* Boya SVG con balanceo */}
@@ -356,7 +356,7 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
             </div>
             {isNight && (
               <div className="flex items-center gap-2 pt-2 border-t border-slate-800">
-                <div className={`w-3 h-3 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass} shrink-0`} />
+                <div className={`question-light-animation w-3 h-3 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass} shrink-0`} />
                 <span className="text-slate-300 text-[10px]">Animación en tiempo real — patrón {buoy.lightPattern.split('—')[0].trim()}</span>
               </div>
             )}
@@ -373,13 +373,13 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-blue-950/60 rounded-lg p-2 text-center">
                   <p className="text-[9px] text-blue-400 font-bold uppercase">IALA A (Europa)</p>
-                  <p className="text-[10px] text-slate-300 mt-1">🔴 Rojo → <strong>Estribor</strong> al entrar</p>
-                  <p className="text-[10px] text-slate-300">🟢 Verde → <strong>Babor</strong> al entrar</p>
+                  <p className="text-[10px] text-slate-300 mt-1">🟢 Verde → <strong>Estribor</strong> al entrar</p>
+                  <p className="text-[10px] text-slate-300">🔴 Rojo → <strong>Babor</strong> al entrar</p>
                 </div>
                 <div className="bg-emerald-950/60 rounded-lg p-2 text-center">
                   <p className="text-[9px] text-emerald-400 font-bold uppercase">IALA B (Arg 🇦🇷)</p>
-                  <p className="text-[10px] text-slate-300 mt-1">🔴 Rojo → <strong>Babor</strong> al entrar</p>
-                  <p className="text-[10px] text-slate-300">🟢 Verde → <strong>Estribor</strong> al entrar</p>
+                  <p className="text-[10px] text-slate-300 mt-1">🟢 Verde → <strong>Babor</strong> al entrar</p>
+                  <p className="text-[10px] text-slate-300">🔴 Rojo → <strong>Estribor</strong> al entrar</p>
                 </div>
               </div>
             </div>

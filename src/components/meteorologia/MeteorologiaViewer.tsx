@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Wind, Cloud, CloudRain, Zap, Sun, Waves } from 'lucide-react';
 
 interface BeaufortStep {
@@ -66,10 +66,15 @@ const PHENOMENA: Record<Phenomenon, { title: string; color: string; description:
   }
 };
 
-export const MeteorologiaViewer: React.FC = () => {
+export const MeteorologiaViewer: React.FC<{ focusPhenomenon?: Phenomenon; focusBeaufort?: number }> = ({ focusPhenomenon, focusBeaufort }) => {
   const [beaufort, setBeaufort] = useState(0);
   const [phenomenon, setPhenomenon] = useState<Phenomenon | null>(null);
   const step = BEAUFORT[beaufort];
+
+  useEffect(() => {
+    if (focusPhenomenon) setPhenomenon(focusPhenomenon);
+    if (focusBeaufort !== undefined) setBeaufort(Math.min(12, Math.max(0, focusBeaufort)));
+  }, [focusPhenomenon, focusBeaufort]);
 
   return (
     <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">

@@ -30,8 +30,20 @@ export const ModuloRipaIalaView: React.FC = () => {
           questions={questions}
           visual={<RipaCrossingSimulator />}
           visualForQuestion={question => {
-            if (/luz|luces|marca|noche/i.test(question.question)) return <RipaLightViewer compact />;
-            return <RipaCrossingSimulator />;
+            const text = `${question.id} ${question.question} ${question.explanation}`.toLowerCase();
+            if (/luz|luces|marca de día|fondead|noche|arco de visibilidad|pitada|señal acústica/.test(text)) {
+              const focusShipType = /velero|vela/.test(text) ? 'VELA' : 'MOTOR';
+              const focusPerspective = /alcance|popa/.test(text) ? 'POPA'
+                : /babor/.test(text) && !/estribor/.test(text) ? 'BABOR'
+                  : /estribor/.test(text) && !/babor/.test(text) ? 'ESTRIBOR' : 'PROA';
+              return <RipaLightViewer compact focusShipType={focusShipType} focusPerspective={focusPerspective} />;
+            }
+            if (/alcanz/.test(text)) return <RipaCrossingSimulator focusScenario="ALCANCE" />;
+            if (/vuelta encontrada|regla 14/.test(text)) return <RipaCrossingSimulator focusScenario="VUELTA_ENCONTRADA" />;
+            if (/cruce|regla 15|costado de estribor/.test(text)) return <RipaCrossingSimulator focusScenario="CRUCE" />;
+            if (/regla 12|dos veleros|buques de vela/.test(text)) return <RipaCrossingSimulator focusScenario="VELEROS" />;
+            if (/velero|vela|regla 18|prioridad/.test(text)) return <RipaCrossingSimulator focusScenario="VELERO_VS_MOTOR" />;
+            return <RipaCrossingSimulator focusScenario="CRUCE" />;
           }}
         />
       </div>

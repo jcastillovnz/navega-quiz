@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import ripaBowImg from '../../assets/ripa_lights_bow.png';
 
@@ -76,13 +76,22 @@ const PERSPECTIVE_INFO: Record<Perspective, {
   },
 };
 
-export const RipaLightViewer: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
+export const RipaLightViewer: React.FC<{
+  compact?: boolean;
+  focusShipType?: ShipType;
+  focusPerspective?: Perspective;
+}> = ({ compact = false, focusShipType, focusPerspective }) => {
   const [isNight, setIsNight] = useState(true);
   const [perspective, setPerspective] = useState<Perspective>('PROA');
   const [shipType, setShipType] = useState<ShipType>('MOTOR');
 
   const info = PERSPECTIVE_INFO[perspective];
   const visibleLights = getVisibleLights(perspective, shipType);
+
+  useEffect(() => {
+    if (focusShipType) setShipType(focusShipType);
+    if (focusPerspective) setPerspective(focusPerspective);
+  }, [focusShipType, focusPerspective]);
 
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
@@ -160,6 +169,14 @@ export const RipaLightViewer: React.FC<{ compact?: boolean }> = ({ compact = fal
                   alt="Vista de proa con luces RIPA nocturnas"
                   className="h-64 md:h-80 object-contain rounded-xl"
                 />
+                {visibleLights.map((light, i) => (
+                  <div
+                    key={i}
+                    className={`question-light-animation absolute rounded-full ${light.color} ${light.glowClass} ${light.size ?? 'w-3.5 h-3.5'}`}
+                    style={{ top: light.top, left: light.left, transform: 'translate(-50%, -50%)' }}
+                    title={light.label}
+                  />
+                ))}
               </div>
             </div>
           ) : (
@@ -197,7 +214,7 @@ export const RipaLightViewer: React.FC<{ compact?: boolean }> = ({ compact = fal
                 {isNight && visibleLights.map((light, i) => (
                   <div
                     key={i}
-                    className={`absolute rounded-full ${light.color} ${light.glowClass} ${light.size ?? 'w-3.5 h-3.5'}`}
+                    className={`question-light-animation absolute rounded-full ${light.color} ${light.glowClass} ${light.size ?? 'w-3.5 h-3.5'}`}
                     style={{ top: light.top, left: light.left, transform: 'translate(-50%, -50%)' }}
                     title={light.label}
                   />

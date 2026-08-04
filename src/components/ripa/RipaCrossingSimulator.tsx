@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Play, RotateCcw, Info, Ship, Anchor } from 'lucide-react';
 
-type ScenarioId = 'VUELTA_ENCONTRADA' | 'CRUCE' | 'ALCANCE' | 'VELERO_VS_MOTOR';
+type ScenarioId = 'VUELTA_ENCONTRADA' | 'CRUCE' | 'ALCANCE' | 'VELEROS' | 'VELERO_VS_MOTOR';
 
 interface Vessel {
   id: 'A' | 'B';
@@ -18,6 +18,7 @@ interface Vessel {
   isStandOn: boolean;
   // Maniobra sugerida (texto RIPA)
   action: string;
+  maneuver: 'KEEP' | 'STARBOARD';
 }
 
 interface Scenario {
@@ -26,6 +27,7 @@ interface Scenario {
   rule: string;
   description: string;
   vessels: Vessel[];
+  illustration?: string;
 }
 
 const SCENARIOS: Record<ScenarioId, Scenario> = {
@@ -36,8 +38,8 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     description:
       'Dos buques de propulsión mecánica navegando de vuelta encontrada (rumbo opuesto) con riesgo de abordaje. Ambos deben caer a ESTRIBOR para pasar por babor del otro.',
     vessels: [
-      { id: 'A', label: 'A', type: 'MOTOR', x: 20, y: 25, heading: 135, color: 'cyan', isStandOn: true, action: 'Caer a estribor' },
-      { id: 'B', label: 'B', type: 'MOTOR', x: 80, y: 75, heading: 315, color: 'amber', isStandOn: true, action: 'Caer a estribor' }
+      { id: 'A', label: 'A', type: 'MOTOR', x: 28, y: 50, heading: 90, color: 'cyan', isStandOn: false, action: 'Caer a estribor', maneuver: 'STARBOARD' },
+      { id: 'B', label: 'B', type: 'MOTOR', x: 72, y: 50, heading: 270, color: 'amber', isStandOn: false, action: 'Caer a estribor', maneuver: 'STARBOARD' }
     ]
   },
   CRUCE: {
@@ -47,8 +49,8 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     description:
       'Dos buques de propulsión mecánica se cruzan con riesgo de abordaje. El buque que tenga al otro por su costado de ESTRIBOR se mantiene apartado (cede el paso).',
     vessels: [
-      { id: 'A', label: 'A', type: 'MOTOR', x: 50, y: 85, heading: 0, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad' },
-      { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 35, heading: 90, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)' }
+      { id: 'A', label: 'A', type: 'MOTOR', x: 50, y: 85, heading: 0, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad', maneuver: 'KEEP' },
+      { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 35, heading: 90, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)', maneuver: 'STARBOARD' }
     ]
   },
   ALCANCE: {
@@ -58,8 +60,18 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     description:
       'Un buque alcanza a otro (viene de un sector de más de 22.5° a popa del través). El buque que ALCANZA debe mantenerse apartado; el alcanzado mantiene rumbo y velocidad.',
     vessels: [
-      { id: 'A', label: 'A', type: 'MOTOR', x: 30, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad' },
-      { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 30, heading: 120, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)' }
+      { id: 'A', label: 'A', type: 'MOTOR', x: 30, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo y velocidad', maneuver: 'KEEP' },
+      { id: 'B', label: 'B', type: 'MOTOR', x: 15, y: 30, heading: 120, color: 'amber', isStandOn: false, action: 'Mantenerse apartado del alcanzado', maneuver: 'STARBOARD' }
+    ]
+  },
+  VELEROS: {
+    id: 'VELEROS',
+    title: 'Dos Veleros (Regla 12)',
+    rule: 'RIPA Regla 12',
+    description: 'Dos veleros se aproximan con riesgo de abordaje. La prioridad depende de la banda por la que reciben el viento y, si es la misma, de cuál está a barlovento.',
+    vessels: [
+      { id: 'A', label: 'B', type: 'VELA', x: 20, y: 70, heading: 35, color: 'amber', isStandOn: false, action: 'Recibe viento por babor: ceder', maneuver: 'STARBOARD' },
+      { id: 'B', label: 'E', type: 'VELA', x: 72, y: 65, heading: 325, color: 'cyan', isStandOn: true, action: 'Recibe viento por estribor: mantener', maneuver: 'KEEP' }
     ]
   },
   VELERO_VS_MOTOR: {
@@ -69,8 +81,8 @@ const SCENARIOS: Record<ScenarioId, Scenario> = {
     description:
       'Buque de propulsión mecánica vs. velero. El buque a motor SIEMPRE debe mantenerse apartado del velero (prioridad del velero).',
     vessels: [
-      { id: 'A', label: 'V', type: 'VELA', x: 20, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo (prioridad)' },
-      { id: 'B', label: 'M', type: 'MOTOR', x: 15, y: 80, heading: 30, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)' }
+      { id: 'A', label: 'V', type: 'VELA', x: 20, y: 50, heading: 90, color: 'cyan', isStandOn: true, action: 'Mantener rumbo (prioridad)', maneuver: 'KEEP' },
+      { id: 'B', label: 'M', type: 'MOTOR', x: 15, y: 80, heading: 30, color: 'amber', isStandOn: false, action: 'Caer a estribor (ceder paso)', maneuver: 'STARBOARD' }
     ]
   }
 };
@@ -136,11 +148,15 @@ const ShipSVG: React.FC<{ vessel: Vessel; size?: number }> = ({ vessel, size = 4
   );
 };
 
-export const RipaCrossingSimulator: React.FC = () => {
-  const [scenarioId, setScenarioId] = useState<ScenarioId>('VUELTA_ENCONTRADA');
+export const RipaCrossingSimulator: React.FC<{ focusScenario?: ScenarioId }> = ({ focusScenario }) => {
+  const [scenarioId, setScenarioId] = useState<ScenarioId>(focusScenario ?? 'VUELTA_ENCONTRADA');
   const [isPlaying, setIsPlaying] = useState(false);
   const [vessels, setVessels] = useState<Vessel[]>(SCENARIOS.VUELTA_ENCONTRADA.vessels);
   const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    if (focusScenario) setScenarioId(focusScenario);
+  }, [focusScenario]);
 
   // Cargar el escenario cuando cambia el id
   useEffect(() => {
@@ -157,12 +173,10 @@ export const RipaCrossingSimulator: React.FC = () => {
       setTick(t => t + 1);
       setVessels(prev =>
         prev.map(v => {
-          // El barco no prioritario (cede paso) cae a estribor: ajusta heading +30°
-          // Solo a partir del tick 10 para que se vea claro
-          const adjustedHeading =
-            !v.isStandOn && tick > 10
-              ? (v.heading + 30) % 360
-              : v.heading;
+          // La caída se ejecuta de forma gradual una sola vez (30° en total).
+          // En vuelta encontrada maniobran ambos; en los demás casos, solo quien cede.
+          const shouldTurn = v.maneuver === 'STARBOARD' && tick >= 10 && tick < 20;
+          const adjustedHeading = shouldTurn ? (v.heading + 3) % 360 : v.heading;
           const { dx, dy } = headingToVector(adjustedHeading);
           const speed = 0.6; // % por frame
           return {
@@ -188,7 +202,7 @@ export const RipaCrossingSimulator: React.FC = () => {
   return (
     <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
       {/* Selector de Escenarios */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
         {(Object.keys(SCENARIOS) as ScenarioId[]).map(id => (
           <button
             key={id}
@@ -225,13 +239,18 @@ export const RipaCrossingSimulator: React.FC = () => {
         <div className="absolute left-2 top-1/2 -translate-y-1/2 text-cyan-500/60 text-[10px] font-bold tracking-widest">W</div>
         <div className="absolute right-2 top-1/2 -translate-y-1/2 text-cyan-500/60 text-[10px] font-bold tracking-widest">E</div>
 
-        {/* Barcos */}
-        {vessels.map(v => (
+        {currentScenario.illustration && !isPlaying ? (
+          <img
+            src={currentScenario.illustration}
+            alt="Dos embarcaciones a motor de vuelta encontrada, ambas iniciando caída a estribor para pasar babor con babor"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : vessels.map(v => (
           <ShipSVG key={v.id} vessel={v} />
         ))}
 
         {/* Indicador de "Prioridad" cuando está en play */}
-        {isPlaying && tick > 10 && (
+        {isPlaying && tick > 10 && vessels.filter(v => v.isStandOn).length === 1 && (
           <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur border border-cyan-500/30 rounded-lg px-2 py-1 text-[10px] text-cyan-300 flex items-center gap-1">
             <Anchor className="w-3 h-3" />
             {vessels.find(v => v.isStandOn)?.label} prioriza

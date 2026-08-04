@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import sailboatAnatomy from '../../assets/sailboat_anatomy.png';
 import sailboatRigging from '../../assets/sailboat_rigging.png';
 
@@ -26,9 +26,13 @@ const RIGGING_TERMS = [
 
 type Section = 'CASCO' | 'JARCIA';
 
-export const NomenclaturaViewer: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
+export const NomenclaturaViewer: React.FC<{ compact?: boolean; focusSection?: Section }> = ({ compact = false, focusSection }) => {
   const [section, setSection] = useState<Section>('CASCO');
   const [filter, setFilter] = useState<'TODOS' | 'FIJA' | 'MOVIL'>('TODOS');
+
+  useEffect(() => {
+    if (focusSection) setSection(focusSection);
+  }, [focusSection]);
 
   const filteredRigging = RIGGING_TERMS.filter(t =>
     filter === 'TODOS' ? true : t.type === filter
