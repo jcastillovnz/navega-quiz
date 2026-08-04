@@ -1,0 +1,146 @@
+[
+  {
+    "id": "nom_1",
+    "category": "NOMENCLATURA",
+    "question": "¿Qué nombre recibe el cabo de acero que sujeta el mástil desde la proa hacia la perilla?",
+    "options": [
+      { "id": "A", "text": "Obenque", "isCorrect": false },
+      { "id": "B", "text": "Estay proel", "isCorrect": true },
+      { "id": "C", "text": "Estay popel", "isCorrect": false },
+      { "id": "D", "text": "Amantillo", "isCorrect": false }
+    ],
+    "explanation": "El Estay proel (o simplemente estay) es el cable de la jarcia fija que sujeta el mástil longitudinalmente desde la proa."
+  },
+  {
+    "id": "nom_2",
+    "category": "NOMENCLATURA",
+    "question": "En la vela mayor, ¿cómo se llama el borde o lado de popa por donde escapa el viento?",
+    "options": [
+      { "id": "A", "text": "Gratil", "isCorrect": false },
+      { "id": "B", "text": "Pujamen", "isCorrect": false },
+      { "id": "C", "text": "Baluma", "isCorrect": true },
+      { "id": "D", "text": "Puño de amura", "isCorrect": false }
+    ],
+    "explanation": "La baluma es la caída de popa de la vela. El gratil es el borde de proa y el pujamen el borde inferior."
+  },
+  {
+    "id": "nom_3",
+    "category": "NOMENCLATURA",
+    "question": "¿Qué es el francobordo?",
+    "options": [
+      { "id": "A", "text": "La distancia vertical desde la línea de flotación hasta la cubierta principal.", "isCorrect": true },
+      { "id": "B", "text": "La parte del casco que siempre está sumergida.", "isCorrect": false },
+      { "id": "C", "text": "El ancho máximo de la embarcación.", "isCorrect": false },
+      { "id": "D", "text": "La distancia desde el fondo del barco hasta la línea de flotación.", "isCorrect": false }
+    ],
+    "explanation": "El francobordo es la distancia vertical medida en el centro del buque desde la línea de flotación hasta la cubierta principal o de intemperie. Otorga reserva de flotabilidad."
+  },
+  {
+    "id": "nom_4",
+    "category": "NOMENCLATURA",
+    "question": "Los cabos utilizados para izar (subir) las velas se denominan:",
+    "options": [
+      { "id": "A", "text": "Escotas", "isCorrect": false },
+      { "id": "B", "text": "Drisas", "isCorrect": true },
+      { "id": "C", "text": "Amantillos", "isCorrect": false },
+      { "id": "D", "text": "Ostas", "isCorrect": false }
+    ],
+    "explanation": "Las drisas son los cabos que sirven para izar las velas (subirlas por el mástil). Las escotas sirven para cazarlas o filarlas."
+  },
+  {
+    "id": "seg_1",
+    "category": "SEGURIDAD",
+    "question": "Durante la navegación, ¿quiénes están obligados a tener colocado un chaleco salvavidas aprobado?",
+    "options": [
+      { "id": "A", "text": "Todos los tripulantes.", "isCorrect": false },
+      { "id": "B", "text": "Solo los menores de edad, aunque se recomienda para todos.", "isCorrect": false },
+      { "id": "C", "text": "Debe haber uno por tripulante a bordo, y debe llevarse puesto en situaciones climáticas adversas o maniobras de riesgo.", "isCorrect": true },
+      { "id": "D", "text": "Solo el timonel.", "isCorrect": false }
+    ],
+    "explanation": "Es obligatorio contar con un chaleco aprobado por persona a bordo. PNA exige su uso en situaciones de mal tiempo, navegación nocturna, cruce de barras, o si el timonel lo ordena."
+  },
+  {
+    "id": "seg_2",
+    "category": "SEGURIDAD",
+    "question": "Al escuchar la señal de socorro 'MAYDAY' tres veces por radio VHF en el canal 16, usted debe:",
+    "options": [
+      { "id": "A", "text": "Ignorarla si no es dirigida a usted.", "isCorrect": false },
+      { "id": "B", "text": "Emitir otra señal de Mayday para retransmitir.", "isCorrect": false },
+      { "id": "C", "text": "Cesar toda transmisión y mantenerse a la escucha en silencio, preparándose para asistir si está cerca.", "isCorrect": true },
+      { "id": "D", "text": "Cambiar al canal 72 para dejar libre el 16.", "isCorrect": false }
+    ],
+    "explanation": "Un MAYDAY indica peligro grave e inminente. Debe guardarse absoluto silencio de radio, anotar la posición y mantenerse a la escucha por si puede prestar asistencia (o si PNA solicita su apoyo)."
+  },
+  {
+    "id": "seg_3",
+    "category": "SEGURIDAD",
+    "question": "¿Qué tipo de ancla es la 'Danforth'?",
+    "options": [
+      { "id": "A", "text": "De peso y arado.", "isCorrect": false },
+      { "id": "B", "text": "De uñas articuladas de gran superficie (tipo patente).", "isCorrect": true },
+      { "id": "C", "text": "Tipo hongo, ideal para lodo blando.", "isCorrect": false },
+      { "id": "D", "text": "Un ancla de capa para temporales.", "isCorrect": false }
+    ],
+    "explanation": "El ancla Danforth es ligera y posee dos uñas largas articuladas que se clavan en la arena o barro. Es una de las más utilizadas en yates por su relación agarre/peso."
+  },
+  {
+    "id": "seg_4",
+    "category": "SEGURIDAD",
+    "question": "¿Qué proporción de cadena/cabo se recomienda filar (soltar) al fondear en condiciones normales?",
+    "options": [
+      { "id": "A", "text": "1 vez la profundidad.", "isCorrect": false },
+      { "id": "B", "text": "Entre 3 y 5 veces la profundidad.", "isCorrect": true },
+      { "id": "C", "text": "Siempre 10 veces la profundidad.", "isCorrect": false },
+      { "id": "D", "text": "No importa, siempre y cuando el ancla toque el fondo.", "isCorrect": false }
+    ],
+    "explanation": "En fondeo normal (sin mal tiempo) se recomienda filar entre 3 a 5 veces la profundidad (longitud de línea). Con mal tiempo, 7 a 10 veces."
+  },
+  {
+    "id": "met_1",
+    "category": "METEOROLOGIA",
+    "question": "En el Río de la Plata, el viento denominado 'Pampero' se caracteriza por ser:",
+    "options": [
+      { "id": "A", "text": "Un viento cálido y húmedo del Norte.", "isCorrect": false },
+      { "id": "B", "text": "Un viento constante y persistente del Sudeste.", "isCorrect": false },
+      { "id": "C", "text": "Un viento fuerte, frío y seco proveniente del Sudoeste.", "isCorrect": true },
+      { "id": "D", "text": "Una brisa térmica nocturna.", "isCorrect": false }
+    ],
+    "explanation": "El Pampero es un frente frío proveniente del SW (Sudoeste). Suele presentarse con fuertes ráfagas, marcado descenso de la temperatura, baja humedad y rápido aumento de la presión."
+  },
+  {
+    "id": "met_2",
+    "category": "METEOROLOGIA",
+    "question": "¿Qué efecto provoca generalmente la Sudestada sobre el nivel del Río de la Plata?",
+    "options": [
+      { "id": "A", "text": "Produce una bajante pronunciada.", "isCorrect": false },
+      { "id": "B", "text": "Produce un aumento del nivel (pleamares superiores y falta de bajamar).", "isCorrect": true },
+      { "id": "C", "text": "No altera el nivel, solo trae lluvias.", "isCorrect": false },
+      { "id": "D", "text": "Aumenta la salinidad del río.", "isCorrect": false }
+    ],
+    "explanation": "La Sudestada represa las aguas del Río de la Plata contra la costa argentina impidiendo el desagüe normal hacia el océano, provocando crecidas excepcionales."
+  },
+  {
+    "id": "met_3",
+    "category": "METEOROLOGIA",
+    "question": "En la escala de Beaufort, ¿qué fuerza corresponde a un 'Temporal' (Gale)?",
+    "options": [
+      { "id": "A", "text": "Fuerza 4", "isCorrect": false },
+      { "id": "B", "text": "Fuerza 6", "isCorrect": false },
+      { "id": "C", "text": "Fuerza 8", "isCorrect": true },
+      { "id": "D", "text": "Fuerza 12", "isCorrect": false }
+    ],
+    "explanation": "Fuerza 8 en la escala de Beaufort corresponde a Temporal (34-40 nudos). Fuerza 12 es Huracán."
+  },
+  {
+    "id": "met_4",
+    "category": "METEOROLOGIA",
+    "question": "Las nubes llamadas 'Cumulonimbus' (CB) suelen estar asociadas a:",
+    "options": [
+      { "id": "A", "text": "Tiempo estable y cielos despejados.", "isCorrect": false },
+      { "id": "B", "text": "Niebla matinal espesa.", "isCorrect": false },
+      { "id": "C", "text": "Inestabilidad severa, chaparrones fuertes, ráfagas violentas y posibles tormentas eléctricas.", "isCorrect": true },
+      { "id": "D", "text": "Lloviznas finas y persistentes tipo garúa.", "isCorrect": false }
+    ],
+    "explanation": "Los Cumulonimbus son nubes de gran desarrollo vertical que generan inestabilidad severa, turbonadas (squalls), granizo y rayos. Clásicas en el ingreso de un Pampero."
+  }
+]

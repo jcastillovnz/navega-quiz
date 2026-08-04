@@ -1,0 +1,50 @@
+[
+  {
+    "id": "prac_1",
+    "category": "PRACTICO",
+    "type": "DECLINACION",
+    "statement": "Se desea obtener el valor de la Declinación Magnética (Dm) para el año 2025. La carta náutica publicada en 2021 indica: Dm = 06° 10' W. Variación Anual = 8' W.",
+    "expectedResult": "06° 42' W",
+    "explanationStepByStep": "1. Calcular diferencia de años: 2025 - 2021 = 4 años.\n2. Calcular variación total: 4 años * 8' W = 32' W.\n3. Como la declinación inicial es W (Oeste) y la variación también es W (Oeste), se suman: 06° 10' W + 32' W = 06° 42' W."
+  },
+  {
+    "id": "prac_2",
+    "category": "PRACTICO",
+    "type": "DECLINACION",
+    "statement": "Calcular la Declinación Magnética para el año 2026. Carta año 2020 indica: Dm = 05° 40' W. Variación Anual = 5' E.",
+    "expectedResult": "05° 10' W",
+    "explanationStepByStep": "1. Diferencia de años: 2026 - 2020 = 6 años.\n2. Variación total: 6 años * 5' E = 30' E.\n3. La declinación inicial es W (Oeste) y la variación es E (Este), por lo tanto se restan: 05° 40' W - 30' E = 05° 10' W."
+  },
+  {
+    "id": "prac_3",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "Un yate a motor navega de la boya A hacia la boya B. La distancia medida en la carta es de 12 millas náuticas (MN). Si su velocidad constante es de 8 nudos, ¿cuánto tiempo tardará en llegar?",
+    "expectedResult": "1 hora y 30 minutos",
+    "explanationStepByStep": "Fórmula: Tiempo = Distancia / Velocidad.\n1. T = 12 MN / 8 Nudos = 1.5 horas.\n2. Convertir 0.5 horas a minutos: 0.5 * 60 = 30 minutos.\n3. Tiempo total: 1 hora y 30 minutos."
+  },
+  {
+    "id": "prac_4",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "Se navega durante 45 minutos a una velocidad constante de 6 nudos. ¿Qué distancia se ha recorrido?",
+    "expectedResult": "4.5 MN",
+    "explanationStepByStep": "Fórmula: Distancia = Velocidad * Tiempo.\n1. Convertir minutos a horas: 45 / 60 = 0.75 horas.\n2. Calcular distancia: 6 nudos * 0.75 horas = 4.5 MN (Millas Náuticas)."
+  },
+  {
+    "id": "prac_5",
+    "category": "PRACTICO",
+    "type": "MAREAS",
+    "statement": "Según la tabla de mareas, la pleamar es a las 10:00 con 1.80m y la bajamar a las 16:00 con 0.60m. ¿Cuál es la amplitud de la marea?",
+    "expectedResult": "1.20m",
+    "explanationStepByStep": "La amplitud de la marea es la diferencia de altura entre la pleamar (nivel máximo) y la bajamar (nivel mínimo).\nAmplitud = 1.80m - 0.60m = 1.20m."
+  },
+  {
+    "id": "prac_6",
+    "category": "PRACTICO",
+    "type": "MARCACIONES",
+    "statement": "Navegando, tomamos dos marcaciones simultáneas: Faro A marcación 045° y Faro B marcación 135°. ¿Qué nos permiten determinar estas dos líneas trazadas en la carta?",
+    "expectedResult": "La posición o punto fijo (fix) de la embarcación.",
+    "explanationStepByStep": "Dos marcaciones simultáneas a puntos notables fijos y reconocibles en la carta, al trazarse (cruzarse), determinan la posición estimada (fix) del observador por intersección de rectas de altura/marcación."
+  }
+]

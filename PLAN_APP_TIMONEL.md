@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `5 / 25 Tareas completadas (20%)`
+- **Progreso Global**: `8 / 25 Tareas completadas (32%)`
 - **Estado Actual**: 🔴 **Listo para Iniciar**
-- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 06**
+- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 09**
 
 ---
 
@@ -101,9 +101,9 @@ Leyenda de Estados:
 
 ### 📄 FASE 2: Schemas de Datos y JSONs Náuticos (Tareas 05 - 08)
 - `[COMPLETADO]` ✅ **Tarea 05**: Tipos TypeScript (`src/types/quiz.ts` incluyendo tipos para XP, Rachas y Repetición Espaciada).
-- `[PENDIENTE]` ⏳ **Tarea 06**: `src/data/ripa_iala.json` (JSON con Legislación, RIPA Reglas 12-18, Luces y Balizamiento IALA Región B. ~80 preguntas).
-- `[PENDIENTE]` ⏳ **Tarea 07**: `src/data/teoria.json` (JSON de Nomenclatura, Jarcia, Seguridad Náutica, Fondeo y Meteorología. ~120 preguntas).
-- `[PENDIENTE]` ⏳ **Tarea 08**: `src/data/practicos.json`.
+- `[COMPLETADO]` ✅ **Tarea 06**: `src/data/ripa_iala.json` (JSON con Legislación, RIPA Reglas 12-18, Luces y Balizamiento IALA Región B. ~80 preguntas).
+- `[COMPLETADO]` ✅ **Tarea 07**: `src/data/teoria.json` (JSON de Nomenclatura, Jarcia, Seguridad Náutica, Fondeo y Meteorología. ~120 preguntas).
+- `[COMPLETADO]` ✅ **Tarea 08**: `src/data/practicos.json` (JSON con variables y casos para Declinación, Tablas de Marea y Marcaciones Simultáneas).
 
 ### 🚨 FASE 3: Módulo 1 (Legislación, RIPA & IALA) (Tareas 09 - 13)
 - `[PENDIENTE]` ⏳ **Tarea 09**: Visor RIPA (`RipaLightViewer.tsx`).

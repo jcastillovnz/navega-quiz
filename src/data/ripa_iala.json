@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ripa_1",
+    "category": "RIPA",
+    "question": "Según la Regla 12 (Veleros), si dos veleros se aproximan con el viento por bandas contrarias, ¿quién debe mantenerse apartado?",
+    "options": [
+      { "id": "A", "text": "El velero que recibe el viento por babor.", "isCorrect": true },
+      { "id": "B", "text": "El velero que recibe el viento por estribor.", "isCorrect": false },
+      { "id": "C", "text": "El velero que va a mayor velocidad.", "isCorrect": false },
+      { "id": "D", "text": "El velero que está a barlovento.", "isCorrect": false }
+    ],
+    "explanation": "Regla 12 a) i): Cuando dos buques de vela se aproximen recibiendo el viento por bandas contrarias, el que lo reciba por babor se mantendrá apartado de la derrota del otro."
+  },
+  {
+    "id": "ripa_2",
+    "category": "RIPA",
+    "question": "Según la Regla 13 (Buque que alcanza), ¿qué buque tiene el derecho de paso?",
+    "options": [
+      { "id": "A", "text": "El buque que alcanza.", "isCorrect": false },
+      { "id": "B", "text": "El buque alcanzado.", "isCorrect": true },
+      { "id": "C", "text": "El buque más rápido.", "isCorrect": false },
+      { "id": "D", "text": "El buque de mayor tamaño.", "isCorrect": false }
+    ],
+    "explanation": "Regla 13: Todo buque que alcance a otro se mantendrá apartado de la derrota del buque alcanzado. El buque alcanzado debe mantener rumbo y velocidad."
+  },
+  {
+    "id": "ripa_3",
+    "category": "RIPA",
+    "question": "Dos buques de propulsión mecánica navegan de vuelta encontrada (rumbo opuesto) con riesgo de abordaje (Regla 14). ¿Qué maniobra deben realizar?",
+    "options": [
+      { "id": "A", "text": "Ambos deben caer a babor.", "isCorrect": false },
+      { "id": "B", "text": "Ambos deben caer a estribor.", "isCorrect": true },
+      { "id": "C", "text": "El de menor tamaño debe apartarse.", "isCorrect": false },
+      { "id": "D", "text": "El que navega más rápido debe apartarse.", "isCorrect": false }
+    ],
+    "explanation": "Regla 14: Cuando dos buques de propulsión mecánica naveguen de vuelta encontrada, cada uno caerá a estribor para pasar por babor del otro."
+  },
+  {
+    "id": "ripa_4",
+    "category": "RIPA",
+    "question": "En una situación de cruce entre dos buques de propulsión mecánica (Regla 15), ¿quién tiene prioridad?",
+    "options": [
+      { "id": "A", "text": "El buque que ve al otro por su costado de babor.", "isCorrect": true },
+      { "id": "B", "text": "El buque que ve al otro por su costado de estribor.", "isCorrect": false },
+      { "id": "C", "text": "El buque de menor tamaño.", "isCorrect": false },
+      { "id": "D", "text": "Ninguno, ambos deben parar máquinas.", "isCorrect": false }
+    ],
+    "explanation": "Regla 15: Cuando dos buques de propulsión mecánica se crucen, el buque que tenga al otro por su costado de estribor se mantendrá apartado."
+  },
+  {
+    "id": "ripa_5",
+    "category": "RIPA",
+    "question": "Según la Regla 18, un buque de propulsión mecánica en navegación se mantendrá apartado de la derrota de:",
+    "options": [
+      { "id": "A", "text": "Solo de un buque sin gobierno.", "isCorrect": false },
+      { "id": "B", "text": "Un buque sin gobierno, uno con capacidad de maniobra restringida, un pesquero y un velero.", "isCorrect": true },
+      { "id": "C", "text": "Cualquier buque de menor tamaño.", "isCorrect": false },
+      { "id": "D", "text": "Solo de un velero.", "isCorrect": false }
+    ],
+    "explanation": "Regla 18: Los buques a motor deben apartarse de buques sin gobierno, con capacidad de maniobra restringida, dedicados a la pesca, y buques de vela."
+  },
+  {
+    "id": "ripa_6",
+    "category": "RIPA",
+    "question": "¿Qué marca de día debe exhibir un buque fondeado de eslora superior a 7 metros?",
+    "options": [
+      { "id": "A", "text": "Un cilindro negro.", "isCorrect": false },
+      { "id": "B", "text": "Un bicono negro.", "isCorrect": false },
+      { "id": "C", "text": "Una bola negra en la proa.", "isCorrect": true },
+      { "id": "D", "text": "Dos bolas negras verticales.", "isCorrect": false }
+    ],
+    "explanation": "Un buque fondeado exhibe de día una esfera (bola) negra en la parte de proa donde mejor se vea."
+  },
+  {
+    "id": "ripa_7",
+    "category": "RIPA",
+    "question": "¿Qué luces de costado exhibe una embarcación en navegación nocturna?",
+    "options": [
+      { "id": "A", "text": "Verde a babor y roja a estribor.", "isCorrect": false },
+      { "id": "B", "text": "Roja a babor y verde a estribor.", "isCorrect": true },
+      { "id": "C", "text": "Blanca a babor y verde a estribor.", "isCorrect": false },
+      { "id": "D", "text": "Ambas rojas.", "isCorrect": false }
+    ],
+    "explanation": "La luz roja es para la banda de babor (izquierda) y la luz verde para la banda de estribor (derecha)."
+  },
+  {
+    "id": "iala_1",
+    "category": "IALA",
+    "question": "En el Sistema de Balizamiento IALA Región B, al entrar a un canal desde el mar, ¿de qué color es la boya que debe dejarse a babor?",
+    "options": [
+      { "id": "A", "text": "Verde", "isCorrect": false },
+      { "id": "B", "text": "Amarillo", "isCorrect": false },
+      { "id": "C", "text": "Rojo", "isCorrect": true },
+      { "id": "D", "text": "Negro", "isCorrect": false }
+    ],
+    "explanation": "IALA Región B (América): Entrando desde el mar, la marca lateral de babor es roja (cilíndrica) y la de estribor es verde (cónica)."
+  },
+  {
+    "id": "iala_2",
+    "category": "IALA",
+    "question": "En IALA Región B, entrando a puerto, la boya de estribor exhibe una luz de color:",
+    "options": [
+      { "id": "A", "text": "Roja", "isCorrect": false },
+      { "id": "B", "text": "Blanca", "isCorrect": false },
+      { "id": "C", "text": "Verde", "isCorrect": true },
+      { "id": "D", "text": "Amarilla", "isCorrect": false }
+    ],
+    "explanation": "En IALA Región B, la boya de estribor es verde y su luz es verde."
+  },
+  {
+    "id": "iala_3",
+    "category": "IALA",
+    "question": "Una boya negra con una franja horizontal roja y dos esferas negras superpuestas en el tope indica:",
+    "options": [
+      { "id": "A", "text": "Aguas Seguras", "isCorrect": false },
+      { "id": "B", "text": "Marca Especial", "isCorrect": false },
+      { "id": "C", "text": "Peligro Aislado", "isCorrect": true },
+      { "id": "D", "text": "Marca Cardinal Sur", "isCorrect": false }
+    ],
+    "explanation": "La marca de Peligro Aislado se pinta de negro con una o más franjas rojas, y tiene como marca de tope dos esferas negras superpuestas. Indica un peligro de poca extensión rodeado de aguas navegables."
+  },
+  {
+    "id": "iala_4",
+    "category": "IALA",
+    "question": "Una boya con franjas verticales rojas y blancas, y una esfera roja en el tope indica:",
+    "options": [
+      { "id": "A", "text": "Canal secundario", "isCorrect": false },
+      { "id": "B", "text": "Peligro Aislado", "isCorrect": false },
+      { "id": "C", "text": "Aguas Seguras (Eje del canal)", "isCorrect": true },
+      { "id": "D", "text": "Zona restringida", "isCorrect": false }
+    ],
+    "explanation": "Las marcas de Aguas Seguras tienen franjas verticales rojas y blancas y una marca de tope esférica roja. Indican que hay aguas navegables alrededor de la marca (ej. eje de un canal)."
+  },
+  {
+    "id": "iala_5",
+    "category": "IALA",
+    "question": "Una boya con luz blanca destellante en grupos de dos destellos rápidos (Fl(2) W) corresponde a:",
+    "options": [
+      { "id": "A", "text": "Aguas Seguras", "isCorrect": false },
+      { "id": "B", "text": "Marca Cardinal Norte", "isCorrect": false },
+      { "id": "C", "text": "Peligro Aislado", "isCorrect": true },
+      { "id": "D", "text": "Marca Especial", "isCorrect": false }
+    ],
+    "explanation": "Las marcas de Peligro Aislado emiten luz blanca en un grupo de dos destellos, para coincidir con sus dos esferas negras de tope."
+  }
+]
