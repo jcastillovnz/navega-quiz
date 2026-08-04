@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { BookOpen, Check, ChevronLeft, ChevronRight, Eye, EyeOff, ListChecks } from 'lucide-react';
 import practicosData from '../../data/practicos.json';
 import type { PracticalExercise } from '../../types/quiz';
+import buenosAiresChart from '../../assets/buenos_aires_nautical_chart_training.png';
 
 const TYPE_LABELS: Record<PracticalExercise['type'], string> = {
   CARTA_LAT_LONG: 'Latitud, longitud, millas y tiempo',
@@ -13,29 +14,34 @@ const TYPE_LABELS: Record<PracticalExercise['type'], string> = {
 
 const ChartScaleGuide: React.FC = () => (
   <div className="mt-4 rounded-xl border border-cyan-500/30 bg-slate-950 p-3">
-    <div className="grid grid-cols-[1fr_92px] gap-3 items-center">
-      <svg viewBox="0 0 260 145" className="w-full rounded-lg border border-slate-700 bg-[#082f49]" role="img" aria-label="Carta con paralelos de latitud, meridianos de longitud y derrota entre A y B">
+    <div className="relative overflow-hidden rounded-lg border border-slate-700 aspect-[5/4] bg-slate-800">
+      <img src={buenosAiresChart} alt="Carta abierta del Río de la Plata frente a Buenos Aires con señales marítimas" className="absolute inset-0 h-full w-full object-cover" />
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" role="img" aria-label="Derrota entre las posiciones A y B sobre una carta del área de Buenos Aires">
         <defs>
-          <pattern id="chart-grid" width="52" height="36" patternUnits="userSpaceOnUse">
-            <path d="M52 0H0V36" fill="none" stroke="#67e8f9" strokeOpacity=".28" strokeWidth="1" />
-          </pattern>
-          <marker id="route-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#fbbf24" /></marker>
+          <marker id="ba-route-arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0L5 2.5L0 5Z" fill="#f59e0b" /></marker>
         </defs>
-        <rect width="260" height="145" fill="url(#chart-grid)" />
-        <path d="M48 108L203 34" stroke="#fbbf24" strokeWidth="4" strokeDasharray="7 4" markerEnd="url(#route-arrow)" />
-        <circle cx="48" cy="108" r="7" fill="#22d3ee" stroke="white" strokeWidth="2" />
-        <circle cx="203" cy="34" r="7" fill="#f59e0b" stroke="white" strokeWidth="2" />
-        <text x="34" y="130" fill="white" fontSize="12" fontWeight="700">A</text>
-        <text x="211" y="29" fill="white" fontSize="12" fontWeight="700">B</text>
-        <text x="8" y="17" fill="#a5f3fc" fontSize="9">paralelos</text>
-        <text x="178" y="138" fill="#a5f3fc" fontSize="9">meridianos</text>
+        <g stroke="#0891b2" strokeWidth=".35" strokeDasharray="1.5 1" opacity=".85">
+          <line x1="0" y1="14" x2="100" y2="14" /><line x1="0" y1="43.4" x2="100" y2="43.4" /><line x1="0" y1="72.9" x2="100" y2="72.9" />
+          <line x1="10" y1="0" x2="10" y2="100" /><line x1="38.4" y1="0" x2="38.4" y2="100" /><line x1="66.9" y1="0" x2="66.9" y2="100" />
+        </g>
+        <path d="M14.7 28.7L47.9 63.1" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="2 1" markerEnd="url(#ba-route-arrow)" />
+        <circle cx="14.7" cy="28.7" r="2.2" fill="#06b6d4" stroke="white" strokeWidth=".7" />
+        <circle cx="47.9" cy="63.1" r="2.2" fill="#f59e0b" stroke="white" strokeWidth=".7" />
       </svg>
-      <div className="space-y-2 text-[10px] leading-snug">
-        <div className="rounded-lg bg-cyan-500/10 border border-cyan-500/25 p-2 text-cyan-100"><strong>Escala lateral</strong><br />1′ latitud = 1 MN</div>
-        <div className="rounded-lg bg-amber-500/10 border border-amber-500/25 p-2 text-amber-100"><strong>Tiempo</strong><br />T = D ÷ V</div>
+      <div className="absolute left-[16%] top-[25%] rounded bg-cyan-600 px-1.5 py-0.5 text-[9px] font-black text-white shadow">A · 34°27′S / 58°29′W</div>
+      <div className="absolute left-[50%] top-[60%] rounded bg-amber-500 px-1.5 py-0.5 text-[9px] font-black text-slate-950 shadow">B · 34°34′S / 58°22′W</div>
+      <div className="absolute inset-y-0 right-0 w-14 border-l-2 border-cyan-500 bg-slate-950/80 flex flex-col justify-around py-3 text-center text-[8px] font-black text-cyan-200">
+        <span>34°24′ S</span><span>34°30′ S</span><span>34°36′ S</span>
+        <span className="rounded bg-cyan-500 px-1 py-1 text-slate-950">ESCALA<br />LATITUD</span>
       </div>
+      <div className="absolute bottom-1 left-1 rounded bg-slate-950/80 px-1.5 py-1 text-[7px] text-slate-300">© OpenStreetMap · OpenSeaMap · CARTO</div>
     </div>
-    <p className="mt-2 text-[10px] leading-relaxed text-slate-400"><strong className="text-rose-300">No midas millas en la escala horizontal de longitud.</strong> Abrí el compás entre A y B y trasladá esa abertura a la escala de latitudes, a la altura media de la derrota.</p>
+    <div className="mt-2 grid grid-cols-3 gap-1.5 text-[9px] leading-snug">
+      <div className="rounded-lg border border-cyan-500/25 bg-cyan-500/10 p-2 text-cyan-100"><strong>1. Abrí el compás</strong><br />desde A hasta B.</div>
+      <div className="rounded-lg border border-cyan-500/25 bg-cyan-500/10 p-2 text-cyan-100"><strong>2. Trasladalo</strong><br />a la escala lateral cercana.</div>
+      <div className="rounded-lg border border-amber-500/25 bg-amber-500/10 p-2 text-amber-100"><strong>3. Leé minutos</strong><br />1′ de latitud = 1 MN.</div>
+    </div>
+    <p className="mt-2 text-[9px] leading-relaxed text-slate-400"><strong className="text-rose-300">Nunca midas millas sobre la escala horizontal de longitud.</strong> Esta lámina usa cartografía abierta real para aprendizaje y no reemplaza una carta oficial actualizada para navegar.</p>
   </div>
 );
 
@@ -60,7 +66,7 @@ export const PracticalExercisesView: React.FC = () => {
         <div className="shrink-0 p-3 border-b border-slate-800">
           <div className="flex items-center justify-between gap-2">
             <div>
-              <p className="text-[9px] uppercase tracking-widest text-emerald-400 font-black">Ejercicio {index + 1} de {exercises.length}</p>
+              <p className="text-[9px] uppercase tracking-widest text-emerald-400 font-black">Módulo 7 · Ejercicio {index + 1} de {exercises.length}</p>
               <h3 className="text-sm font-black text-white">{TYPE_LABELS[exercise.type]}</h3>
             </div>
             <ListChecks className="w-5 h-5 text-emerald-400" />

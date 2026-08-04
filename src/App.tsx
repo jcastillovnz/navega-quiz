@@ -36,7 +36,7 @@ function App() {
   const knotsQuestions = nudosData as QuizQuestion[];
 
   return (
-    <Layout onGoHome={() => setActiveView('HOME')}>
+    <Layout>
       <div className="h-full flex flex-col gap-2 overflow-hidden">
         
         {/* Barra Superior de Navegación Unificada */}
@@ -118,23 +118,23 @@ function App() {
             </button>
 
             <button
-              onClick={() => setActiveView('PRACTICOS')}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeView === 'PRACTICOS' ? 'bg-emerald-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Calculator className="w-3.5 h-3.5" />
-              6. Prácticos
-            </button>
-
-            <button
               onClick={() => setActiveView('NUDOS')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeView === 'NUDOS' ? 'bg-pink-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Cable className="w-3.5 h-3.5" />
-              7. Nudos
+              6. Nudos
+            </button>
+
+            <button
+              onClick={() => setActiveView('PRACTICOS')}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                activeView === 'PRACTICOS' ? 'bg-emerald-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Calculator className="w-3.5 h-3.5" />
+              7. Prácticos
             </button>
 
             <button
@@ -240,17 +240,17 @@ function App() {
             />
           )}
 
-          {/* MÓDULO 5: EJERCICIOS PRÁCTICOS DE NAVEGACIÓN */}
-          {activeView === 'PRACTICOS' && (
-            <PracticalExercisesView />
-          )}
-
           {/* MÓDULO 6: NUDOS NÁUTICOS */}
           {activeView === 'NUDOS' && (
             <KnotsViewer questions={knotsQuestions} />
           )}
 
-          {/* MÓDULO 7: SIMULADOR DE EXAMEN REAL PNA */}
+          {/* MÓDULO 7: EJERCICIOS PRÁCTICOS DE NAVEGACIÓN */}
+          {activeView === 'PRACTICOS' && (
+            <PracticalExercisesView />
+          )}
+
+          {/* EVALUACIÓN FINAL: SIMULADOR DE EXAMEN REAL PNA */}
           {activeView === 'EXAMEN' && (
             <RealExamView onFinish={() => setActiveView('HOME')} />
           )}

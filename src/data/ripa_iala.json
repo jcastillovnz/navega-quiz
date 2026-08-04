@@ -350,38 +350,38 @@
   {
     "id": "ripa_30",
     "category": "RIPA",
-    "question": "La Regla 35 establece que en visibilidad reducida, un buque a motor en navegación debe emitir:",
+    "question": "La Regla 35 establece que, en visibilidad reducida, un buque a motor con arrancada debe emitir:",
     "options": [
-      { "id": "A", "text": "Una pitada larga cada 2 minutos", "isCorrect": true },
+      { "id": "A", "text": "Una pitada prolongada a intervalos no mayores de 2 minutos", "isCorrect": true },
       { "id": "B", "text": "Una pitada corta cada minuto", "isCorrect": false },
       { "id": "C", "text": "Repiques de campana durante 5 segundos cada minuto", "isCorrect": false },
       { "id": "D", "text": "Silencio total para escuchar", "isCorrect": false }
     ],
-    "explanation": "Regla 35 a): Un buque con propulsión mecánica, parado o navegando, debe emitir UNA PITADA LARGA cada 2 minutos. [REGLA: RIPA - Regla 35 a)] [TIP: Fondeado = campana 5 seg + gong 5 seg alternados. A motor = pitada larga. Velero = campana. Remolcador = pitada larga + 2 cortas + larga.]"
+    "explanation": "Regla 35 a): un buque de propulsión mecánica que tiene arrancada —se desplaza respecto del agua— emite una pitada prolongada a intervalos no mayores de 2 minutos. Si está en navegación pero detenido y sin arrancada, emite dos prolongadas separadas por unos 2 segundos."
   },
   {
     "id": "ripa_31",
     "category": "RIPA",
     "question": "Un velero navegando en niebla debe emitir:",
     "options": [
-      { "id": "A", "text": "Una pitada larga cada 2 minutos", "isCorrect": false },
-      { "id": "B", "text": "Repique de campana durante aprox. 5 segundos cada minuto", "isCorrect": true },
+      { "id": "A", "text": "Una pitada prolongada seguida de dos cortas, a intervalos no mayores de 2 minutos", "isCorrect": true },
+      { "id": "B", "text": "Repique de campana durante aprox. 5 segundos cada minuto", "isCorrect": false },
       { "id": "C", "text": "Silencio total", "isCorrect": false },
       { "id": "D", "text": "Tres pitadas cortas", "isCorrect": false }
     ],
-    "explanation": "Regla 35 b): Un velero de eslora >=12m debe emitir un repique de campana durante aprox. 5 segundos cada minuto. [REGLA: RIPA - Regla 35 b)] [TIP: A motor = pitada larga cada 2 min. Velero = campana cada 1 min. Fondeado = campana + gong alternados.]"
+    "explanation": "Regla 35 c): un velero en navegación emite tres pitadas consecutivas: una prolongada seguida de dos cortas, a intervalos no mayores de 2 minutos. La campana corresponde al buque fondeado, no al velero navegando."
   },
   {
     "id": "ripa_32",
     "category": "RIPA",
     "question": "Un remolcador navegando en niebla debe emitir:",
     "options": [
-      { "id": "A", "text": "Una pitada larga seguida de dos cortas y una larga", "isCorrect": true },
+      { "id": "A", "text": "Una pitada prolongada seguida de dos cortas", "isCorrect": true },
       { "id": "B", "text": "Tres pitadas largas", "isCorrect": false },
       { "id": "C", "text": "Una pitada larga sola", "isCorrect": false },
       { "id": "D", "text": "Repique de campana", "isCorrect": false }
     ],
-    "explanation": "Regla 35 c): Un remolcador debe emitir una pitada larga seguida de dos pitadas cortas Y una pitada larga (L-C-C-L) cada 2 minutos. [REGLA: RIPA - Regla 35 c)] [TIP: Patrón 'Larga-Corta-Corta-Larga' = 'LCCL' para identificar al remolcador auditivamente.]"
+    "explanation": "Regla 35 c): un buque dedicado a remolcar o empujar emite una pitada prolongada seguida de dos cortas, a intervalos no mayores de 2 minutos. El remolcado tripulado puede añadir una prolongada y tres cortas inmediatamente después de la señal del remolcador."
   },
   {
     "id": "ripa_33",

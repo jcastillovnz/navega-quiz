@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ripa_sound_port",
+    "category": "RIPA",
+    "question": "Dos pitadas cortas emitidas por un buque a motor a la vista de otro significan:",
+    "options": [
+      { "id": "A", "text": "Estoy cayendo a babor", "isCorrect": true },
+      { "id": "B", "text": "Estoy cayendo a estribor", "isCorrect": false },
+      { "id": "C", "text": "Estoy dando atrás", "isCorrect": false },
+      { "id": "D", "text": "Estoy fondeado", "isCorrect": false }
+    ],
+    "explanation": "Regla 34 a): una corta indica caída a estribor; dos cortas indican caída a babor; tres cortas indican que se está operando propulsión atrás. Son señales de maniobra entre buques a la vista."
+  },
+  {
+    "id": "ripa_sound_doubt",
+    "category": "RIPA",
+    "question": "Si un buque duda de la maniobra del otro o no comprende sus intenciones, debe emitir:",
+    "options": [
+      { "id": "A", "text": "Al menos cinco pitadas cortas y rápidas", "isCorrect": true },
+      { "id": "B", "text": "Cuatro pitadas prolongadas", "isCorrect": false },
+      { "id": "C", "text": "Una prolongada y una corta", "isCorrect": false },
+      { "id": "D", "text": "Un repique de campana", "isCorrect": false }
+    ],
+    "explanation": "Regla 34 d): al menos cinco pitadas cortas y rápidas expresan duda, incomprensión o peligro respecto de la maniobra. Pueden complementarse con al menos cinco destellos cortos y rápidos."
+  },
+  {
+    "id": "ripa_sound_overtake_starboard",
+    "category": "RIPA",
+    "question": "En un canal angosto, ¿qué señal indica «pretendo alcanzarlo por su banda de estribor»?",
+    "options": [
+      { "id": "A", "text": "Dos prolongadas seguidas de una corta", "isCorrect": true },
+      { "id": "B", "text": "Dos prolongadas seguidas de dos cortas", "isCorrect": false },
+      { "id": "C", "text": "Una prolongada y dos cortas", "isCorrect": false },
+      { "id": "D", "text": "Tres cortas", "isCorrect": false }
+    ],
+    "explanation": "Regla 34 c): dos prolongadas y una corta comunican la intención de alcanzar por la banda de estribor del buque alcanzado. Dos prolongadas y dos cortas significan alcanzar por su banda de babor."
+  },
+  {
+    "id": "ripa_sound_overtake_port",
+    "category": "RIPA",
+    "question": "En un canal angosto, ¿qué señal indica «pretendo alcanzarlo por su banda de babor»?",
+    "options": [
+      { "id": "A", "text": "Dos prolongadas seguidas de dos cortas", "isCorrect": true },
+      { "id": "B", "text": "Dos prolongadas seguidas de una corta", "isCorrect": false },
+      { "id": "C", "text": "Una prolongada", "isCorrect": false },
+      { "id": "D", "text": "Cinco cortas", "isCorrect": false }
+    ],
+    "explanation": "Regla 34 c): dos prolongadas y dos cortas indican intención de alcanzar por la banda de babor del alcanzado. El costado mencionado pertenece al buque que será alcanzado."
+  },
+  {
+    "id": "ripa_sound_overtake_agree",
+    "category": "RIPA",
+    "question": "En un canal angosto, el buque que será alcanzado acepta la maniobra mediante:",
+    "options": [
+      { "id": "A", "text": "Prolongada, corta, prolongada, corta", "isCorrect": true },
+      { "id": "B", "text": "Dos cortas", "isCorrect": false },
+      { "id": "C", "text": "Tres prolongadas", "isCorrect": false },
+      { "id": "D", "text": "Cinco cortas", "isCorrect": false }
+    ],
+    "explanation": "Regla 34 c) ii): el acuerdo del buque alcanzado se expresa con cuatro sonidos alternados: prolongada, corta, prolongada y corta. Esta señal confirma que comprende y acepta el adelantamiento propuesto."
+  },
+  {
+    "id": "ripa_sound_bend",
+    "category": "RIPA",
+    "question": "Al aproximarse a un recodo de un canal donde otro buque puede estar oculto, corresponde emitir:",
+    "options": [
+      { "id": "A", "text": "Una pitada prolongada", "isCorrect": true },
+      { "id": "B", "text": "Una pitada corta", "isCorrect": false },
+      { "id": "C", "text": "Tres pitadas cortas", "isCorrect": false },
+      { "id": "D", "text": "Campana durante diez segundos", "isCorrect": false }
+    ],
+    "explanation": "Regla 34 e): antes de un recodo o sector obstruido se emite una pitada prolongada. Todo buque que se aproxime y pueda oírla desde el otro lado responde también con una prolongada."
+  },
+  {
+    "id": "ripa_sound_stopped_fog",
+    "category": "RIPA",
+    "question": "En niebla, un buque a motor en navegación pero detenido y sin arrancada debe emitir:",
+    "options": [
+      { "id": "A", "text": "Dos pitadas prolongadas separadas unos 2 segundos, cada no más de 2 minutos", "isCorrect": true },
+      { "id": "B", "text": "Una prolongada cada minuto", "isCorrect": false },
+      { "id": "C", "text": "Una prolongada y dos cortas", "isCorrect": false },
+      { "id": "D", "text": "Cinco cortas", "isCorrect": false }
+    ],
+    "explanation": "Regla 35 b): al estar en navegación pero sin desplazarse respecto del agua, el buque a motor emite dos prolongadas consecutivas con unos 2 segundos entre ellas, repitiendo el conjunto a intervalos no mayores de 2 minutos."
+  },
+  {
+    "id": "ripa_sound_anchor_fog",
+    "category": "RIPA",
+    "question": "En visibilidad reducida, un buque fondeado debe señalar normalmente su presencia con:",
+    "options": [
+      { "id": "A", "text": "Repique rápido de campana durante unos 5 segundos, cada no más de 1 minuto", "isCorrect": true },
+      { "id": "B", "text": "Una pitada prolongada cada 2 minutos", "isCorrect": false },
+      { "id": "C", "text": "Dos pitadas cortas", "isCorrect": false },
+      { "id": "D", "text": "Silencio para escuchar", "isCorrect": false }
+    ],
+    "explanation": "Regla 35 g): el fondeado repica rápidamente la campana durante unos 5 segundos a intervalos no mayores de 1 minuto. Si mide 100 m o más, añade inmediatamente un gong a popa durante unos 5 segundos."
+  }
+]

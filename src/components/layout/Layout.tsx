@@ -1,19 +1,14 @@
 import React from 'react';
-import { Navbar } from './Navbar';
 
 interface LayoutProps {
   children: React.ReactNode;
-  onGoHome?: () => void;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, onGoHome }) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="h-screen w-screen bg-slate-950 text-slate-50 font-sans flex flex-col overflow-hidden select-none">
-      {/* Navbar Fijo Compacto con handler para volver al inicio */}
-      <Navbar onGoHome={onGoHome} />
-
       {/* Área Principal de Trabajo (Flex-1 Sin Scroll General) */}
-      <main className="flex-1 w-full max-w-[1600px] mx-auto px-2 sm:px-4 py-2 overflow-hidden flex flex-col min-h-0">
+      <main className="flex-1 w-full max-w-[1600px] mx-auto px-2 sm:px-4 py-1.5 overflow-hidden flex flex-col min-h-0">
         {children}
       </main>
 

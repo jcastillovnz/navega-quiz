@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
-import ialaBuoyImg from '../../assets/iala_buoy_babor.png';
+import portBuoy from '../../assets/iala_region_b_port_realistic.png';
+import starboardBuoy from '../../assets/iala_region_b_starboard_realistic.png';
+import cardinalNorth from '../../assets/iala_cardinal_n_realistic.png';
+import cardinalEast from '../../assets/iala_cardinal_e_realistic.png';
+import cardinalSouth from '../../assets/iala_cardinal_s_realistic.png';
+import cardinalWest from '../../assets/iala_cardinal_w_realistic.png';
+import isolatedDanger from '../../assets/iala_isolated_danger_realistic.png';
+import safeWater from '../../assets/iala_safe_water_realistic.png';
+import specialMark from '../../assets/iala_special_mark_realistic.png';
+import newDanger from '../../assets/iala_new_danger_realistic.png';
 
 type BuoyType =
   | 'BABOR' | 'ESTRIBOR'
@@ -8,6 +17,7 @@ type BuoyType =
   | 'PELIGRO_AISLADO' | 'AGUAS_SEGURAS' | 'ESPECIAL' | 'NUEVO_PELIGRO';
 
 interface BuoyInfo {
+  image: string;
   name: string;
   color: string;
   accentColor: string;
@@ -28,6 +38,7 @@ interface BuoyInfo {
 
 const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
   BABOR: {
+    image: portBuoy,
     name: 'Boya de Babor (Región B)',
     color: 'text-emerald-400', accentColor: 'border-emerald-500/50',
     topMark: '🟩 Cilíndrica Verde',
@@ -39,6 +50,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#16a34a', topShape: 'cylinder', topColor: '#16a34a',
   },
   ESTRIBOR: {
+    image: starboardBuoy,
     name: 'Boya de Estribor (Región B)',
     color: 'text-red-400', accentColor: 'border-red-500/50',
     topMark: '🔺 Cónica Roja',
@@ -50,6 +62,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#dc2626', topShape: 'cone', topColor: '#dc2626',
   },
   CARDINAL_N: {
+    image: cardinalNorth,
     name: 'Cardinal Norte', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▲ ▲ Dos conos hacia arriba', lightPattern: 'Q W o VQ W — Blanco continuo rápido',
     lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '255,255,255',
@@ -58,6 +71,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#facc15', topShape: 'north', topColor: '#0f172a', bands: ['#0f172a', '#facc15']
   },
   CARDINAL_E: {
+    image: cardinalEast,
     name: 'Cardinal Este', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▼ ▲ Conos con bases enfrentadas', lightPattern: 'Q(3) W 10s o VQ(3) W 5s',
     lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '255,255,255',
@@ -66,6 +80,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#0f172a', topShape: 'east', topColor: '#0f172a', bands: ['#0f172a', '#facc15', '#0f172a']
   },
   CARDINAL_S: {
+    image: cardinalSouth,
     name: 'Cardinal Sur', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▼ ▼ Dos conos hacia abajo', lightPattern: 'Q(6)+LFl W 15s o VQ(6)+LFl W 10s',
     lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid-double animate-glow-white', lightRgb: '255,255,255',
@@ -74,6 +89,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#0f172a', topShape: 'south', topColor: '#0f172a', bands: ['#facc15', '#0f172a']
   },
   CARDINAL_W: {
+    image: cardinalWest,
     name: 'Cardinal Oeste', color: 'text-amber-300', accentColor: 'border-amber-400/50',
     topMark: '▲ ▼ Conos con puntas enfrentadas', lightPattern: 'Q(9) W 15s o VQ(9) W 10s',
     lightColorClass: 'bg-white', lightAnimClass: 'animate-flash-rapid-double animate-glow-white', lightRgb: '255,255,255',
@@ -82,6 +98,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#facc15', topShape: 'west', topColor: '#0f172a', bands: ['#facc15', '#0f172a', '#facc15']
   },
   PELIGRO_AISLADO: {
+    image: isolatedDanger,
     name: 'Peligro Aislado',
     color: 'text-white', accentColor: 'border-white/30',
     topMark: '⚫⚫ Dos Esferas Negras',
@@ -94,6 +111,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     topShape: 'two-spheres', topColor: '#0f172a',
   },
   AGUAS_SEGURAS: {
+    image: safeWater,
     name: 'Aguas Seguras (Canal Central)',
     color: 'text-cyan-400', accentColor: 'border-cyan-500/50',
     topMark: '🔴 Esfera Roja',
@@ -106,6 +124,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     topShape: 'sphere', topColor: '#dc2626',
   },
   ESPECIAL: {
+    image: specialMark,
     name: 'Marca Especial', color: 'text-yellow-300', accentColor: 'border-yellow-400/50',
     topMark: '✕ Aspa amarilla', lightPattern: 'Fl Y — Cualquier ritmo amarillo que no se confunda',
     lightColorClass: 'bg-yellow-300', lightAnimClass: 'animate-flash-rapid animate-glow-white', lightRgb: '253,224,71',
@@ -114,6 +133,7 @@ const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
     bodyColor: '#facc15', topShape: 'x', topColor: '#facc15'
   },
   NUEVO_PELIGRO: {
+    image: newDanger,
     name: 'Nuevo Peligro / Naufragio', color: 'text-blue-300', accentColor: 'border-blue-400/50',
     topMark: '✚ Cruz amarilla vertical', lightPattern: 'Al B/Y 1s — Azul y amarilla alternadas',
     lightColorClass: 'bg-blue-400', lightAnimClass: 'animate-flash-iso animate-glow-white', lightRgb: '96,165,250',
@@ -269,65 +289,22 @@ export const IalaBuoyViewer: React.FC<{ compact?: boolean; focusType?: BuoyType 
             />
           )}
 
-          {/* La foto roja corresponde a la lateral de estribor en Región B */}
-          {selectedBuoy === 'ESTRIBOR' ? (
-            <div className="relative z-10 w-full h-full flex items-center justify-center p-2">
-              <div className="animate-buoy-sway relative">
-                <img
-                  src={ialaBuoyImg}
-                  alt="Boya lateral de estribor IALA Región B — roja y cónica"
-                  className="h-56 md:h-72 object-contain drop-shadow-2xl"
-                />
-                {isNight && (
-                  <div
-                    className={`question-light-animation absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass}`}
-                  />
-                )}
-              </div>
-            </div>
-          ) : (
-            /* Otras boyas: SVG animado */
-            <div className="relative z-10 flex flex-col items-center justify-center gap-2">
-              {/* Luz pulsante nocturna */}
+          <div className="relative z-10 w-full h-full flex items-center justify-center p-2">
+            <div className="animate-buoy-sway relative h-full w-full flex items-center justify-center">
+              <img
+                src={buoy.image}
+                alt={`${buoy.name}: ${buoy.description}`}
+                className={`max-h-full max-w-full object-contain rounded-xl drop-shadow-2xl transition-[filter] duration-500 ${isNight ? 'brightness-[.32] saturate-[.75] contrast-125' : ''}`}
+              />
+              {isNight && <div className="absolute inset-0 rounded-xl bg-indigo-950/25 pointer-events-none" />}
               {isNight && (
-                <div className={`question-light-animation w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass} mb-1`} />
+                <div
+                  className={`question-light-animation absolute top-[13%] left-1/2 -translate-x-1/2 w-5 h-5 rounded-full ${buoy.lightColorClass} ${buoy.lightAnimClass}`}
+                  aria-label={`Luz: ${buoy.lightPattern}`}
+                />
               )}
-
-              {/* Boya SVG con balanceo */}
-              <div className="animate-buoy-sway">
-                <svg viewBox="0 0 80 130" className="w-28 h-44 drop-shadow-2xl filter">
-                  {/* Tope */}
-                  <BuoyTopMark shape={buoy.topShape} color={buoy.topColor} />
-                  {/* Varilla */}
-                  <line x1="40" y1="23" x2="40" y2="38" stroke="#94a3b8" strokeWidth="2.5" />
-                  {/* Cuerpo */}
-                  <BuoyBody
-                    bodyColor={buoy.bodyColor}
-                    stripeColors={buoy.stripeColors}
-                    stripeDir={buoy.stripeDir}
-                  />
-                  {buoy.bands && <CardinalBands bands={buoy.bands} />}
-                  {/* Cadena de fondeo */}
-                  <path d="M40,112 Q38,120 36,128" stroke="#64748b" strokeWidth="2" strokeDasharray="3,2" fill="none" />
-                </svg>
-              </div>
-
-              {/* Ondas en el agua */}
-              <div className="flex gap-1 opacity-40">
-                {[0, 1, 2].map(i => (
-                  <div
-                    key={i}
-                    className="border border-slate-400 rounded-full"
-                    style={{
-                      width: `${28 + i * 18}px`,
-                      height: `${10 + i * 5}px`,
-                      animation: `wave-calm ${2 + i * 0.4}s ease-in-out infinite ${i * 0.3}s`,
-                    }}
-                  />
-                ))}
-              </div>
             </div>
-          )}
+          </div>
 
           {/* Etiqueta de modo */}
           <div className={`absolute bottom-2 left-2 px-2 py-1 rounded-lg border text-[10px] font-bold backdrop-blur ${

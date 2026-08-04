@@ -19,7 +19,8 @@ export type ModuleId = 'RIPA' | 'IALA' | 'SEGURIDAD' | 'NOMENCLATURA' | 'METEORO
 
 interface ModuleCard {
   id: ModuleId;
-  number: number;
+  number?: number;
+  badge?: string;
   title: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
@@ -80,24 +81,34 @@ const MODULES: ModuleCard[] = [
     iconColor: 'text-sky-400'
   },
   {
-    id: 'PRACTICOS',
+    id: 'NUDOS',
     number: 6,
+    title: 'Nudos Náuticos',
+    description: 'Los 5 nudos esenciales con secuencias detalladas',
+    icon: Cable,
+    gradient: 'from-pink-500/20 to-pink-500/5',
+    borderColor: 'hover:border-pink-500/60 border-slate-700/80',
+    iconColor: 'text-pink-400'
+  },
+  {
+    id: 'PRACTICOS',
+    number: 7,
     title: 'Ejercicios Prácticos',
-    description: 'Declinación magnética, mareas y marcaciones',
+    description: 'Carta, declinación, mareas, marcaciones y tiempo',
     icon: Calculator,
     gradient: 'from-emerald-500/20 to-emerald-500/5',
     borderColor: 'hover:border-emerald-500/60 border-slate-700/80',
     iconColor: 'text-emerald-400'
   },
   {
-    id: 'NUDOS',
-    number: 7,
-    title: 'Nudos Náuticos',
-    description: 'Los 5 nudos esenciales con visor 3D y desafío',
-    icon: Cable,
-    gradient: 'from-pink-500/20 to-pink-500/5',
-    borderColor: 'hover:border-pink-500/60 border-slate-700/80',
-    iconColor: 'text-pink-400'
+    id: 'EXAMEN',
+    badge: 'Desafío final',
+    title: 'Examen Real PNA',
+    description: '40 preguntas, 60 minutos y cronómetro estricto',
+    icon: GraduationCap,
+    gradient: 'from-amber-500/25 to-amber-500/5',
+    borderColor: 'hover:border-amber-400/80 border-amber-500/40',
+    iconColor: 'text-amber-300'
   }
 ];
 
@@ -176,7 +187,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
                     <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
                   </div>
                   <span className="text-[9px] font-black text-slate-400 uppercase tracking-wide bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 whitespace-nowrap">
-                    Módulo {m.number}
+                    {m.badge ?? `Módulo ${m.number}`}
                   </span>
                 </div>
                 <h3 className="text-sm lg:text-base font-extrabold text-white mb-1 group-hover:text-cyan-300 transition-colors leading-tight break-words">{m.title}</h3>
@@ -192,29 +203,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
         })}
       </div>
 
-      {/* CTA Examen Final */}
-      <button
-        onClick={() => onSelectModule('EXAMEN')}
-        className="group relative w-full bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border-2 border-amber-500/40 hover:border-amber-500 rounded-2xl p-2.5 transition-all duration-300 hover:scale-[1.005] hover:shadow-2xl hover:shadow-amber-500/20 active:scale-[0.99] shrink-0 cursor-pointer"
-      >
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 group-hover:scale-105 transition-transform">
-            <GraduationCap className="w-6 h-6 text-amber-300" />
-          </div>
-          <div className="flex-1 min-w-0 text-left">
-            <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 mb-0.5">
-              <h3 className="text-sm lg:text-base font-extrabold text-amber-200 leading-tight">Simulador de Examen Real PNA</h3>
-              <span className="text-[9px] font-black bg-amber-500/30 text-amber-100 px-2 py-0.5 rounded-full border border-amber-500/40 uppercase tracking-wider">
-                DESAFÍO FINAL
-              </span>
-            </div>
-            <p className="text-[10px] lg:text-xs text-slate-300 font-medium leading-snug">
-              40 puntos combinados • 60 minutos • Cronómetro estricto • Certificación Timonel
-            </p>
-          </div>
-          <ChevronRight className="w-5 h-5 text-amber-300 group-hover:translate-x-1.5 transition-transform" />
-        </div>
-      </button>
     </div>
   );
 };

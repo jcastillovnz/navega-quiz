@@ -24,7 +24,7 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => (
   <div className="h-full flex flex-col gap-2 overflow-hidden">
     <div className="flex items-center justify-between gap-2 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl shrink-0">
       <div className="flex items-center gap-2">
-        <span className="text-[10px] font-extrabold px-2 py-0.5 bg-pink-500 text-slate-950 rounded-md">Módulo 7</span>
+        <span className="text-[10px] font-extrabold px-2 py-0.5 bg-pink-500 text-slate-950 rounded-md">Módulo 6</span>
         <h3 className="text-xs font-bold text-white">Cabuyería y nudos náuticos</h3>
       </div>
       <div className="flex items-center gap-1.5 text-[10px] font-bold text-pink-300">

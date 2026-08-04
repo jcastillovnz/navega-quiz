@@ -125,11 +125,11 @@
     "question": "El CERTIFICADO NÁUTICO DEPORTIVO vence cada:",
     "options": [
       { "id": "A", "text": "3 años", "isCorrect": false },
-      { "id": "B", "text": "5 años", "isCorrect": true },
-      { "id": "C", "text": "10 años", "isCorrect": false },
+      { "id": "B", "text": "5 años", "isCorrect": false },
+      { "id": "C", "text": "10 años", "isCorrect": true },
       { "id": "D", "text": "1 año", "isCorrect": false }
     ],
-    "explanation": "El Certificado Náutico Deportivo (CND) vence cada 5 años. Debe renovarse antes del vencimiento para seguir habilitado. [TIP: La habilitación dura 5 años, se renueva. El certificado de matrícula NO vence (es el documento de la embarcación).]"
+    "explanation": "El Certificado Náutico Deportivo (CND) tiene una vigencia general de 10 años. La habilitación expira al cumplir 70 años aunque su fecha original fuera posterior; desde los 70 años se renueva cada 3 años y desde los 80, cada 1 año. Debe renovarse para continuar habilitado. [FUENTE: Prefectura Naval Argentina — trámite de renovación del CND]"
   },
   {
     "id": "seg_12",
