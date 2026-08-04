@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `10 / 25 Tareas completadas (40%)`
-- **Estado Actual**: 🔴 **Listo para Iniciar**
-- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 11**
+- **Progreso Global**: `13 / 25 Tareas completadas (52%)`
+- **Estado Actual**: 🟢 **FASE 3 Completa**
+- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 14**
 
 ---
 
@@ -108,9 +108,9 @@ Leyenda de Estados:
 ### 🚨 FASE 3: Módulo 1 (Legislación, RIPA & IALA) (Tareas 09 - 13)
 - `[COMPLETADO]` ✅ **Tarea 09**: Visor RIPA (`RipaLightViewer.tsx`).
 - `[COMPLETADO]` ✅ **Tarea 10**: Visor IALA (`IalaBuoyViewer.tsx`).
-- `[PENDIENTE]` ⏳ **Tarea 11**: Simulador cruces (`RipaCrossingSimulator.tsx`).
-- `[PENDIENTE]` ⏳ **Tarea 12**: `QuizCard.tsx` (Componente de quiz con animaciones de éxito/error, ganancia de XP y sonidos UI).
-- `[PENDIENTE]` ⏳ **Tarea 13**: `ModuloRipaIalaView.tsx`.
+- `[COMPLETADO]` ✅ **Tarea 11**: Simulador cruces (`RipaCrossingSimulator.tsx`) — 4 escenarios animados (Reglas 13, 14, 15 y 18) con rosa de los vientos, grilla náutica y acción del buque prioritario.
+- `[COMPLETADO]` ✅ **Tarea 12**: `QuizCard.tsx` — Componente de quiz con animación shake en error, glow verde en acierto, floater de XP animado, sonidos Web Audio API (campana/bitonal).
+- `[COMPLETADO]` ✅ **Tarea 13**: `ModuloRipaIalaView.tsx` — Orquestador con tabs Estudio/Práctica, sub-tabs visuales, quiz gamificado, pantalla de resultados con XP, precisión y medalla.
 
 ### 🛡️ FASE 4: Módulos 2, 3 y 4 (Seguridad, Nomenclatura, Clima) (Tareas 14 - 17)
 - `[PENDIENTE]` ⏳ **Tarea 14**: `NomenclaturaViewer.tsx`.

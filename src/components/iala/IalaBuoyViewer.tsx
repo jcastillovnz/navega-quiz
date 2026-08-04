@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
-import { Moon, Sun, Anchor } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 
 type BuoyType = 'BABOR' | 'ESTRIBOR' | 'PELIGRO_AISLADO' | 'AGUAS_SEGURAS';
 
-const BUOY_DATA = {
+interface BuoyInfo {
+  name: string;
+  colorClass: string;
+  topMark: string;
+  lightColor: string;
+  lightPattern: string;
+  description: string;
+  stripes?: 'red' | 'white';
+}
+
+const BUOY_DATA: Record<BuoyType, BuoyInfo> = {
   BABOR: {
     name: 'Boya de Babor (Región B)',
     colorClass: 'bg-red-500',
