@@ -1,53 +1,5 @@
 [
   {
-    "id": "nom_1",
-    "category": "NOMENCLATURA",
-    "question": "¿Qué nombre recibe el cabo de acero que sujeta el mástil desde la proa hacia la perilla?",
-    "options": [
-      { "id": "A", "text": "Obenque", "isCorrect": false },
-      { "id": "B", "text": "Estay proel", "isCorrect": true },
-      { "id": "C", "text": "Estay popel", "isCorrect": false },
-      { "id": "D", "text": "Amantillo", "isCorrect": false }
-    ],
-    "explanation": "El Estay proel (o simplemente estay) es el cable de la jarcia fija que sujeta el mástil longitudinalmente desde la proa."
-  },
-  {
-    "id": "nom_2",
-    "category": "NOMENCLATURA",
-    "question": "En la vela mayor, ¿cómo se llama el borde o lado de popa por donde escapa el viento?",
-    "options": [
-      { "id": "A", "text": "Gratil", "isCorrect": false },
-      { "id": "B", "text": "Pujamen", "isCorrect": false },
-      { "id": "C", "text": "Baluma", "isCorrect": true },
-      { "id": "D", "text": "Puño de amura", "isCorrect": false }
-    ],
-    "explanation": "La baluma es la caída de popa de la vela. El gratil es el borde de proa y el pujamen el borde inferior."
-  },
-  {
-    "id": "nom_3",
-    "category": "NOMENCLATURA",
-    "question": "¿Qué es el francobordo?",
-    "options": [
-      { "id": "A", "text": "La distancia vertical desde la línea de flotación hasta la cubierta principal.", "isCorrect": true },
-      { "id": "B", "text": "La parte del casco que siempre está sumergida.", "isCorrect": false },
-      { "id": "C", "text": "El ancho máximo de la embarcación.", "isCorrect": false },
-      { "id": "D", "text": "La distancia desde el fondo del barco hasta la línea de flotación.", "isCorrect": false }
-    ],
-    "explanation": "El francobordo es la distancia vertical medida en el centro del buque desde la línea de flotación hasta la cubierta principal o de intemperie. Otorga reserva de flotabilidad."
-  },
-  {
-    "id": "nom_4",
-    "category": "NOMENCLATURA",
-    "question": "Los cabos utilizados para izar (subir) las velas se denominan:",
-    "options": [
-      { "id": "A", "text": "Escotas", "isCorrect": false },
-      { "id": "B", "text": "Drisas", "isCorrect": true },
-      { "id": "C", "text": "Amantillos", "isCorrect": false },
-      { "id": "D", "text": "Ostas", "isCorrect": false }
-    ],
-    "explanation": "Las drisas son los cabos que sirven para izar las velas (subirlas por el mástil). Las escotas sirven para cazarlas o filarlas."
-  },
-  {
     "id": "seg_1",
     "category": "SEGURIDAD",
     "question": "Durante la navegación, ¿quiénes están obligados a tener colocado un chaleco salvavidas aprobado?",
@@ -69,7 +21,7 @@
       { "id": "C", "text": "Cesar toda transmisión y mantenerse a la escucha en silencio, preparándose para asistir si está cerca.", "isCorrect": true },
       { "id": "D", "text": "Cambiar al canal 72 para dejar libre el 16.", "isCorrect": false }
     ],
-    "explanation": "Un MAYDAY indica peligro grave e inminente. Debe guardarse absoluto silencio de radio, anotar la posición y mantenerse a la escucha por si puede prestar asistencia (o si PNA solicita su apoyo)."
+    "explanation": "Un MAYDAY indica peligro grave e inminente. Debe guardarse absoluto silencio de radio, anotar la posición y mantenerse a la escucha por si puede prestar asistencia. [REGLA: SMSSM - Radiocomunicaciones marítimas] [TIP: 'MAYDAY' = vida en peligro. 'PAN PAN' = urgencia. 'SECURITÉ' = seguridad a la navegación. Canal 16 = socorro + llamada.]"
   },
   {
     "id": "seg_3",
@@ -81,7 +33,7 @@
       { "id": "C", "text": "Tipo hongo, ideal para lodo blando.", "isCorrect": false },
       { "id": "D", "text": "Un ancla de capa para temporales.", "isCorrect": false }
     ],
-    "explanation": "El ancla Danforth es ligera y posee dos uñas largas articuladas que se clavan en la arena o barro. Es una de las más utilizadas en yates por su relación agarre/peso."
+    "explanation": "El ancla Danforth es ligera y posee dos uñas largas articuladas que se clavan en la arena o barro. Es una de las más utilizadas en yates por su relación agarre/peso. [TIP: 'Danforth' = patente con uñas articuladas = excelente agarre en arena/barro. Para fondos rocosos se usan anclas de arado.]"
   },
   {
     "id": "seg_4",
@@ -93,31 +45,283 @@
       { "id": "C", "text": "Siempre 10 veces la profundidad.", "isCorrect": false },
       { "id": "D", "text": "No importa, siempre y cuando el ancla toque el fondo.", "isCorrect": false }
     ],
-    "explanation": "En fondeo normal (sin mal tiempo) se recomienda filar entre 3 a 5 veces la profundidad (longitud de línea). Con mal tiempo, 7 a 10 veces."
+    "explanation": "En fondeo normal (sin mal tiempo) se recomienda filar entre 3 a 5 veces la profundidad. Con mal tiempo, 7 a 10 veces. [TIP: Ratio 3:1 a 5:1 = normal. 7:1 a 10:1 = tormenta. Más línea = más poder de agarre horizontal.]"
+  },
+  {
+    "id": "seg_5",
+    "category": "SEGURIDAD",
+    "question": "Si fondeas con una sola ancla de tal manera que el barco gire con el viento, esto se llama:",
+    "options": [
+      { "id": "A", "text": "Barbas de gato", "isCorrect": false },
+      { "id": "B", "text": "Engalgadas", "isCorrect": false },
+      { "id": "C", "text": "A la deriva", "isCorrect": false },
+      { "id": "D", "text": "Al borneo", "isCorrect": true }
+    ],
+    "explanation": "Fondear 'al borneo' = con una sola ancla, el barco gira libremente con el viento o corriente. 'A barba de gato' = 2 anclas por proa en V a 45°. 'Engalgadas' = 2 anclas en línea separadas por 5 esloras. [TIP: Borneo = boya sola. Barba = V abierta. Engalgadas = línea recta.]"
+  },
+  {
+    "id": "seg_6",
+    "category": "SEGURIDAD",
+    "question": "¿Qué es fondear 'a barba de gato'?",
+    "options": [
+      { "id": "A", "text": "Tirar dos anclas por proa en V a 45°", "isCorrect": true },
+      { "id": "B", "text": "Tirar dos anclas engalgadas en línea recta", "isCorrect": false },
+      { "id": "C", "text": "Dejar un gato de vigía", "isCorrect": false },
+      { "id": "D", "text": "Fondear en forma circular", "isCorrect": false }
+    ],
+    "explanation": "Fondeo 'a barba de gato' = 2 anclas por proa formando un ángulo de 45° entre sí. 'Engalgadas' = 2 anclas en línea recta con 5 esloras de separación mínima. [TIP: Barba de gato = V abierta 45°. Como las barbas (bigotes) de un gato abiertas hacia adelante.]"
+  },
+  {
+    "id": "seg_7",
+    "category": "SEGURIDAD",
+    "question": "En un incendio, ¿qué matafuego se debe usar para fuegos CLASE A (sólidos: madera, papel, tela)?",
+    "options": [
+      { "id": "A", "text": "Anhídrido carbónico (CO2)", "isCorrect": false },
+      { "id": "B", "text": "Polvo químico ABC", "isCorrect": true },
+      { "id": "C", "text": "Espuma química AFFF", "isCorrect": false },
+      { "id": "D", "text": "Agua", "isCorrect": false }
+    ],
+    "explanation": "Fuegos Clase A (sólidos): polvo ABC o agua. Clase B (líquidos inflamables): polvo ABC, espuma, CO2. Clase C (eléctricos): CO2 o polvo ABC. [TIP: 'A' = Agua sirve. 'B' = NO agua (extiende el fuego). 'C' = NO agua (conductor eléctrico). Polvo ABC sirve para todas.]"
+  },
+  {
+    "id": "seg_8",
+    "category": "SEGURIDAD",
+    "question": "La bengala de mano de color ROJO se utiliza para:",
+    "options": [
+      { "id": "A", "text": "Indicar que se está fondeando", "isCorrect": false },
+      { "id": "B", "text": "Pedir auxilio por emergencia", "isCorrect": true },
+      { "id": "C", "text": "Señal de respeto", "isCorrect": false },
+      { "id": "D", "text": "Indicar cambio de rumbo", "isCorrect": false }
+    ],
+    "explanation": "La bengala de mano ROJA = señal de socorro. Se lanza a barlovento. Las bengalas vencen cada 3 años (código 8140). [TIP: 'Roja = socorro'. Blanca con paracaídas = location (avisa posición). Humo naranja = emergencia diurna. Bengalas rojas vencen cada 3 años, reemplazarlas.]"
+  },
+  {
+    "id": "seg_9",
+    "category": "SEGURIDAD",
+    "question": "Para la embarcación de la categoría Timonel de Yate, ¿cuál es la limitación de POTENCIA máxima permitida?",
+    "options": [
+      { "id": "A", "text": "250 HP", "isCorrect": false },
+      { "id": "B", "text": "140 HP", "isCorrect": true },
+      { "id": "C", "text": "50 HP", "isCorrect": false },
+      { "id": "D", "text": "Sin límite", "isCorrect": false }
+    ],
+    "explanation": "El Timonel de Yate tiene un límite de potencia de 140 HP. (Conductor Náutico: 250 HP. Patrón: mayor). [REGLA: Ordenanzas PNA - Categorías de habilitación]"
+  },
+  {
+    "id": "seg_10",
+    "category": "SEGURIDAD",
+    "question": "Como Timonel, ¿hasta qué distancia de la costa podés navegar?",
+    "options": [
+      { "id": "A", "text": "5 millas", "isCorrect": true },
+      { "id": "B", "text": "7 millas", "isCorrect": false },
+      { "id": "C", "text": "12 millas", "isCorrect": false },
+      { "id": "D", "text": "Sin límite (océano)", "isCorrect": false }
+    ],
+    "explanation": "Timonel de Yate: navegación en ríos, lagos, Río de la Plata hasta 5 millas de la costa, y costa marítima limitada por PNA local. [REGLA: Ordenanzas PNA] [TIP: Timonel = 5 MN. Conductor Náutico = 12 MN. Patrón de Yate = hasta aguas oceánicas costeras.]"
+  },
+  {
+    "id": "seg_11",
+    "category": "SEGURIDAD",
+    "question": "El CERTIFICADO NÁUTICO DEPORTIVO vence cada:",
+    "options": [
+      { "id": "A", "text": "3 años", "isCorrect": false },
+      { "id": "B", "text": "5 años", "isCorrect": true },
+      { "id": "C", "text": "10 años", "isCorrect": false },
+      { "id": "D", "text": "1 año", "isCorrect": false }
+    ],
+    "explanation": "El Certificado Náutico Deportivo (CND) vence cada 5 años. Debe renovarse antes del vencimiento para seguir habilitado. [TIP: La habilitación dura 5 años, se renueva. El certificado de matrícula NO vence (es el documento de la embarcación).]"
+  },
+  {
+    "id": "seg_12",
+    "category": "SEGURIDAD",
+    "question": "El nombre de la embarcación debe pintarse en:",
+    "options": [
+      { "id": "A", "text": "Ambas aletas", "isCorrect": false },
+      { "id": "B", "text": "Ambas amuras", "isCorrect": false },
+      { "id": "C", "text": "El espejo", "isCorrect": true },
+      { "id": "D", "text": "La proa", "isCorrect": false }
+    ],
+    "explanation": "El nombre de la embarcación se pinta en el espejo (popa). El número de matrícula se pinta en ambas AMURAS. La altura mínima de las letras: 8 cm para matrícula, 25 cm para el nombre en algunas categorías. [TIP: 'Espejo = nombre'. 'Amuras = matrícula'. 'Aletas = opcional' (también a veces).]"
+  },
+  {
+    "id": "seg_13",
+    "category": "SEGURIDAD",
+    "question": "¿Qué habilita la categoría Timonel de Yate?",
+    "options": [
+      { "id": "A", "text": "Navegar ríos, lagos, Río de la Plata hasta 5 millas, y costa marítima limitada por PNA local", "isCorrect": true },
+      { "id": "B", "text": "Navegar todo el Río de la Plata", "isCorrect": false },
+      { "id": "C", "text": "Cruces oceánicos", "isCorrect": false },
+      { "id": "D", "text": "Solo navegación fluvial", "isCorrect": false }
+    ],
+    "explanation": "Timonel de Yate: ríos, lagos, Río de la Plata hasta 5 millas, costa marítima limitada por PNA local. Eslora máxima: 7 metros. [TIP: '5 millas, 7 metros, 140 HP' = las 3 limitaciones del Timonel de Yate.]"
+  },
+  {
+    "id": "seg_14",
+    "category": "SEGURIDAD",
+    "question": "¿Cuál es la ESLORA máxima permitida para un Timonel de Yate?",
+    "options": [
+      { "id": "A", "text": "12 metros", "isCorrect": false },
+      { "id": "B", "text": "7 metros", "isCorrect": true },
+      { "id": "C", "text": "5 metros", "isCorrect": false },
+      { "D", "text": "Sin límite", "isCorrect": false }
+    ],
+    "explanation": "La eslora máxima para el Timonel de Yate es 7 metros. Para Conductor Náutico es 12 metros. Para Patrón de Yate, mayor. [TIP: 7 metros de eslora es la limitación clásica de Timonel.]"
+  },
+  {
+    "id": "seg_15",
+    "category": "SEGURIDAD",
+    "question": "En radiocomunicación, ¿cuál es el canal de emergencia / socorro?",
+    "options": [
+      { "id": "A", "text": "Canal 16 VHF", "isCorrect": true },
+      { "id": "B", "text": "Canal 74 VHF", "isCorrect": false },
+      { "id": "C", "text": "Canal 14 VHF", "isCorrect": false },
+      { "id": "D", "text": "Canal 9 VHF", "isCorrect": false }
+    ],
+    "explanation": "El Canal 16 VHF es el canal internacional de socorro, urgencia y seguridad. También se usa para llamada inicial. [TIP: '16' = socorro + llamada. Una vez establecido contacto se cambia a canal de trabajo (ej. 9, 12, 72).]"
+  },
+  {
+    "id": "seg_16",
+    "category": "SEGURIDAD",
+    "question": "En una situación de Hombre al Agua (HAA), ¿por dónde debe subirse al náufrago a bordo?",
+    "options": [
+      { "id": "A", "text": "Por la popa", "isCorrect": false },
+      { "id": "B", "text": "A barlovento (lado de donde viene el viento)", "isCorrect": true },
+      { "id": "C", "text": "A sotavento (lado hacia donde va el viento)", "isCorrect": false },
+      { "id": "D", "text": "Por la proa siempre", "isCorrect": false }
+    ],
+    "explanation": "El náufrago debe subir a bordo por BARLOVENTO. Si subiera por sotavento, el barco derivaría hacia él con el viento y lo podría atropellar. [TIP: 'A barlovento = viento nos empuja contra el náufrago'. 'A sotavento = viento nos aleja del náufrago (peligro).']"
+  },
+  {
+    "id": "seg_17",
+    "category": "SEGURIDAD",
+    "question": "En un motor fuera de borda, ¿cuándo se deben cambiar las bujías?",
+    "options": [
+      { "id": "A", "text": "Anualmente", "isCorrect": false },
+      { "id": "B", "text": "Cada 100 horas de uso", "isCorrect": true },
+      { "id": "C", "text": "Cada vez que se utilice el motor", "isCorrect": false },
+      { "id": "D", "text": "Nunca, son eternas", "isCorrect": false }
+    ],
+    "explanation": "Las bujías del motor fuera de borda se cambian cada 100 horas de uso. El aceite de la pata se revisa cada vez que se sale a navegar. El filtro de combustible se cambia cada 200-250 hs en motores dentro de borda. [TIP: Bujías = 100hs. Filtro combustible dentro de borda = 200-250hs. Aceite pata = cada salida.]"
+  },
+  {
+    "id": "seg_18",
+    "category": "SEGURIDAD",
+    "question": "El ancla Danforth es mejor para fondos de:",
+    "options": [
+      { "id": "A", "text": "Rocoso", "isCorrect": false },
+      { "id": "B", "text": "Barro, limo o arena", "isCorrect": true },
+      { "id": "C", "text": "Coral", "isCorrect": false },
+      { "id": "D", "text": "Sobre otra embarcación", "isCorrect": false }
+    ],
+    "explanation": "La Danforth es excelente para barro, limo y arena gracias a sus uñas articuladas. Para fondos rocosos o con coral se usan anclas de arado (tipo CQR) o tipo Bruce. [TIP: 'Danforth = blando' (arena, barro). 'Arado = rocoso' (corta mejor la piedra). 'Bruce = mixto o difícil'.]"
+  },
+  {
+    "id": "seg_19",
+    "category": "SEGURIDAD",
+    "question": "¿Qué indica una baja REPENTINA de presión atmosférica?",
+    "options": [
+      { "id": "A", "text": "Mejoramiento del tiempo", "isCorrect": false },
+      { "id": "B", "text": "Empeoramiento brusco del tiempo (tormenta)", "isCorrect": true },
+      { "id": "C", "text": "No incide en la meteorología", "isCorrect": false },
+      { "id": "D", "text": "Viento del Norte", "isCorrect": false }
+    ],
+    "explanation": "Una baja REPENTINA de presión atmosférica preanuncia un empeoramiento brusco del tiempo, generalmente con tormenta. Los barómetros náuticos están diseñados para detectar estos cambios. [TIP: Barómetro cayendo rápido = tormenta inminente. Subiendo = mejorando. Constante = estable.]"
+  },
+  {
+    "id": "seg_20",
+    "category": "SEGURIDAD",
+    "question": "El PRENSAESTOPA es:",
+    "options": [
+      { "id": "A", "text": "Una herramienta similar a una pinza", "isCorrect": false },
+      { "id": "B", "text": "Un material que impide el paso de agua por el eje (caja de bombas)", "isCorrect": true },
+      { "id": "C", "text": "Una porción entre el casco y la cubierta", "isCorrect": false },
+      { "id": "D", "text": "Un tipo de amarra", "isCorrect": false }
+    ],
+    "explanation": "El prensaestopa es un sello mecánico que se ubica en la caja de bombas (donde sale el eje de la hélice del casco) e IMPIDE que entre agua al interior. [TIP: 'Estopa' = material de cáñamo que se apretaba en la caja de bombas (versión antigua). Hoy se usa sello mecánico.]"
+  },
+  {
+    "id": "seg_21",
+    "category": "SEGURIDAD",
+    "question": "Los ÁNODOS DE SACRIFICIO están compuestos por:",
+    "options": [
+      { "id": "A", "text": "Cobre y magnesio", "isCorrect": false },
+      { "id": "B", "text": "Zinc o magnesio", "isCorrect": true },
+      { "id": "C", "text": "Aluminio", "isCorrect": false },
+      { "id": "D", "text": "Acero inoxidable", "isCorrect": false }
+    ],
+    "explanation": "Los ánodos de sacrificio son de ZINC o MAGNESIO. Se colocan en el casco y se corroen 'sacrificándose' en lugar del metal del casco, protegiéndolo de la corrosión galvánica. [TIP: 'Sacrificio' = se gastan ellos para que el casco no se gaste. Reemplazarlos cuando están muy gastados.]"
+  },
+  {
+    "id": "seg_22",
+    "category": "SEGURIDAD",
+    "question": "Si cae un rayo en tu velero, ¿qué parte sufre más daño?",
+    "options": [
+      { "id": "A", "text": "La cabullería (cables y jarcia)", "isCorrect": false },
+      { "id": "B", "text": "Toda la electrónica", "isCorrect": true },
+      { "id": "C", "text": "El agua potable", "isCorrect": false },
+      { "id": "D", "text": "Las velas", "isCorrect": false }
+    ],
+    "explanation": "Un rayo daña principalmente TODA LA ELECTRÓNICA del barco (VHF, GPS, radio, etc.) por la sobretensión. Por eso se recomienda desconectar equipos durante tormentas. [TIP: 'Protección anti-rayos': pararrayos en el mástil (si es metálico), desconectar electrónica, no tocar componentes metálicos.]"
+  },
+  {
+    "id": "seg_23",
+    "category": "SEGURIDAD",
+    "question": "La BANDERA NACIONAL debe llevarse izada en:",
+    "options": [
+      { "id": "A", "text": "Proa", "isCorrect": false },
+      { "id": "B", "text": "Popa (driza de popa)", "isCorrect": true },
+      { "id": "C", "text": "En el través (amura)", "isCorrect": false },
+      { "id": "D", "text": "En la antena del VHF", "isCorrect": false }
+    ],
+    "explanation": "La bandera nacional se iza en la DRIZA de popa (astade popa) cuando la embarcación está navegando en aguas nacionales. Es símbolo de soberanía. [TIP: En puerto: izada en el palo o asta de popa. Navegando: driza de popa. Si entra a puerto extranjero: se arria y se iza la del país visitado en el palo.]"
+  },
+  {
+    "id": "seg_24",
+    "category": "SEGURIDAD",
+    "question": "El ORINQUE es:",
+    "options": [
+      { "id": "A", "text": "El cabo que va desde la cruz del ancla al boyarín", "isCorrect": true },
+      { "id": "B", "text": "La cadena del ancla", "isCorrect": false },
+      { "id": "C", "text": "El cabo de amarre de popa", "isCorrect": false },
+      { "id": "D", "text": "La boya de fondeo", "isCorrect": false }
+    ],
+    "explanation": "El orinque es el cabo que une la cruz del ancla con el boyarín (boya pequeña) que marca la posición del ancla. Fondear con orinque facilita el 'borneo' (recuperar el ancla). [TIP: 'Orinque' = cabo entre ancla y boya. Sirve para: 1) marcar la posición, 2) levar el ancla tirando desde el orinque, 3) liberar el ancla si se engancha.]"
+  },
+  {
+    "id": "seg_25",
+    "category": "SEGURIDAD",
+    "question": "Garrear significa:",
+    "options": [
+      { "id": "A", "text": "Modificar el rumbo", "isCorrect": false },
+      { "id": "B", "text": "Que el ancla se arrastra por el fondo sin agarrar", "isCorrect": true },
+      { "id": "C", "text": "Inundación del casco", "isCorrect": false },
+      { "id": "D", "text": "Cambio de posición de fondeo", "isCorrect": false }
+    ],
+    "explanation": "Garrear = el ancla NO agarra y se arrastra por el fondo, moviéndose el barco de su posición de fondeo. 'Ir al garete' = ser arrastrado por el viento y/o corriente sin gobierno. [TIP: Si das guardia de garreo y tu barco se mueve, estás garreando. Solución: levar ancla y fondear en mejor tenedero.]"
   },
   {
     "id": "met_1",
     "category": "METEOROLOGIA",
     "question": "En el Río de la Plata, el viento denominado 'Pampero' se caracteriza por ser:",
     "options": [
-      { "id": "A", "text": "Un viento cálido y húmedo del Norte.", "isCorrect": false },
-      { "id": "B", "text": "Un viento constante y persistente del Sudeste.", "isCorrect": false },
-      { "id": "C", "text": "Un viento fuerte, frío y seco proveniente del Sudoeste.", "isCorrect": true },
-      { "id": "D", "text": "Una brisa térmica nocturna.", "isCorrect": false }
+      { "id": "A", "text": "Un viento cálido y húmedo del Norte", "isCorrect": false },
+      { "id": "B", "text": "Un viento constante y persistente del Sudeste", "isCorrect": false },
+      { "id": "C", "text": "Un viento fuerte, frío y seco proveniente del Sudoeste", "isCorrect": true },
+      { "id": "D", "text": "Una brisa térmica nocturna", "isCorrect": false }
     ],
-    "explanation": "El Pampero es un frente frío proveniente del SW (Sudoeste). Suele presentarse con fuertes ráfagas, marcado descenso de la temperatura, baja humedad y rápido aumento de la presión."
+    "explanation": "El Pampero es un frente frío proveniente del SW (Sudoeste). Suele presentarse con fuertes ráfagas, marcado descenso de la temperatura, baja humedad y rápido aumento de la presión. [TIP: 'Pampero = SW frío y seco'. 'Sudestada = SE húmedo y persistente'. 'Viento Norte = cálido y húmedo'. 'Viento Sud = fresco']"
   },
   {
     "id": "met_2",
     "category": "METEOROLOGIA",
     "question": "¿Qué efecto provoca generalmente la Sudestada sobre el nivel del Río de la Plata?",
     "options": [
-      { "id": "A", "text": "Produce una bajante pronunciada.", "isCorrect": false },
-      { "id": "B", "text": "Produce un aumento del nivel (pleamares superiores y falta de bajamar).", "isCorrect": true },
-      { "id": "C", "text": "No altera el nivel, solo trae lluvias.", "isCorrect": false },
-      { "id": "D", "text": "Aumenta la salinidad del río.", "isCorrect": false }
+      { "id": "A", "text": "Produce una bajante pronunciada", "isCorrect": false },
+      { "id": "B", "text": "Produce un aumento del nivel (pleamares superiores y falta de bajamar)", "isCorrect": true },
+      { "id": "C", "text": "No altera el nivel, solo trae lluvias", "isCorrect": false },
+      { "id": "D", "text": "Aumenta la salinidad del río", "isCorrect": false }
     ],
-    "explanation": "La Sudestada represa las aguas del Río de la Plata contra la costa argentina impidiendo el desagüe normal hacia el océano, provocando crecidas excepcionales."
+    "explanation": "La Sudestada represa las aguas del Río de la Plata contra la costa argentina impidiendo el desagüe normal hacia el océano, provocando crecidas excepcionales. [TIP: 'Sudestada' = SE persistente = agua acumulada contra la costa = crecidas en Buenos Aires, La Plata, Quilmes.]"
   },
   {
     "id": "met_3",
@@ -129,18 +333,162 @@
       { "id": "C", "text": "Fuerza 8", "isCorrect": true },
       { "id": "D", "text": "Fuerza 12", "isCorrect": false }
     ],
-    "explanation": "Fuerza 8 en la escala de Beaufort corresponde a Temporal (34-40 nudos). Fuerza 12 es Huracán."
+    "explanation": "Fuerza 8 en la escala de Beaufort corresponde a 'Temporal' (34-40 nudos). F12 es Huracán (>64 nudos). [TIP: F0 calma, F4 brisa moderada, F8 temporal, F12 huracán. Mnemotecnia: 8=Temporal, 12=Huracán.]"
   },
   {
     "id": "met_4",
     "category": "METEOROLOGIA",
     "question": "Las nubes llamadas 'Cumulonimbus' (CB) suelen estar asociadas a:",
     "options": [
-      { "id": "A", "text": "Tiempo estable y cielos despejados.", "isCorrect": false },
-      { "id": "B", "text": "Niebla matinal espesa.", "isCorrect": false },
-      { "id": "C", "text": "Inestabilidad severa, chaparrones fuertes, ráfagas violentas y posibles tormentas eléctricas.", "isCorrect": true },
-      { "id": "D", "text": "Lloviznas finas y persistentes tipo garúa.", "isCorrect": false }
+      { "id": "A", "text": "Tiempo estable y cielos despejados", "isCorrect": false },
+      { "id": "B", "text": "Niebla matinal espesa", "isCorrect": false },
+      { "id": "C", "text": "Inestabilidad severa, chaparrones fuertes, ráfagas violentas y posibles tormentas eléctricas", "isCorrect": true },
+      { "id": "D", "text": "Lloviznas finas y persistentes tipo garúa", "isCorrect": false }
     ],
-    "explanation": "Los Cumulonimbus son nubes de gran desarrollo vertical que generan inestabilidad severa, turbonadas (squalls), granizo y rayos. Clásicas en el ingreso de un Pampero."
+    "explanation": "Los Cumulonimbus son nubes de gran desarrollo vertical (hasta 12 km) que generan inestabilidad severa, turbonadas (squalls), granizo y rayos. Clásicas en el ingreso de un Pampero. [TIP: 'Cumulonimbus = CB = la nube de tormenta'. Base oscura, tope en 'yunque' (forma de martillo). PELIGRO: rayos, granizo, ráfagas violentas.]"
+  },
+  {
+    "id": "met_5",
+    "category": "METEOROLOGIA",
+    "question": "La Fuerza 4 de Beaufort corresponde a:",
+    "options": [
+      { "id": "A", "text": "Calma", "isCorrect": false },
+      { "id": "B", "text": "Brisa muy débil", "isCorrect": false },
+      { "id": "C", "text": "Brisa moderada", "isCorrect": true },
+      { "id": "D", "text": "Temporal", "isCorrect": false }
+    ],
+    "explanation": "Fuerza 4 = Brisa moderada (11-16 nudos). El mar tiene olas moderadas y los 'whitecaps' (rompientes blancas) son numerosos. [TIP: F0 calma, F1-2 ventolina, F3-4 brisa, F5 fresca, F6-7 fuerte, F8-9 temporal, F10-11 tormenta, F12 huracán.]"
+  },
+  {
+    "id": "met_6",
+    "category": "METEOROLOGIA",
+    "question": "¿Qué fuerza de Beaufort corresponde a 'Fresquito'?",
+    "options": [
+      { "id": "A", "text": "Fuerza 11 de 56-63 nudos", "isCorrect": false },
+      { "id": "B", "text": "Fuerza 5 de 17-21 nudos", "isCorrect": true },
+      { "id": "C", "text": "Fuerza 2 de 4-6 nudos", "isCorrect": false },
+      { "id": "D", "text": "Fuerza 8 de 34-40 nudos", "isCorrect": false }
+    ],
+    "explanation": "Fuerza 5 = 'Fresquito' (17-21 nudos). Olas alargadas, salpicaduras. [TIP: F0=Calma, F1=Ventolina, F2=Brisa muy débil, F3=Brisa débil, F4=Brisa moderada, F5=Fresquito, F6=Brisa fuerte, F7=Viento fuerte, F8=Temporal.]"
+  },
+  {
+    "id": "met_7",
+    "category": "METEOROLOGIA",
+    "question": "La Fuerza 9 de Beaufort se describe como:",
+    "options": [
+      { "id": "A", "text": "Pequeñas olas pero sin espuma", "isCorrect": false },
+      { "id": "B", "text": "Temporal fuerte 40-46 nudos y olas muy grandes", "isCorrect": true },
+      { "id": "C", "text": "Olas excepcionalmente grandes, mar blanco, visibilidad nula", "isCorrect": false },
+      { "id": "D", "text": "Temporal moderado", "isCorrect": false }
+    ],
+    "explanation": "Fuerza 9 = 'Temporal fuerte' o 'Strong Gale' (41-47 nudos). Olas muy grandes, visibilidad reducida por spray, los barcos pequeños desaparecen entre las olas. [TIP: F8 = Temporal (34-40). F9 = Temporal fuerte (41-47). F10 = Tormenta (48-55). F11 = Tormenta violenta (56-63). F12 = Huracán (>64).]"
+  },
+  {
+    "id": "met_8",
+    "category": "METEOROLOGIA",
+    "question": "¿Qué son las isobaras?",
+    "options": [
+      { "id": "A", "text": "Líneas de igual profundidad", "isCorrect": false },
+      { "id": "B", "text": "Líneas de igual presión atmosférica", "isCorrect": true },
+      { "id": "C", "text": "Zona de fondeo", "isCorrect": false },
+      { "id": "D", "text": "Líneas de altura", "isCorrect": false }
+    ],
+    "explanation": "Las isobaras son líneas que unen puntos de igual presión atmosférica en un mapa meteorológico. Cuando están muy juntas, indican vientos fuertes. [TIP: 'Isobaras' = misma presión. 'Isotermas' = misma temperatura. 'Isóbatas' = misma profundidad (en cartas náuticas). 'Isohipsas' = misma altitud.]"
+  },
+  {
+    "id": "met_9",
+    "category": "METEOROLOGIA",
+    "question": "¿Cuándo se produce la niebla?",
+    "options": [
+      { "id": "A", "text": "Cuando se enfría la masa de aire cercana a la superficie y se condensa el vapor de agua", "isCorrect": true },
+      { "id": "B", "text": "Cuando ingresa un frente cálido", "isCorrect": false },
+      { "id": "C", "text": "Cuando ingresan vientos huracanados", "isCorrect": false },
+      { "id": "D", "text": "Cuando llueve abundantemente", "isCorrect": false }
+    ],
+    "explanation": "La niebla se forma cuando el aire cercano a la superficie se enfría y condensa el vapor de agua que contiene, formando gotitas en suspensión que reducen la visibilidad a menos de 1 km. [TIP: 'Niebla de advección' = aire cálido sobre superficie fría. 'Niebla de radiación' = noches claras con viento calmo. 'Niebla orográfica' = montañas.]"
+  },
+  {
+    "id": "met_10",
+    "category": "METEOROLOGIA",
+    "question": "¿Qué mide el higrómetro?",
+    "options": [
+      { "id": "A", "text": "La profundidad", "isCorrect": false },
+      { "id": "B", "text": "La densidad del agua", "isCorrect": false },
+      { "id": "C", "text": "La humedad del aire", "isCorrect": true },
+      { "id": "D", "text": "La presión", "isCorrect": false }
+    ],
+    "explanation": "El higrómetro mide la humedad del aire (vapor de agua contenido). Complementa al barómetro para pronosticar el tiempo. [TIP: 'Higrómetro' = humedad. 'Barómetro' = presión. 'Anemómetro' = viento. 'Termómetro' = temperatura.]"
+  },
+  {
+    "id": "met_11",
+    "category": "METEOROLOGIA",
+    "question": "¿Qué indica una baja rápida de presión en el barómetro?",
+    "options": [
+      { "id": "A", "text": "Mejoría del tiempo", "isCorrect": false },
+      { "id": "B", "text": "Empeoramiento brusco (tormenta)", "isCorrect": true },
+      { "id": "C", "text": "Viento del Norte", "isCorrect": false },
+      { "id": "D", "text": "Brisa marina", "isCorrect": false }
+    ],
+    "explanation": "Una baja rápida de presión (más de 1-2 hPa por hora) indica el paso de un sistema de baja presión con mal tiempo, viento fuerte y lluvia. [TIP: Caída rápida = tormenta. Subida rápida = mejoría (post-frente). Constante = estable.]"
+  },
+  {
+    "id": "met_12",
+    "category": "METEOROLOGIA",
+    "question": "¿Cómo navegar frente a OLAS ALTAS?",
+    "options": [
+      { "id": "A", "text": "A toda marcha para pasarlas rápido", "isCorrect": false },
+      { "id": "B", "text": "A una velocidad acorde a la frecuencia de la ola", "isCorrect": true },
+      { "id": "C", "text": "A velocidad de maniobra", "isCorrect": false },
+      { "id": "D", "text": "De popa siempre", "isCorrect": false }
+    ],
+    "explanation": "Con olas altas se debe navegar a una velocidad ACORDE a la frecuencia de las olas (sincronizar la velocidad del barco con el período de las olas), para que el barco suba y baje suavemente sin golpear. [TIP: 'Velocidad de sincronía' = navegar a la misma velocidad que la ola. Si vas más rápido, golpeás con el casco. Si vas más lento, te revolca.]"
+  },
+  {
+    "id": "met_13",
+    "category": "METEOROLOGIA",
+    "question": "En zonas de BAJO FONDO, ¿cómo se debe navegar?",
+    "options": [
+      { "id": "A", "text": "A alta velocidad para reducir el calado dinámico", "isCorrect": false },
+      { "id": "B", "text": "A velocidad reducida", "isCorrect": true },
+      { "id": "C", "text": "A media marcha", "isCorrect": false },
+      { "id": "D", "text": "Solo a vela", "isCorrect": false }
+    ],
+    "explanation": "En zonas de bajo fondo, navegar a velocidad REDUCIDA minimiza el 'calado dinámico' (el barco se hunde más al moverse rápido por la presión hidrodinámica). [TIP: 'Calado dinámico' = a mayor velocidad, el barco se hunde más. En bajo fondo, lento = más margen.]"
+  },
+  {
+    "id": "met_14",
+    "category": "METEOROLOGIA",
+    "question": "¿Qué es el fenómeno meteorológico 'Sudestada'?",
+    "options": [
+      { "id": "A", "text": "Nubes de desarrollo en altura provenientes del SW", "isCorrect": false },
+      { "id": "B", "text": "Viento fuerte y persistente del SE", "isCorrect": true },
+      { "id": "C", "text": "Nubes estacionarias de la Patagonia argentina", "isCorrect": false },
+      { "id": "D", "text": "Calma chicha", "isCorrect": false }
+    ],
+    "explanation": "La Sudestada es un viento fuerte y PERSISTENTE del Sudeste (SE) que afecta principalmente al Río de la Plata y la costa atlántica argentina, causando crecidas por acumulación de agua contra la costa. [TIP: 'Sudestada' = SE persistente. 'Pampero' = SW frío y seco. 'Viento Norte' = cálido y húmedo.]"
+  },
+  {
+    "id": "met_15",
+    "category": "METEOROLOGIA",
+    "question": "El anemómetro mide:",
+    "options": [
+      { "id": "A", "text": "La presión atmosférica", "isCorrect": false },
+      { "id": "B", "text": "La velocidad y dirección del viento", "isCorrect": true },
+      { "id": "C", "text": "La temperatura del agua", "isCorrect": false },
+      { "id": "D", "text": "La humedad", "isCorrect": false }
+    ],
+    "explanation": "El anemómetro mide la velocidad y dirección del viento. Consta de cazoletas giratorias (velocidad) y una veleta (dirección). [TIP: 'Cazoletas' = miden velocidad (rpm proporcional a viento). 'Veleta' = indica dirección.]"
+  },
+  {
+    "id": "met_16",
+    "category": "METEOROLOGIA",
+    "question": "La niebla por radiación se forma típicamente:",
+    "options": [
+      { "id": "A", "text": "En días de lluvia intensa", "isCorrect": false },
+      { "id": "B", "text": "En noches despejadas con viento calmo, cuando la superficie se enfría por irradiación", "isCorrect": true },
+      { "id": "C", "text": "Durante tormentas eléctricas", "isCorrect": false },
+      { "id": "D", "text": "Con vientos fuertes del SW", "isCorrect": false }
+    ],
+    "explanation": "La niebla de radiación se forma en noches despejadas, sin viento y con alta humedad: la superficie terrestre se enfría por irradiación, condensa la humedad del aire cercano. [TIP: 'Radiación' = suelo se enfría. 'Advección' = aire cálido llega a zona fría. 'Orográfica' = aire sube por montaña.]"
   }
 ]
