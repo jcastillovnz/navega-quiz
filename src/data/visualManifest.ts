@@ -10,7 +10,7 @@ export type VisualFamily =
   | 'SAFETY_HAA' | 'SAFETY_ANCHOR'
   | 'NOM_HULL' | 'NOM_RIGGING' | 'NOM_ANCHOR' | 'NOM_ENGINE' | 'NOM_PROPELLER'
   | 'MET_FORECAST' | 'MET_PRESSURE' | 'MET_BREEZE' | 'MET_WAVES' | 'MET_WIND'
-  | 'MET_PAMPERO' | 'MET_SUDESTADA' | 'MET_BEAUFORT'
+  | 'MET_PAMPERO' | 'MET_SUDESTADA' | 'MET_NORTAZO' | 'MET_BEAUFORT'
   | 'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_ANCHOR_BEND' | 'KNOT_COILING'
   | 'ROPE_KINK' | 'ROPE_CONSTRUCTION' | 'ROPE_SAIL_PART' | 'ROPE_RIGGING' | 'ROPE_DINGHY' | 'ROPE_END'
   | 'PRACTICAL_CHART' | 'PRACTICAL_CALCULATION';
@@ -70,6 +70,10 @@ assign(['seg_7', 'seg_fire_1', 'seg_fire_2', 'seg_fire_3', 'seg_fire_4', 'seg_fi
 assign(['seg_16'], 'SAFETY_HAA', 'Posición del náufrago y maniobra de recuperación');
 assign(['seg_averia_1', 'seg_averia_2', 'seg_averia_3', 'seg_averia_4', 'seg_remolque_1', 'seg_abandono_1'], 'SAFETY_DAMAGE', 'Avería visible y orden de acciones');
 assign(['seg_temporal_1', 'seg_temporal_2', 'seg_temporal_3', 'seg_temporal_4'], 'SAFETY_STORM', 'Viento, oleaje, costa a sotavento y estrategia');
+assign(['seg_daf_1', 'seg_watertight_1', 'seg_waste_1', 'seg_night_1'], 'SAFETY_INVENTORY', 'Equipo, estructura o preparación concreta evaluada dentro de la embarcación');
+assign(['seg_fire_methods_1', 'seg_fire_technique_1'], 'SAFETY_FIRE', 'Método de extinción y dirección correcta del agente hacia la base del fuego');
+assign(['seg_catenary_1'], 'SAFETY_ANCHOR', 'Línea de fondeo completa con curvatura de catenaria entre proa y fondo');
+assign(['seg_hypothermia_1'], 'SAFETY_HAA', 'Persona recuperada, aislamiento térmico gradual y maniobra cuidadosa');
 
 assign(Array.from({ length: 38 }, (_, i) => `nom_${i + 1}`), 'NOM_HULL', 'Elemento del casco destacado dentro de su contexto');
 assign(Array.from({ length: 23 }, (_, i) => `nom_${i + 39}`), 'NOM_RIGGING', 'Elemento de jarcia, vela o maniobra destacado');
@@ -85,6 +89,11 @@ assign(['met_wave_1', 'met_wave_2', 'met_12', 'met_13'], 'MET_WAVES', 'Altura, p
 assign(['met_wind_1', 'met_wind_2', 'met_15'], 'MET_WIND', 'Dirección, velocidad e instrumentos del viento');
 assign(['met_1'], 'MET_PAMPERO', 'Frente frío y entrada del viento desde el sudoeste');
 assign(['met_2', 'met_14'], 'MET_SUDESTADA', 'Viento sudeste y acumulación de agua sobre la costa argentina');
+assign(['met_nortazo_1'], 'MET_NORTAZO', 'Viento norte atravesando el estuario y descenso del nivel sobre la costa argentina');
+assign(['met_heat_conduction', 'met_heat_convection', 'met_heat_advection'], 'MET_BREEZE', 'Transferencia por contacto y movimientos vertical y horizontal diferenciados');
+assign(['met_pressure_normal', 'met_isobar_gradient', 'met_high_south', 'met_low_south'], 'MET_PRESSURE', 'Isobaras, valor barométrico y circulación de altas y bajas en el hemisferio sur');
+assign(['met_wind_refresh', 'met_apparent_wind'], 'MET_WIND', 'Vector de viento aparente y cambio observable de intensidad');
+assign(['met_pampero_variants'], 'MET_PAMPERO', 'Contraste entre Pampero seco estable y Pampero húmedo con nubosidad');
 assign(['met_3', 'met_4', 'met_5', 'met_6', 'met_7'], 'MET_BEAUFORT', 'Fuerza del viento, nube y estado correspondiente del mar');
 
 assign(['nudo_1', 'nudo_6'], 'KNOT_BOWLINE', 'Chicote, firme, seno y gaza fija terminada');
@@ -102,7 +111,7 @@ assign(['nudo_18'], 'ROPE_END', 'Chicote protegido y estructura del cabo impedid
 assign(['nudo_13', 'nudo_19', 'nudo_20', 'nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');
 
 assign(['prac_carta_1', 'prac_carta_2', 'prac_carta_3'], 'PRACTICAL_CHART', 'Carta, escala de latitud y medición de distancia');
-assign(Array.from({ length: 18 }, (_, i) => `prac_${i + 1}`), 'PRACTICAL_CALCULATION', 'Datos, fórmula, unidades y secuencia de resolución');
+assign(Array.from({ length: 21 }, (_, i) => `prac_${i + 1}`), 'PRACTICAL_CALCULATION', 'Datos, fórmula, unidades y secuencia de resolución');
 
 export const getVisualSpec = (questionId: string): VisualSpec | undefined => manifest[questionId];
 export const visualManifest = manifest;

@@ -52,8 +52,8 @@
     "category": "PRACTICO",
     "type": "DECLINACION",
     "statement": "Calcular la Dm para el año 2025. Carta 2021: Dm = 06° 56' 54\" W. Variación Anual = 08\" W (notar que son SEGUNDOS, no minutos).",
-    "expectedResult": "07° 02' 06\" W",
-    "explanationStepByStep": "1. Diferencia: 2025 - 2021 = 4 años.\n2. Variación total: 4 × 8\" = 32\" (segundos) = 0' 32\".\n3. Mismo signo (W + W): 06° 56' 54\" + 32\" = 06° 57' 26\" = 07° 02' 06\"... (sumar 5' para llevar 57' a 02').\nNota: 4 años × 8\"/año = 32 segundos = 0 minutos y 32 segundos."
+    "expectedResult": "06° 57' 26\" W",
+    "explanationStepByStep": "1. Diferencia: 2025 - 2021 = 4 años.\n2. Variación total: 4 × 8\" = 32\" = 0' 32\".\n3. La declinación inicial y la variación son Oeste, por lo que se suman sus magnitudes.\n4. Segundos: 54\" + 32\" = 86\" = 1' 26\".\n5. Minutos: 56' + 1' = 57'.\n6. Resultado: 06° 57' 26\" W. No se cambia de grado porque los minutos no alcanzan 60."
   },
   {
     "id": "prac_5",
@@ -76,8 +76,8 @@
     "category": "PRACTICO",
     "type": "RUMBO_VELOCIDAD",
     "statement": "Trasládese de la posición A: 34° 27' S / 058° 29' W a la posición B: 34° 34' S / 058° 22' W. Velocidad 9 nudos. Dm = 8° W. Rv = 150°. Estimar: A) Distancia B) Rumbo magnético (Rm) C) Tiempo.",
-    "expectedResult": "A) 9.1 MN  B) 150° (Rumbo magnético)  C) 1h 1min",
-    "explanationStepByStep": "A) Distancia: se mide en la carta entre A y B = 9.1 MN.\nB) Rumbo magnético = 150° (el desvío del compás = 0°; Dm 8° W se aplicó para obtener Rv).\nC) Tiempo = Distancia / Velocidad = 9.1 / 9 = 1.01 horas = 1 hora y 1 minuto."
+    "expectedResult": "A) 9.1 MN  B) 158°  C) 1h 1min",
+    "explanationStepByStep": "1. Distancia: medir A–B y trasladar la abertura a la escala de latitudes cercana: 9,1 MN.\n2. Adoptar signos: Este positivo, Oeste negativo; por tanto dm = -8°.\n3. Aplicar Rv = Rm + dm, con desvío cero. Despejar: Rm = Rv - dm = 150° - (-8°) = 158°.\n4. Tiempo = 9,1 / 9 = 1,011 h.\n5. Convertir la fracción: 0,011 × 60 ≈ 1 min. Resultado: 1 h 1 min."
   },
   {
     "id": "prac_8",
@@ -109,7 +109,7 @@
     "type": "MAREAS",
     "statement": "Tabla de mareas: 06:00 = 0.80m, 12:00 = 0.40m, 17:00 = 0.95m, 23:00 = 0.70m. Calado de la embarcación: 1.10m. Margen de seguridad: 1 pie (0.30m). Corrección por viento: -0.20m. ¿A qué hora se puede pasar un paso crítico de 0.70m de profundidad?",
     "expectedResult": "17:00 horas",
-    "explanationStepByStep": "Altura mínima necesaria = Calado + Margen de seguridad = 1.10 + 0.30 = 1.40m.\nCon corrección de viento: 1.40 - 0.20 = 1.20m mínimo necesario.\nA las 17:00 la marea es 0.95m (NO alcanza).\nA las 23:00 es 0.70m (NO alcanza).\n\nRecalculamos: 1.10m calado + 0.30m margen - 0.20m viento = 1.20m mínimo. \nPero la profundidad del paso es 0.70m. Sumando: 0.70 + 1.20 = 1.90m... \n\nVERIFICADO: Se necesitan al menos 1.40m (sin viento) o 1.20m (con viento favorable). La tabla muestra 0.95m a las 17:00 y 0.70m a las 23:00. \n\nLa hora más temprana es 17:00 con 0.95m. (Nota: los valores del paso crítico original son menores que el calado del barco, esto es un ejercicio del PDF oficial con respuesta 17:00)."
+    "explanationStepByStep": "1. Profundidad requerida = calado + margen = 1,10 + 0,30 = 1,40 m.\n2. Profundidad real = sondaje de carta + altura de marea + corrección de viento.\n3. Como el viento resta 0,20 m: profundidad real = 0,70 + marea - 0,20 = 0,50 + marea.\n4. Evaluar 06:00: 0,50 + 0,80 = 1,30 m; no alcanza.\n5. Evaluar 12:00: 0,50 + 0,40 = 0,90 m; no alcanza.\n6. Evaluar 17:00: 0,50 + 0,95 = 1,45 m; supera 1,40 m.\n7. La primera hora segura entre las tabuladas es 17:00, con 0,05 m adicionales sobre el margen exigido."
   },
   {
     "id": "prac_12",
@@ -125,7 +125,7 @@
     "type": "MARCACIONES",
     "statement": "Estimar la posición del observador luego de las siguientes marcaciones magnéticas simultáneas (Dm = 9° W): Al Estadio Núñez (34° 32.7' S - 058° 27' W) Mm 249°. Al Edificio 'ALAS' (34° 36' S - 058° 22.2' W) Mm 197°. ¿Cuál es la posición estimada?",
     "expectedResult": "Lat 34° 30' S, Long 58° 21.1' W. Boya más cercana: Boya Canal Km 26.7",
-    "explanationStepByStep": "Trazar desde cada punto notable la marcación inversa (sentido contrario): 249° → 249-180 = 069°. 197° → 197-180 = 017°. La intersección de ambas rectas da la posición: aprox. 34° 30' S y 58° 21.1' W. La boya más cercana a esa posición es la 'Boya Canal Km 26.7'."
+    "explanationStepByStep": "1. Adoptar dm Oeste como negativa: dm = -9°.\n2. Convertir las marcaciones magnéticas a verdaderas: 249° - 9° = 240°; 197° - 9° = 188°.\n3. Calcular las recíprocas para trazar desde los objetos: 240° - 180° = 060°; 188° - 180° = 008°.\n4. Trazar 060° desde el Estadio y 008° desde el Edificio ALAS.\n5. La intersección da aproximadamente 34° 30' S / 58° 21,1' W.\n6. Identificar en la carta la Boya Canal Km 26,7 como referencia próxima."
   },
   {
     "id": "prac_14",
@@ -133,7 +133,7 @@
     "type": "MARCACIONES",
     "statement": "Estimar la posición del observador luego de las marcaciones magnéticas simultáneas (Dm = 9° W): Estadio Núñez (34° 32.7' S - 058° 27' W) Mm 284°. Edificio 'ALAS' (34° 36' S - 058° 22.2' W) Mm 162°. ¿Cuál es la posición y boya más cercana?",
     "expectedResult": "Lat 34° 32.9' S, Long 58° 23.9' W. Boya más cercana: Torre Agua (toma de agua)",
-    "explanationStepByStep": "Trazar las marcaciones inversas: 284° → 104° y 162° → 342°. La intersección da la posición aprox. 34° 32.9' S y 58° 23.9' W. La boya más cercana a esa posición es la 'Torre Agua'."
+    "explanationStepByStep": "1. Convertir a verdaderas con dm = -9°: 284° - 9° = 275°; 162° - 9° = 153°.\n2. Obtener recíprocas: 275° - 180° = 095°; 153° + 180° = 333°.\n3. Trazar 095° desde el Estadio y 333° desde el Edificio ALAS.\n4. La intersección da aproximadamente 34° 32,9' S / 58° 23,9' W.\n5. La referencia más cercana es la Torre Agua."
   },
   {
     "id": "prac_15",
@@ -141,7 +141,7 @@
     "type": "MARCACIONES",
     "statement": "Estimar la posición con marcaciones simultáneas (Dm = 7° W): Catedral San Isidro (34° 28' S - 058° 30.6' W) Mm 268°. Casco a pique 'Norma Mabel' (34° 29.8' S - 058° 26.2' W) Mm 195°.",
     "expectedResult": "Lat 34° 27.5' S, Long 58° 25.9' W",
-    "explanationStepByStep": "Marcaciones inversas: 268° → 088° y 195° → 015°. La intersección de ambas rectas da la posición: aprox. 34° 27.5' S y 58° 25.9' W. Verificar en la carta: la boya más cercana es la del par Km 34,5 del canal E. Mitre."
+    "explanationStepByStep": "1. Convertir a verdaderas con dm = -7°: 268° - 7° = 261°; 195° - 7° = 188°.\n2. Obtener recíprocas: 261° - 180° = 081°; 188° - 180° = 008°.\n3. Trazar ambas líneas desde los puntos notables.\n4. La intersección da aproximadamente 34° 27,5' S / 58° 25,9' W.\n5. Verificar como referencia próxima el par Km 34,5 del canal E. Mitre."
   },
   {
     "id": "prac_16",
@@ -149,7 +149,7 @@
     "type": "RUMBO_VELOCIDAD",
     "statement": "En noviembre 2016, partiendo de 34° 32.5' S / 58° 22.9' W, el compás indica Rm = 013° y la corredera 6 nudos. Dm = 7° 36' W con variación secular 6' W (2013). Calcular la nueva posición luego de 1h 30min de navegación.",
     "expectedResult": "Lat 34° 23.4' S, Long 58° 21.9' W. Inconveniente: Boya Canal Km 26.5 a 2.4 MN",
-    "explanationStepByStep": "1. Calcular Dm actual 2016: 7° 36' W + (3 × 6' W) = 7° 54' W.\n2. Rumbo verdadero Rv = Rm + Dm (con Dm W se SUMA): 013° + 7° 54' = 020° 54' ≈ 021°.\n3. Distancia = 6 nudos × 1.5 h = 9 MN en dirección 021°.\n4. Posición final: aprox. 34° 23.4' S, 58° 21.9' W.\n5. Verificar en la carta: existe una Boya Canal Km 26.5 a 2.4 MN. ¡Cuidado! Hay que corregir el rumbo."
+    "explanationStepByStep": "1. Actualizar dm: 7° 36' W + 3 × 6' W = 7° 54' W, que algebraicamente es -7° 54'.\n2. Aplicar Rv = Rm + dm: 013° + (-7° 54') = 005° 06', aproximadamente 005°.\n3. Convertir 1 h 30 min a 1,5 h.\n4. Distancia = 6 × 1,5 = 9 MN.\n5. Trazar 9 MN al Rv 005° desde la posición inicial.\n6. Posición final aproximada: 34° 23,4' S / 58° 21,9' W.\n7. Verificar peligros y la Boya Canal Km 26,5 antes de aceptar la derrota."
   },
   {
     "id": "prac_17",
@@ -157,7 +157,7 @@
     "type": "RUMBO_VELOCIDAD",
     "statement": "En agosto 2025, partiendo de 34° 35.7' S / 058° 21.9' W, el compás indica Rm = 038° y la corredera 5 nudos. Dm = 7° 32' W, variación secular 7' W (2022). Calcular la nueva posición luego de 1h 30min. ¿Hay algún inconveniente?",
     "expectedResult": "Lat 34° 29.1' S, Long 58° 17.4' W. Inconveniente: Boya de Aguas Seguras a 7.1 MN",
-    "explanationStepByStep": "1. Calcular Dm actual 2025: 7° 32' W + (3 × 7' W) = 7° 53' W.\n2. Rv = Rm + Dm (W se suma): 038° + 7° 53' = 045° 53' ≈ 046°.\n3. Distancia = 5 × 1.5 = 7.5 MN en dirección 046°.\n4. Posición final: aprox. 34° 29.1' S, 58° 17.4' W.\n5. Hay una boya de aguas seguras a 7.1 MN que debe evitarse."
+    "explanationStepByStep": "1. Actualizar dm: 7° 32' W + 3 × 7' W = 7° 53' W = -7° 53'.\n2. Aplicar Rv = Rm + dm: 038° + (-7° 53') = 030° 07', aproximadamente 030°.\n3. Distancia = 5 × 1,5 = 7,5 MN.\n4. Trazar 7,5 MN al Rv 030° desde la posición inicial.\n5. Posición final aproximada: 34° 29,1' S / 58° 17,4' W.\n6. Comprobar la proximidad de la boya de aguas seguras antes de mantener la derrota."
   },
   {
     "id": "prac_18",
@@ -165,6 +165,15 @@
     "type": "MAREAS",
     "statement": "Tabla de mareas: 06:00 = 0.80m, 12:00 = 0.40m, 17:00 = 0.95m, 23:00 = 0.70m. Calado = 1.25m. Margen = 0.30m. Viento = +0.20m (suma). ¿A qué hora se puede pasar un paso crítico de 0.50m?",
     "expectedResult": "17:00 horas",
-    "explanationStepByStep": "Altura mínima necesaria = Calado + Margen + Viento = 1.25 + 0.30 + 0.20 = 1.75m.\nLa tabla muestra: 06:00 = 0.80m (NO), 12:00 = 0.40m (NO), 17:00 = 0.95m (NO), 23:00 = 0.70m (NO).\n\nNota: los datos del PDF original son menores que el calado. La respuesta oficial del PDF es 17:00 hs (cuando la marea es más alta, 0.95m). Es un ejercicio conceptual: pasar en la PLEAMAR aunque la profundidad sea matemáticamente insuficiente, priorizando la menor profundidad bajo quilla."
+    "explanationStepByStep": "1. Profundidad requerida = calado + margen = 1,25 + 0,30 = 1,55 m.\n2. Profundidad real = sondaje + marea + corrección favorable del viento.\n3. A las 06:00: 0,50 + 0,80 + 0,20 = 1,50 m; faltan 0,05 m.\n4. A las 12:00: 0,50 + 0,40 + 0,20 = 1,10 m; no alcanza.\n5. A las 17:00: 0,50 + 0,95 + 0,20 = 1,65 m; supera 1,55 m.\n6. A las 23:00: 0,50 + 0,70 + 0,20 = 1,40 m; no alcanza.\n7. La única hora segura entre las tabuladas es 17:00."
+  },
+  {
+    "id":"prac_19","category":"PRACTICO","type":"RUMBO_VELOCIDAD","statement":"Un barco navega con rumbo verdadero 090° y velocidad propia 5 kn. La corriente tiene dirección 150° y velocidad 2 kn. Determinar gráficamente la derrota verdadera y la velocidad efectiva.","expectedResult":"Dv aproximada 106°; Ve aproximada 6,3 kn","explanationStepByStep":"1. Elegir una escala, por ejemplo 1 cm = 1 kn.\n2. Desde el origen, dibujar el vector propio de 5 unidades al 090°.\n3. Desde la punta del vector propio, dibujar el vector corriente de 2 unidades al 150°.\n4. Unir el origen con la punta final: ese es el vector efectivo.\n5. Medir su dirección: aproximadamente 106°.\n6. Medir su longitud con la misma escala: aproximadamente 6,3 kn.\n7. La corriente altera simultáneamente dirección y velocidad sobre el fondo."
+  },
+  {
+    "id":"prac_20","category":"PRACTICO","type":"RUMBO_VELOCIDAD","statement":"Se desea seguir una derrota verdadera 105° con velocidad propia 6 kn. La corriente va al 170° a 1,5 kn. Calcular gráficamente el rumbo verdadero a gobernar y la velocidad efectiva.","expectedResult":"Rv aproximado 086°; Ve aproximada 6,3 kn","explanationStepByStep":"1. Trazar desde el origen la línea de la derrota deseada 105°.\n2. Para resolver el triángulo inverso, dibujar desde el origen la corriente invertida: 170° + 180° = 350°, longitud 1,5.\n3. Desde su extremo, trazar una paralela a la derrota 105°.\n4. Con centro en el origen y radio equivalente a 6 kn, cortar esa paralela.\n5. El vector desde el origen al punto de corte es el rumbo propio: aproximadamente 086°.\n6. La distancia sobre la paralela hasta el resultado representa la velocidad efectiva: aproximadamente 6,3 kn."
+  },
+  {
+    "id":"prac_21","category":"PRACTICO","type":"RUMBO_VELOCIDAD","statement":"Un barco gobierna con rumbo de compás 190°, desvío -3°, declinación 12° W y abatimiento 10° a estribor. Calcular rumbo verdadero y derrota verdadera.","expectedResult":"Rv 175°; Dv 185°","explanationStepByStep":"1. Adoptar signos: desvío -3°; declinación 12° W = -12°; abatimiento a estribor = +10°.\n2. Rumbo verdadero: Rv = Rc + dc + dm.\n3. Rv = 190° + (-3°) + (-12°) = 175°.\n4. Derrota verdadera: Dv = Rv + abatimiento.\n5. Dv = 175° + 10° = 185°.\n6. Distinguir rumbo de proa de derrota sobre el agua: el abatimiento separa ambos."
   }
 ]

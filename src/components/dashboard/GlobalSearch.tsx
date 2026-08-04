@@ -3,6 +3,8 @@ import { Search, X, BookOpen, BrainCircuit, Lightbulb } from 'lucide-react';
 import ripaIala from '../../data/ripa_iala.json';
 import ripaSound from '../../data/ripa_senales_auditivas.json';
 import ripaExtended from '../../data/ripa_ampliado.json';
+import meteorologiaApunte from '../../data/meteorologia_apunte.json';
+import seguridadApunte from '../../data/seguridad_apunte.json';
 import teoria from '../../data/teoria.json';
 import nudos from '../../data/nudos.json';
 import nomenclatura from '../../data/nomenclatura.json';
@@ -34,6 +36,8 @@ const ALL_QUESTIONS: AllQuestion[] = [
   ...(ripaSound as QuizQuestion[]).map(q => ({ ...q, _source: 'RIPA/IALA' })),
   ...(ripaExtended as QuizQuestion[]).map(q => ({ ...q, _source: 'RIPA/IALA' })),
   ...(teoria as QuizQuestion[]).map(q => ({ ...q, _source: 'Teoría' })),
+  ...(meteorologiaApunte as QuizQuestion[]).map(q => ({ ...q, _source: 'Teoría' })),
+  ...(seguridadApunte as QuizQuestion[]).map(q => ({ ...q, _source: 'Teoría' })),
   ...(nudos as QuizQuestion[]).map(q => ({ ...q, _source: 'Nudos' })),
   ...(nomenclatura as QuizQuestion[]).map(q => ({ ...q, _source: 'Nomenclatura' })),
   ...PRACTICOS_QUESTIONS

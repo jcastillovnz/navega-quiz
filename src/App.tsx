@@ -5,7 +5,7 @@ import type { ModuleId } from './components/dashboard/DashboardView';
 import { ModuloRipaIalaView } from './components/modules/ModuloRipaIalaView';
 import { ModuloIalaView } from './components/modules/ModuloIalaView';
 import { ModuloTeoricoView } from './components/modules/ModuloTeoricoView';
-import { SeguridadViewer } from './components/seguridad/SeguridadViewer';
+import { SafetyQuestionIllustration } from './components/seguridad/SafetyQuestionIllustration';
 import { NomenclaturaViewer } from './components/nomenclatura/NomenclaturaViewer';
 import { MarinePropulsionViewer } from './components/nomenclatura/MarinePropulsionViewer';
 import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer';
@@ -194,17 +194,9 @@ function App() {
                 badgeColor: 'bg-rose-500',
                 icon: Shield
               }}
-              viewer={<SeguridadViewer compact />}
               visualForQuestion={question => {
                 const family = getVisualSpec(question.id)?.family;
-                if (family === 'NOM_ENGINE') return <MarinePropulsionViewer focus="ENGINE" context={question.question} />;
-                if (family === 'NOM_PROPELLER') return <MarinePropulsionViewer focus="PROPELLER" context={question.question} />;
-                if (family === 'SAFETY_FIRE') return <SeguridadViewer compact focusSection="INCENDIO" />;
-                if (family === 'SAFETY_STORM') return <SeguridadViewer compact focusSection="TEMPORAL" />;
-                if (family === 'SAFETY_DAMAGE') return <SeguridadViewer compact focusSection="AVERIAS" />;
-                if (family === 'SAFETY_HAA') return <SeguridadViewer compact focusSection="HAA" />;
-                if (family === 'SAFETY_ANCHOR') return <SeguridadViewer compact focusSection="FONDEO" />;
-                return <SeguridadViewer compact focusSection="INVENTARIO" />;
+                return <SafetyQuestionIllustration question={question} family={family} />;
               }}
             />
           )}
@@ -224,6 +216,8 @@ function App() {
               viewer={<NomenclaturaViewer compact />}
               visualForQuestion={question => {
                 const family = getVisualSpec(question.id)?.family;
+                if (family === 'NOM_ENGINE') return <MarinePropulsionViewer focus="ENGINE" context={question.question} />;
+                if (family === 'NOM_PROPELLER') return <MarinePropulsionViewer focus="PROPELLER" context={question.question} />;
                 const focusSection = family === 'NOM_ANCHOR' ? 'FONDEO' : family === 'NOM_RIGGING' ? 'JARCIA' : 'CASCO';
                 return <NomenclaturaViewer compact focusSection={focusSection} />;
               }}
@@ -252,6 +246,7 @@ function App() {
                 if (family === 'MET_WIND') return <MeteorologyConceptViewer focus="VIENTO" />;
                 if (family === 'MET_PAMPERO') return <MeteorologiaViewer compact focusPhenomenon="PAMPERO" />;
                 if (family === 'MET_SUDESTADA') return <MeteorologiaViewer compact focusPhenomenon="SUDESTADA" />;
+                if (family === 'MET_NORTAZO') return <MeteorologyConceptViewer focus="VIENTO" />;
                 if (family === 'MET_BEAUFORT') return <MeteorologiaViewer compact focusBeaufort={6} />;
                 return <MeteorologiaViewer compact focusBeaufort={3} />;
               }}

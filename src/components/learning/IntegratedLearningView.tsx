@@ -143,9 +143,9 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
   const visualSpec = getVisualSpec(question.id);
   const visualMarker = stableVisualPosition(question.id);
   return (
-    <div className="h-full min-h-0 flex flex-col gap-2 overflow-hidden">
-      <section className="basis-[46%] min-h-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 relative">
-        <div className="absolute left-2 top-2 z-20 rounded-lg border border-white/20 bg-slate-950/80 backdrop-blur-md px-2 py-1">
+    <div className="integrated-learning h-full min-h-0 flex flex-col gap-2 overflow-hidden">
+      <section className="learning-visual basis-[46%] min-h-0 overflow-hidden rounded-xl sm:rounded-2xl border border-slate-800 bg-slate-950 relative">
+        <div className="learning-visual-label absolute left-2 top-2 z-20 rounded-lg border border-white/20 bg-slate-950/80 backdrop-blur-md px-2 py-1">
           <p className="text-[9px] uppercase tracking-widest text-cyan-300 font-black">Ilustración contextual</p>
           <p className="max-w-[min(72vw,560px)] truncate text-[10px] text-slate-300">
             {visualSpec ? `Observá: ${visualSpec.evidence}` : 'Observá la lámina antes de responder'}
@@ -160,7 +160,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
           {visualForQuestion ? visualForQuestion(question) : visual}
           <div className="pointer-events-none absolute inset-0 z-10">
             <span className="absolute h-3 w-3 rounded-full border-2 border-cyan-200 bg-cyan-400/30 shadow-[0_0_14px_rgba(34,211,238,.8)]" style={{ left: `${visualMarker.left}%`, top: `${visualMarker.top}%` }} />
-            <div className="absolute bottom-2 right-2 max-w-[48%] rounded-lg border border-white/15 bg-slate-950/82 px-2 py-1 backdrop-blur">
+            <div className="learning-visual-focus absolute bottom-2 right-2 max-w-[48%] rounded-lg border border-white/15 bg-slate-950/82 px-2 py-1 backdrop-blur">
               <p className="text-[8px] font-black uppercase tracking-wider text-cyan-300">Foco de esta lámina</p>
               <p className="line-clamp-2 text-[9px] leading-tight text-slate-100">{visualFocusFrom(question.question)}</p>
             </div>
@@ -168,8 +168,8 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
         </div>
       </section>
 
-      <section className="basis-[54%] min-h-0 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-md flex flex-col">
-        <div className="px-3 py-2 border-b border-slate-800 shrink-0">
+      <section className="learning-panel basis-[54%] min-h-0 overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-md flex flex-col">
+        <div className="learning-progress px-3 py-2 border-b border-slate-800 shrink-0">
           <div className="flex items-center justify-between gap-3 mb-1.5">
             <div className="flex items-baseline gap-2 min-w-0">
               <p className="text-[9px] uppercase tracking-widest text-slate-500 font-black shrink-0">Aprender · {title}</p>
@@ -184,8 +184,8 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
 
         <div ref={contentRef} className="flex-1 min-h-0 overflow-y-auto custom-scroll px-3 py-2 scroll-pt-2">
           {!selected ? (
-            <div className="h-full min-h-0 grid md:grid-cols-[minmax(200px,.55fr)_minmax(0,1.45fr)] gap-3">
-              <div className="rounded-xl border border-cyan-500/25 bg-cyan-500/10 p-3 self-start">
+            <div className="learning-question-layout min-h-0 grid md:grid-cols-[minmax(200px,.55fr)_minmax(0,1.45fr)] gap-3">
+              <div className="learning-theory rounded-xl border border-cyan-500/25 bg-cyan-500/10 p-3 self-start">
                 <div className="flex items-center gap-1.5 mb-1.5 text-cyan-300">
                   <BookOpen className="w-3.5 h-3.5" />
                   <span className="text-[10px] uppercase tracking-wider font-black">Idea esencial</span>
@@ -199,7 +199,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
                   <span className="text-[10px] uppercase tracking-wider font-black">Comprobación inmediata</span>
                 </div>
                 <p className="text-sm leading-snug font-bold text-white mb-2.5">{question.question}</p>
-                <div className="grid sm:grid-cols-2 gap-1.5">
+                <div className="learning-options grid sm:grid-cols-2 gap-1.5">
                   {question.options.map(option => (
                     <button
                       key={option.id}
@@ -214,7 +214,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
               </div>
             </div>
           ) : (
-            <div className="grid md:grid-cols-[minmax(230px,.7fr)_minmax(0,1.3fr)] gap-2.5 animate-[fade-in_0.25s_ease-out]">
+            <div className="learning-answer-layout grid md:grid-cols-[minmax(230px,.7fr)_minmax(0,1.3fr)] gap-2.5 animate-[fade-in_0.25s_ease-out]">
               <div className="space-y-2 min-w-0">
                 <div className={`rounded-xl border px-3 py-2 ${isCorrect ? 'border-emerald-400/50 bg-emerald-500/15' : 'border-rose-400/50 bg-rose-500/15'}`}>
                   <div className={`flex items-center gap-2 text-sm font-black ${isCorrect ? 'text-emerald-200' : 'text-rose-200'}`}>
@@ -257,7 +257,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
           )}
         </div>
 
-        <div className="px-3 py-1.5 border-t border-slate-800 shrink-0 flex gap-2">
+        <div className="learning-actions px-3 py-1.5 border-t border-slate-800 shrink-0 flex gap-2">
           <button onClick={restart} className="p-2 rounded-lg border border-slate-700 text-slate-400 hover:text-white transition-all duration-300" title="Reiniciar ruta">
             <RotateCcw className="w-4 h-4" />
           </button>

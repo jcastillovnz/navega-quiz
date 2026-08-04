@@ -23,13 +23,13 @@ export const ModuloRipaIalaView: React.FC = () => {
   ], []);
 
   return (
-    <div className="h-full flex flex-col gap-2 overflow-hidden">
-      <div className="flex items-center justify-between gap-2 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl shrink-0">
+    <div className="h-full flex flex-col gap-1.5 sm:gap-2 overflow-hidden">
+      <div className="module-heading flex items-center justify-between gap-2 bg-slate-900 border border-slate-800 px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl shrink-0 min-w-0">
         <div className="flex items-center gap-2">
           <span className="text-[10px] font-extrabold px-2 py-0.5 bg-cyan-500 text-slate-950 rounded-md">Módulo 1</span>
-          <h3 className="text-xs font-bold text-white">Reglamento para prevenir abordajes</h3>
+          <h3 className="truncate text-[11px] sm:text-xs font-bold text-white">Reglamento para prevenir abordajes</h3>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-bold text-cyan-300">
+        <div className="module-route hidden sm:flex items-center gap-1.5 text-[10px] font-bold text-cyan-300">
           <Route className="w-3.5 h-3.5" />
           Ruta unificada · escena, regla y decisión
         </div>

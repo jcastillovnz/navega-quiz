@@ -39,6 +39,94 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* El aprendizaje conserva una sola pantalla, pero redistribuye su altura en móvil. */
+@media (max-width: 639px) {
+  .integrated-learning {
+    gap: 0.375rem;
+  }
+
+  .integrated-learning .learning-visual {
+    flex-basis: 35%;
+  }
+
+  .integrated-learning .learning-panel {
+    flex-basis: 65%;
+  }
+
+  .learning-visual-label {
+    max-width: calc(100% - 1rem);
+    padding: 0.2rem 0.4rem;
+  }
+
+  .learning-visual-label p:first-child {
+    font-size: 0.45rem;
+  }
+
+  .learning-visual-label p:last-child {
+    max-width: 78vw;
+    font-size: 0.5rem;
+  }
+
+  .learning-visual-focus {
+    display: none;
+  }
+
+  .learning-progress {
+    padding: 0.35rem 0.6rem;
+  }
+
+  .learning-question-layout,
+  .learning-answer-layout {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 0.5rem;
+  }
+
+  .learning-theory {
+    padding: 0.55rem;
+  }
+
+  .learning-theory p {
+    font-size: 0.68rem;
+    line-height: 1.4;
+  }
+
+  .learning-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .learning-options button {
+    min-height: 2.5rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .learning-actions {
+    padding: 0.3rem 0.55rem;
+    padding-bottom: max(0.3rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Teléfonos apaisados: se prioriza la pregunta y se evita que la lámina la desplace. */
+@media (max-height: 520px) and (max-width: 900px) {
+  .integrated-learning .learning-visual {
+    flex-basis: 36%;
+  }
+
+  .integrated-learning .learning-panel {
+    flex-basis: 64%;
+  }
+
+  .learning-visual-label,
+  .learning-visual-focus {
+    display: none;
+  }
+
+  .learning-progress {
+    padding-block: 0.25rem;
+  }
+}
+
 /* Para textos largos, que corten y no expandan el contenedor */
 .truncate-multiline {
   display: -webkit-box;

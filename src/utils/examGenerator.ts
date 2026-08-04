@@ -9,6 +9,8 @@ import seguridadEmergenciasData from '../data/seguridad_emergencias.json';
 import meteorologiaExtendidaData from '../data/meteorologia_extendida.json';
 import ripaSoundData from '../data/ripa_senales_auditivas.json';
 import ripaExtendedData from '../data/ripa_ampliado.json';
+import meteorologiaApunteData from '../data/meteorologia_apunte.json';
+import seguridadApunteData from '../data/seguridad_apunte.json';
 import type { QuizQuestion, QuizCategory, PracticalExercise } from '../types/quiz';
 
 export interface ExamConfig {
@@ -128,7 +130,9 @@ export const generateExam = (config: ExamConfig = DEFAULT_EXAM_CONFIG): Generate
     ...(teoriaData as QuizQuestion[]),
     ...(seguridadIncendiosData as QuizQuestion[]),
     ...(seguridadEmergenciasData as QuizQuestion[]),
+    ...(seguridadApunteData as QuizQuestion[]),
     ...(meteorologiaExtendidaData as QuizQuestion[]),
+    ...(meteorologiaApunteData as QuizQuestion[]),
     ...(nomenclaturaData as QuizQuestion[]),
     ...(nudosData as QuizQuestion[])
   ];
