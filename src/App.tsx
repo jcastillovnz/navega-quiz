@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Layout } from './components/layout/Layout';
 import { RipaLightViewer } from './components/ripa/RipaLightViewer';
 import { IalaBuoyViewer } from './components/iala/IalaBuoyViewer';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Anchor, Sailboat, Ruler, Info, X, Wind } from 'lucide-react';
+import { Anchor, Sailboat, Ruler, Info, X, Wind, BookOpen } from 'lucide-react';
 
 interface HullHotspot {
   id: string;
@@ -406,6 +406,66 @@ export const NomenclaturaViewer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* --- Sección 3: Glosario completo de nomenclatura náutica --- */}
+      <div className="bg-slate-800/40 border border-slate-700 rounded-2xl p-3">
+        <div className="flex items-center gap-2 mb-2">
+          <BookOpen className="w-4 h-4 text-cyan-400" />
+          <h3 className="text-base font-bold text-white">Glosario Completo de Nomenclatura</h3>
+        </div>
+        <p className="text-[11px] text-slate-400 mb-3">
+          Todos los términos oficiales del apunte "La Barca Náutica" (Escuela Náutica Deportiva). Click para expandir.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
+          {NAUTICAL_GLOSSARY.map((item, i) => (
+            <details
+              key={i}
+              className="bg-slate-900/50 border border-slate-700/50 rounded-lg group"
+            >
+              <summary className="cursor-pointer p-2 flex items-center justify-between text-xs font-bold text-cyan-200 hover:text-cyan-100 list-none">
+                <span>{item.term}</span>
+                <span className="text-slate-500 group-open:rotate-90 transition-transform">▶</span>
+              </summary>
+              <div className="px-2 pb-2 text-[11px] text-slate-300 leading-relaxed border-t border-slate-800 mt-1 pt-2">
+                {item.definition}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
+
+const NAUTICAL_GLOSSARY: Array<{ term: string; definition: string }> = [
+  { term: 'Crujía', definition: 'Línea imaginaria que recorre el casco longitudinalmente de proa a popa, dividiendo el barco en dos mitades simétricas. Coincide con la quilla.' },
+  { term: 'Través', definition: 'Eje transversal perpendicular a la crujía, de babor a estribor.' },
+  { term: 'Amura', definition: 'Parte DELANTERA de cada costado, desde el través convergiendo hacia la proa.' },
+  { term: 'Aleta', definition: 'Parte TRASERA de cada costado, desde el atravesando hasta la popa.' },
+  { term: 'Banda', definition: 'En cubierta, cada una de las mitades que divide la línea de crujía.' },
+  { term: 'Casco', definition: 'Estructura principal del buque, encima y bajo la línea de flotación. Proporciona flotabilidad y resistencia al agua.' },
+  { term: 'Monocasco', definition: 'Embarcación con un solo casco. Catamarán = 2, Trimarán = 3.' },
+  { term: 'Cubierta', definition: 'Parte horizontal superior del casco. Asegura la estanqueidad. Cada uno de los pisos del barco.' },
+  { term: 'Plan', definition: 'El piso más bajo de la embarcación.' },
+  { term: 'Sentina', definition: 'La parte más BAJA del casco donde se acumula el agua. Equipada con bombas de achique.' },
+  { term: 'Mamparos', definition: 'Tabiques que dividen el interior en compartimentos estancos. Aumentan la seguridad.' },
+  { term: 'Costado', definition: 'Cada una de las partes laterales exteriores del casco.' },
+  { term: 'Regala', definition: 'Refuerzo estructural del borde superior del costado. Útil para apoyarse al escorar.' },
+  { term: 'Pantoque', definition: 'Viga o refuerzo longitudinal en la parte superior del costado, debajo de la regala.' },
+  { term: 'Borda', definition: 'Costado del buque que se eleva por encima del agua, entre la cubierta y la regala.' },
+  { term: 'Roda', definition: 'Pieza estructural que prolonga la quilla en la proa. Es lo que CORTA el agua. También llamada tajamar.' },
+  { term: 'Quilla', definition: 'Viga que va de proa a popa por el fondo. Columna vertebral. Aporta estabilidad.' },
+  { term: 'Codaste', definition: 'Pieza estructural que prolonga la quilla en la popa. Soporte del timón.' },
+  { term: 'Baos', definition: 'Refuerzos transversales que unen las cuadernas y sostienen las cubiertas.' },
+  { term: 'Cuadernas', definition: 'Piezas estructurales que salen de la quilla hacia los costados. Dan rigidez y forma al casco.' },
+  { term: 'Arrufo', definition: 'Curvatura de la cubierta que se eleva hacia proa y popa. Mejora el desagüe.' },
+  { term: 'Espejo', definition: 'Parte posterior plana del casco, en la popa. Ahí se pinta el nombre.' },
+  { term: 'Bulbo de proa', definition: 'Estructura en forma de bulbo en la proa. Reduce resistencia al avance y mejora la eficiencia.' },
+  { term: 'Desplazamiento', definition: 'Peso del buque, equivalente al peso del agua desplazada (en toneladas métricas).' },
+  { term: 'Escora', definition: 'Ángulo de inclinación lateral del barco, por viento o peso de la tripulación.' },
+  { term: 'Asiento', definition: 'Diferencia de inclinación longitudinal entre los calados de popa y proa. Apopante (positivo) o aproante (negativo).' },
+  { term: 'Orza', definition: 'Pieza debajo del casco que OPONE resistencia al desplazamiento lateral. Evita la deriva.' },
+  { term: 'Estropada', definition: 'La INERCIA del barco: la tendencia a mantener su rumbo y velocidad. Un barco con mucha estropada es difícil de detener.' },
+  { term: 'Abatimiento', definition: 'Desplazamiento LATERAL del barco causado por el VIENTO y la ola. Distinto de la deriva (corriente).' },
+  { term: 'Derrota aparente', definition: 'La trayectoria teórica del barco si SOLO se moviera por propulsión. NO considera viento ni corriente.' }
+];

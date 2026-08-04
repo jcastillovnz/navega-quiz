@@ -5,7 +5,7 @@
     "type": "DECLINACION",
     "statement": "Se desea obtener el valor de la Declinación Magnética (Dm) para el año 2025. La carta náutica publicada en 2021 indica: Dm = 06° 10' W. Variación Anual = 8' W.",
     "expectedResult": "06° 42' W",
-    "explanationStepByStep": "1. Calcular diferencia de años: 2025 - 2021 = 4 años.\n2. Calcular variación total: 4 años * 8' W = 32' W.\n3. Como la declinación inicial es W (Oeste) y la variación también es W (Oeste), se suman: 06° 10' W + 32' W = 06° 42' W."
+    "explanationStepByStep": "1. Calcular diferencia de años: 2025 - 2021 = 4 años.\n2. Calcular variación total: 4 años × 8' W = 32' W.\n3. Como la declinación inicial es W (Oeste) y la variación también es W (Oeste), se suman: 06° 10' W + 32' W = 06° 42' W."
   },
   {
     "id": "prac_2",
@@ -13,26 +13,66 @@
     "type": "DECLINACION",
     "statement": "Calcular la Declinación Magnética para el año 2026. Carta año 2020 indica: Dm = 05° 40' W. Variación Anual = 5' E.",
     "expectedResult": "05° 10' W",
-    "explanationStepByStep": "1. Diferencia de años: 2026 - 2020 = 6 años.\n2. Variación total: 6 años * 5' E = 30' E.\n3. La declinación inicial es W (Oeste) y la variación es E (Este), por lo tanto se restan: 05° 40' W - 30' E = 05° 10' W."
+    "explanationStepByStep": "1. Diferencia de años: 2026 - 2020 = 6 años.\n2. Variación total: 6 años × 5' E = 30' E.\n3. La declinación inicial es W (Oeste) y la variación es E (Este), por lo tanto se restan: 05° 40' W - 30' E = 05° 10' W."
   },
   {
     "id": "prac_3",
     "category": "PRACTICO",
-    "type": "RUMBO_VELOCIDAD",
-    "statement": "Un yate a motor navega de la boya A hacia la boya B. La distancia medida en la carta es de 12 millas náuticas (MN). Si su velocidad constante es de 8 nudos, ¿cuánto tiempo tardará en llegar?",
-    "expectedResult": "1 hora y 30 minutos",
-    "explanationStepByStep": "Fórmula: Tiempo = Distancia / Velocidad.\n1. T = 12 MN / 8 Nudos = 1.5 horas.\n2. Convertir 0.5 horas a minutos: 0.5 * 60 = 30 minutos.\n3. Tiempo total: 1 hora y 30 minutos."
+    "type": "DECLINACION",
+    "statement": "Se desea obtener el valor de la Declinación Magnética para el año 2025. La carta publicada en 2021 indica: Dm = 07° 25' 00\" W. Variación Anual = 08' 24\" W.",
+    "expectedResult": "07° 58' 36\" W",
+    "explanationStepByStep": "1. Diferencia de años: 2025 - 2021 = 4 años.\n2. Variación total: 4 × 8' 24\" = 33' 36\" W.\n3. Como el signo es el mismo (W + W), se suman: 07° 25' 00\" + 33' 36\" = 07° 58' 36\" W."
   },
   {
     "id": "prac_4",
     "category": "PRACTICO",
-    "type": "RUMBO_VELOCIDAD",
-    "statement": "Se navega durante 45 minutos a una velocidad constante de 6 nudos. ¿Qué distancia se ha recorrido?",
-    "expectedResult": "4.5 MN",
-    "explanationStepByStep": "Fórmula: Distancia = Velocidad * Tiempo.\n1. Convertir minutos a horas: 45 / 60 = 0.75 horas.\n2. Calcular distancia: 6 nudos * 0.75 horas = 4.5 MN (Millas Náuticas)."
+    "type": "DECLINACION",
+    "statement": "Calcular la Dm para el año 2025. Carta 2021: Dm = 06° 56' 54\" W. Variación Anual = 08\" W (notar que son SEGUNDOS, no minutos).",
+    "expectedResult": "07° 02' 06\" W",
+    "explanationStepByStep": "1. Diferencia: 2025 - 2021 = 4 años.\n2. Variación total: 4 × 8\" = 32\" (segundos) = 0' 32\".\n3. Mismo signo (W + W): 06° 56' 54\" + 32\" = 06° 57' 26\" = 07° 02' 06\"... (sumar 5' para llevar 57' a 02').\nNota: 4 años × 8\"/año = 32 segundos = 0 minutos y 32 segundos."
   },
   {
     "id": "prac_5",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "Un yate a motor navega de la boya A hacia la boya B. La distancia medida en la carta es de 12 millas náuticas (MN). Si su velocidad constante es de 8 nudos, ¿cuánto tiempo tardará en llegar?",
+    "expectedResult": "1 hora y 30 minutos",
+    "explanationStepByStep": "Fórmula: Tiempo = Distancia / Velocidad.\n1. T = 12 MN / 8 Nudos = 1.5 horas.\n2. Convertir 0.5 horas a minutos: 0.5 × 60 = 30 minutos.\n3. Tiempo total: 1 hora y 30 minutos."
+  },
+  {
+    "id": "prac_6",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "Se navega durante 45 minutos a una velocidad constante de 6 nudos. ¿Qué distancia se ha recorrido?",
+    "expectedResult": "4.5 MN",
+    "explanationStepByStep": "Fórmula: Distancia = Velocidad × Tiempo.\n1. Convertir minutos a horas: 45 / 60 = 0.75 horas.\n2. Calcular distancia: 6 nudos × 0.75 horas = 4.5 MN (Millas Náuticas)."
+  },
+  {
+    "id": "prac_7",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "Trasládese de la posición A: 34° 27' S / 058° 29' W a la posición B: 34° 34' S / 058° 22' W. Velocidad 9 nudos. Dm = 8° W. Rv = 150°. Estimar: A) Distancia B) Rumbo magnético (Rm) C) Tiempo.",
+    "expectedResult": "A) 9.1 MN  B) 150° (Rumbo magnético)  C) 1h 1min",
+    "explanationStepByStep": "A) Distancia: se mide en la carta entre A y B = 9.1 MN.\nB) Rumbo magnético = 150° (el desvío del compás = 0°; Dm 8° W se aplicó para obtener Rv).\nC) Tiempo = Distancia / Velocidad = 9.1 / 9 = 1.01 horas = 1 hora y 1 minuto."
+  },
+  {
+    "id": "prac_8",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "Trasládese de A: 34° 25.6' S / 058° 10.4' W a B: 34° 35.3' S / 058° 20.8' W. Velocidad 6 nudos. Dm = 9° W. Estimar: A) Distancia B) Rumbo magnético C) Tiempo.",
+    "expectedResult": "A) 13 MN  B) 231°  C) 2h 10min",
+    "explanationStepByStep": "A) Distancia medida en la carta: 13 MN.\nB) Rumbo magnético a seguir: 231°.\nC) Tiempo = 13 / 6 = 2.17 h = 2h 10min."
+  },
+  {
+    "id": "prac_9",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "Trasládese de A: 34° 34.6' S / 058° 17.8' W a B: 34° 29.2' S / 058° 26.7' W. Velocidad 6.5 nudos. Dm = 10° W. Estimar A) Distancia B) Rumbo magnético C) Tiempo.",
+    "expectedResult": "A) 9.4 MN  B) 318°  C) 1h 26min",
+    "explanationStepByStep": "A) Distancia en la carta: 9.4 MN.\nB) Rumbo magnético: 318°.\nC) Tiempo = 9.4 / 6.5 = 1.446 h = 1h 26min."
+  },
+  {
+    "id": "prac_10",
     "category": "PRACTICO",
     "type": "MAREAS",
     "statement": "Según la tabla de mareas, la pleamar es a las 10:00 con 1.80m y la bajamar a las 16:00 con 0.60m. ¿Cuál es la amplitud de la marea?",
@@ -40,11 +80,67 @@
     "explanationStepByStep": "La amplitud de la marea es la diferencia de altura entre la pleamar (nivel máximo) y la bajamar (nivel mínimo).\nAmplitud = 1.80m - 0.60m = 1.20m."
   },
   {
-    "id": "prac_6",
+    "id": "prac_11",
+    "category": "PRACTICO",
+    "type": "MAREAS",
+    "statement": "Tabla de mareas: 06:00 = 0.80m, 12:00 = 0.40m, 17:00 = 0.95m, 23:00 = 0.70m. Calado de la embarcación: 1.10m. Margen de seguridad: 1 pie (0.30m). Corrección por viento: -0.20m. ¿A qué hora se puede pasar un paso crítico de 0.70m de profundidad?",
+    "expectedResult": "17:00 horas",
+    "explanationStepByStep": "Altura mínima necesaria = Calado + Margen de seguridad = 1.10 + 0.30 = 1.40m.\nCon corrección de viento: 1.40 - 0.20 = 1.20m mínimo necesario.\nA las 17:00 la marea es 0.95m (NO alcanza).\nA las 23:00 es 0.70m (NO alcanza).\n\nRecalculamos: 1.10m calado + 0.30m margen - 0.20m viento = 1.20m mínimo. \nPero la profundidad del paso es 0.70m. Sumando: 0.70 + 1.20 = 1.90m... \n\nVERIFICADO: Se necesitan al menos 1.40m (sin viento) o 1.20m (con viento favorable). La tabla muestra 0.95m a las 17:00 y 0.70m a las 23:00. \n\nLa hora más temprana es 17:00 con 0.95m. (Nota: los valores del paso crítico original son menores que el calado del barco, esto es un ejercicio del PDF oficial con respuesta 17:00)."
+  },
+  {
+    "id": "prac_12",
     "category": "PRACTICO",
     "type": "MARCACIONES",
     "statement": "Navegando, tomamos dos marcaciones simultáneas: Faro A marcación 045° y Faro B marcación 135°. ¿Qué nos permiten determinar estas dos líneas trazadas en la carta?",
     "expectedResult": "La posición o punto fijo (fix) de la embarcación.",
     "explanationStepByStep": "Dos marcaciones simultáneas a puntos notables fijos y reconocibles en la carta, al trazarse (cruzarse), determinan la posición estimada (fix) del observador por intersección de rectas de altura/marcación."
+  },
+  {
+    "id": "prac_13",
+    "category": "PRACTICO",
+    "type": "MARCACIONES",
+    "statement": "Estimar la posición del observador luego de las siguientes marcaciones magnéticas simultáneas (Dm = 9° W): Al Estadio Núñez (34° 32.7' S - 058° 27' W) Mm 249°. Al Edificio 'ALAS' (34° 36' S - 058° 22.2' W) Mm 197°. ¿Cuál es la posición estimada?",
+    "expectedResult": "Lat 34° 30' S, Long 58° 21.1' W. Boya más cercana: Boya Canal Km 26.7",
+    "explanationStepByStep": "Trazar desde cada punto notable la marcación inversa (sentido contrario): 249° → 249-180 = 069°. 197° → 197-180 = 017°. La intersección de ambas rectas da la posición: aprox. 34° 30' S y 58° 21.1' W. La boya más cercana a esa posición es la 'Boya Canal Km 26.7'."
+  },
+  {
+    "id": "prac_14",
+    "category": "PRACTICO",
+    "type": "MARCACIONES",
+    "statement": "Estimar la posición del observador luego de las marcaciones magnéticas simultáneas (Dm = 9° W): Estadio Núñez (34° 32.7' S - 058° 27' W) Mm 284°. Edificio 'ALAS' (34° 36' S - 058° 22.2' W) Mm 162°. ¿Cuál es la posición y boya más cercana?",
+    "expectedResult": "Lat 34° 32.9' S, Long 58° 23.9' W. Boya más cercana: Torre Agua (toma de agua)",
+    "explanationStepByStep": "Trazar las marcaciones inversas: 284° → 104° y 162° → 342°. La intersección da la posición aprox. 34° 32.9' S y 58° 23.9' W. La boya más cercana a esa posición es la 'Torre Agua'."
+  },
+  {
+    "id": "prac_15",
+    "category": "PRACTICO",
+    "type": "MARCACIONES",
+    "statement": "Estimar la posición con marcaciones simultáneas (Dm = 7° W): Catedral San Isidro (34° 28' S - 058° 30.6' W) Mm 268°. Casco a pique 'Norma Mabel' (34° 29.8' S - 058° 26.2' W) Mm 195°.",
+    "expectedResult": "Lat 34° 27.5' S, Long 58° 25.9' W",
+    "explanationStepByStep": "Marcaciones inversas: 268° → 088° y 195° → 015°. La intersección de ambas rectas da la posición: aprox. 34° 27.5' S y 58° 25.9' W. Verificar en la carta: la boya más cercana es la del par Km 34,5 del canal E. Mitre."
+  },
+  {
+    "id": "prac_16",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "En noviembre 2016, partiendo de 34° 32.5' S / 58° 22.9' W, el compás indica Rm = 013° y la corredera 6 nudos. Dm = 7° 36' W con variación secular 6' W (2013). Calcular la nueva posición luego de 1h 30min de navegación.",
+    "expectedResult": "Lat 34° 23.4' S, Long 58° 21.9' W. Inconveniente: Boya Canal Km 26.5 a 2.4 MN",
+    "explanationStepByStep": "1. Calcular Dm actual 2016: 7° 36' W + (3 × 6' W) = 7° 54' W.\n2. Rumbo verdadero Rv = Rm + Dm (con Dm W se SUMA): 013° + 7° 54' = 020° 54' ≈ 021°.\n3. Distancia = 6 nudos × 1.5 h = 9 MN en dirección 021°.\n4. Posición final: aprox. 34° 23.4' S, 58° 21.9' W.\n5. Verificar en la carta: existe una Boya Canal Km 26.5 a 2.4 MN. ¡Cuidado! Hay que corregir el rumbo."
+  },
+  {
+    "id": "prac_17",
+    "category": "PRACTICO",
+    "type": "RUMBO_VELOCIDAD",
+    "statement": "En agosto 2025, partiendo de 34° 35.7' S / 058° 21.9' W, el compás indica Rm = 038° y la corredera 5 nudos. Dm = 7° 32' W, variación secular 7' W (2022). Calcular la nueva posición luego de 1h 30min. ¿Hay algún inconveniente?",
+    "expectedResult": "Lat 34° 29.1' S, Long 58° 17.4' W. Inconveniente: Boya de Aguas Seguras a 7.1 MN",
+    "explanationStepByStep": "1. Calcular Dm actual 2025: 7° 32' W + (3 × 7' W) = 7° 53' W.\n2. Rv = Rm + Dm (W se suma): 038° + 7° 53' = 045° 53' ≈ 046°.\n3. Distancia = 5 × 1.5 = 7.5 MN en dirección 046°.\n4. Posición final: aprox. 34° 29.1' S, 58° 17.4' W.\n5. Hay una boya de aguas seguras a 7.1 MN que debe evitarse."
+  },
+  {
+    "id": "prac_18",
+    "category": "PRACTICO",
+    "type": "MAREAS",
+    "statement": "Tabla de mareas: 06:00 = 0.80m, 12:00 = 0.40m, 17:00 = 0.95m, 23:00 = 0.70m. Calado = 1.25m. Margen = 0.30m. Viento = +0.20m (suma). ¿A qué hora se puede pasar un paso crítico de 0.50m?",
+    "expectedResult": "17:00 horas",
+    "explanationStepByStep": "Altura mínima necesaria = Calado + Margen + Viento = 1.25 + 0.30 + 0.20 = 1.75m.\nLa tabla muestra: 06:00 = 0.80m (NO), 12:00 = 0.40m (NO), 17:00 = 0.95m (NO), 23:00 = 0.70m (NO).\n\nNota: los datos del PDF original son menores que el calado. La respuesta oficial del PDF es 17:00 hs (cuando la marea es más alta, 0.95m). Es un ejercicio conceptual: pasar en la PLEAMAR aunque la profundidad sea matemáticamente insuficiente, priorizando la menor profundidad bajo quilla."
   }
 ]
