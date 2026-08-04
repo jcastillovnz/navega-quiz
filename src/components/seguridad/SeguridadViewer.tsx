@@ -12,23 +12,23 @@ interface SafetyItem {
 const SAFETY_ITEMS: SafetyItem[] = [
   { id: 'chalecos', name: 'Chalecos Salvavidas', category: 'PNA_OBLIGATORIO', icon: 'lifejacket', description: '1 por tripulante, aprobado PNA, con silbato y luz.' },
   { id: 'bengalas', name: 'Bengalas de Mano (x6)', category: 'PNA_OBLIGATORIO', icon: 'flares', description: 'Mínimo 6 bengalas con fecha de vigencia vigente.' },
-  { id: 'cohetes', name: 'Cohetes con Paracaídas (x3)', category: 'PNA_OBLIGATORIO', icon: 'flares2', description: 'Alcanzan 300m de altura. Señales diurnas/nocturnas.' },
-  { id: 'matafuegos', name: 'Matafuegos (x2)', category: 'PNA_OBLIGATORIO', icon: 'extinguisher', description: 'ABC de 1kg mínimo, uno en cockpit y otro en camarote.' },
+  { id: 'cohetes', name: 'Cohetes Paracaídas (x3)', category: 'PNA_OBLIGATORIO', icon: 'flares2', description: 'Alcanzan 300m de altura. Señales diurnas/nocturnas.' },
+  { id: 'matafuegos', name: 'Matafuegos (x2)', category: 'PNA_OBLIGATORIO', icon: 'extinguisher', description: 'ABC de 1kg mínimo en cockpit y camarote.' },
   { id: 'vhf', name: 'Radio VHF Canal 16', category: 'PNA_OBLIGATORIO', icon: 'vhf', description: 'Para emitir MAYDAY / PAN PAN / SECURITE.' },
   { id: 'espejos', name: 'Espejo de Señales', category: 'RECOMENDADO', icon: 'mirror', description: 'Señales diurnas por reflexión solar.' },
   { id: 'remos', name: 'Remo/Bichero', category: 'RECOMENDADO', icon: 'paddle', description: 'Para maniobra de rescate o empuje.' },
-  { id: 'botiquin', name: 'Botiquín de Primeros Auxilios', category: 'RECOMENDADO', icon: 'firstaid', description: 'Curitas, antiséptico, vendas, analgésicos.' }
+  { id: 'botiquin', name: 'Botiquín Primeros Auxilios', category: 'RECOMENDADO', icon: 'firstaid', description: 'Curitas, antiséptico, vendas, analgésicos.' }
 ];
 
 const ICON_MAP: Record<SafetyItem['icon'], React.ReactNode> = {
-  lifejacket: <LifeBuoy className="w-10 h-10" />,
-  flares: <Flame className="w-10 h-10" />,
-  flares2: <Flame className="w-10 h-10" />,
-  extinguisher: <Shield className="w-10 h-10" />,
-  vhf: <Radio className="w-10 h-10" />,
-  mirror: <Shield className="w-10 h-10" />,
-  paddle: <ArrowRight className="w-10 h-10" />,
-  firstaid: <Shield className="w-10 h-10" />
+  lifejacket: <LifeBuoy className="w-6 h-6" />,
+  flares: <Flame className="w-6 h-6" />,
+  flares2: <Flame className="w-6 h-6" />,
+  extinguisher: <Shield className="w-6 h-6" />,
+  vhf: <Radio className="w-6 h-6" />,
+  mirror: <Shield className="w-6 h-6" />,
+  paddle: <ArrowRight className="w-6 h-6" />,
+  firstaid: <Shield className="w-6 h-6" />
 };
 
 const COLOR_MAP: Record<SafetyItem['icon'], string> = {
@@ -53,7 +53,7 @@ const HA_STEPS = [
 ];
 
 const ANCHOR_RATIOS = [
-  { condition: 'Buen tiempo / Aguas protegidas', ratio: 3, label: '3:1' },
+  { condition: 'Aguas protegidas', ratio: 3, label: '3:1' },
   { condition: 'Condiciones normales', ratio: 5, label: '5:1' },
   { condition: 'Mal tiempo / Tormenta', ratio: 7, label: '7:1' },
   { condition: 'Temporal muy fuerte', ratio: 10, label: '10:1' }
@@ -64,7 +64,6 @@ export const SeguridadViewer: React.FC = () => {
   const [checked, setChecked] = useState<Set<string>>(new Set(['chalecos', 'bengalas', 'cohetes', 'matafuegos', 'vhf']));
   const [haStep, setHaStep] = useState<HaStep>(0);
 
-  // Fondeo calculator state
   const [depth, setDepth] = useState(5);
   const [anchorRatio, setAnchorRatio] = useState(5);
 
@@ -82,22 +81,19 @@ export const SeguridadViewer: React.FC = () => {
   const totalRecommended = recommended.length;
   const safetyScore = Math.round((recommendedChecked / totalRecommended) * 100);
 
-  // HAA progress
   const haProgress = ((haStep + 1) / HA_STEPS.length) * 100;
 
-  // Fondeo
   const lineLength = useMemo(() => {
     return (depth * anchorRatio).toFixed(1);
   }, [depth, anchorRatio]);
 
-  // Longitud visual en metros en escala: 50m máx
   const lineMax = 50;
   const linePercent = Math.min(100, (parseFloat(lineLength) / lineMax) * 100);
 
   return (
-    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
-      {/* Tabs */}
-      <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-2xl mx-auto w-full">
+    <div className="h-full flex flex-col gap-2 overflow-hidden">
+      {/* Sub-Tabs de Seguridad */}
+      <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 shrink-0 max-w-lg mx-auto w-full">
         {([
           { id: 'INVENTARIO', label: 'Inventario PNA', icon: Shield },
           { id: 'HAA', label: 'Hombre al Agua', icon: LifeBuoy },
@@ -108,13 +104,12 @@ export const SeguridadViewer: React.FC = () => {
             <button
               key={s.id}
               onClick={() => setSection(s.id)}
-              className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
-                section === s.id ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
+              className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                section === s.id ? 'bg-cyan-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              <Icon className="w-4 h-4" />
-              <span className="hidden sm:inline">{s.label}</span>
-              <span className="sm:hidden">{s.label.split(' ')[0]}</span>
+              <Icon className="w-3.5 h-3.5" />
+              <span>{s.label}</span>
             </button>
           );
         })}
@@ -122,61 +117,50 @@ export const SeguridadViewer: React.FC = () => {
 
       {/* --- INVENTARIO --- */}
       {section === 'INVENTARIO' && (
-        <div className="flex flex-col gap-4 animate-[fade-in_0.4s_ease-out]">
-          {/* Score de seguridad */}
-          <div className="bg-slate-800/60 border border-slate-700 rounded-xl p-4 flex items-center justify-between">
+        <div className="flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto pr-1">
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 flex items-center justify-between shrink-0">
             <div>
-              <p className="text-xs uppercase tracking-wider text-slate-400">Checklist PNA Obligatorio</p>
-              <p className="text-2xl font-bold text-white mt-1">
+              <p className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Checklist PNA Obligatorio</p>
+              <p className="text-lg font-extrabold text-white mt-0.5">
                 {recommendedChecked}/{totalRecommended}{' '}
-                <span className="text-sm font-normal text-slate-400">ítems</span>
+                <span className="text-xs font-normal text-slate-400">ítems a bordo</span>
               </p>
             </div>
             <div className="text-right">
-              <p className={`text-3xl font-bold ${safetyScore === 100 ? 'text-emerald-400' : safetyScore >= 60 ? 'text-amber-400' : 'text-rose-400'}`}>
+              <p className={`text-2xl font-black ${safetyScore === 100 ? 'text-emerald-400' : 'text-amber-400'}`}>
                 {safetyScore}%
               </p>
-              <p className="text-xs text-slate-400">Seguridad</p>
+              <p className="text-[10px] text-slate-400 uppercase font-bold">Seguridad</p>
             </div>
           </div>
 
-          {/* Grid de items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 flex-1">
             {SAFETY_ITEMS.map(item => {
               const isChecked = checked.has(item.id);
               return (
                 <button
                   key={item.id}
                   onClick={() => toggleCheck(item.id)}
-                  className={`text-left rounded-xl border-2 p-3 transition-all duration-200 hover:scale-[1.02] active:scale-95 ${
+                  className={`text-left rounded-xl border p-2.5 transition-all cursor-pointer ${
                     isChecked
-                      ? 'bg-emerald-500/10 border-emerald-500'
-                      : 'bg-slate-800/50 border-slate-700 hover:border-slate-500'
+                      ? 'bg-emerald-500/10 border-emerald-500/50'
+                      : 'bg-slate-900/60 border-slate-800 hover:border-slate-700'
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-2">
-                    <div className={`p-2 rounded-lg border ${COLOR_MAP[item.icon]}`}>
+                  <div className="flex items-start justify-between mb-1.5">
+                    <div className={`p-1.5 rounded-lg border ${COLOR_MAP[item.icon]}`}>
                       {ICON_MAP[item.icon]}
                     </div>
-                    <div
-                      className={`w-6 h-6 rounded-md flex items-center justify-center border-2 transition-all ${
-                        isChecked ? 'bg-emerald-500 border-emerald-500' : 'border-slate-600'
-                      }`}
-                    >
-                      {isChecked && <Check className="w-4 h-4 text-white" />}
+                    <div className={`w-5 h-5 rounded flex items-center justify-center border transition-all ${
+                      isChecked ? 'bg-emerald-500 border-emerald-500' : 'border-slate-700'
+                    }`}>
+                      {isChecked && <Check className="w-3.5 h-3.5 text-white" />}
                     </div>
                   </div>
-                  <p className={`text-sm font-bold ${isChecked ? 'text-emerald-200' : 'text-slate-100'}`}>
+                  <p className={`text-xs font-bold ${isChecked ? 'text-emerald-200' : 'text-slate-200'}`}>
                     {item.name}
                   </p>
-                  <p className="text-[11px] text-slate-400 mt-1 line-clamp-2">{item.description}</p>
-                  <span
-                    className={`text-[9px] mt-2 inline-block px-1.5 py-0.5 rounded font-bold ${
-                      item.category === 'PNA_OBLIGATORIO' ? 'bg-rose-500/20 text-rose-300' : 'bg-slate-600/50 text-slate-300'
-                    }`}
-                  >
-                    {item.category === 'PNA_OBLIGATORIO' ? 'OBLIGATORIO' : 'RECOMENDADO'}
-                  </span>
+                  <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-2">{item.description}</p>
                 </button>
               );
             })}
@@ -184,93 +168,65 @@ export const SeguridadViewer: React.FC = () => {
         </div>
       )}
 
-      {/* --- HOMBRE AL AGUA (HAA) --- */}
+      {/* --- HOMBRE AL AGUA --- */}
       {section === 'HAA' && (
-        <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 animate-[fade-in_0.4s_ease-out]">
+        <div className="flex-1 min-h-0 bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between overflow-hidden">
           <div className="flex items-center gap-2 mb-1">
             <LifeBuoy className="w-5 h-5 text-rose-400" />
-            <h3 className="text-xl font-bold text-white">Maniobra de Hombre al Agua (HAA)</h3>
+            <h3 className="text-base font-bold text-white">Maniobra de Hombre al Agua (HAA)</h3>
           </div>
-          <p className="text-xs text-slate-400 mb-4">Procedimiento paso a paso para rescatar un náufrago.</p>
 
-          {/* Progreso */}
-          <div className="mb-5">
-            <div className="flex items-center justify-between text-xs text-slate-400 mb-1.5">
+          <div className="mb-2">
+            <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
               <span>Paso {haStep + 1} de {HA_STEPS.length}</span>
-              <span className="font-bold text-rose-300">{Math.round(haProgress)}%</span>
+              <span className="font-bold text-rose-400">{Math.round(haProgress)}%</span>
             </div>
-            <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+            <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-rose-500 to-rose-300 transition-all duration-500"
+                className="h-full bg-rose-500 transition-all duration-300"
                 style={{ width: `${haProgress}%` }}
               />
             </div>
           </div>
 
-          {/* Tarjeta del paso actual */}
-          <div className="bg-slate-900/60 border-l-4 border-rose-500 rounded-xl p-5 mb-4 min-h-32">
-            <h4 className="text-lg font-bold text-white mb-2">{HA_STEPS[haStep].title}</h4>
-            <p className="text-sm text-slate-300 leading-relaxed">{HA_STEPS[haStep].text}</p>
+          <div className="bg-slate-950 border-l-4 border-rose-500 rounded-xl p-4 flex-1 flex flex-col justify-center my-2">
+            <h4 className="text-sm font-bold text-rose-300 mb-1">{HA_STEPS[haStep].title}</h4>
+            <p className="text-xs text-slate-200 leading-relaxed font-medium">{HA_STEPS[haStep].text}</p>
           </div>
 
-          {/* Navegación entre pasos */}
-          <div className="flex gap-3">
+          <div className="flex gap-2 shrink-0">
             <button
               onClick={() => setHaStep(s => (Math.max(0, s - 1) as HaStep))}
               disabled={haStep === 0}
-              className="px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold hover:bg-slate-700 disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
             >
               ← Anterior
             </button>
             <button
               onClick={() => setHaStep(s => (Math.min(HA_STEPS.length - 1, s + 1) as HaStep))}
               disabled={haStep === HA_STEPS.length - 1}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-rose-500 text-white font-medium hover:bg-rose-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-lg shadow-rose-900/40"
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-500 text-slate-950 font-black text-xs hover:bg-rose-400 disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
             >
-              Siguiente paso
-              <ChevronRight className="w-4 h-4" />
+              Siguiente Paso <ChevronRight className="w-3.5 h-3.5" />
             </button>
-            {haStep === HA_STEPS.length - 1 && (
-              <button
-                onClick={() => setHaStep(0)}
-                className="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-medium hover:bg-cyan-400 transition-all"
-              >
-                Reiniciar
-              </button>
-            )}
-          </div>
-
-          {/* Stepper visual */}
-          <div className="flex gap-1 mt-5">
-            {HA_STEPS.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1 flex-1 rounded-full transition-all ${
-                  i <= haStep ? 'bg-rose-500' : 'bg-slate-700'
-                }`}
-              />
-            ))}
           </div>
         </div>
       )}
 
-      {/* --- CALCULADORA DE FONDEO --- */}
+      {/* --- FONDEO --- */}
       {section === 'FONDEO' && (
-        <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 animate-[fade-in_0.4s_ease-out]">
-          <div className="flex items-center gap-2 mb-1">
+        <div className="flex-1 min-h-0 bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between overflow-hidden">
+          <div className="flex items-center gap-2 mb-2">
             <Anchor className="w-5 h-5 text-cyan-400" />
-            <h3 className="text-xl font-bold text-white">Calculadora de Fondeo</h3>
+            <h3 className="text-base font-bold text-white">Calculadora de Fondeo</h3>
           </div>
-          <p className="text-xs text-slate-400 mb-5">Calcula la cantidad de línea (cabo + cadena) a filar según la profundidad y el estado del tiempo.</p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Controles */}
-            <div className="flex flex-col gap-4">
-              {/* Profundidad */}
-              <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
-                <label className="flex items-center justify-between text-sm font-medium text-slate-200 mb-2">
+          <div className="grid md:grid-cols-2 gap-4 flex-1 min-h-0">
+            <div className="flex flex-col gap-3 justify-center">
+              <div className="bg-slate-950 rounded-xl p-3 border border-slate-800">
+                <label className="flex items-center justify-between text-xs font-bold text-slate-200 mb-1">
                   <span>Profundidad</span>
-                  <span className="text-cyan-300 font-bold text-lg">{depth} m</span>
+                  <span className="text-cyan-400 font-extrabold text-base">{depth} m</span>
                 </label>
                 <input
                   type="range"
@@ -278,80 +234,49 @@ export const SeguridadViewer: React.FC = () => {
                   max="30"
                   value={depth}
                   onChange={e => setDepth(parseInt(e.target.value))}
-                  className="w-full accent-cyan-500"
+                  className="w-full accent-cyan-500 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-slate-500 mt-1">
-                  <span>1m</span>
-                  <span>15m</span>
-                  <span>30m</span>
-                </div>
               </div>
 
-              {/* Estado del tiempo */}
               <div>
-                <p className="text-sm font-medium text-slate-200 mb-2">Condición del tiempo</p>
-                <div className="grid grid-cols-2 gap-2">
+                <p className="text-xs font-bold text-slate-300 mb-1.5">Condición del Tiempo</p>
+                <div className="grid grid-cols-2 gap-1.5">
                   {ANCHOR_RATIOS.map(r => (
                     <button
                       key={r.ratio}
                       onClick={() => setAnchorRatio(r.ratio)}
-                      className={`p-2.5 rounded-lg text-xs font-medium text-left transition-all ${
+                      className={`p-2 rounded-lg text-xs text-left transition-all cursor-pointer ${
                         anchorRatio === r.ratio
-                          ? 'bg-cyan-500/20 border border-cyan-500 text-cyan-200'
-                          : 'bg-slate-900/50 border border-slate-700 text-slate-400 hover:text-slate-200'
+                          ? 'bg-cyan-500 text-slate-950 font-black'
+                          : 'bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200'
                       }`}
                     >
                       <div className="font-bold">{r.label}</div>
-                      <div className="text-[10px] opacity-70">{r.condition}</div>
+                      <div className="text-[10px] opacity-80">{r.condition}</div>
                     </button>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Resultado visual */}
-            <div className="bg-slate-900/50 rounded-xl p-5 border border-slate-700 flex flex-col">
-              <p className="text-xs uppercase tracking-wider text-slate-400">Línea a filar</p>
-              <p className="text-4xl font-bold text-cyan-300 mt-1 mb-3">
-                {lineLength} <span className="text-lg text-slate-400">metros</span>
-              </p>
-
-              {/* Visualización cadena + profundidad */}
-              <div className="flex-1 flex flex-col justify-end mb-3">
-                <div className="text-center text-xs text-slate-500 mb-1">Fondo</div>
-                <div className="relative h-32 bg-slate-950 rounded overflow-hidden border border-slate-800">
-                  {/* Profundidad visual (mitad izquierda) */}
-                  <div className="absolute bottom-0 left-0 h-full w-1/2 bg-gradient-to-b from-cyan-900/20 to-cyan-950/60">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-cyan-300/40 text-xs font-bold">
-                      {depth}m
-                    </div>
-                  </div>
-                  {/* Línea de fondeo (escala horizontal) */}
-                  <div className="absolute top-1/2 left-0 right-0 h-0.5">
-                    <div
-                      className="h-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 transition-all duration-500"
-                      style={{ width: `${linePercent}%` }}
-                    />
-                    {/* Eslabones decorativos */}
-                    {Array.from({ length: Math.floor(linePercent / 4) }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute top-0 w-1 h-0.5 bg-amber-300"
-                        style={{ left: `${i * 4}%` }}
-                      />
-                    ))}
-                  </div>
-                  {/* Ancla */}
-                  <div className="absolute top-1/2 -translate-y-1/2" style={{ left: `${linePercent}%`, transform: 'translate(-50%, -50%)' }}>
-                    <Anchor className="w-5 h-5 text-amber-400" />
-                  </div>
-                </div>
-                <div className="text-center text-xs text-slate-500 mt-1">Barco (origen)</div>
+            <div className="bg-slate-950 rounded-xl p-4 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <p className="text-[10px] uppercase font-bold text-slate-400">Línea a Filar</p>
+                <p className="text-3xl font-black text-cyan-400 mt-0.5">
+                  {lineLength} <span className="text-sm font-normal text-slate-400">metros</span>
+                </p>
               </div>
 
-              <div className="bg-slate-950/50 rounded-lg p-3 text-xs text-slate-300 space-y-1">
-                <p><strong className="text-cyan-300">Fórmula:</strong> Profundidad × Ratio</p>
-                <p><strong className="text-cyan-300">Cálculo:</strong> {depth} m × {anchorRatio} = {lineLength} m</p>
+              <div className="relative h-20 bg-slate-900 rounded-lg overflow-hidden border border-slate-800 flex items-center justify-center my-2">
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-cyan-950/40" />
+                <div className="relative z-10 flex items-center gap-2 text-xs font-bold text-slate-300">
+                  <Anchor className="w-5 h-5 text-amber-400 animate-bounce" />
+                  <span>Cadena: {lineLength}m en {depth}m fondo</span>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-2 rounded-lg text-[10px] text-slate-400">
+                💡 <strong className="text-slate-200">Fórmula:</strong> {depth}m profundidad × {anchorRatio} (Ratio) = {lineLength}m.
               </div>
             </div>
           </div>

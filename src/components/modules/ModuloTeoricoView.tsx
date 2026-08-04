@@ -69,104 +69,119 @@ export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, vi
   const finished = result && result.total === questions.length;
   const Icon = config.icon;
 
-  // Si no hay preguntas, mostrar mensaje
-  if (questions.length === 0) {
+  if (questions.length === 0 && tab === 'QUIZ') {
     return (
-      <div className="flex flex-col items-center gap-4 py-8 max-w-2xl mx-auto text-center">
-        <Icon className="w-12 h-12 text-slate-600" />
-        <p className="text-slate-300 text-sm">Aún no hay preguntas cargadas para {config.title}.</p>
+      <div className="flex flex-col items-center justify-center gap-3 py-8 max-w-2xl mx-auto text-center h-full">
+        <Icon className="w-10 h-10 text-slate-600" />
+        <p className="text-slate-300 text-xs">Aún no hay preguntas cargadas para {config.title}.</p>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-slate-300 text-xs">{config.subtitle}</p>
-
-      {/* Tabs Estudio / Práctica */}
-      <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full">
-        <button
-          onClick={() => setTab('ESTUDIO')}
-          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-            tab === 'ESTUDIO' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <BookOpen className="w-4 h-4" />
-          Estudio
-        </button>
-        <button
-          onClick={() => setTab('QUIZ')}
-          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-            tab === 'QUIZ' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <BrainCircuit className="w-4 h-4" />
-          Práctica
-        </button>
-      </div>
-
-      {/* Contenido */}
-      {tab === 'ESTUDIO' && (
-        <div className="animate-[fade-in_0.4s_ease-out]">{viewer}</div>
-      )}
-
-      {tab === 'QUIZ' && !finished && (
-        <div className="animate-[fade-in_0.4s_ease-out]">
-          <QuizCard
-            question={questions[currentIdx]}
-            questionNumber={currentIdx + 1}
-            totalQuestions={questions.length}
-            xpPerCorrect={XP_PER_CORRECT}
-            onAnswer={handleAnswer}
-            onNext={handleNext}
-          />
+    <div className="h-full flex flex-col gap-2 overflow-hidden">
+      
+      {/* Mini Bar de Navegación del Módulo Teórico */}
+      <div className="flex items-center justify-between bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl shrink-0">
+        <div className="flex items-center gap-2">
+          <span className={`text-[10px] font-extrabold px-2 py-0.5 ${config.badgeColor} text-slate-950 rounded-md`}>
+            {config.badge}
+          </span>
+          <h3 className="text-xs font-bold text-white tracking-tight hidden sm:inline-block">
+            {config.title}
+          </h3>
         </div>
-      )}
 
-      {tab === 'QUIZ' && finished && result && (
-        <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto w-full text-center animate-[fade-in_0.5s_ease-out]">
-          {passed ? (
-            <>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-500/20 border-2 border-amber-500 mb-4">
-                <Trophy className="w-10 h-10 text-amber-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-amber-300 mb-2">¡Módulo Aprobado!</h3>
-              <p className="text-slate-300 text-sm mb-6">Excelente trabajo. Dominas {config.title}.</p>
-            </>
-          ) : (
-            <>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-cyan-500/20 border-2 border-cyan-500 mb-4">
-                <RotateCcw className="w-10 h-10 text-cyan-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-cyan-300 mb-2">Sigue practicando</h3>
-              <p className="text-slate-300 text-sm mb-6">Necesitas al menos un 70% para aprobar. Vuelve a intentarlo.</p>
-            </>
-          )}
-
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
-              <p className="text-2xl font-bold text-cyan-400">{accuracy.toFixed(0)}%</p>
-              <p className="text-xs text-slate-400 mt-1">Precisión</p>
-            </div>
-            <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
-              <p className="text-2xl font-bold text-emerald-400">{result.correct}/{result.total}</p>
-              <p className="text-xs text-slate-400 mt-1">Aciertos</p>
-            </div>
-            <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-700">
-              <p className="text-2xl font-bold text-amber-400">+{result.xpEarned}</p>
-              <p className="text-xs text-slate-400 mt-1">XP ganada</p>
-            </div>
-          </div>
-
+        {/* Tabs Estudio / Práctica */}
+        <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button
-            onClick={handleRestart}
-            className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 px-6 rounded-xl transition-all duration-300 mx-auto shadow-lg shadow-cyan-900/40"
+            onClick={() => setTab('ESTUDIO')}
+            className={`flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              tab === 'ESTUDIO' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
           >
-            <RotateCcw className="w-4 h-4" />
-            Reintentar Quiz
+            <BookOpen className="w-3.5 h-3.5" />
+            Guía Teórica
+          </button>
+          <button
+            onClick={() => setTab('QUIZ')}
+            className={`flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              tab === 'QUIZ' ? 'bg-cyan-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            Quiz Práctico
           </button>
         </div>
-      )}
+      </div>
+
+      {/* Contenido (Flex-1 sin scroll global) */}
+      <div className="flex-1 min-h-0 overflow-hidden">
+        {tab === 'ESTUDIO' && (
+          <div className="h-full overflow-y-auto pr-1">
+            {viewer}
+          </div>
+        )}
+
+        {tab === 'QUIZ' && !finished && questions.length > 0 && (
+          <div className="h-full overflow-y-auto">
+            <QuizCard
+              question={questions[currentIdx]}
+              questionNumber={currentIdx + 1}
+              totalQuestions={questions.length}
+              xpPerCorrect={XP_PER_CORRECT}
+              onAnswer={handleAnswer}
+              onNext={handleNext}
+            />
+          </div>
+        )}
+
+        {tab === 'QUIZ' && finished && result && (
+          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 max-w-xl mx-auto w-full text-center my-auto shadow-2xl">
+            {passed ? (
+              <>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/20 border border-amber-500 mb-3">
+                  <Trophy className="w-8 h-8 text-amber-400" />
+                </div>
+                <h3 className="text-xl font-extrabold text-amber-300 mb-1">¡Módulo Aprobado!</h3>
+                <p className="text-slate-300 text-xs mb-4">Excelente trabajo. Dominas {config.title}.</p>
+              </>
+            ) : (
+              <>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500/20 border border-cyan-500 mb-3">
+                  <RotateCcw className="w-8 h-8 text-cyan-400" />
+                </div>
+                <h3 className="text-xl font-extrabold text-cyan-300 mb-1">Sigue practicando</h3>
+                <p className="text-slate-300 text-xs mb-4">Necesitas al menos un 70% para aprobar.</p>
+              </>
+            )}
+
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-cyan-400">{accuracy.toFixed(0)}%</p>
+                <p className="text-[10px] text-slate-400">Precisión</p>
+              </div>
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-emerald-400">{result.correct}/{result.total}</p>
+                <p className="text-[10px] text-slate-400">Aciertos</p>
+              </div>
+              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <p className="text-xl font-black text-amber-400">+{result.xpEarned}</p>
+                <p className="text-[10px] text-slate-400">XP ganada</p>
+              </div>
+            </div>
+
+            <button
+              onClick={handleRestart}
+              className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2.5 px-5 rounded-xl text-xs transition-all mx-auto shadow-md cursor-pointer"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              Reintentar Quiz
+            </button>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };
