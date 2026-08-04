@@ -4,11 +4,72 @@
   /* No additional custom configs needed yet, tailwind default is quite good */
 }
 
-/* Garantizar que NUNCA haya scroll en la página principal */
+/* ========================================
+   LOCKDOWN GLOBAL: Cero scroll en la app
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html, body, #root {
   height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  overflow-x: hidden;
   overscroll-behavior: none;
+  /* iOS bounce prevention */
+  position: fixed;
+  inset: 0;
+}
+
+/* Evitar scroll horizontal por cualquier overflow accidental */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Para textos largos, que corten y no expandan el contenedor */
+.truncate-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Scrollbar minimalista (solo donde sea estrictamente necesario) */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.4) transparent;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 2px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
 }
 
 /* Efectos Fotorrealistas (Luces y Faros) para el Modo Noche */
