@@ -163,7 +163,7 @@
       { "id": "A", "text": "12 metros", "isCorrect": false },
       { "id": "B", "text": "7 metros", "isCorrect": true },
       { "id": "C", "text": "5 metros", "isCorrect": false },
-      { "D", "text": "Sin límite", "isCorrect": false }
+      { "id": "D", "text": "Sin límite", "isCorrect": false }
     ],
     "explanation": "La eslora máxima para el Timonel de Yate es 7 metros. Para Conductor Náutico es 12 metros. Para Patrón de Yate, mayor. [TIP: 7 metros de eslora es la limitación clásica de Timonel.]"
   },

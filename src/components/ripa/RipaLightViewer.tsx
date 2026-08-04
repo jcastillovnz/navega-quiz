@@ -9,49 +9,50 @@ export const RipaLightViewer: React.FC = () => {
   const [perspective, setPerspective] = useState<Perspective>('PROA');
   const [shipType, setShipType] = useState<ShipType>('MOTOR');
 
-  // Funciones para determinar qué luces mostrar según la perspectiva y el tipo de buque
   const showTope = shipType === 'MOTOR' && (perspective === 'PROA' || perspective === 'BABOR' || perspective === 'ESTRIBOR');
   const showBabor = (perspective === 'PROA' || perspective === 'BABOR');
   const showEstribor = (perspective === 'PROA' || perspective === 'ESTRIBOR');
   const showAlcance = (perspective === 'POPA');
 
   return (
-    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
-      {/* Controles */}
-      <div className="flex flex-wrap gap-4 items-center justify-between bg-slate-800 p-4 rounded-xl border border-slate-700">
+    <div className="h-full flex flex-col gap-2 overflow-hidden">
+      {/* Controles Compactos (Top Bar) */}
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 shrink-0">
         
         {/* Toggle Día/Noche */}
         <button 
           onClick={() => setIsNight(!isNight)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${isNight ? 'bg-indigo-900 text-indigo-200' : 'bg-sky-200 text-sky-800'}`}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            isNight ? 'bg-indigo-950 text-indigo-200 border border-indigo-800/60' : 'bg-sky-200 text-sky-900'
+          }`}
         >
-          {isNight ? <Moon size={20} /> : <Sun size={20} />}
+          {isNight ? <Moon size={14} /> : <Sun size={14} />}
           {isNight ? 'Modo Noche' : 'Modo Día'}
         </button>
 
         {/* Tipo de Buque */}
-        <div className="flex bg-slate-900 p-1 rounded-lg border border-slate-700">
+        <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button 
             onClick={() => setShipType('MOTOR')}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${shipType === 'MOTOR' ? 'bg-cyan-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+            className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${shipType === 'MOTOR' ? 'bg-cyan-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-slate-200'}`}
           >
             A Motor
           </button>
           <button 
             onClick={() => setShipType('VELA')}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${shipType === 'VELA' ? 'bg-cyan-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+            className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${shipType === 'VELA' ? 'bg-cyan-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-slate-200'}`}
           >
             A Vela
           </button>
         </div>
 
         {/* Perspectiva */}
-        <div className="flex bg-slate-900 p-1 rounded-lg border border-slate-700">
+        <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
           {(['PROA', 'BABOR', 'ESTRIBOR', 'POPA'] as Perspective[]).map(p => (
             <button
               key={p}
               onClick={() => setPerspective(p)}
-              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${perspective === p ? 'bg-slate-700 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+              className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${perspective === p ? 'bg-slate-800 text-cyan-400 border border-slate-700' : 'text-slate-400 hover:text-slate-200'}`}
             >
               {p.charAt(0) + p.slice(1).toLowerCase()}
             </button>
@@ -59,86 +60,107 @@ export const RipaLightViewer: React.FC = () => {
         </div>
       </div>
 
-      {/* Visor Visual */}
-      <div className={`relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden transition-all duration-700 flex items-center justify-center border ${isNight ? 'bg-slate-950 border-slate-800' : 'bg-sky-100 border-sky-300'}`}>
+      {/* Grid 2 Columnas (Flex-1 sin scroll global) */}
+      <div className="grid md:grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
         
-        {/* Fondo del mar (Horizonte) */}
-        <div className={`absolute bottom-0 w-full h-1/3 transition-all duration-700 ${isNight ? 'bg-slate-900' : 'bg-sky-300'}`}></div>
+        {/* Columna Visual Canvas (7 Cols) */}
+        <div className={`md:col-span-7 rounded-2xl overflow-hidden transition-all duration-500 flex items-center justify-center border relative h-full ${
+          isNight ? 'bg-slate-950 border-slate-800' : 'bg-sky-100 border-sky-300'
+        }`}>
+          {/* Fondo del mar */}
+          <div className={`absolute bottom-0 w-full h-1/3 transition-all ${isNight ? 'bg-slate-900/90' : 'bg-sky-300/80'}`}></div>
 
-        {/* El Barco (Silueta) */}
-        <div className="relative z-10 flex flex-col items-center">
-          {/* Silueta abstracta del barco */}
-          <div className={`relative flex items-center justify-center transition-all duration-300 ${perspective === 'PROA' || perspective === 'POPA' ? 'w-32 h-40' : 'w-64 h-32'}`}>
-            <Ship 
-              size={perspective === 'PROA' || perspective === 'POPA' ? 120 : 160} 
-              className={isNight ? 'text-slate-800' : 'text-slate-500'} 
-              style={{
-                transform: perspective === 'BABOR' ? 'scaleX(-1)' : 'none'
-              }}
-            />
+          {/* El Barco (Silueta) */}
+          <div className="relative z-10 flex flex-col items-center">
+            <div className={`relative flex items-center justify-center transition-all ${perspective === 'PROA' || perspective === 'POPA' ? 'w-28 h-36' : 'w-56 h-28'}`}>
+              <Ship 
+                size={perspective === 'PROA' || perspective === 'POPA' ? 100 : 130} 
+                className={isNight ? 'text-slate-800' : 'text-slate-500'} 
+                style={{
+                  transform: perspective === 'BABOR' ? 'scaleX(-1)' : 'none'
+                }}
+              />
 
-            {/* Luces (Solo visibles de noche) */}
-            {isNight && (
-              <>
-                {/* Luz de Tope (Blanca, 225°) - Solo motor */}
-                {showTope && (
-                  <div className="absolute top-4 w-4 h-4 rounded-full glow-white z-20" style={{
-                    left: perspective === 'PROA' ? '50%' : perspective === 'BABOR' ? '30%' : '70%',
-                    transform: 'translateX(-50%)'
-                  }}></div>
-                )}
+              {/* Luces (Modo Noche) */}
+              {isNight && (
+                <>
+                  {showTope && (
+                    <div className="absolute top-2 w-3.5 h-3.5 rounded-full glow-white z-20" style={{
+                      left: perspective === 'PROA' ? '50%' : perspective === 'BABOR' ? '30%' : '70%',
+                      transform: 'translateX(-50%)'
+                    }}></div>
+                  )}
 
-                {/* Luz de Babor (Roja, 112.5°) */}
-                {showBabor && (
-                  <div className="absolute bottom-12 w-4 h-4 rounded-full glow-red z-20" style={{
-                    left: perspective === 'PROA' ? '20%' : perspective === 'BABOR' ? '20%' : '80%',
-                    transform: 'translateX(-50%)'
-                  }}></div>
-                )}
+                  {showBabor && (
+                    <div className="absolute bottom-10 w-3.5 h-3.5 rounded-full glow-red z-20" style={{
+                      left: perspective === 'PROA' ? '20%' : perspective === 'BABOR' ? '20%' : '80%',
+                      transform: 'translateX(-50%)'
+                    }}></div>
+                  )}
 
-                {/* Luz de Estribor (Verde, 112.5°) */}
-                {showEstribor && (
-                  <div className="absolute bottom-12 w-4 h-4 rounded-full glow-green z-20" style={{
-                    left: perspective === 'PROA' ? '80%' : perspective === 'ESTRIBOR' ? '80%' : '20%',
-                    transform: 'translateX(-50%)'
-                  }}></div>
-                )}
+                  {showEstribor && (
+                    <div className="absolute bottom-10 w-3.5 h-3.5 rounded-full glow-green z-20" style={{
+                      left: perspective === 'PROA' ? '80%' : perspective === 'ESTRIBOR' ? '80%' : '20%',
+                      transform: 'translateX(-50%)'
+                    }}></div>
+                  )}
 
-                {/* Luz de Alcance (Blanca, 135°) */}
-                {showAlcance && (
-                  <div className="absolute bottom-16 w-4 h-4 rounded-full glow-white z-20" style={{
-                    left: '50%',
-                    transform: 'translateX(-50%)'
-                  }}></div>
-                )}
-              </>
-            )}
-            
-            {/* Modo Día: Mostrar Marcas Diurnas si fuera un pesquero, fondeado, etc. (Simplificado para Motor/Vela) */}
-            {!isNight && (
-              <div className="absolute -top-10 bg-white/80 backdrop-blur-sm text-slate-800 text-xs px-2 py-1 rounded-md font-bold shadow-sm">
-                Vista de Día: {shipType === 'VELA' ? 'Velas Izadas' : 'Buque a Motor'}
-              </div>
-            )}
+                  {showAlcance && (
+                    <div className="absolute bottom-12 w-3.5 h-3.5 rounded-full glow-white z-20" style={{
+                      left: '50%',
+                      transform: 'translateX(-50%)'
+                    }}></div>
+                  )}
+                </>
+              )}
+
+              {!isNight && (
+                <div className="absolute -top-8 bg-white/90 text-slate-900 text-[10px] px-2 py-0.5 rounded font-extrabold shadow-sm">
+                  Vista de Día: {shipType === 'VELA' ? 'Velero' : 'Motor'}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Columna Derecha de Análisis (5 Cols) */}
+        <div className="md:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between overflow-y-auto h-full">
+          <div>
+            <h3 className="text-lg font-bold text-white mb-1">Análisis de Reglas RIPA</h3>
+            <p className="text-xs text-slate-300">
+              Observando un <strong>{shipType === 'MOTOR' ? 'Buque a Motor' : 'Buque de Vela'}</strong> desde <strong>{perspective}</strong>.
+            </p>
+
+            <div className="mt-4 space-y-2 text-xs">
+              {showTope && (
+                <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                  ⚪ <strong className="text-white">Luz de Tope (Blanca):</strong> Visible desde proa 225°. Exclusiva para buques a motor.
+                </div>
+              )}
+              {showBabor && (
+                <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                  🔴 <strong className="text-rose-400">Luz de Babor (Roja):</strong> Visible 112.5° en la banda izquierda.
+                </div>
+              )}
+              {showEstribor && (
+                <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                  🟢 <strong className="text-emerald-400">Luz de Estribor (Verde):</strong> Visible 112.5° en la banda derecha.
+                </div>
+              )}
+              {showAlcance && (
+                <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                  ⚪ <strong className="text-white">Luz de Alcance (Blanca):</strong> Visible 135° desde la popa.
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="bg-cyan-500/10 border border-cyan-500/20 p-3 rounded-xl text-[11px] text-cyan-300 mt-2">
+            💡 <strong>Tip PNA:</strong> En cruces de noche, si ves la luz roja de otro buque a motor por tu estribor, él tiene paso.
           </div>
         </div>
 
       </div>
-
-      {/* Explicación Técnica */}
-      <div className="bg-slate-800 p-5 rounded-xl border border-slate-700 text-slate-300">
-        <h3 className="text-xl font-bold text-white mb-2">Análisis RIPA</h3>
-        <p className="text-sm">
-          Estás observando un <strong>{shipType === 'MOTOR' ? 'Buque de Propulsión Mecánica' : 'Buque de Vela'}</strong> en navegación, visto desde <strong>{perspective}</strong>.
-        </p>
-        <ul className="mt-3 space-y-1 text-sm">
-          {showTope && <li>⚪ <strong>Luz de Tope (Blanca)</strong>: Visible desde proa hasta 22.5° a popa del través en ambas bandas (225° total). Los veleros NO la llevan.</li>}
-          {showBabor && <li>🔴 <strong>Luz de Costado Babor (Roja)</strong>: Visible 112.5° desde proa.</li>}
-          {showEstribor && <li>🟢 <strong>Luz de Costado Estribor (Verde)</strong>: Visible 112.5° desde proa.</li>}
-          {showAlcance && <li>⚪ <strong>Luz de Alcance (Blanca)</strong>: Visible 135° exactamente desde popa.</li>}
-        </ul>
-      </div>
-
     </div>
   );
 };
