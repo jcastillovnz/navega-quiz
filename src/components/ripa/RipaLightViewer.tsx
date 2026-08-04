@@ -16,7 +16,7 @@ export const RipaLightViewer: React.FC = () => {
   const showAlcance = (perspective === 'POPA');
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto p-4">
+    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
       {/* Controles */}
       <div className="flex flex-wrap gap-4 items-center justify-between bg-slate-800 p-4 rounded-xl border border-slate-700">
         

@@ -95,7 +95,7 @@ export const SeguridadViewer: React.FC = () => {
   const linePercent = Math.min(100, (parseFloat(lineLength) / lineMax) * 100);
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto p-4">
+    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
       {/* Tabs */}
       <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-2xl mx-auto w-full">
         {([

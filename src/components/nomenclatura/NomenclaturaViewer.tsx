@@ -81,7 +81,7 @@ export const NomenclaturaViewer: React.FC = () => {
   const filteredRigg = riggFilter === 'TODOS' ? RIGGING : RIGGING.filter(r => r.type === riggFilter);
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto p-4">
+    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
       {/* --- Sección 1: Explorador del Casco --- */}
       <div className="bg-slate-800/40 border border-slate-700 rounded-2xl p-5">
         <div className="flex items-center gap-2 mb-1">
@@ -346,16 +346,16 @@ export const NomenclaturaViewer: React.FC = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3">
           {/* Lista */}
-          <div className="space-y-2 max-h-72 overflow-y-auto pr-2">
+          <div className="space-y-1.5 pr-1">
             {filteredRigg.map(item => {
               const isActive = activeRigg?.id === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => setActiveRigg(item)}
-                  className={`w-full text-left p-3 rounded-lg border transition-all duration-200 ${
+                  className={`w-full text-left p-2 rounded-lg border transition-all duration-200 ${
                     isActive
                       ? item.type === 'FIJA'
                         ? 'bg-amber-500/20 border-amber-500'

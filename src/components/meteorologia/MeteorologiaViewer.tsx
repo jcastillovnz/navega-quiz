@@ -72,7 +72,7 @@ export const MeteorologiaViewer: React.FC = () => {
   const step = BEAUFORT[beaufort];
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto p-4">
+    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
       {/* Selector de fenómeno (Pampero / Sudestada) */}
       <div className="grid grid-cols-2 gap-3">
         {(['PAMPERO', 'SUDESTADA'] as Phenomenon[]).map(p => {

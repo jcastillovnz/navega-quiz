@@ -366,8 +366,8 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <p className="text-slate-300 text-sm">
+    <div className="flex flex-col gap-2">
+      <p className="text-slate-300 text-xs">
         Los 5 nudos fundamentales que te pueden tomar en el examen. Aprendé el uso, los pasos y practicá con el quiz.
       </p>
 

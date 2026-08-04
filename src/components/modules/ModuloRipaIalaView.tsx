@@ -68,8 +68,8 @@ export const ModuloRipaIalaView: React.FC = () => {
   const finished = result && result.total === questions.length;
 
   return (
-    <div className="flex flex-col gap-4">
-      <p className="text-slate-300 text-sm">
+    <div className="flex flex-col gap-2">
+      <p className="text-slate-300 text-xs">
         Aprende las reglas de paso, las luces de navegación y el sistema de balizamiento. Después, pon a prueba tu conocimiento.
       </p>
 
@@ -77,7 +77,7 @@ export const ModuloRipaIalaView: React.FC = () => {
       <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full">
         <button
           onClick={() => setTab('ESTUDIO')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
             tab === 'ESTUDIO' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
@@ -86,7 +86,7 @@ export const ModuloRipaIalaView: React.FC = () => {
         </button>
         <button
           onClick={() => setTab('QUIZ')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
             tab === 'QUIZ' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
@@ -97,7 +97,7 @@ export const ModuloRipaIalaView: React.FC = () => {
 
       {/* Contenido según tab */}
       {tab === 'ESTUDIO' && (
-        <div className="flex flex-col gap-4 animate-[fade-in_0.4s_ease-out]">
+        <div className="flex flex-col gap-2 animate-[fade-in_0.4s_ease-out]">
           {/* Sub-tabs del contenido teórico */}
           <div className="flex flex-wrap gap-2 justify-center">
             {(

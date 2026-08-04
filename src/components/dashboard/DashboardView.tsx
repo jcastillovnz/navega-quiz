@@ -109,10 +109,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
   }, []);
 
   return (
-    <div className="flex-1 flex flex-col gap-3 min-h-0 overflow-hidden">
+    <div className="flex-1 flex flex-col gap-3 min-h-0 min-w-0 overflow-hidden">
       {/* Hero compacto */}
       <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700 rounded-2xl p-3 shrink-0">
-        <div className="flex items-start justify-between gap-4 flex-wrap">
+        <div className="flex items-start justify-between gap-3 flex-wrap min-w-0">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-0.5">
               <Anchor className="w-4 h-4 text-cyan-400" />

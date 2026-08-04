@@ -83,7 +83,7 @@ export const DeclinationCalculator: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto p-4">
+    <div className="flex flex-col gap-3 w-full max-w-full mx-auto p-1">
       {/* Header */}
       <div className="text-center">
         <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 mb-3">

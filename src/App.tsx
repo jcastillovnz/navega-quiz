@@ -60,24 +60,24 @@ interface ModuleShellProps {
 }
 
 const ModuleShell: React.FC<ModuleShellProps> = ({ number, title, icon: Icon, badgeColor, onBack, children }) => (
-  <div className="flex-1 flex flex-col min-h-0">
-    {/* Header fijo del módulo */}
+  <div className="flex-1 flex flex-col min-h-0 min-w-0 overflow-hidden">
+    {/* Header fijo del módulo - NUNCA scrollea */}
     <div className="flex items-center justify-between mb-1.5 shrink-0">
       <button
         onClick={onBack}
-        className="flex items-center gap-1.5 text-slate-400 hover:text-cyan-300 transition-colors group"
+        className="flex items-center gap-1.5 text-slate-400 hover:text-cyan-300 transition-colors group shrink-0"
       >
         <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
         <span className="text-xs font-medium">Volver al inicio</span>
       </button>
-      <div className={`flex items-center gap-1.5 ${badgeColor} border px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider`}>
+      <div className={`flex items-center gap-1.5 ${badgeColor} border px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider shrink-0`}>
         <Icon className="w-3 h-3" />
         MÓDULO {number}
       </div>
     </div>
-    <h2 className="text-lg md:text-xl font-bold text-slate-50 mb-2 shrink-0">{title}</h2>
-    {/* Contenido scrolleable */}
-    <div className="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1">
+    <h2 className="text-lg md:text-xl font-bold text-slate-50 mb-2 shrink-0 truncate">{title}</h2>
+    {/* Contenido scrolleable - SOLO este div puede scrollear verticalmente */}
+    <div className="flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden custom-scroll pr-1 -mr-1">
       {children}
     </div>
   </div>
@@ -133,8 +133,8 @@ const ModuloPracticosView: React.FC = () => {
   const finished = result && result.total === questions.length;
 
   return (
-    <div className="flex flex-col gap-4">
-      <p className="text-slate-300 text-sm">Resuelve problemas reales: declinación, mareas y marcaciones.</p>
+    <div className="flex flex-col gap-2">
+      <p className="text-slate-300 text-xs">Resuelve problemas reales: declinación, mareas y marcaciones.</p>
       <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md">
         <button
           onClick={() => setTab('ESTUDIO')}

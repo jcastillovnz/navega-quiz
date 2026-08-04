@@ -80,14 +80,14 @@ export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, vi
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <p className="text-slate-300 text-sm">{config.subtitle}</p>
+    <div className="flex flex-col gap-2">
+      <p className="text-slate-300 text-xs">{config.subtitle}</p>
 
       {/* Tabs Estudio / Práctica */}
       <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-700 max-w-md mx-auto w-full">
         <button
           onClick={() => setTab('ESTUDIO')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
             tab === 'ESTUDIO' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
@@ -96,7 +96,7 @@ export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, vi
         </button>
         <button
           onClick={() => setTab('QUIZ')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
             tab === 'QUIZ' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
           }`}
         >

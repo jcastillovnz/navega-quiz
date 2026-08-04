@@ -109,7 +109,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-2 relative">
+    <div className="w-full max-w-full mx-auto p-0 relative">
       {/* XP Floater Animation */}
       {showXPFloater && (
         <div className="absolute top-4 right-8 z-20 pointer-events-none animate-[float-up_1.2s_ease-out_forwards]">

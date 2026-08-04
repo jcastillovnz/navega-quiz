@@ -120,7 +120,7 @@ export const RealExamView: React.FC = () => {
     const angleStep = (Math.PI * 2) / Math.max(1, radarModules.length);
 
     return (
-      <div className="max-w-3xl mx-auto p-2 flex flex-col gap-3 animate-[fade-in_0.6s_ease-out] flex-1 min-h-0 overflow-y-auto">
+      <div className="max-w-full mx-auto p-1 flex flex-col gap-2 animate-[fade-in_0.6s_ease-out] flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden custom-scroll">
         <div className="text-center">
           <div
             className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-2 ${
@@ -271,7 +271,7 @@ export const RealExamView: React.FC = () => {
 
   // --- PANTALLA DE EXAMEN EN CURSO ---
   return (
-    <div className="max-w-3xl mx-auto p-1 flex flex-col gap-2 flex-1 min-h-0">
+    <div className="max-w-full mx-auto p-1 flex flex-col gap-2 flex-1 min-h-0 min-w-0">
       {/* Header con cronómetro */}
       <div className="bg-slate-800/60 border border-slate-700 rounded-lg p-2 flex items-center justify-between shrink-0">
         <div>
@@ -368,10 +368,10 @@ export const RealExamView: React.FC = () => {
         )}
       </div>
 
-      {/* Mini-mapa de preguntas */}
-      <div className="bg-slate-800/40 border border-slate-700 rounded-lg p-1.5 shrink-0">
+      {/* Mini-mapa de preguntas - horizontal, sin overflow vertical */}
+      <div className="bg-slate-800/40 border border-slate-700 rounded-lg p-1.5 shrink-0 overflow-hidden">
         <p className="text-[9px] uppercase tracking-wider text-slate-400 mb-1 px-1">Mapa</p>
-        <div className="flex flex-wrap gap-0.5 max-h-12 overflow-y-auto">
+        <div className="flex gap-0.5 overflow-x-auto overflow-y-hidden custom-scroll pb-0.5" style={{ maxWidth: '100%' }}>
           {exam.questions.map((q, i) => {
             const isAnswered = !!answers[q.id];
             const isCurrent = i === currentIdx;
@@ -379,7 +379,7 @@ export const RealExamView: React.FC = () => {
               <button
                 key={q.id}
                 onClick={() => setCurrentIdx(i)}
-                className={`w-5 h-5 text-[9px] font-bold rounded flex items-center justify-center ${
+                className={`shrink-0 w-5 h-5 text-[9px] font-bold rounded flex items-center justify-center ${
                   isCurrent
                     ? 'bg-cyan-500 text-slate-950 ring-1 ring-cyan-300'
                     : isAnswered
