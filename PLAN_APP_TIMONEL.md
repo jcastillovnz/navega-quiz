@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `8 / 25 Tareas completadas (32%)`
+- **Progreso Global**: `9 / 25 Tareas completadas (36%)`
 - **Estado Actual**: 🔴 **Listo para Iniciar**
-- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 09**
+- **Próxima Tarea a Ejecutar**: 🎯 **Tarea 10**
 
 ---
 
@@ -106,8 +106,8 @@ Leyenda de Estados:
 - `[COMPLETADO]` ✅ **Tarea 08**: `src/data/practicos.json` (JSON con variables y casos para Declinación, Tablas de Marea y Marcaciones Simultáneas).
 
 ### 🚨 FASE 3: Módulo 1 (Legislación, RIPA & IALA) (Tareas 09 - 13)
-- `[PENDIENTE]` ⏳ **Tarea 09**: Visor RIPA (`RipaLightViewer.tsx`).
-- `[PENDIENTE]` ⏳ **Tarea 10**: Visor IALA (`IalaBoyaViewer.tsx`).
+- `[COMPLETADO]` ✅ **Tarea 09**: Visor RIPA (`RipaLightViewer.tsx`).
+- `[PENDIENTE]` ⏳ **Tarea 10**: Visor IALA (`IalaBuoyViewer.tsx`).
 - `[PENDIENTE]` ⏳ **Tarea 11**: Simulador cruces (`RipaCrossingSimulator.tsx`).
 - `[PENDIENTE]` ⏳ **Tarea 12**: `QuizCard.tsx` (Componente de quiz con animaciones de éxito/error, ganancia de XP y sonidos UI).
 - `[PENDIENTE]` ⏳ **Tarea 13**: `ModuloRipaIalaView.tsx`.
