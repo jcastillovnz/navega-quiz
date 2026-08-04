@@ -1,4 +1,12 @@
 import { useState } from 'react';
+// Importar JSONs para evitar tree-shaking y garantizar que se incluyan en el bundle
+import _ripaIala from './data/ripa_iala.json';
+import _teoria from './data/teoria.json';
+import _practicos from './data/practicos.json';
+import _nudos from './data/nudos.json';
+import _nomenclatura from './data/nomenclatura.json';
+// Forzar uso para que el bundler no los descarte
+console.log('Data loaded:', _ripaIala.length, _teoria.length, _practicos.length, _nudos.length, _nomenclatura.length);
 import { Layout } from './components/layout/Layout';
 import { RipaLightViewer } from './components/ripa/RipaLightViewer';
 import { IalaBuoyViewer } from './components/iala/IalaBuoyViewer';
