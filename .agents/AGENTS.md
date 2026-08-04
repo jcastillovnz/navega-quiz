@@ -92,39 +92,13 @@ La app tiene 7 módulos accesibles desde el Dashboard:
 
 **Principio**: La Guía Teórica y el Quiz Práctico deben estar **unificados por cada ítem/concepto del módulo**. No se usan pestañas separadas "Teoría" vs "Quiz". El usuario aprende un concepto y lo practica de inmediato en la misma pantalla.
 
-### Patrón de Layout por Módulo
-
-Cada módulo debe usar un **grid de 2 columnas** (`md:grid-cols-12`):
-
-```
-┌─────────────────────────────┬──────────────────────────┐
-│   7 cols — Visor Visual     │   5 cols — Panel Derecho │
-│   (animación / imagen /     │   ┌─ Info teórica ───┐   │
-│    SVG interactivo)         │   │  del concepto    │   │
-│                             │   └──────────────────┘   │
-│                             │   ┌─ InlineQuizPanel ┐   │
-│                             │   │  pregunta del    │   │
-│                             │   │  mismo concepto  │   │
-│                             │   └──────────────────┘   │
-└─────────────────────────────┴──────────────────────────┘
-```
+ç≈
 
 ### Flujo de Interacción
 
-1. **El usuario ve** el concepto visual (boya, luz, nudo, barco) en la columna izquierda
-2. **Simultáneamente**, la columna derecha muestra:
-   - La explicación teórica del concepto (breve, 2-4 líneas)
-   - **Inmediatamente debajo**: 1 pregunta de quiz relacionada con ese concepto específico
-3. **Al responder** la pregunta → aparece feedback inmediato (verde/rojo) + explicación
-4. **Al hacer "Siguiente"** → avanza al próximo concepto del módulo (cambia tanto el visual como la pregunta)
+http://localhost:5175/
 5. **Al completar todos los conceptos** → pantalla de resultados `ModuleResultPanel`
 
-### Componentes Clave
-
-- **`InlineQuizPanel`** (`src/components/quiz/InlineQuizPanel.tsx`): Panel compacto de pregunta inline. Incluye barra de progreso, opciones, feedback con animación y sonido, floater de XP. Diseñado para encajar en 5 columnas sin scroll.
-- **`ModuleResultPanel`** (mismo archivo): Pantalla de resultado final del módulo con precisión, aciertos y XP ganado.
-
-### Reglas de Implementación
 
 - **NO usar tabs `'ESTUDIO' | 'QUIZ'`** en nuevos módulos ni en modificaciones de los existentes.
 - El `viewer` izquierdo y el `InlineQuizPanel` derecho deben **estar sincronizados**: el índice activo del visor determina qué pregunta se muestra.
