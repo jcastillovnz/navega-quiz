@@ -85,6 +85,14 @@ const GUIDES: Record<KnotFamily, KnotGuide> = {
 
 const stripPosition = ['0%', '33.333%', '66.666%', '100%'];
 const gridPosition = ['0% 0%', '100% 0%', '0% 100%', '100% 100%'];
+const knotSurfaceStyle: React.CSSProperties = {
+  backgroundColor: '#2a1c14',
+  backgroundImage: [
+    'radial-gradient(circle at 50% 44%, rgba(96, 70, 48, .72) 0%, rgba(31, 22, 17, .2) 48%, rgba(12, 10, 9, .55) 100%)',
+    'repeating-linear-gradient(2deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 9px)',
+    'linear-gradient(90deg, #17110d 0%, #39281d 48%, #17110d 100%)',
+  ].join(','),
+};
 
 const QUESTION_ANIMATIONS: Record<string, { frames: string[]; steps: string[] }> = {
   nudo_2: {
@@ -119,7 +127,7 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
 
   if (animation) {
     return (
-      <figure className="flex h-full min-h-0 flex-col overflow-hidden bg-[radial-gradient(circle_at_center,#31343b_0%,#111318_72%)]" aria-label="Animación técnica del armado del nudo">
+      <figure className="flex h-full min-h-0 flex-col overflow-hidden" style={knotSurfaceStyle} aria-label="Animación técnica del armado del nudo">
         <div className="relative min-h-0 flex-1">
           <img
             key={animation.frames[selectedStep]}
@@ -128,13 +136,13 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
             className="h-full w-full object-contain"
             draggable={false}
           />
-          <div className="absolute left-1/2 top-2 flex -translate-x-1/2 items-center gap-1 rounded-full border border-slate-600 bg-slate-950/90 p-1">
+          <div className="absolute left-1/2 top-2 z-20 flex -translate-x-1/2 items-center gap-1 rounded-full border border-cyan-400/50 bg-slate-950/95 p-1 shadow-xl backdrop-blur-sm">
             <button
               type="button"
               onClick={() => setIsPlaying(playing => !playing)}
-              className="grid h-7 min-w-7 place-items-center rounded-full px-2 text-[10px] font-black text-cyan-200 hover:bg-slate-800"
+              className="h-7 min-w-[76px] rounded-full bg-cyan-400 px-2 text-[10px] font-black text-slate-950 transition-all duration-300 hover:bg-cyan-300"
               aria-label={isPlaying ? 'Pausar animación' : 'Reproducir animación'}
-            >{isPlaying ? 'Ⅱ' : '▶'}</button>
+            >{isPlaying ? 'Ⅱ Pausar' : '▶ Reproducir'}</button>
             {animation.frames.map((_, index) => (
               <button
                 key={index}
@@ -160,10 +168,10 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
   }
 
   return (
-    <figure className="h-full min-h-0 overflow-hidden bg-slate-950 flex flex-col" aria-label={`${guide.name}: guía visual paso a paso`}>
-      <div className="relative min-h-0 flex-1 bg-[#17110d]">
+    <figure className="h-full min-h-0 overflow-hidden flex flex-col" style={knotSurfaceStyle} aria-label={`${guide.name}: guía visual paso a paso`}>
+      <div className="relative min-h-0 flex-1" style={knotSurfaceStyle}>
         {guide.stepImages ? (
-          <div className="relative flex h-full items-center justify-center bg-[radial-gradient(circle_at_center,#3b2a1f_0%,#17110d_62%)] px-16 sm:px-28">
+          <div className="relative flex h-full items-center justify-center px-16 sm:px-28">
             <img
               src={guide.stepImages[selectedStep]}
               alt={`Paso ${selectedStep + 1} de ${guide.steps.length}: ${guide.steps[selectedStep]}`}
