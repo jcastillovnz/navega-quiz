@@ -109,8 +109,8 @@ const TideExerciseTable: React.FC<{ data: TideExerciseData; reveal: boolean }> =
   const passage = data.baseDepth !== undefined;
   return <div className="mt-4 overflow-hidden rounded-xl border border-cyan-500/30 bg-slate-950">
     {passage && <div className="grid grid-cols-3 divide-x divide-slate-700 border-b border-slate-700 bg-slate-900 text-center">
-      <div className="p-2"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Fondo de carta</p><p className="mt-0.5 text-xs font-black text-white">{metres(data.baseDepth!)}</p></div>
-      <div className="p-2"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Corrección viento</p><p className={`mt-0.5 text-xs font-black ${data.wind! >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>{data.wind! >= 0 ? '+' : '−'} {metres(Math.abs(data.wind!))}</p></div>
+      <div className="p-2" title="Profundidad indicada en la carta, referida al plano de reducción de sondajes (PRS)"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Sondaje de carta · PRS</p><p className="mt-0.5 text-xs font-black text-white">{metres(data.baseDepth!)}</p></div>
+      <div className="p-2" title="Efecto del viento sobre el nivel del agua: puede sumar o restar profundidad"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Acción del viento</p><p className={`mt-0.5 text-xs font-black ${data.wind! >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>{data.wind! >= 0 ? '+' : '−'} {metres(Math.abs(data.wind!))}</p></div>
       <div className="p-2"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Mínimo necesario</p><p className="mt-0.5 text-xs font-black text-amber-300">{metres(data.required!)}</p></div>
     </div>}
     <div className="overflow-x-auto">
@@ -123,7 +123,7 @@ const TideExerciseTable: React.FC<{ data: TideExerciseData; reveal: boolean }> =
             <td className="px-3 py-2 font-black text-white">{row.time}</td>
             {!passage&&<td className="px-3 py-2 text-slate-300">{row.event}</td>}
             <td className="px-3 py-2 font-bold text-cyan-200">{metres(row.tide)}</td>
-            {passage&&<><td className="px-3 py-2">{reveal ? <><span className="font-black text-white">{metres(row.available!)}</span><span className="ml-1 text-[8px] text-slate-500">fondo + marea + viento</span></> : <span className="font-bold text-slate-500">Calculá</span>}</td><td className={`px-3 py-2 text-center font-black ${reveal ? row.safe ? 'text-emerald-300' : 'text-rose-300' : 'text-slate-600'}`}>{reveal ? row.safe ? 'SÍ' : 'NO' : '—'}</td></>}
+            {passage&&<><td className="px-3 py-2">{reveal ? <><span className="font-black text-white">{metres(row.available!)}</span><span className="ml-1 text-[8px] text-slate-500">sondaje + marea + acción del viento</span></> : <span className="font-bold text-slate-500">Calculá</span>}</td><td className={`px-3 py-2 text-center font-black ${reveal ? (row.safe ? 'text-emerald-300' : 'text-rose-300') : 'text-slate-600'}`}>{reveal ? (row.safe ? 'SÍ' : 'NO') : '—'}</td></>}
           </tr>)}
         </tbody>
       </table>

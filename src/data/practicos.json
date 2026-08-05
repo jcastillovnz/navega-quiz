@@ -109,7 +109,7 @@
     "type": "MAREAS",
     "statement": "Tabla de mareas: 06:00 = 0.80m, 12:00 = 0.40m, 17:00 = 0.95m, 23:00 = 0.70m. Calado de la embarcación: 1.10m. Margen de seguridad: 1 pie (0.30m). Corrección por viento: -0.20m. ¿A qué hora se puede pasar un paso crítico de 0.70m de profundidad?",
     "expectedResult": "17:00 horas",
-    "explanationStepByStep": "1. Profundidad requerida = calado + margen = 1,10 + 0,30 = 1,40 m.\n2. Profundidad real = sondaje de carta + altura de marea + corrección de viento.\n3. Como el viento resta 0,20 m: profundidad real = 0,70 + marea - 0,20 = 0,50 + marea.\n4. Evaluar 06:00: 0,50 + 0,80 = 1,30 m; no alcanza.\n5. Evaluar 12:00: 0,50 + 0,40 = 0,90 m; no alcanza.\n6. Evaluar 17:00: 0,50 + 0,95 = 1,45 m; supera 1,40 m.\n7. La primera hora segura entre las tabuladas es 17:00, con 0,05 m adicionales sobre el margen exigido."
+    "explanationStepByStep": "1. Profundidad requerida = calado + margen = 1,10 + 0,30 = 1,40 m.\n2. Profundidad disponible = sondaje de carta (referido al PRS) + altura de marea + acción del viento.\n3. Como la acción del viento resta 0,20 m: profundidad disponible = 0,70 + marea - 0,20 = 0,50 + marea.\n4. Evaluar 06:00: 0,50 + 0,80 = 1,30 m; no alcanza.\n5. Evaluar 12:00: 0,50 + 0,40 = 0,90 m; no alcanza.\n6. Evaluar 17:00: 0,50 + 0,95 = 1,45 m; supera 1,40 m.\n7. La primera hora segura entre las tabuladas es 17:00, con 0,05 m adicionales sobre el margen exigido."
   },
   {
     "id": "prac_12",
@@ -165,7 +165,7 @@
     "type": "MAREAS",
     "statement": "Tabla de mareas: 06:00 = 0.80m, 12:00 = 0.40m, 17:00 = 0.95m, 23:00 = 0.70m. Calado = 1.25m. Margen = 0.30m. Viento = +0.20m (suma). ¿A qué hora se puede pasar un paso crítico de 0.50m?",
     "expectedResult": "17:00 horas",
-    "explanationStepByStep": "1. Profundidad requerida = calado + margen = 1,25 + 0,30 = 1,55 m.\n2. Profundidad real = sondaje + marea + corrección favorable del viento.\n3. A las 06:00: 0,50 + 0,80 + 0,20 = 1,50 m; faltan 0,05 m.\n4. A las 12:00: 0,50 + 0,40 + 0,20 = 1,10 m; no alcanza.\n5. A las 17:00: 0,50 + 0,95 + 0,20 = 1,65 m; supera 1,55 m.\n6. A las 23:00: 0,50 + 0,70 + 0,20 = 1,40 m; no alcanza.\n7. La única hora segura entre las tabuladas es 17:00."
+    "explanationStepByStep": "1. Profundidad requerida = calado + margen = 1,25 + 0,30 = 1,55 m.\n2. Profundidad disponible = sondaje de carta (referido al PRS) + marea + acción favorable del viento.\n3. A las 06:00: 0,50 + 0,80 + 0,20 = 1,50 m; faltan 0,05 m.\n4. A las 12:00: 0,50 + 0,40 + 0,20 = 1,10 m; no alcanza.\n5. A las 17:00: 0,50 + 0,95 + 0,20 = 1,65 m; supera 1,55 m.\n6. A las 23:00: 0,50 + 0,70 + 0,20 = 1,40 m; no alcanza.\n7. La única hora segura entre las tabuladas es 17:00."
   },
   {
     "id":"prac_19","category":"PRACTICO","type":"RUMBO_VELOCIDAD","statement":"Un barco navega con rumbo verdadero 090° y velocidad propia 5 kn. La corriente tiene dirección 150° y velocidad 2 kn. Determinar gráficamente la derrota verdadera y la velocidad efectiva.","expectedResult":"Dv aproximada 106°; Ve aproximada 6,3 kn","explanationStepByStep":"1. Elegir una escala, por ejemplo 1 cm = 1 kn.\n2. Desde el origen, dibujar el vector propio de 5 unidades al 090°.\n3. Desde la punta del vector propio, dibujar el vector corriente de 2 unidades al 150°.\n4. Unir el origen con la punta final: ese es el vector efectivo.\n5. Medir su dirección: aproximadamente 106°.\n6. Medir su longitud con la misma escala: aproximadamente 6,3 kn.\n7. La corriente altera simultáneamente dirección y velocidad sobre el fondo."
