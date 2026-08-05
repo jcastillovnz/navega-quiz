@@ -84,6 +84,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const question = ordered[index];
 
@@ -115,9 +116,13 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
   };
 
   const next = () => {
+    if (index === ordered.length - 1) {
+      setIsComplete(true);
+      return;
+    }
     setSelected(null);
     setIsCorrect(null);
-    setIndex(value => (value + 1) % ordered.length);
+    setIndex(value => value + 1);
   };
 
   const restart = () => {
@@ -125,6 +130,7 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
     setSelected(null);
     setIsCorrect(null);
     setCorrectCount(0);
+    setIsComplete(false);
   };
 
   const progress = ((index + (selected ? 1 : 0)) / ordered.length) * 100;
@@ -239,10 +245,11 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
           </button>
           <button
             onClick={next}
-            disabled={!selected}
-            className={`flex-1 flex items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-black transition-all duration-300 ${selected ? `${accentClass} text-slate-950` : 'bg-slate-800 text-slate-600 cursor-not-allowed'}`}
+            disabled={!selected || isComplete}
+            className={`flex-1 flex items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-black transition-all duration-300 ${selected && !isComplete ? `${accentClass} text-slate-950` : isComplete ? 'border border-emerald-500/40 bg-emerald-500/10 text-emerald-200 cursor-default' : 'bg-slate-800 text-slate-600 cursor-not-allowed'}`}
           >
-            {selected ? 'Entendido · siguiente concepto' : 'Respondé para continuar'} <ChevronRight className="w-4 h-4" />
+            {isComplete ? 'Ruta completada · sin repetir preguntas' : selected ? index === ordered.length - 1 ? 'Finalizar módulo' : 'Entendido · siguiente concepto' : 'Respondé para continuar'}
+            {!isComplete && <ChevronRight className="w-4 h-4" />}
           </button>
         </div>
       </section>
