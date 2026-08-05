@@ -256,5 +256,17 @@
     "question": "Antes de largar una aduja, ¿qué comprobación de seguridad es esencial?",
     "options": [{"id":"A","text":"Que la línea esté clara y que nadie tenga pies o manos dentro de sus senos","isCorrect":true},{"id":"B","text":"Que todos pisen el cabo para controlarlo","isCorrect":false},{"id":"C","text":"Que el chicote esté oculto bajo las vueltas","isCorrect":false},{"id":"D","text":"Que la aduja tenga el menor diámetro posible","isCorrect":false}],
     "explanation": "Una línea que toma carga puede cerrar un seno con enorme fuerza. Antes de largar se ordena la cubierta, se identifica firme y chicote, se verifica que la línea corra clara y toda persona queda fuera de senos y de la trayectoria de trabajo."
+  },
+  {
+    "id": "nudo_26",
+    "category": "NUDOS",
+    "question": "¿Qué se denomina 'jarcia' en una embarcación a vela?",
+    "options": [
+      { "id": "A", "text": "El conjunto formado únicamente por las velas", "isCorrect": false },
+      { "id": "B", "text": "El conjunto de cabos, cables y aparejos que sostienen la arboladura y permiten maniobrar las velas", "isCorrect": true },
+      { "id": "C", "text": "La estructura del casco situada por debajo de la línea de flotación", "isCorrect": false },
+      { "id": "D", "text": "Los instrumentos y mandos empleados para controlar el motor", "isCorrect": false }
+    ],
+    "explanation": "[PREGUNTA COMPLEMENTARIA NAVEGAQUIZ] La jarcia reúne los elementos que sostienen la arboladura y permiten trabajar con las velas. Se divide, de manera general, en jarcia firme o fija —como estays y obenques— y jarcia de labor o móvil —como drizas, escotas y amantillos—."
   }
 ]

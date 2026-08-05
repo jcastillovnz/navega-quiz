@@ -113,6 +113,7 @@ assign(['nudo_9'], 'ROPE_KINK', 'Coca visible, torsión acumulada y diferencia f
 assign(['nudo_11'], 'ROPE_CONSTRUCTION', 'Filásticas, cordones y cabo terminado con sentidos de torsión alternados');
 assign(['nudo_10', 'nudo_12'], 'ROPE_SAIL_PART', 'Vela completa con gratil y aparejo Cunningham destacados en su ubicación real');
 assign(['nudo_16'], 'ROPE_RIGGING', 'Jarcia de labor diferenciada de obenques y estays mediante recorridos funcionales');
+assign(['nudo_26'], 'ROPE_RIGGING', 'Velero completo con jarcia firme y de labor visibles desde sus puntos de arraigo hasta mastelero, velas, botavara y bañera');
 assign(['nudo_14'], 'ROPE_DINGHY', 'Chinchorro completo y bosa afirmada específicamente en la proa');
 assign(['nudo_18'], 'ROPE_END', 'Chicote protegido y estructura del cabo impedida de descolcharse');
 assign(['nudo_13', 'nudo_19', 'nudo_20', 'nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');

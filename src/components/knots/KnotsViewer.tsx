@@ -38,7 +38,7 @@ export const KnotsViewer: React.FC<KnotsViewerProps> = ({ questions }) => (
           const family = getVisualSpec(question.id)?.family;
           if (family === 'KNOT_COILING') return <RopeCoilingViewer context={`${question.question} ${question.explanation}`.toLowerCase()} />;
           if (family && KNOT_FAMILIES.has(family)) return <KnotTechnicalViewer family={family as KnotFamily} questionId={question.id} />;
-          return <RopeKnowledgeViewer family={family && ROPE_FAMILIES.has(family) ? family as RopeKnowledgeFamily : undefined} />;
+          return <RopeKnowledgeViewer questionId={question.id} family={family && ROPE_FAMILIES.has(family) ? family as RopeKnowledgeFamily : undefined} />;
         }}
       />
     </div>
