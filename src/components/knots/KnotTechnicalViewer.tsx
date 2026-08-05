@@ -1,25 +1,125 @@
 import React from 'react';
 import type { VisualFamily } from '../../data/visualManifest';
+import anchorBendPlate from '../../assets/knots/anchor-bend-steps-v1.webp';
+import bowlinePlate from '../../assets/knots/bowline-steps-v1.webp';
+import cloveHitchPlate from '../../assets/knots/clove-hitch-steps-v1.webp';
+import figureEightPlate from '../../assets/knots/figure-eight-steps-v1.webp';
+import reefKnotPlate from '../../assets/knots/reef-knot-steps-v1.webp';
+import sheetBendPlate from '../../assets/knots/sheet-bend-steps-v1.webp';
 
-export type KnotFamily=Extract<VisualFamily,'KNOT_BOWLINE'|'KNOT_REEF'|'KNOT_CLOVE'|'KNOT_SHEET_BEND'|'KNOT_FIGURE_EIGHT'|'KNOT_ANCHOR_BEND'>;
-const INFO:Record<KnotFamily,[string,string,string]>={
-  KNOT_BOWLINE:['As de guía','Gaza fija','Seguí firme → coca → rodeo del firme → regreso por la coca.'],
-  KNOT_REEF:['Nudo llano','Ligada o rizo','Dos medios nudos opuestos; los dos chicotes salen paralelos a sus firmes.'],
-  KNOT_CLOVE:['Ballestrinque','Amarre temporal','Dos vueltas cruzadas al soporte; asegurar si la carga cambia.'],
-  KNOT_SHEET_BEND:['Vuelta de escota','Cabos de distinta mena','El fino rodea el seno del grueso y muerde debajo de sí mismo.'],
-  KNOT_FIGURE_EIGHT:['Nudo de ocho','Tope de chicote','El chicote rodea el firme y vuelve cruzando para dibujar un ocho.'],
-  KNOT_ANCHOR_BEND:['Vuelta de ancla','Afirmar a un arganeo','Dos vueltas por la anilla, vuelta alrededor del firme y remate seguro.']
+export type KnotFamily = Extract<VisualFamily,
+  'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_ANCHOR_BEND'
+>;
+
+type KnotGuide = {
+  name: string;
+  use: string;
+  image: string;
+  alt: string;
+  steps: [string, string, string, string];
 };
-export const KnotTechnicalViewer:React.FC<{family:KnotFamily}>=({family})=>{
- const [name,use,detail]=INFO[family]; const rope='#e9a84c', rope2='#38bdf8';
- return <figure className="h-full flex flex-col overflow-hidden bg-slate-950"><svg viewBox="0 0 1200 430" className="flex-1 min-h-0 w-full" role="img" aria-label={`${name}: recorrido completo del cabo`}>
-  <defs><linearGradient id="knotDeck"><stop stopColor="#513724"/><stop offset="1" stopColor="#241810"/></linearGradient><filter id="knotShadow"><feDropShadow dx="4" dy="6" stdDeviation="4" floodOpacity=".65"/></filter></defs><rect width="1200" height="430" fill="url(#knotDeck)"/>{[100,260,420,580,740,900,1060].map(x=><path key={x} d={`M${x} 0V430`} stroke="#0c0a09" strokeWidth="5" opacity=".35"/>)}
-  {family==='KNOT_BOWLINE'&&<><path d="M80 335 H405 C555 335 565 85 760 85 C955 85 965 335 795 335 C675 335 615 245 675 190 C745 125 850 205 810 275 C770 340 665 315 645 255 C625 195 695 165 760 170 L1115 170" fill="none" stroke={rope} strokeWidth="28" strokeLinecap="round" filter="url(#knotShadow)"/><circle cx="690" cy="235" r="94" fill="none" stroke="#67e8f9" strokeWidth="4" strokeDasharray="10 10"/></>}
-  {family==='KNOT_REEF'&&<><path d="M70 120 C330 120 410 330 600 215 C750 125 870 120 1130 120" fill="none" stroke={rope} strokeWidth="28"/><path d="M70 330 C330 330 415 120 600 225 C760 315 875 330 1130 330" fill="none" stroke={rope2} strokeWidth="28"/><path d="M500 170 Q600 225 700 170 M500 280 Q600 225 700 280" fill="none" stroke="#f8fafc" strokeOpacity=".35" strokeWidth="4"/></>}
-  {family==='KNOT_CLOVE'&&<><rect x="545" y="35" width="110" height="360" rx="48" fill="#64748b" stroke="#cbd5e1" strokeWidth="7"/><path d="M80 330 C330 330 400 120 600 120 C800 120 870 330 1120 330 M80 120 C330 120 400 330 600 330 C800 330 870 120 1120 120" fill="none" stroke={rope} strokeWidth="27" filter="url(#knotShadow)"/></>}
-  {family==='KNOT_SHEET_BEND'&&<><path d="M80 95 C435 95 500 100 580 215 C500 330 435 335 80 335" fill="none" stroke={rope} strokeWidth="34" strokeLinecap="round"/><path d="M1110 330 C820 330 725 285 670 215 C725 145 820 100 1110 100 M670 215 C620 175 590 135 610 100" fill="none" stroke={rope2} strokeWidth="24" strokeLinecap="round"/></>}
-  {family==='KNOT_FIGURE_EIGHT'&&<path d="M75 330 C350 330 430 80 650 105 C850 125 890 325 690 335 C505 345 470 195 610 190 C750 185 770 65 1120 65" fill="none" stroke={rope} strokeWidth="29" strokeLinecap="round" filter="url(#knotShadow)"/>}
-  {family==='KNOT_ANCHOR_BEND'&&<><circle cx="370" cy="220" r="128" fill="none" stroke="#94a3b8" strokeWidth="42"/><path d="M1110 100 H650 C500 100 470 175 520 235 C575 300 700 285 705 210 C710 140 620 115 555 145 C445 198 500 330 650 330 H1110 M730 330 C690 280 710 245 770 220" fill="none" stroke={rope} strokeWidth="27" strokeLinecap="round" filter="url(#knotShadow)"/></>}
-  <g transform="translate(65 45)"><rect width="235" height="55" rx="12" fill="#020617" fillOpacity=".85" stroke="#f9a8d4"/><text x="18" y="23" fill="#f9a8d4" fontSize="15" fontWeight="900">RECORRIDO DEL CABO</text><text x="18" y="43" fill="#e2e8f0" fontSize="14">firme · seno · chicote</text></g>
- </svg><figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-4 py-2"><div className="flex items-baseline gap-2"><p className="text-sm font-black text-pink-200">{name}</p><span className="text-[10px] font-bold text-amber-300">{use}</span></div><p className="text-xs text-slate-300">{detail}</p></figcaption></figure>
+
+const GUIDES: Record<KnotFamily, KnotGuide> = {
+  KNOT_BOWLINE: {
+    name: 'As de guía',
+    use: 'Gaza fija que no se corre',
+    image: bowlinePlate,
+    alt: 'Cuatro fotografías consecutivas para formar un as de guía con el firme azul y el chicote naranja',
+    steps: ['Formá una coca', 'Subí por la coca', 'Rodeá el firme', 'Volvé y ajustá'],
+  },
+  KNOT_REEF: {
+    name: 'Nudo llano',
+    use: 'Unir cabos de igual mena',
+    image: reefKnotPlate,
+    alt: 'Cuatro fotografías consecutivas para formar un nudo llano con dos cabos de distinto color',
+    steps: ['Cruzá ambos cabos', 'Hacé el primer medio nudo', 'Invertí el segundo cruce', 'Vestí el nudo plano'],
+  },
+  KNOT_CLOVE: {
+    name: 'Ballestrinque',
+    use: 'Amarre temporal a un soporte',
+    image: cloveHitchPlate,
+    alt: 'Cuatro fotografías consecutivas para formar un ballestrinque alrededor de un poste de acero',
+    steps: ['Rodeá el soporte', 'Cruzá sobre la vuelta', 'Pasá bajo el cruce', 'Ajustá ambas vueltas'],
+  },
+  KNOT_SHEET_BEND: {
+    name: 'Vuelta de escota',
+    use: 'Unir cabos de distinta mena',
+    image: sheetBendPlate,
+    alt: 'Cuatro fotografías consecutivas para formar una vuelta de escota con un cabo grueso azul y uno fino naranja',
+    steps: ['Formá un seno grueso', 'Entrá con el cabo fino', 'Rodeá ambos brazos', 'Mordé bajo el propio cabo'],
+  },
+  KNOT_FIGURE_EIGHT: {
+    name: 'Nudo de ocho',
+    use: 'Tope para impedir que escape el chicote',
+    image: figureEightPlate,
+    alt: 'Cuatro fotografías consecutivas para formar un nudo de ocho siguiendo el chicote naranja',
+    steps: ['Formá una vuelta', 'Rodeá el firme', 'Entrá por la coca', 'Vestí la figura de ocho'],
+  },
+  KNOT_ANCHOR_BEND: {
+    name: 'Vuelta de ancla',
+    use: 'Afirmar un cabo al arganeo',
+    image: anchorBendPlate,
+    alt: 'Cuatro fotografías consecutivas para formar una vuelta de ancla sobre un arganeo de acero',
+    steps: ['Dá dos vueltas al arganeo', 'Cruzá sobre el firme', 'Pasá entre vueltas y arganeo', 'Rematá con medio cote'],
+  },
+};
+
+const panelPosition = ['0%', '33.333%', '66.666%', '100%'];
+
+export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: string }> = ({ family, questionId }) => {
+  const guide = GUIDES[family];
+  const focusStep = questionId ? Number(questionId.replace(/\D/g, '')) % 4 : 3;
+
+  return (
+    <figure className="h-full min-h-0 overflow-hidden bg-slate-950 flex flex-col" aria-label={`${guide.name}: guía visual paso a paso`}>
+      <div className="relative min-h-0 flex-1 bg-[#17110d]">
+        <img
+          src={guide.image}
+          alt={guide.alt}
+          className="hidden h-full w-full object-contain sm:block"
+          draggable={false}
+        />
+
+        <div className="flex h-full snap-x snap-mandatory overflow-x-auto sm:hidden" aria-label="Deslizá para observar los cuatro pasos">
+          {guide.steps.map((step, index) => (
+            <div
+              key={step}
+              className="relative h-full min-w-[88vw] snap-center border-r border-white/15 bg-cover bg-no-repeat"
+              style={{ backgroundImage: `url(${guide.image})`, backgroundSize: '400% 100%', backgroundPosition: `${panelPosition[index]} center` }}
+              role="img"
+              aria-label={`Paso ${index + 1}: ${step}`}
+            >
+              <span className="absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-full border border-white/50 bg-slate-950/90 text-sm font-black text-white">
+                {index + 1}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="pointer-events-none absolute inset-x-0 top-2 hidden grid-cols-4 px-2 sm:grid">
+          {guide.steps.map((step, index) => (
+            <div key={step} className="px-1">
+              <span className={`grid h-7 w-7 place-items-center rounded-full border text-xs font-black shadow-lg ${index === focusStep ? 'border-amber-300 bg-amber-300 text-slate-950' : 'border-white/50 bg-slate-950/85 text-white'}`}>
+                {index + 1}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-2 py-1.5">
+        <div className="mb-1 flex items-baseline justify-between gap-2">
+          <p className="text-xs font-black text-pink-200">{guide.name}</p>
+          <p className="text-[10px] font-bold text-amber-300">{guide.use}</p>
+        </div>
+        <ol className="grid grid-cols-2 gap-1 sm:grid-cols-4">
+          {guide.steps.map((step, index) => (
+            <li key={step} className={`rounded-md border px-2 py-1 text-[10px] font-semibold ${index === focusStep ? 'border-amber-400/70 bg-amber-400/10 text-amber-100' : 'border-slate-700 bg-slate-950/70 text-slate-200'}`}>
+              <span className="mr-1 text-cyan-300">{index + 1}.</span>{step}
+            </li>
+          ))}
+        </ol>
+      </figcaption>
+    </figure>
+  );
 };
