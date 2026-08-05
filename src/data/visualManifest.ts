@@ -111,7 +111,8 @@ assign(['nudo_7'], 'KNOT_ANCHOR_BEND', 'Dos vueltas por el arganeo, chicote alre
 assign(['nudo_5', 'nudo_15'], 'KNOT_FIGURE_EIGHT', 'Nudo de tope y recorrido del chicote');
 assign(['nudo_9'], 'ROPE_KINK', 'Coca visible, torsión acumulada y diferencia frente a un seno sano');
 assign(['nudo_11'], 'ROPE_CONSTRUCTION', 'Filásticas, cordones y cabo terminado con sentidos de torsión alternados');
-assign(['nudo_10', 'nudo_12'], 'ROPE_SAIL_PART', 'Vela completa con gratil y aparejo Cunningham destacados en su ubicación real');
+assign(['nudo_10'], 'ROPE_SAIL_PART', 'Detalle realista del ollao reforzado y aparejo Cunningham tensando el gratil hacia un herraje en la base del palo');
+assign(['nudo_12'], 'ROPE_SAIL_PART', 'Vela mayor y aparejo completos con el borde de ataque fijado continuamente al palo, distinguible de baluma y pujamen');
 assign(['nudo_16'], 'ROPE_RIGGING', 'Velero completo con driza, escota y amantillo diferenciados y trazables desde mastelero o botavara hasta sus puntos de maniobra');
 assign(['nudo_26'], 'ROPE_RIGGING', 'Velero completo con jarcia firme y de labor visibles desde sus puntos de arraigo hasta mastelero, velas, botavara y bañera');
 assign(['nudo_14'], 'ROPE_DINGHY', 'Chinchorro completo y bosa afirmada específicamente en la proa');
