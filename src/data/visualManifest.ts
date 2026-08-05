@@ -115,8 +115,8 @@ assign(['nudo_10'], 'ROPE_SAIL_PART', 'Detalle realista del ollao reforzado y ap
 assign(['nudo_12'], 'ROPE_SAIL_PART', 'Vela mayor y aparejo completos con el borde de ataque fijado continuamente al palo, distinguible de baluma y pujamen');
 assign(['nudo_16'], 'ROPE_RIGGING', 'Velero completo con driza, escota y amantillo diferenciados y trazables desde mastelero o botavara hasta sus puntos de maniobra');
 assign(['nudo_26'], 'ROPE_RIGGING', 'Velero completo con jarcia firme y de labor visibles desde sus puntos de arraigo hasta mastelero, velas, botavara y bañera');
-assign(['nudo_14'], 'ROPE_DINGHY', 'Chinchorro completo y bosa afirmada específicamente en la proa');
-assign(['nudo_18'], 'ROPE_END', 'Chicote protegido y estructura del cabo impedida de descolcharse');
+assign(['nudo_14'], 'ROPE_DINGHY', 'Chinchorro completo con cabo trazable desde el ojo de proa hasta una cornamusa del barco madre');
+assign(['nudo_18'], 'ROPE_END', 'Comparación fotográfica entre un chicote compacto protegido y otro descolchado con fibras expuestas');
 assign(['nudo_13', 'nudo_19', 'nudo_20', 'nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');
 
 assign(['prac_carta_1', 'prac_carta_2', 'prac_carta_3'], 'PRACTICAL_CHART', 'Carta, escala de latitud y medición de distancia');
