@@ -120,7 +120,11 @@ assign(['nudo_18'], 'ROPE_END', 'Comparación fotográfica entre un chicote comp
 assign(['nudo_13'], 'KNOT_COILING', 'Cabo almacenado en vueltas iguales, asegurado y colgado completo dentro de un pañol');
 assign(['nudo_19'], 'KNOT_COILING', 'Acción real de recoger progresivamente un cabo en senos regulares manteniendo accesible el tramo de trabajo');
 assign(['nudo_20'], 'KNOT_COILING', 'Aduja redonda portátil con vueltas iguales, varias ligadas de asegurado y seno final preparado para colgar');
-assign(['nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');
+assign(['nudo_21'], 'KNOT_COILING', 'Cabo continuo dispuesto en ocho con cruces centrales y curvaturas alternadas visibles de chicote a chicote');
+assign(['nudo_22'], 'KNOT_COILING', 'Espiral holandesa plana completa con recorrido continuo entre extremo exterior y centro');
+assign(['nudo_23'], 'KNOT_COILING', 'Línea real preparada en senos largos sin cruces atrapados, con chicote accesible y salida despejada');
+assign(['nudo_24'], 'KNOT_COILING', 'Aduja circular forzada en las manos y coca incipiente visible en el tramo entrante por torsión no descargada');
+assign(['nudo_25'], 'KNOT_COILING', 'Senos completos y trazables con cubierta despejada y pies del tripulante fuera de toda gaza y trayectoria');
 
 assign(['prac_carta_1', 'prac_carta_2', 'prac_carta_3'], 'PRACTICAL_CHART', 'Carta, escala de latitud y medición de distancia');
 assign(Array.from({ length: 21 }, (_, i) => `prac_${i + 1}`), 'PRACTICAL_CALCULATION', 'Datos, fórmula, unidades y secuencia de resolución');

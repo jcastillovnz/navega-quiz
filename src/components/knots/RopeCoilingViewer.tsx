@@ -2,6 +2,11 @@ import React from 'react';
 import ropeStorageNudo13 from '../../assets/knots/rope-storage-nudo-13-v1.png';
 import ropeCoilingActionNudo19 from '../../assets/knots/rope-coiling-action-nudo-19-v1.png';
 import securedRoundCoilNudo20 from '../../assets/knots/secured-round-coil-nudo-20-v1.png';
+import figureEightCoilNudo21 from '../../assets/knots/figure-eight-coil-nudo-21-v1.png';
+import dutchSpiralCoilNudo22 from '../../assets/knots/dutch-spiral-coil-nudo-22-v1.png';
+import readyToRunLineNudo23 from '../../assets/knots/ready-to-run-line-nudo-23-v1.png';
+import forcedCoilKinkNudo24 from '../../assets/knots/forced-coil-kink-nudo-24-v1.png';
+import lineSafetyCheckNudo25 from '../../assets/knots/line-safety-check-nudo-25-v1.png';
 
 type Coil = 'round' | 'eight' | 'dutch' | 'ready' | 'safety';
 const choose = (text: string): Coil => /holandesa|espiral/.test(text) ? 'dutch' : /ocho|cocas|torsi[oó]n/.test(text) ? 'eight' : /r[aá]pid|senos largos|salir/.test(text) ? 'ready' : /seguridad|pies|manos|largar/.test(text) ? 'safety' : 'round';
@@ -17,6 +22,11 @@ const QUESTION_IMAGES: Record<string, {src:string; alt:string; title:string; det
   nudo_13: {src:ropeStorageNudo13, alt:'Cabo blanco guardado en vueltas iguales, asegurado y colgado dentro de un pañol náutico', title:'Cabo listo para guardar', detail:'Observá las vueltas regulares, el conjunto sujeto y los dos extremos libres de cocas.'},
   nudo_19: {src:ropeCoilingActionNudo19, alt:'Marinero recogiendo progresivamente un cabo azul en vueltas largas e iguales', title:'Ordenar el cabo mientras se recoge', detail:'Seguí el tramo que llega desde cubierta y cómo cada seno se incorpora al conjunto sin enredos.'},
   nudo_20: {src:securedRoundCoilNudo20, alt:'Aduja circular completa con vueltas iguales, asegurada por varias vueltas y un seno final junto a un gancho', title:'Conjunto asegurado para transportar o colgar', detail:'Observá las vueltas del mismo tamaño, el amarre alrededor del conjunto y el seno final accesible.'},
+  nudo_21: {src:figureEightCoilNudo21, alt:'Cabo azul continuo dispuesto sobre cubierta en vueltas con cruces centrales alternados que forman dos ochos amplios', title:'Curvaturas alternadas sobre cubierta', detail:'Seguí el cabo de un chicote al otro y observá cómo cada cruce invierte el sentido de la vuelta.'},
+  nudo_22: {src:dutchSpiralCoilNudo22, alt:'Cabo natural completo presentado como una espiral plana y compacta sobre cubierta de teca', title:'Presentación plana para inspeccionar', detail:'Observá el recorrido continuo desde el extremo exterior hasta el centro y la ausencia de vueltas superpuestas.'},
+  nudo_23: {src:readyToRunLineNudo23, alt:'Cabo naranja dispuesto en senos largos alternados y sin cruces atrapados, con extremo accesible junto a un pasacabo', title:'Línea preparada para salir clara', detail:'Seguí los senos largos, el extremo accesible y el recorrido despejado hacia el herraje de cubierta.'},
+  nudo_24: {src:forcedCoilKinkNudo24, alt:'Marinero forzando una aduja circular mientras el tramo entrante se retuerce y forma una coca antes de llegar a la mano', title:'Torsión acumulada durante el enrollado', detail:'Observá la deformación del tramo entrante cuando se obliga cada vuelta sin dejar girar el cabo.'},
+  nudo_25: {src:lineSafetyCheckNudo25, alt:'Línea roja ordenada en senos largos con ambos pies del marinero juntos y completamente fuera de las vueltas', title:'Cubierta despejada antes de largar', detail:'Comprobá que todos los senos estén libres, el chicote sea visible y ambos pies permanezcan fuera del recorrido.'},
 };
 
 export const RopeCoilingViewer: React.FC<{context:string; questionId?:string}> = ({context,questionId}) => {
