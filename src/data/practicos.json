@@ -37,7 +37,7 @@
     "type": "DECLINACION",
     "statement": "Calcular la Declinación Magnética para el año 2026. Carta año 2020 indica: Dm = 05° 40' W. Variación Anual = 5' E.",
     "expectedResult": "05° 10' W",
-    "explanationStepByStep": "1. Diferencia de años: 2026 - 2020 = 6 años.\n2. Variación total: 6 años × 5' E = 30' E.\n3. La declinación inicial es W (Oeste) y la variación es E (Este), por lo tanto se restan: 05° 40' W - 30' E = 05° 10' W."
+    "explanationStepByStep": "1. Calcular los años transcurridos: 2026 − 2020 = 6 años.\n2. Leer con atención la unidad de la variación anual. La carta indica 5' E por año: el símbolo ' significa minutos de arco, mientras que ° significa grados. Por lo tanto, el cambio es de 5 minutos por cada año, no de 5 grados.\n3. Calcular la variación acumulada conservando esa unidad: 6 años × 5' E/año = 30' E. Los años se cancelan y el resultado queda expresado en minutos de arco.\n4. Convertir para comparar: un grado contiene 60 minutos de arco, es decir, 1° = 60'. Por eso 30' = 0° 30' = medio grado; no equivale a 30°.\n5. La operación queda 5° 40' W frente a 0° 30' E. Oeste y Este son sentidos opuestos, así que se restan sus magnitudes: 5° 40' − 0° 30' = 5° 10'. En los minutos, 40' − 30' = 10'; los 5° no cambian.\n6. El sentido final es W porque la declinación inicial hacia el Oeste (5° 40') es mayor que el cambio hacia el Este (0° 30'). La corrección reduce el valor occidental, pero no alcanza a llevarlo a 0° ni a invertirlo hacia el Este.\n7. Resultado actualizado: 05° 10' W. Comprobación con signos: W = negativo y E = positivo; −5° 40' + 0° 30' = −5° 10', es decir, 05° 10' W."
   },
   {
     "id": "prac_3",

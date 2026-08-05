@@ -17,7 +17,7 @@ const QUICK_METHODS: Record<string, string[]> = {
   prac_carta_2: ['En examen, abrí el compás entre A y B.', 'Sin cambiar la abertura, llevalo a la escala de latitud más cercana a la derrota.', 'La abertura mide aproximadamente 9,1 MN; no hace falta trigonometría.'],
   prac_carta_3: ['Tiempo = 9,1 ÷ 9 ≈ 1 hora.', 'Como sobra 0,1 MN, agregá aproximadamente 1 minuto.', '10:20 + 1:01 = 11:21.'],
   prac_1: ['Años: 2025 − 2021 = 4.', 'Cambio: 4 × 8′ = 32′ W.', 'Mismo sentido: 6°10′ + 32′ = 6°42′ W.'],
-  prac_2: ['Años: 2026 − 2020 = 6.', 'Cambio: 6 × 5′ = 30′ E.', 'Sentidos opuestos: 5°40′ W − 30′ = 5°10′ W.'],
+  prac_2: ['Años transcurridos: 2026 − 2020 = 6.', 'La carta da 5′ E por año: el símbolo ′ indica minutos de arco, no grados. Por eso se multiplican 6 años × 5′/año.', 'Cambio acumulado: 6 × 5′ = 30′ E. Como 60′ = 1°, entonces 30′ = 0°30′, no 30°.', 'Como W y E son sentidos opuestos, se restan sus magnitudes: 5°40′ − 0°30′ = 5°10′.', 'El resultado sigue siendo W porque 5°40′ W es mayor que la corrección opuesta de 0°30′ E. Resultado: 5°10′ W.'],
   prac_3: ['Años: 2025 − 2021 = 4.', 'Cambio: 8′24″ × 4 = 33′36″.', 'Sumá a 7°25′00″: resultado 7°58′36″ W.'],
   prac_4: ['Años: 2025 − 2021 = 4.', 'Cambio: 4 × 8″ = 32″.', '54″ + 32″ = 86″ = 1′26″; resultado 6°57′26″ W.'],
   prac_5: ['Tiempo = distancia ÷ velocidad.', '12 ÷ 8 = 1,5 horas.', 'Media hora es 30 minutos: total 1 h 30 min.'],
