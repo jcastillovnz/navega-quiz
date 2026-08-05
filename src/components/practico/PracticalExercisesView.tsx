@@ -162,7 +162,7 @@ const ChartScaleGuide: React.FC = () => (
         <text x="380" y="143" textAnchor="middle" fill="#94a3b8" fontSize="12">Una rayita = 1′ = 1 MN en esta escala</text>
       </svg>
       <p className="mt-1 text-[9px] leading-relaxed text-slate-300"><strong className="text-amber-300">Cómo se usa:</strong> abrí el compás entre los dos puntos de la derrota, sin cambiar su abertura apoyá una punta en una marca de minuto y contá las divisiones hasta la otra punta. En el ejemplo abarca de 24′ a 31′: son 7 divisiones, por lo tanto 7 MN.</p>
-      <p className="mt-1 text-[9px] leading-relaxed text-slate-400"><strong className="text-rose-300">Antes de contar rayitas:</strong> comprobá los números impresos. Si entre 24′ y 25′ hay dos espacios, cada espacio vale 0,5′ = 0,5 MN; si hay cinco, cada uno vale 0,2′ = 0,2 MN.</p>
+      <p className="mt-1 text-[9px] leading-relaxed text-slate-400"><strong className="text-rose-300">Antes de contar rayitas:</strong> en esta carta, entre 24′ y 25′ hay cinco espacios; cada espacio vale 0,2′ = 0,2 MN.</p>
     </div>
     <div className="mt-2 grid grid-cols-3 gap-1.5 text-[9px] leading-snug">
       <div className="rounded-lg border border-cyan-500/25 bg-cyan-500/10 p-2 text-cyan-100"><strong>1. Abrí el compás</strong><br />desde A hasta B.</div>
