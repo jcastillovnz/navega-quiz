@@ -69,7 +69,7 @@
     "type": "RUMBO_VELOCIDAD",
     "statement": "Se navega durante 45 minutos a una velocidad constante de 6 nudos. ¿Qué distancia se ha recorrido?",
     "expectedResult": "4.5 MN",
-    "explanationStepByStep": "Fórmula: Distancia = Velocidad × Tiempo.\n1. Convertir minutos a horas: 45 / 60 = 0.75 horas.\n2. Calcular distancia: 6 nudos × 0.75 horas = 4.5 MN (Millas Náuticas)."
+    "explanationStepByStep": "1. Interpretar la velocidad: 6 nudos significa que en 1 hora el barco recorre 6 millas náuticas. Como 1 hora tiene 60 minutos, podemos escribir: en 60 min recorre 6 MN.\n2. Plantear una regla de tres simple directa, porque al aumentar el tiempo también aumenta la distancia a la misma velocidad:\n   60 min  →  6 MN\n   45 min  →  x MN\n3. Multiplicar en cruz y despejar la incógnita: 60 × x = 45 × 6. Por lo tanto, x = (45 × 6) ÷ 60.\n4. Resolver de la manera más sencilla: 45 ÷ 60 = 3/4. Entonces x = 6 × 3/4 = 18/4 = 4,5 MN. También puede calcularse directamente: 270 ÷ 60 = 4,5.\n5. Resultado: en 45 minutos se recorren 4,5 millas náuticas.\n6. Comprobación rápida: 45 minutos son menos de una hora, por lo que la distancia debe ser menor que las 6 MN recorridas en 60 minutos. Como 45 minutos representan tres cuartos de hora, recorrer tres cuartos de 6 MN da 4,5 MN."
   },
   {
     "id": "prac_7",
