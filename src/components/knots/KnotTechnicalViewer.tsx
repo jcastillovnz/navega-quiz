@@ -8,8 +8,16 @@ import bowlineStep4 from '../../assets/knots/bowline-guide-step-4-v3.webp';
 import bowlineStep5 from '../../assets/knots/bowline-guide-step-5-v3.webp';
 import cloveHitchPlate from '../../assets/knots/clove-hitch-steps-v1.webp';
 import figureEightPlate from '../../assets/knots/figure-eight-steps-v1.webp';
-import reefKnotNudo2 from '../../assets/knots/reef-knot-nudo-2-v2.webp';
+import reefFrame1 from '../../assets/knots/reef-animation-v1/frame-01.png';
+import reefFrame2 from '../../assets/knots/reef-animation-v1/frame-02.png';
+import reefFrame3 from '../../assets/knots/reef-animation-v1/frame-03.png';
+import reefFrame4 from '../../assets/knots/reef-animation-v1/frame-04.png';
 import reefKnotPlate from '../../assets/knots/reef-knot-steps-v1.webp';
+import sheetBendFrame1 from '../../assets/knots/sheet-bend-animation-v1/frame-01.png';
+import sheetBendFrame2 from '../../assets/knots/sheet-bend-animation-v1/frame-02.png';
+import sheetBendFrame3 from '../../assets/knots/sheet-bend-animation-v1/frame-03.png';
+import sheetBendFrame4 from '../../assets/knots/sheet-bend-animation-v1/frame-04.png';
+import sheetBendFrame5 from '../../assets/knots/sheet-bend-animation-v1/frame-05.png';
 import sheetBendPlate from '../../assets/knots/sheet-bend-steps-v1.webp';
 
 export type KnotFamily = Extract<VisualFamily,
@@ -78,26 +86,74 @@ const GUIDES: Record<KnotFamily, KnotGuide> = {
 const stripPosition = ['0%', '33.333%', '66.666%', '100%'];
 const gridPosition = ['0% 0%', '100% 0%', '0% 100%', '100% 100%'];
 
+const QUESTION_ANIMATIONS: Record<string, { frames: string[]; steps: string[] }> = {
+  nudo_2: {
+    frames: [reefFrame1, reefFrame2, reefFrame3, reefFrame4],
+    steps: ['Enfrentá ambos chicotes', 'Derecha sobre izquierda y por debajo', 'Invertí: izquierda sobre derecha y por debajo', 'Ajustá los cuatro ramales por parejas'],
+  },
+  nudo_4: {
+    frames: [sheetBendFrame1, sheetBendFrame2, sheetBendFrame3, sheetBendFrame4, sheetBendFrame5],
+    steps: ['Formá un seno con el cabo grueso', 'Entrá por el seno con el cabo fino', 'Rodeá por detrás los dos brazos del seno', 'Pasá el chicote fino bajo su propio firme', 'Ajustá con ambos chicotes del mismo lado'],
+  },
+};
+
 export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: string }> = ({ family, questionId }) => {
   const guide = GUIDES[family];
+  const animation = questionId ? QUESTION_ANIMATIONS[questionId] : undefined;
   const focusStep = questionId ? Number(questionId.replace(/\D/g, '')) % 4 : 3;
   const [selectedStep, setSelectedStep] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
 
-  useEffect(() => setSelectedStep(0), [family, questionId]);
+  useEffect(() => {
+    setSelectedStep(0);
+    setIsPlaying(true);
+  }, [family, questionId]);
 
-  if (questionId === 'nudo_2') {
+  useEffect(() => {
+    if (!animation || !isPlaying) return;
+    const timer = window.setInterval(() => {
+      setSelectedStep(step => (step + 1) % animation.frames.length);
+    }, 1300);
+    return () => window.clearInterval(timer);
+  }, [animation, isPlaying]);
+
+  if (animation) {
     return (
-      <figure className="h-full min-h-0 overflow-hidden bg-[#17110d] flex flex-col" aria-label="Unión simétrica de dos cabos de igual diámetro">
-        <div className="min-h-0 flex-1">
+      <figure className="flex h-full min-h-0 flex-col overflow-hidden bg-[radial-gradient(circle_at_center,#31343b_0%,#111318_72%)]" aria-label="Animación técnica del armado del nudo">
+        <div className="relative min-h-0 flex-1">
           <img
-            src={reefKnotNudo2}
-            alt="Dos cabos trenzados de igual diámetro unidos en un nudo plano y simétrico, con los extremos de cada cabo paralelos"
+            key={animation.frames[selectedStep]}
+            src={animation.frames[selectedStep]}
+            alt={`Paso ${selectedStep + 1}: ${animation.steps[selectedStep]}`}
             className="h-full w-full object-contain"
             draggable={false}
           />
+          <div className="absolute left-1/2 top-2 flex -translate-x-1/2 items-center gap-1 rounded-full border border-slate-600 bg-slate-950/90 p-1">
+            <button
+              type="button"
+              onClick={() => setIsPlaying(playing => !playing)}
+              className="grid h-7 min-w-7 place-items-center rounded-full px-2 text-[10px] font-black text-cyan-200 hover:bg-slate-800"
+              aria-label={isPlaying ? 'Pausar animación' : 'Reproducir animación'}
+            >{isPlaying ? 'Ⅱ' : '▶'}</button>
+            {animation.frames.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => { setSelectedStep(index); setIsPlaying(false); }}
+                className={`grid h-7 w-7 place-items-center rounded-full text-[11px] font-black ${selectedStep === index ? 'bg-amber-300 text-slate-950' : 'text-slate-300 hover:bg-slate-800'}`}
+                aria-label={`Ver paso ${index + 1}`}
+                aria-current={selectedStep === index ? 'step' : undefined}
+              >{index + 1}</button>
+            ))}
+          </div>
+          <div className="absolute inset-x-0 bottom-2 flex justify-center px-2">
+            <span className="rounded-full border border-amber-300/60 bg-slate-950/90 px-3 py-1 text-[11px] font-bold text-white">
+              <span className="mr-1 text-amber-300">{selectedStep + 1}/{animation.frames.length}</span>{animation.steps[selectedStep]}
+            </span>
+          </div>
         </div>
-        <figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-3 py-1.5 text-center text-[10px] font-bold text-slate-200">
-          Observá el recorrido, la simetría y la salida paralela de los chicotes.
+        <figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-3 py-1 text-right text-[9px] font-semibold text-slate-400">
+          Secuencia técnica basada en <a className="text-cyan-300 underline" href={questionId === 'nudo_2' ? 'https://knots3d.com/en/square-knot' : 'https://knots3d.com/en/sheet-bend-knot'} target="_blank" rel="noreferrer">Knots 3D</a>
         </figcaption>
       </figure>
     );
