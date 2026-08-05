@@ -1,4 +1,7 @@
 import React from 'react';
+import ropeStorageNudo13 from '../../assets/knots/rope-storage-nudo-13-v1.png';
+import ropeCoilingActionNudo19 from '../../assets/knots/rope-coiling-action-nudo-19-v1.png';
+import securedRoundCoilNudo20 from '../../assets/knots/secured-round-coil-nudo-20-v1.png';
 
 type Coil = 'round' | 'eight' | 'dutch' | 'ready' | 'safety';
 const choose = (text: string): Coil => /holandesa|espiral/.test(text) ? 'dutch' : /ocho|cocas|torsi[oó]n/.test(text) ? 'eight' : /r[aá]pid|senos largos|salir/.test(text) ? 'ready' : /seguridad|pies|manos|largar/.test(text) ? 'safety' : 'round';
@@ -10,7 +13,15 @@ const COPY: Record<Coil, [string,string]> = {
   safety: ['Zona de peligro de una línea','Nunca colocar manos o pies dentro de un seno que pueda tomar carga.']
 };
 
-export const RopeCoilingViewer: React.FC<{context:string}> = ({context}) => {
+const QUESTION_IMAGES: Record<string, {src:string; alt:string; title:string; detail:string}> = {
+  nudo_13: {src:ropeStorageNudo13, alt:'Cabo blanco guardado en vueltas iguales, asegurado y colgado dentro de un pañol náutico', title:'Cabo listo para guardar', detail:'Observá las vueltas regulares, el conjunto sujeto y los dos extremos libres de cocas.'},
+  nudo_19: {src:ropeCoilingActionNudo19, alt:'Marinero recogiendo progresivamente un cabo azul en vueltas largas e iguales', title:'Ordenar el cabo mientras se recoge', detail:'Seguí el tramo que llega desde cubierta y cómo cada seno se incorpora al conjunto sin enredos.'},
+  nudo_20: {src:securedRoundCoilNudo20, alt:'Aduja circular completa con vueltas iguales, asegurada por varias vueltas y un seno final junto a un gancho', title:'Conjunto asegurado para transportar o colgar', detail:'Observá las vueltas del mismo tamaño, el amarre alrededor del conjunto y el seno final accesible.'},
+};
+
+export const RopeCoilingViewer: React.FC<{context:string; questionId?:string}> = ({context,questionId}) => {
+  const questionImage=questionId ? QUESTION_IMAGES[questionId] : undefined;
+  if(questionImage) return <figure className="h-full flex flex-col overflow-hidden bg-slate-950"><div className="min-h-0 flex-1 bg-[radial-gradient(circle_at_center,#164e63_0%,#020617_75%)]"><img src={questionImage.src} alt={questionImage.alt} className="h-full w-full object-contain" draggable={false}/></div><figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-4 py-2"><p className="text-sm font-black text-pink-200">{questionImage.title}</p><p className="text-xs text-slate-300">{questionImage.detail}</p></figcaption></figure>;
   const type=choose(context);
   return <figure className="h-full flex flex-col overflow-hidden bg-slate-950">
     <svg viewBox="0 0 1200 430" className="flex-1 min-h-0 w-full" role="img" aria-label={COPY[type][0]}>

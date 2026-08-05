@@ -117,7 +117,10 @@ assign(['nudo_16'], 'ROPE_RIGGING', 'Velero completo con driza, escota y amantil
 assign(['nudo_26'], 'ROPE_RIGGING', 'Velero completo con jarcia firme y de labor visibles desde sus puntos de arraigo hasta mastelero, velas, botavara y bañera');
 assign(['nudo_14'], 'ROPE_DINGHY', 'Chinchorro completo con cabo trazable desde el ojo de proa hasta una cornamusa del barco madre');
 assign(['nudo_18'], 'ROPE_END', 'Comparación fotográfica entre un chicote compacto protegido y otro descolchado con fibras expuestas');
-assign(['nudo_13', 'nudo_19', 'nudo_20', 'nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');
+assign(['nudo_13'], 'KNOT_COILING', 'Cabo almacenado en vueltas iguales, asegurado y colgado completo dentro de un pañol');
+assign(['nudo_19'], 'KNOT_COILING', 'Acción real de recoger progresivamente un cabo en senos regulares manteniendo accesible el tramo de trabajo');
+assign(['nudo_20'], 'KNOT_COILING', 'Aduja redonda portátil con vueltas iguales, varias ligadas de asegurado y seno final preparado para colgar');
+assign(['nudo_21', 'nudo_22', 'nudo_23', 'nudo_24', 'nudo_25'], 'KNOT_COILING', 'Recorrido del cabo, tipo de aduja, salida del chicote y riesgo de cocas');
 
 assign(['prac_carta_1', 'prac_carta_2', 'prac_carta_3'], 'PRACTICAL_CHART', 'Carta, escala de latitud y medición de distancia');
 assign(Array.from({ length: 21 }, (_, i) => `prac_${i + 1}`), 'PRACTICAL_CALCULATION', 'Datos, fórmula, unidades y secuencia de resolución');
