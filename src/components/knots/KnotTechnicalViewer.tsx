@@ -1,7 +1,7 @@
 import React from 'react';
 import type { VisualFamily } from '../../data/visualManifest';
 import anchorBendPlate from '../../assets/knots/anchor-bend-steps-v1.webp';
-import bowlinePlate from '../../assets/knots/bowline-steps-v1.webp';
+import bowlinePlate from '../../assets/knots/bowline-steps-v2.webp';
 import cloveHitchPlate from '../../assets/knots/clove-hitch-steps-v1.webp';
 import figureEightPlate from '../../assets/knots/figure-eight-steps-v1.webp';
 import reefKnotPlate from '../../assets/knots/reef-knot-steps-v1.webp';
@@ -17,6 +17,7 @@ type KnotGuide = {
   image: string;
   alt: string;
   steps: [string, string, string, string];
+  layout?: 'strip' | 'grid';
 };
 
 const GUIDES: Record<KnotFamily, KnotGuide> = {
@@ -33,6 +34,7 @@ const GUIDES: Record<KnotFamily, KnotGuide> = {
     image: reefKnotPlate,
     alt: 'Cuatro fotografías consecutivas para formar un nudo llano con dos cabos de distinto color',
     steps: ['Cruzá ambos cabos', 'Hacé el primer medio nudo', 'Invertí el segundo cruce', 'Vestí el nudo plano'],
+    layout: 'grid',
   },
   KNOT_CLOVE: {
     name: 'Ballestrinque',
@@ -64,7 +66,8 @@ const GUIDES: Record<KnotFamily, KnotGuide> = {
   },
 };
 
-const panelPosition = ['0%', '33.333%', '66.666%', '100%'];
+const stripPosition = ['0%', '33.333%', '66.666%', '100%'];
+const gridPosition = ['0% 0%', '100% 0%', '0% 100%', '100% 100%'];
 
 export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: string }> = ({ family, questionId }) => {
   const guide = GUIDES[family];
@@ -85,7 +88,11 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
             <div
               key={step}
               className="relative h-full min-w-[88vw] snap-center border-r border-white/15 bg-cover bg-no-repeat"
-              style={{ backgroundImage: `url(${guide.image})`, backgroundSize: '400% 100%', backgroundPosition: `${panelPosition[index]} center` }}
+              style={{
+                backgroundImage: `url(${guide.image})`,
+                backgroundSize: guide.layout === 'grid' ? '200% 200%' : '400% 100%',
+                backgroundPosition: guide.layout === 'grid' ? gridPosition[index] : `${stripPosition[index]} center`,
+              }}
               role="img"
               aria-label={`Paso ${index + 1}: ${step}`}
             >

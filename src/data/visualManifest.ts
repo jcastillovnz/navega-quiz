@@ -105,7 +105,7 @@ assign(['met_3', 'met_4', 'met_5', 'met_6', 'met_7'], 'MET_BEAUFORT', 'Fuerza de
 
 assign(['nudo_1', 'nudo_6'], 'KNOT_BOWLINE', 'Chicote, firme, seno y gaza fija terminada');
 assign(['nudo_2', 'nudo_8', 'nudo_17'], 'KNOT_REEF', 'Cruces simétricos y resultado del nudo llano');
-assign(['nudo_3', 'nudo_18'], 'KNOT_CLOVE', 'Vueltas del cabo alrededor del soporte');
+assign(['nudo_3'], 'KNOT_CLOVE', 'Vueltas del cabo alrededor del soporte');
 assign(['nudo_4'], 'KNOT_SHEET_BEND', 'Seno del cabo grueso, recorrido del fino y ambos chicotes del mismo lado');
 assign(['nudo_7'], 'KNOT_ANCHOR_BEND', 'Dos vueltas por el arganeo, chicote alrededor del firme y remate asegurado');
 assign(['nudo_5', 'nudo_15'], 'KNOT_FIGURE_EIGHT', 'Nudo de tope y recorrido del chicote');
