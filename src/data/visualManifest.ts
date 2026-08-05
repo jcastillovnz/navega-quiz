@@ -8,7 +8,7 @@ export type VisualFamily =
   | 'IALA_PREFERRED_PORT' | 'IALA_PREFERRED_STARBOARD'
   | 'SAFETY_INVENTORY' | 'SAFETY_FIRE' | 'SAFETY_DAMAGE' | 'SAFETY_STORM'
   | 'SAFETY_HAA' | 'SAFETY_ANCHOR' | 'SAFETY_RADIO'
-  | 'NOM_HULL' | 'NOM_RIGGING' | 'NOM_ANCHOR' | 'NOM_ENGINE' | 'NOM_PROPELLER' | 'NOM_INBOARD' | 'NOM_PROPULSION_MANEUVER' | 'NOM_FUEL_MAINTENANCE'
+  | 'NOM_HULL' | 'NOM_RIGGING' | 'NOM_ANCHOR' | 'NOM_ENGINE' | 'NOM_PROPELLER' | 'NOM_INBOARD' | 'NOM_PROPULSION_MANEUVER' | 'NOM_FUEL_MAINTENANCE' | 'NAV_THEORY'
   | 'MET_FORECAST' | 'MET_PRESSURE' | 'MET_BREEZE' | 'MET_WAVES' | 'MET_WIND'
   | 'MET_PAMPERO' | 'MET_SUDESTADA' | 'MET_NORTAZO' | 'MET_BEAUFORT'
   | 'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_ANCHOR_BEND' | 'KNOT_COILING'
@@ -85,6 +85,7 @@ assign(['nom_70', 'nom_71', 'nom_72', 'nom_73', 'nom_74', 'nom_75', 'nom_89', 'n
 assign(['nom_95', 'nom_96', 'nom_97', 'nom_98', 'nom_99', 'nom_100', 'nom_101', 'nom_102', 'nom_103', 'nom_104', 'nom_105'], 'NOM_INBOARD', 'Motor interno y línea de eje con el componente de control, filtrado, transmisión, sellado o protección destacado');
 assign(['nom_106', 'nom_107', 'nom_108', 'nom_109', 'nom_110', 'nom_111'], 'NOM_PROPULSION_MANEUVER', 'Sentido de hélices, desplazamiento de popa o comprobación mecánica representada en contexto');
 assign(['nom_112', 'nom_113', 'nom_114', 'nom_115', 'nom_116', 'nom_117'], 'NOM_FUEL_MAINTENANCE', 'Tanque, cebado, lubricación, lavado o fijación de hélice representados como procedimiento observable');
+assign(['nav_1', 'nav_2', 'nav_3', 'nav_4', 'nav_5', 'nav_6', 'nav_7', 'nav_8', 'nav_9', 'nav_10', 'nav_11', 'nav_12', 'nav_13', 'nav_14', 'nav_15', 'nav_16', 'nav_17', 'nav_18'], 'NAV_THEORY', 'Lámina cartográfica, instrumental, mareográfica o de fondeo específica del concepto evaluado');
 
 assign(['met_forecast_1'], 'MET_FORECAST', 'Pronóstico, momento de actualización y evolución');
 assign(['met_pressure_1', 'met_pressure_2', 'met_8', 'met_10', 'met_11', 'met_9', 'met_16'], 'MET_PRESSURE', 'Instrumento, isobaras y cambio atmosférico');
@@ -93,7 +94,7 @@ assign(['met_wave_1', 'met_wave_2', 'met_12', 'met_13'], 'MET_WAVES', 'Altura, p
 assign(['met_wind_1', 'met_wind_2', 'met_15'], 'MET_WIND', 'Dirección, velocidad e instrumentos del viento');
 assign(['met_1'], 'MET_PAMPERO', 'Frente frío y entrada del viento desde el sudoeste');
 assign(['met_2', 'met_14'], 'MET_SUDESTADA', 'Viento sudeste y acumulación de agua sobre la costa argentina');
-assign(['met_nortazo_1'], 'MET_NORTAZO', 'Viento norte atravesando el estuario y descenso del nivel sobre la costa argentina');
+assign(['met_nortazo_1'], 'MET_NORTAZO', 'Mapa orientado: viento proveniente del norte, respuesta hacia el estuario exterior y bajante sobre la costa argentina');
 assign(['met_heat_conduction', 'met_heat_convection', 'met_heat_advection'], 'MET_BREEZE', 'Transferencia por contacto y movimientos vertical y horizontal diferenciados');
 assign(['met_pressure_normal', 'met_isobar_gradient', 'met_high_south', 'met_low_south'], 'MET_PRESSURE', 'Isobaras, valor barométrico y circulación de altas y bajas en el hemisferio sur');
 assign(['met_wind_refresh', 'met_apparent_wind'], 'MET_WIND', 'Vector de viento aparente y cambio observable de intensidad');

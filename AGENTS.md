@@ -1,5 +1,14 @@
 # NavegaQuiz — Reglas de implementación
 
+## Fidelidad a pregunteros y fuentes PDF
+
+- Cuando una pregunta provenga de un preguntero PDF local, conservar literalmente el enunciado y, siempre que sea posible, el texto y orden de sus opciones. No modernizar, resumir ni parafrasear silenciosamente la redacción examinable.
+- Las explicaciones posteriores sí deben ampliarse para enseñar el concepto, indicar la fuente y aclarar matices técnicos sin alterar lo que el usuario verá como pregunta de examen.
+- Diferenciar explícitamente las preguntas textuales del preguntero de las preguntas complementarias creadas por la aplicación. Una pregunta didáctica no debe presentarse como transcripción del examen.
+- Si el preguntero contiene una formulación ambigua, un error técnico o un dato reglamentario posiblemente vencido, conservar una variante textual sólo después de verificar la respuesta. La explicación debe advertir el matiz y prevalece la normativa oficial vigente para determinar la respuesta correcta.
+- Antes de agregar contenido, buscar equivalencias en todos los PDF del root y evitar duplicar una misma pregunta literal bajo identificadores diferentes.
+- La ilustración puede mejorar la comprensión, pero no debe introducir pistas textuales que cambien la dificultad o revelen directamente la opción correcta del preguntero.
+
 ## Diseño de aprendizaje unificado
 
 - Todos los módulos teóricos deben usar una composición vertical consistente dentro del viewport disponible.
@@ -24,6 +33,7 @@
 ## Verificación obligatoria
 
 - Antes de entregar cambios de interfaz ejecutar `npm run build`, `npm run lint` y `git diff --check`.
+- Después de completar y validar cada cambio o lote coherente, crear un commit descriptivo y subirlo a la rama remota activa antes de comenzar el siguiente lote.
 - Validar que toda pregunta teórica resuelva a un recurso visual o visor contextual visible.
 - Registrar cada pregunta nueva en `src/data/visualManifest.ts` con su familia y la evidencia visual que el usuario debe observar.
 - Ejecutar `npm run validate:visuals`; una pregunta sin cobertura visual no debe considerarse terminada.

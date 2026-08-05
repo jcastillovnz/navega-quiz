@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="h-[100dvh] w-screen bg-slate-950 text-slate-50 font-sans flex flex-col overflow-hidden select-none">
+    <div className="h-[100dvh] w-screen bg-slate-950 text-slate-50 font-sans flex flex-col overflow-hidden select-text">
       {/* Área Principal de Trabajo (Flex-1 Sin Scroll General) */}
       <main className="flex-1 w-full max-w-[1600px] mx-auto px-1.5 sm:px-4 py-1 sm:py-1.5 overflow-hidden flex flex-col min-h-0">
         {children}

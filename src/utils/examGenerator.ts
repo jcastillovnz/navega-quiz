@@ -11,6 +11,7 @@ import ripaSoundData from '../data/ripa_senales_auditivas.json';
 import ripaExtendedData from '../data/ripa_ampliado.json';
 import meteorologiaApunteData from '../data/meteorologia_apunte.json';
 import seguridadApunteData from '../data/seguridad_apunte.json';
+import navegacionTeoricaData from '../data/navegacion_teorica.json';
 import type { QuizQuestion, QuizCategory, PracticalExercise } from '../types/quiz';
 
 export interface ExamConfig {
@@ -134,6 +135,7 @@ export const generateExam = (config: ExamConfig = DEFAULT_EXAM_CONFIG): Generate
     ...(meteorologiaExtendidaData as QuizQuestion[]),
     ...(meteorologiaApunteData as QuizQuestion[]),
     ...(nomenclaturaData as QuizQuestion[]),
+    ...(navegacionTeoricaData as QuizQuestion[]),
     ...(nudosData as QuizQuestion[])
   ];
   const practicalPool = practicosData as PracticalExercise[];

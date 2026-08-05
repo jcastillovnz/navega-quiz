@@ -12,6 +12,7 @@ import { InboardEngineViewer } from './components/nomenclatura/InboardEngineView
 import { PropulsionManeuverViewer } from './components/nomenclatura/PropulsionManeuverViewer';
 import { FuelMaintenanceViewer } from './components/nomenclatura/FuelMaintenanceViewer';
 import { MarinePropulsionViewer } from './components/nomenclatura/MarinePropulsionViewer';
+import { NavigationTheoryViewer } from './components/nomenclatura/NavigationTheoryViewer';
 import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer';
 import { MeteorologyQuestionViewer } from './components/meteorologia/MeteorologyQuestionViewer';
 import { KnotsViewer } from './components/knots/KnotsViewer';
@@ -199,8 +200,8 @@ function App() {
             <ModuloTeoricoView 
               config={{
                 id: 'NOMENCLATURA',
-                title: 'Nomenclatura y Arboladura',
-                subtitle: 'Anatomía del barco, casco, francobordo, jarcia fija y maniobra de velas.',
+                title: 'Nomenclatura y Navegación Teórica',
+                subtitle: 'Anatomía naval, arboladura, instrumentos, carta, estima, mareas y fondeo.',
                 category: 'NOMENCLATURA',
                 badge: 'Módulo 4',
                 badgeColor: 'bg-amber-500',
@@ -208,6 +209,7 @@ function App() {
               }}
               viewer={<NomenclaturaViewer compact />}
               visualForQuestion={question => {
+                if (question.id.startsWith('nav_')) return <NavigationTheoryViewer questionId={question.id} />;
                 const family = getVisualSpec(question.id)?.family;
                 if (family === 'NOM_ENGINE') return <MarinePropulsionViewer focus="ENGINE" context={question.question} />;
                 if (family === 'NOM_PROPELLER') return <MarinePropulsionViewer focus="PROPELLER" context={question.question} />;

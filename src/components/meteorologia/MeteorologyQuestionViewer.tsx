@@ -1,5 +1,9 @@
 import React from 'react';
 import pamperoRealistic from '../../assets/pampero_rio_plata_3d-v1.png';
+import sudestadaCloudsRealistic from '../../assets/sudestada_clouds_rio_plata_3d-v1.png';
+import beaufortNineRealistic from '../../assets/beaufort_9_sea_state_3d-v1.png';
+import beaufortFourRealistic from '../../assets/beaufort_4_sea_state_3d-v1.png';
+import beaufortFiveRealistic from '../../assets/beaufort_5_sea_state_3d-v1.png';
 
 type Props = { questionId: string };
 
@@ -22,7 +26,7 @@ const META: Record<string, { title: string; cue: string }> = {
   met_low_south: { title: 'Baja presión · hemisferio sur', cue: 'Seguí las flechas y observá el aire ascendente.' },
   met_wind_refresh: { title: 'Evolución de la intensidad', cue: 'Compará el mismo indicador en dos momentos sucesivos.' },
   met_apparent_wind: { title: 'Viento medido a bordo', cue: 'Combiná el viento atmosférico con el producido por el avance.' },
-  met_nortazo_1: { title: 'Nortazo sobre el estuario', cue: 'Seguí el viento norte y el desplazamiento del agua hacia la boca.' },
+  met_nortazo_1: { title: 'Nortazo sobre el estuario', cue: 'Diferenciá de dónde viene el viento y cómo responde el nivel del río.' },
   met_pampero_variants: { title: 'Dos evoluciones del Pampero', cue: 'Compará el cielo posterior al frente en las variantes seca y húmeda.' },
   met_pampero_direction_1: { title: 'Entrada del Pampero', cue: 'Seguí la masa de aire que avanza desde el sur y sudoeste.' },
   met_pampero_air_1: { title: 'Cambio de masa de aire', cue: 'Compará temperatura y humedad antes y después del frente.' },
@@ -88,7 +92,25 @@ const LocalWindScene = ({ id }: { id: string }) => {
   return <g><rect width="1200" height="430" fill="#334155"/><path d="M0 315 Q95 245 190 315 T380 315 T570 315 T760 315 T950 315 T1140 315 T1330 315 V430 H0Z" fill="#075985" stroke="#e0f2fe" strokeWidth="9"/><g transform="translate(620 265) rotate(-12)"><path d="M-145 8 H100 L155 -8 L100 45 H-115Z" fill="#f8fafc" stroke="#334155" strokeWidth="7"/><path d="M-15 0 V-145 L95 0Z" fill="#cbd5e1"/></g><g stroke="#bae6fd" strokeWidth="6">{[40,145,250,355,880,985,1090].map(x=><line key={x} x1={x} y1="30" x2={x-75} y2="205"/>)}</g><Arrow x1={1080} y1={95} x2={760} y2={190} color="#67e8f9" width={13}/><path d="M0 120 Q170 75 340 120 T680 120 T1020 120 T1360 120" fill="none" stroke="#cbd5e1" strokeWidth="35" opacity=".35"/></g>;
 };
 
+const NortazoMap = () => <g>
+  <rect width="1200" height="430" fill="#071827"/>
+  <path d="M0 0H555C520 72 480 126 420 175C340 240 275 326 235 430H0Z" fill="#57534e" stroke="#a8a29e" strokeWidth="5"/>
+  <path d="M720 0H1200V430H1040C1015 342 965 279 900 222C830 162 775 92 720 0Z" fill="#78716c" stroke="#d6d3d1" strokeWidth="5"/>
+  <path d="M555 0C520 72 480 126 420 175C340 240 275 326 235 430H1040C1015 342 965 279 900 222C830 162 775 92 720 0Z" fill="#075985"/>
+  <g fill="#f8fafc" fontSize="20" fontWeight="800"><text x="88" y="72">ARGENTINA</text><text x="940" y="72">URUGUAY</text><text x="95" y="355">Buenos Aires</text><text x="920" y="360">Montevideo</text></g>
+  <g transform="translate(1080 95)"><circle r="44" fill="#020617" stroke="#67e8f9" strokeWidth="4"/><path d="M0 32V-32M-32 0H32" stroke="#cbd5e1" strokeWidth="3"/><path d="M0-35L-9-13H9Z" fill="#fbbf24"/><text y="-48" textAnchor="middle" fill="#f8fafc" fontSize="18" fontWeight="900">N</text></g>
+  <path d="M860 55L430 285" stroke="#fbbf24" strokeWidth="18" strokeLinecap="round" markerEnd="url(#metArrow)"/>
+  <path d="M810 100L520 255" stroke="#fde68a" strokeWidth="7" strokeDasharray="16 12"/>
+  <rect x="505" y="82" width="300" height="55" rx="18" fill="#020617" fillOpacity=".88"/>
+  <text x="655" y="116" textAnchor="middle" fill="#fde68a" fontSize="21" fontWeight="900">VIENTO: VIENE DEL NORTE</text>
+  <path d="M520 300C660 330 785 350 950 382" fill="none" stroke="#67e8f9" strokeWidth="13" strokeDasharray="20 12" markerEnd="url(#metArrow)"/>
+  <text x="690" y="320" fill="#cffafe" fontSize="19" fontWeight="800">respuesta del agua hacia el estuario exterior</text>
+  <text x="845" y="414" fill="#7dd3fc" fontSize="18" fontWeight="900">BOCA · SE</text>
+  <path d="M105 392H345" stroke="#fb7185" strokeWidth="8"/><text x="105" y="382" fill="#fecdd3" fontSize="17" fontWeight="900">BAJANTE EN LA RIBERA ARGENTINA</text>
+</g>;
+
 const WeatherScene = ({ id }: { id: string }) => {
+  if (id === 'met_nortazo_1') return <NortazoMap/>;
   if (['met_pampero_direction_1','met_pampero_air_1','met_pampero_cloud_1','met_pampero_pressure_1','met_sudestada_direction_1','met_sudestada_cloud_1','met_sudestada_duration_1','met_sudestada_navigation_1'].includes(id)) return <LocalWindScene id={id}/>;
   if (id === 'met_forecast_1') return <g><rect width="1200" height="430" fill="#082f49"/>{['ANTES DE ZARPAR','EN TRAVESÍA','NUEVO AVISO'].map((t,i)=><g key={t} transform={`translate(${110+i*370} 115)`}><rect width="290" height="190" rx="24" fill="#0f172a" stroke={i===2?'#fb7185':'#38bdf8'} strokeWidth="4"/><text x="145" y="42" textAnchor="middle" fill="#fff" fontSize="20" fontWeight="800">{t}</text><path d={i===0?'M65 120 Q105 70 145 120 T225 120':i===1?'M55 135 Q105 60 155 135 T255 135':'M55 145 Q95 45 145 130 T250 115'} fill="none" stroke={i===2?'#fda4af':'#7dd3fc'} strokeWidth="10"/><text x="145" y="174" textAnchor="middle" fill="#cbd5e1" fontSize="16">{i===0?'06:00':i===1?'10:00':'12:30'}</text></g>)}<Arrow x1={405} y1={210} x2={460} y2={210}/><Arrow x1={775} y1={210} x2={830} y2={210}/></g>;
   if (['met_pressure_1','met_8'].includes(id)) return <PressureChart/>;
@@ -116,6 +138,10 @@ const WeatherScene = ({ id }: { id: string }) => {
 export const MeteorologyQuestionViewer: React.FC<Props> = ({ questionId }) => {
   const meta = META[questionId] ?? { title: 'Meteorología aplicada', cue: 'Observá las variables del fenómeno antes de responder.' };
   if (questionId === 'met_pampero_cloud_1' || questionId === 'met_4') return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950"><img src={pamperoRealistic} alt="Frente de Pampero sobre el Río de la Plata con cumulonimbus, nube de arrastre, lluvia y descargas" className="h-full w-full object-contain"/></figure>;
+  if (questionId === 'met_sudestada_cloud_1') return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950"><img src={sudestadaCloudsRealistic} alt="Sudestada sobre el Río de la Plata con estratos y nimboestratos bajos, lluvia persistente, ola corta y visibilidad reducida" className="h-full w-full object-contain"/></figure>;
+  if (questionId === 'met_5') return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950"><img src={beaufortFourRealistic} alt="Brisa moderada Beaufort 4 con olas pequeñas que se alargan, crestas blancas frecuentes y velero con escora controlada" className="h-full w-full object-contain"/></figure>;
+  if (questionId === 'met_6') return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950"><img src={beaufortFiveRealistic} alt="Brisa fresca Beaufort 5 con olas moderadas más largas, abundantes crestas blancas y velero con paño reducido" className="h-full w-full object-contain"/></figure>;
+  if (questionId === 'met_7') return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950"><img src={beaufortNineRealistic} alt="Mar de temporal fuerte Beaufort 9 con olas altas, crestas desplomadas, espuma en franjas, spray y visibilidad reducida" className="h-full w-full object-contain"/></figure>;
   return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950 flex flex-col">
     <svg viewBox="0 0 1200 430" className="block min-h-0 flex-1 w-full" preserveAspectRatio="xMidYMid meet" role="img" aria-label={`${meta.title}. ${meta.cue}`}>
       <defs><marker id="metArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L0 6 L9 3Z" fill="context-stroke"/></marker></defs>

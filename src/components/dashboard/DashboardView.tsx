@@ -59,8 +59,8 @@ const MODULES: ModuleCard[] = [
   {
     id: 'NOMENCLATURA',
     number: 4,
-    title: 'Nomenclatura',
-    description: 'Vocabulario técnico para identificar casco, dimensiones, anclas, jarcia, arboladura, motor, hélice y maniobras de una embarcación.',
+    title: 'Nomenclatura y Navegación',
+    description: 'Casco, jarcia, motor y fondeo junto con carta náutica, instrumentos, estima, mareas, proyecciones y publicaciones.',
     icon: Sailboat,
     gradient: 'from-amber-500/20 to-amber-500/5',
     borderColor: 'hover:border-amber-500/60 border-slate-700/80',

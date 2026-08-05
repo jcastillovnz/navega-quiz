@@ -8,6 +8,7 @@ import seguridadApunte from '../../data/seguridad_apunte.json';
 import teoria from '../../data/teoria.json';
 import nudos from '../../data/nudos.json';
 import nomenclatura from '../../data/nomenclatura.json';
+import navegacionTeorica from '../../data/navegacion_teorica.json';
 import practicos from '../../data/practicos.json';
 import type { QuizQuestion } from '../../types/quiz';
 
@@ -40,6 +41,7 @@ const ALL_QUESTIONS: AllQuestion[] = [
   ...(seguridadApunte as QuizQuestion[]).map(q => ({ ...q, _source: 'Teoría' })),
   ...(nudos as QuizQuestion[]).map(q => ({ ...q, _source: 'Nudos' })),
   ...(nomenclatura as QuizQuestion[]).map(q => ({ ...q, _source: 'Nomenclatura' })),
+  ...(navegacionTeorica as QuizQuestion[]).map(q => ({ ...q, _source: 'Navegación teórica' })),
   ...PRACTICOS_QUESTIONS
 ];
 
@@ -48,6 +50,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Teoría': 'bg-rose-500/20 text-rose-300 border-rose-500/30',
   'Nudos': 'bg-pink-500/20 text-pink-300 border-pink-500/30',
   'Nomenclatura': 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+  'Navegación teórica': 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
   'Prácticos': 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
 };
 
@@ -56,6 +59,7 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   'Teoría': <Lightbulb className="w-3 h-3" />,
   'Nudos': <BrainCircuit className="w-3 h-3" />,
   'Nomenclatura': <BookOpen className="w-3 h-3" />,
+  'Navegación teórica': <BookOpen className="w-3 h-3" />,
   'Prácticos': <BookOpen className="w-3 h-3" />
 };
 

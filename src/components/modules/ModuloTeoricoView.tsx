@@ -8,6 +8,7 @@ import seguridadEmergenciasData from '../../data/seguridad_emergencias.json';
 import meteorologiaExtendidaData from '../../data/meteorologia_extendida.json';
 import meteorologiaApunteData from '../../data/meteorologia_apunte.json';
 import seguridadApunteData from '../../data/seguridad_apunte.json';
+import navegacionTeoricaData from '../../data/navegacion_teorica.json';
 import type { QuizQuestion, QuizCategory } from '../../types/quiz';
 
 interface ModuleConfig {
@@ -37,7 +38,8 @@ export const ModuloTeoricoView: React.FC<ModuloTeoricoViewProps> = ({ config, vi
       ...(seguridadEmergenciasData as QuizQuestion[]),
       ...(meteorologiaExtendidaData as QuizQuestion[]),
       ...(meteorologiaApunteData as QuizQuestion[]),
-      ...(seguridadApunteData as QuizQuestion[])
+      ...(seguridadApunteData as QuizQuestion[]),
+      ...(navegacionTeoricaData as QuizQuestion[])
     ];
     return pool.filter(question => question.category === config.category);
   }, [config.category]);

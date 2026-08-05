@@ -39,6 +39,72 @@ const QUICK_METHODS: Record<string, string[]> = {
   prac_21: ['Rumbo verdadero: 190° − 3° − 12° = 175°.', 'Abatimiento a estribor: 175° + 10° = 185°.', 'Resultado: Rv 175°; derrota 185°.']
 };
 
+type TideRow = { time: string; event?: string; tide: number; available?: number; safe?: boolean };
+type TideExerciseData = { prompt: string; baseDepth?: number; wind?: number; required?: number; rows: TideRow[] };
+
+const TIDE_EXERCISES: Record<string, TideExerciseData> = {
+  prac_10: {
+    prompt: '¿Cuál es la amplitud de la marea?',
+    rows: [
+      { time: '10:00', event: 'Pleamar', tide: 1.80 },
+      { time: '16:00', event: 'Bajamar', tide: 0.60 }
+    ]
+  },
+  prac_11: {
+    prompt: '¿A qué hora se puede cruzar con seguridad?',
+    baseDepth: 0.70,
+    wind: -0.20,
+    required: 1.40,
+    rows: [
+      { time: '06:00', tide: 0.80, available: 1.30, safe: false },
+      { time: '12:00', tide: 0.40, available: 0.90, safe: false },
+      { time: '17:00', tide: 0.95, available: 1.45, safe: true },
+      { time: '23:00', tide: 0.70, available: 1.20, safe: false }
+    ]
+  },
+  prac_18: {
+    prompt: '¿A qué hora se puede cruzar con seguridad?',
+    baseDepth: 0.50,
+    wind: 0.20,
+    required: 1.55,
+    rows: [
+      { time: '06:00', tide: 0.80, available: 1.50, safe: false },
+      { time: '12:00', tide: 0.40, available: 1.10, safe: false },
+      { time: '17:00', tide: 0.95, available: 1.65, safe: true },
+      { time: '23:00', tide: 0.70, available: 1.40, safe: false }
+    ]
+  }
+};
+
+const metres = (value: number) => `${value.toFixed(2).replace('.', ',')} m`;
+
+const TideExerciseTable: React.FC<{ data: TideExerciseData; reveal: boolean }> = ({ data, reveal }) => {
+  const passage = data.baseDepth !== undefined;
+  return <div className="mt-4 overflow-hidden rounded-xl border border-cyan-500/30 bg-slate-950">
+    {passage && <div className="grid grid-cols-3 divide-x divide-slate-700 border-b border-slate-700 bg-slate-900 text-center">
+      <div className="p-2"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Fondo de carta</p><p className="mt-0.5 text-xs font-black text-white">{metres(data.baseDepth!)}</p></div>
+      <div className="p-2"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Corrección viento</p><p className={`mt-0.5 text-xs font-black ${data.wind! >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>{data.wind! >= 0 ? '+' : '−'} {metres(Math.abs(data.wind!))}</p></div>
+      <div className="p-2"><p className="text-[8px] font-black uppercase tracking-wider text-slate-400">Mínimo necesario</p><p className="mt-0.5 text-xs font-black text-amber-300">{metres(data.required!)}</p></div>
+    </div>}
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[420px] border-collapse text-left text-[10px]">
+        <thead className="bg-cyan-500/10 text-cyan-200">
+          <tr><th className="px-3 py-2">Hora</th>{!passage&&<th className="px-3 py-2">Estado</th>}<th className="px-3 py-2">Altura de marea</th>{passage&&<><th className="px-3 py-2">Profundidad disponible</th><th className="px-3 py-2 text-center">¿Alcanza?</th></>}</tr>
+        </thead>
+        <tbody className="divide-y divide-slate-800">
+          {data.rows.map(row => <tr key={row.time} className={row.safe ? 'bg-emerald-500/10' : ''}>
+            <td className="px-3 py-2 font-black text-white">{row.time}</td>
+            {!passage&&<td className="px-3 py-2 text-slate-300">{row.event}</td>}
+            <td className="px-3 py-2 font-bold text-cyan-200">{metres(row.tide)}</td>
+            {passage&&<><td className="px-3 py-2">{reveal ? <><span className="font-black text-white">{metres(row.available!)}</span><span className="ml-1 text-[8px] text-slate-500">fondo + marea + viento</span></> : <span className="font-bold text-slate-500">Calculá</span>}</td><td className={`px-3 py-2 text-center font-black ${reveal ? row.safe ? 'text-emerald-300' : 'text-rose-300' : 'text-slate-600'}`}>{reveal ? row.safe ? 'SÍ' : 'NO' : '—'}</td></>}
+          </tr>)}
+        </tbody>
+      </table>
+    </div>
+    {!passage&&<p className="border-t border-slate-800 px-3 py-2 text-[9px] text-slate-300"><strong className="text-amber-300">Amplitud</strong> = pleamar − bajamar = 1,80 − 0,60 = <strong className="text-white">1,20 m</strong>.</p>}
+  </div>;
+};
+
 const ChartScaleGuide: React.FC = () => (
   <div className="mt-4 rounded-xl border border-cyan-500/30 bg-slate-950 p-3">
     <div className="mb-3 grid gap-2 sm:grid-cols-2">
@@ -112,6 +178,7 @@ export const PracticalExercisesView: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
   const exercise = exercises[index];
+  const tideData = TIDE_EXERCISES[exercise.id];
   const steps = useMemo(() => QUICK_METHODS[exercise.id] ?? exercise.explanationStepByStep
     .split('\n')
     .map(step => step.replace(/^\s*\d+[.)-]?\s*/, '').trim())
@@ -140,7 +207,8 @@ export const PracticalExercisesView: React.FC = () => {
             <BookOpen className="w-4 h-4" />
             <span className="text-[10px] uppercase tracking-wider font-black">Enunciado</span>
           </div>
-          <p className="text-sm text-slate-100 leading-relaxed font-semibold whitespace-pre-line">{exercise.statement}</p>
+          <p className="text-sm text-slate-100 leading-relaxed font-semibold whitespace-pre-line">{tideData?.prompt ?? exercise.statement}</p>
+          {tideData && <TideExerciseTable data={tideData} reveal={showSolution} />}
           {exercise.type === 'CARTA_LAT_LONG' && <ChartScaleGuide />}
         </div>
 
