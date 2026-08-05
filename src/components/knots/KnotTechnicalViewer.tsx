@@ -104,8 +104,9 @@ type QuestionAnimation = {
 
 const QUESTION_ANIMATIONS: Record<string, QuestionAnimation> = {
   nudo_1: {
-    frames: [bowlineStep1, bowlineStep2, bowlineStep3, bowlineStep4, bowlineStep5],
-    steps: ['Formá una coca', 'Mantené abierta la coca', 'Sacá el chicote por la coca', 'Rodeá el firme por detrás', 'Volvé por la coca y ajustá la gaza'],
+    frames: getFrames('bowline-animation-v1', 6),
+    steps: ['Prepará chicote y firme', 'Formá la coca', 'Sacá el chicote por la coca', 'Rodeá el firme por detrás', 'Volvé por la coca', 'Vestí el nudo conservando la gaza fija'],
+    sourceHref: 'https://knots3d.com/en/bowline-knot',
   },
   nudo_2: {
     frames: getFrames('reef-animation-v1', 4),
@@ -128,7 +129,7 @@ const QUESTION_ANIMATIONS: Record<string, QuestionAnimation> = {
     sourceHref: 'https://knots3d.com/en/figure-eight-knot',
   },
   nudo_6: {
-    frames: getFrames('bowline-animation-v1', 6),
+    frames: getFrames('bowline-rescue-animation-v1', 6),
     steps: ['Prepará chicote y firme', 'Formá la coca', 'Sacá el chicote por la coca', 'Rodeá el firme', 'Volvé por la coca', 'Ajustá sin cerrar la gaza'],
     sourceHref: 'https://knots3d.com/en/bowline-knot',
   },

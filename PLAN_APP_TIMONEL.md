@@ -80,9 +80,9 @@ Cada módulo cuenta con una sección de **Estudio/Teoría Visual (Flashcards)** 
 ---
 
 ## 📊 Estado de Control de Ejecución
-- **Progreso Global**: `25 / 25 Tareas completadas (100%)`
-- **Estado Actual**: 🏁 **PROYECTO COMPLETO**
-- **Estado**: ✅ Listo para deploy en GitHub Pages
+- **Progreso Global**: `25 / 26 Tareas completadas (96%)`
+- **Estado Actual**: 🔄 **MEJORA VISUAL EN CURSO**
+- **Estado**: ⏳ Pendiente de renovación fotorrealista de las ilustraciones de cabuyería
 
 ---
 
@@ -130,3 +130,6 @@ Leyenda de Estados:
 ### 📱 FASE 7: Persistencia Gamificada y PWA (Tareas 24 - 25)
 - `[COMPLETADO]` ✅ **Tarea 24**: `storage.ts` — Persistencia completa en `localStorage`: XP, Rangos (Grumete/Marinero/Contramaestre/Timonel), Rachas Diarias con auto-update, algoritmo SM-2 de Repetición Espaciada, Badges por rank y racha, guardado de Examenes. Integrada en Navbar, ModuloRipaIalaView, ModuloTeoricoView y RealExamView.
 - `[COMPLETADO]` ✅ **Tarea 25**: PWA setup completo — `manifest.json`, `sw.js` con estrategia cache-first/network-first, favicon SVG náutico, meta-tags PWA en `index.html`, registro automático del SW. Build final: 333KB JS / 95KB gzipped, lint limpio.
+
+### 🪢 FASE 8: Renovación visual de Cabuyería (Tarea 26)
+- `[PENDIENTE]` ⏳ **Tarea 26**: Sustituir los diagramas planos restantes del módulo de Cabuyería por ilustraciones náuticas realistas y específicas por pregunta. Alcance mínimo: coca y torsión, construcción/colchado del cabo, gratil, Cunningham, jarcia de labor, bosa del chinchorro, protección del chicote y todas las variantes de adujado. Cada escena deberá mostrar materiales con volumen y textura, perspectiva útil, objeto completo sin recortes, animación contextual cuando represente una maniobra y validación semántica individual contra `visualManifest.ts`.
