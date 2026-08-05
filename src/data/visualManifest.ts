@@ -11,7 +11,7 @@ export type VisualFamily =
   | 'NOM_HULL' | 'NOM_RIGGING' | 'NOM_ANCHOR' | 'NOM_ENGINE' | 'NOM_PROPELLER' | 'NOM_INBOARD' | 'NOM_PROPULSION_MANEUVER' | 'NOM_FUEL_MAINTENANCE' | 'NAV_THEORY'
   | 'MET_FORECAST' | 'MET_PRESSURE' | 'MET_BREEZE' | 'MET_WAVES' | 'MET_WIND'
   | 'MET_PAMPERO' | 'MET_SUDESTADA' | 'MET_NORTAZO' | 'MET_BEAUFORT'
-  | 'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_ANCHOR_BEND' | 'KNOT_COILING'
+  | 'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_COILING'
   | 'ROPE_KINK' | 'ROPE_CONSTRUCTION' | 'ROPE_SAIL_PART' | 'ROPE_RIGGING' | 'ROPE_DINGHY' | 'ROPE_END'
   | 'PRACTICAL_CHART' | 'PRACTICAL_CALCULATION';
 
@@ -107,12 +107,11 @@ assign(['nudo_1', 'nudo_6'], 'KNOT_BOWLINE', 'Chicote, firme, seno y gaza fija t
 assign(['nudo_2', 'nudo_8', 'nudo_17'], 'KNOT_REEF', 'Cruces simétricos y resultado del nudo llano');
 assign(['nudo_3'], 'KNOT_CLOVE', 'Vueltas del cabo alrededor del soporte');
 assign(['nudo_4'], 'KNOT_SHEET_BEND', 'Seno del cabo grueso, recorrido del fino y ambos chicotes del mismo lado');
-assign(['nudo_7'], 'KNOT_ANCHOR_BEND', 'Dos vueltas por el arganeo, chicote alrededor del firme y remate asegurado');
 assign(['nudo_5', 'nudo_15'], 'KNOT_FIGURE_EIGHT', 'Nudo de tope y recorrido del chicote');
 assign(['nudo_9'], 'ROPE_KINK', 'Cabo real continuo deformado en una vuelta cerrada por torsión, sin chicote introducido ni estructura de nudo');
 assign(['nudo_11'], 'ROPE_CONSTRUCTION', 'Transición fotográfica continua desde fibras y tres cordones separados hasta un único cabo colchado');
 assign(['nudo_10'], 'ROPE_SAIL_PART', 'Detalle realista del ollao reforzado y aparejo Cunningham tensando el gratil hacia un herraje en la base del palo');
-assign(['nudo_12'], 'ROPE_SAIL_PART', 'Vela mayor y aparejo completos con el borde de ataque fijado continuamente al palo, distinguible de baluma y pujamen');
+assign(['nudo_12'], 'ROPE_SAIL_PART', 'Vela mayor completa en primer plano: se distinguen el gratil con sus correderas junto al palo, la baluma posterior y el pujamen sobre la botavara');
 assign(['nudo_16'], 'ROPE_RIGGING', 'Velero completo con driza, escota y amantillo diferenciados y trazables desde mastelero o botavara hasta sus puntos de maniobra');
 assign(['nudo_26'], 'ROPE_RIGGING', 'Velero completo con jarcia firme y de labor visibles desde sus puntos de arraigo hasta mastelero, velas, botavara y bañera');
 assign(['nudo_14'], 'ROPE_DINGHY', 'Chinchorro completo con cabo trazable desde el ojo de proa hasta una cornamusa del barco madre');

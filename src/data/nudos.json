@@ -72,18 +72,6 @@
     "explanation": "El as de guía produce una gaza cuyo diámetro no se reduce al cargar. Puede formar parte de una línea de rescate, pero no debe asumirse que una gaza improvisada reemplaza un arnés o equipo de izado: durante un HAA se priorizan aro, eslinga y medios adecuados, evitando cargar el cuello o comprimir el tórax."
   },
   {
-    "id": "nudo_7",
-    "category": "NUDOS",
-    "question": "Para afirmar un cabo a un arganeo o anilla de ancla, ¿qué nudo específico se utiliza?",
-    "options": [
-      { "id": "A", "text": "Nudo Llano (Reef Knot)", "isCorrect": false },
-      { "id": "B", "text": "Vuelta de ancla o rezón (Anchor Bend)", "isCorrect": true },
-      { "id": "C", "text": "As de Guía", "isCorrect": false },
-      { "id": "D", "text": "Ballestrinque", "isCorrect": false }
-    ],
-    "explanation": "La vuelta de ancla se hace pasando dos vueltas por el arganeo y llevando el chicote alrededor del firme, rematándolo con un cote y asegurándolo. En una línea permanente cabo-cadena se utiliza una unión o empalme diseñado para la cadena, guardacabo y grillete según el aparejo; no una vuelta de escota improvisada."
-  },
-  {
     "id": "nudo_8",
     "category": "NUDOS",
     "question": "¿Qué frase mnemotécnica se usa para recordar cómo se hace el Nudo Llano?",

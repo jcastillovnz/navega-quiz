@@ -3,7 +3,7 @@ import type { VisualFamily } from '../../data/visualManifest';
 import ropeKinkNudo9 from '../../assets/knots/rope-kink-nudo-9-v1.png';
 import cunninghamNudo10 from '../../assets/knots/cunningham-control-nudo-10-v1.png';
 import ropeLayingNudo11 from '../../assets/knots/rope-laying-nudo-11-v1.png';
-import mainsailLuffNudo12 from '../../assets/knots/mainsail-luff-nudo-12-v1.png';
+import mainsailLuffNudo12 from '../../assets/knots/mainsail-luff-nudo-12-v2.png';
 import dinghyPainterNudo14 from '../../assets/knots/dinghy-painter-nudo-14-v1.png';
 import runningRiggingNudo16 from '../../assets/knots/sailboat-running-rigging-nudo-16-v1.png';
 import protectedRopeEndNudo18 from '../../assets/knots/protected-rope-end-nudo-18-v1.png';

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import type { VisualFamily } from '../../data/visualManifest';
-import anchorBendPlate from '../../assets/knots/anchor-bend-steps-v1.webp';
 import bowlineStep1 from '../../assets/knots/bowline-guide-step-1-v3.webp';
 import bowlineStep2 from '../../assets/knots/bowline-guide-step-2-v3.webp';
 import bowlineStep3 from '../../assets/knots/bowline-guide-step-3-v3.webp';
@@ -12,7 +11,7 @@ import reefKnotPlate from '../../assets/knots/reef-knot-steps-v1.webp';
 import sheetBendPlate from '../../assets/knots/sheet-bend-steps-v1.webp';
 
 export type KnotFamily = Extract<VisualFamily,
-  'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_ANCHOR_BEND'
+  'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT'
 >;
 
 type KnotGuide = {
@@ -64,13 +63,6 @@ const GUIDES: Record<KnotFamily, KnotGuide> = {
     image: figureEightPlate,
     alt: 'Cuatro fotografías consecutivas para formar un nudo de ocho siguiendo el chicote naranja',
     steps: ['Formá una vuelta', 'Rodeá el firme', 'Entrá por la coca', 'Vestí la figura de ocho'],
-  },
-  KNOT_ANCHOR_BEND: {
-    name: 'Vuelta de ancla',
-    use: 'Afirmar un cabo al arganeo',
-    image: anchorBendPlate,
-    alt: 'Cuatro fotografías consecutivas para formar una vuelta de ancla sobre un arganeo de acero',
-    steps: ['Dá dos vueltas al arganeo', 'Cruzá sobre el firme', 'Pasá entre vueltas y arganeo', 'Rematá con medio cote'],
   },
 };
 
@@ -132,11 +124,6 @@ const QUESTION_ANIMATIONS: Record<string, QuestionAnimation> = {
     frames: getFrames('bowline-rescue-animation-v1', 6),
     steps: ['Prepará chicote y firme', 'Formá la coca', 'Sacá el chicote por la coca', 'Rodeá el firme', 'Volvé por la coca', 'Ajustá sin cerrar la gaza'],
     sourceHref: 'https://knots3d.com/en/bowline-knot',
-  },
-  nudo_7: {
-    frames: getFrames('anchor-hitch-animation-v1', 6),
-    steps: ['Entrá por el arganeo', 'Dá la primera vuelta', 'Completá la segunda vuelta', 'Cruzá el chicote sobre el firme', 'Pasá bajo las vueltas', 'Rematá y ajustá'],
-    sourceHref: 'https://knots3d.com/en/anchor-hitch-knot',
   },
   nudo_8: {
     frames: getFrames('reef-mnemonic-animation-v1', 4),

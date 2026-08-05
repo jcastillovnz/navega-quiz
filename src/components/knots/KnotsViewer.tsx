@@ -7,7 +7,7 @@ import { RopeCoilingViewer } from './RopeCoilingViewer';
 import { KnotTechnicalViewer, type KnotFamily } from './KnotTechnicalViewer';
 import { RopeKnowledgeViewer, type RopeKnowledgeFamily } from './RopeKnowledgeViewer';
 
-const KNOT_FAMILIES = new Set<string>(['KNOT_BOWLINE','KNOT_REEF','KNOT_CLOVE','KNOT_SHEET_BEND','KNOT_FIGURE_EIGHT','KNOT_ANCHOR_BEND']);
+const KNOT_FAMILIES = new Set<string>(['KNOT_BOWLINE','KNOT_REEF','KNOT_CLOVE','KNOT_SHEET_BEND','KNOT_FIGURE_EIGHT']);
 const ROPE_FAMILIES = new Set<string>(['ROPE_KINK','ROPE_CONSTRUCTION','ROPE_SAIL_PART','ROPE_RIGGING','ROPE_DINGHY','ROPE_END']);
 
 interface KnotsViewerProps {
