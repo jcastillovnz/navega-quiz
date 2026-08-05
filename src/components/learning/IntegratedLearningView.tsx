@@ -18,16 +18,6 @@ const theoryFrom = (explanation: string): string => {
   return clean || 'Observá con atención la ilustración y relacioná sus elementos antes de responder.';
 };
 
-const visualFocusFrom = (question: string): string => question
-  .replace(/[¿?¡!]/g, '')
-  .replace(/^(qué|cuál|cómo|cuándo|dónde|por qué)\s+/i, '')
-  .trim();
-
-const stableVisualPosition = (id: string): { left: number; top: number } => {
-  const hash = [...id].reduce((value, char) => ((value * 31) + char.charCodeAt(0)) >>> 0, 7);
-  return { left: 12 + (hash % 72), top: 24 + ((hash >>> 5) % 46) };
-};
-
 const playSuccessChime = () => {
   try {
     const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
@@ -141,16 +131,9 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
   const selectedOption = question.options.find(option => option.id === selected);
   const correctOption = question.options.find(option => option.isCorrect);
   const visualSpec = getVisualSpec(question.id);
-  const visualMarker = stableVisualPosition(question.id);
   return (
     <div className="integrated-learning h-full min-h-0 flex flex-col gap-2 overflow-hidden">
-      <section className="learning-visual basis-[46%] min-h-0 overflow-hidden rounded-xl sm:rounded-2xl border border-slate-800 bg-slate-950 relative">
-        <div className="learning-visual-label absolute left-2 top-2 z-20 rounded-lg border border-white/20 bg-slate-950/80 backdrop-blur-md px-2 py-1">
-          <p className="text-[9px] uppercase tracking-widest text-cyan-300 font-black">Ilustración contextual</p>
-          <p className="max-w-[min(72vw,560px)] truncate text-[10px] text-slate-300">
-            {visualSpec ? `Observá: ${visualSpec.evidence}` : 'Observá la lámina antes de responder'}
-          </p>
-        </div>
+      <section className="learning-visual basis-[48%] min-h-0 overflow-hidden rounded-xl sm:rounded-2xl border border-slate-800 bg-slate-950 relative">
         <div
           key={visualSpec?.variantKey ?? question.id}
           data-visual-variant={visualSpec?.variantKey ?? question.id}
@@ -158,19 +141,12 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
           aria-label={`Ilustración única para: ${question.question}`}
         >
           {visualForQuestion ? visualForQuestion(question) : visual}
-          <div className="pointer-events-none absolute inset-0 z-10">
-            <span className="absolute h-3 w-3 rounded-full border-2 border-cyan-200 bg-cyan-400/30 shadow-[0_0_14px_rgba(34,211,238,.8)]" style={{ left: `${visualMarker.left}%`, top: `${visualMarker.top}%` }} />
-            <div className="learning-visual-focus absolute bottom-2 right-2 max-w-[48%] rounded-lg border border-white/15 bg-slate-950/82 px-2 py-1 backdrop-blur">
-              <p className="text-[8px] font-black uppercase tracking-wider text-cyan-300">Foco de esta lámina</p>
-              <p className="line-clamp-2 text-[9px] leading-tight text-slate-100">{visualFocusFrom(question.question)}</p>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section className="learning-panel basis-[54%] min-h-0 overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-md flex flex-col">
-        <div className="learning-progress px-3 py-2 border-b border-slate-800 shrink-0">
-          <div className="flex items-center justify-between gap-3 mb-1.5">
+      <section className="learning-panel basis-[52%] min-h-0 overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-md flex flex-col">
+        <div className="learning-progress px-3 py-1.5 border-b border-slate-800 shrink-0">
+          <div className="flex items-center justify-between gap-3 mb-1">
             <div className="flex items-baseline gap-2 min-w-0">
               <p className="text-[9px] uppercase tracking-widest text-slate-500 font-black shrink-0">Aprender · {title}</p>
               <p className="text-xs font-extrabold text-white truncate">Concepto {index + 1} de {ordered.length}</p>

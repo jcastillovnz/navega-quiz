@@ -7,13 +7,9 @@ import {
   Calculator,
   GraduationCap,
   ChevronRight,
-  Star,
-  Trophy,
   Anchor,
   Cable
 } from 'lucide-react';
-import { loadProgress, getBestScore, getAverageScore, loadExams } from '../../utils/storage';
-import type { UserProgress } from '../../types/quiz';
 
 export type ModuleId = 'RIPA' | 'IALA' | 'SEGURIDAD' | 'NOMENCLATURA' | 'METEOROLOGIA' | 'PRACTICOS' | 'NUDOS' | 'EXAMEN';
 
@@ -34,7 +30,7 @@ const MODULES: ModuleCard[] = [
     id: 'RIPA',
     number: 1,
     title: 'RIPA',
-    description: 'Aprendé prioridades, cruces, luces y señales acústicas para evitar abordajes.',
+    description: 'RIPA significa Reglamento Internacional para Prevenir Abordajes. Aprendé prioridades, cruces, luces, marcas y señales acústicas.',
     icon: Scale,
     gradient: 'from-cyan-500/20 to-cyan-500/5',
     borderColor: 'hover:border-cyan-500/60 border-slate-700/80',
@@ -44,7 +40,7 @@ const MODULES: ModuleCard[] = [
     id: 'IALA',
     number: 2,
     title: 'Balizamiento IALA',
-    description: 'Reconocé boyas IALA B de Argentina y decidí por qué lado navegar.',
+    description: 'IALA es la Asociación Internacional de Ayudas a la Navegación Marítima. Reconocé el sistema B aplicado en Argentina.',
     icon: Anchor,
     gradient: 'from-blue-500/20 to-blue-500/5',
     borderColor: 'hover:border-blue-500/60 border-slate-700/80',
@@ -54,7 +50,7 @@ const MODULES: ModuleCard[] = [
     id: 'SEGURIDAD',
     number: 3,
     title: 'Seguridad & Fondeo',
-    description: 'Actuá ante incendios, emergencias, hombre al agua, temporal y fondeo.',
+    description: 'Preparación y respuesta ante incendios, fondeo, hombre al agua, temporal, supervivencia y comunicaciones MAYDAY, PAN PAN y SÉCURITÉ.',
     icon: Shield,
     gradient: 'from-rose-500/20 to-rose-500/5',
     borderColor: 'hover:border-rose-500/60 border-slate-700/80',
@@ -64,7 +60,7 @@ const MODULES: ModuleCard[] = [
     id: 'NOMENCLATURA',
     number: 4,
     title: 'Nomenclatura',
-    description: 'Identificá casco, dimensiones, anclas, jarcia, arboladura y maniobras.',
+    description: 'Vocabulario técnico para identificar casco, dimensiones, anclas, jarcia, arboladura, motor, hélice y maniobras de una embarcación.',
     icon: Sailboat,
     gradient: 'from-amber-500/20 to-amber-500/5',
     borderColor: 'hover:border-amber-500/60 border-slate-700/80',
@@ -74,7 +70,7 @@ const MODULES: ModuleCard[] = [
     id: 'METEOROLOGIA',
     number: 5,
     title: 'Meteorología',
-    description: 'Interpretá viento, presión, nubes, Beaufort, Pampero y Sudestada.',
+    description: 'Interpretación de viento, presión, nubes, oleaje, escala Beaufort y fenómenos regionales como Pampero, Sudestada y Nortazo.',
     icon: Wind,
     gradient: 'from-sky-500/20 to-sky-500/5',
     borderColor: 'hover:border-sky-500/60 border-slate-700/80',
@@ -84,7 +80,7 @@ const MODULES: ModuleCard[] = [
     id: 'NUDOS',
     number: 6,
     title: 'Nudos Náuticos',
-    description: 'Aprendé a elegir y ejecutar cinco nudos esenciales paso a paso.',
+    description: 'Cabullería aplicada: estructura del cabo, elección y ejecución de nudos, afirmado, unión, tope y distintos tipos de adujes.',
     icon: Cable,
     gradient: 'from-pink-500/20 to-pink-500/5',
     borderColor: 'hover:border-pink-500/60 border-slate-700/80',
@@ -94,7 +90,7 @@ const MODULES: ModuleCard[] = [
     id: 'PRACTICOS',
     number: 7,
     title: 'Ejercicios Prácticos',
-    description: 'Resolvé carta, distancias, tiempos, declinación, mareas y marcaciones.',
+    description: 'Resolución guiada de carta náutica, latitud, longitud, millas, tiempos, velocidad, declinación, mareas y marcaciones.',
     icon: Calculator,
     gradient: 'from-emerald-500/20 to-emerald-500/5',
     borderColor: 'hover:border-emerald-500/60 border-slate-700/80',
@@ -104,7 +100,7 @@ const MODULES: ModuleCard[] = [
     id: 'EXAMEN',
     badge: 'Desafío final',
     title: 'Examen Real PNA',
-    description: 'Comprobá todo lo aprendido con 40 preguntas y 60 minutos reales.',
+    description: 'Simulación integradora PNA: 40 preguntas en 60 minutos para comprobar conocimientos, administrar el tiempo y detectar temas a repasar.',
     icon: GraduationCap,
     gradient: 'from-amber-500/25 to-amber-500/5',
     borderColor: 'hover:border-amber-400/80 border-amber-500/40',
@@ -117,62 +113,9 @@ interface DashboardViewProps {
 }
 
 export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) => {
-  const [progress, setProgress] = React.useState<UserProgress | null>(null);
-  const [bestScore, setBestScore] = React.useState(0);
-  const [avgScore, setAvgScore] = React.useState(0);
-  const [examCount, setExamCount] = React.useState(0);
-
-  React.useEffect(() => {
-    setProgress(loadProgress());
-    setBestScore(getBestScore());
-    setAvgScore(getAverageScore());
-    setExamCount(loadExams().length);
-  }, []);
-
   return (
-    <div className="h-full flex flex-col gap-2 min-h-0 min-w-0 overflow-hidden">
-      {/* Hero compacto */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 rounded-2xl p-2.5 shrink-0 shadow-lg">
-        <div className="flex items-center justify-between gap-3 flex-wrap min-w-0">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-0.5">
-              <Anchor className="w-5 h-5 text-cyan-400" />
-              <h1 className="text-lg md:text-xl font-extrabold text-white tracking-tight leading-tight">¡Bienvenido a bordo!</h1>
-            </div>
-            <p className="text-slate-300 text-xs font-medium">
-              {progress && progress.xp > 0
-                ? `Continuá tu preparación para el examen de Timonel de Yate Vela y Motor.`
-                : `Elegí un módulo para empezar. Teoría visual fotorrealista + práctica + examen final.`}
-            </p>
-          </div>
-
-          {progress && progress.xp > 0 && (
-            <div className="flex gap-2 flex-wrap">
-              <StatChip
-                icon={<Trophy className="w-3.5 h-3.5" />}
-                label="Mejor"
-                value={`${bestScore}%`}
-                color="text-amber-300"
-              />
-              <StatChip
-                icon={<Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />}
-                label="Prom."
-                value={`${avgScore}%`}
-                color="text-cyan-300"
-              />
-              <StatChip
-                icon={<GraduationCap className="w-3.5 h-3.5" />}
-                label="Ex."
-                value={String(examCount)}
-                color="text-emerald-300"
-              />
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Grid de módulos que ocupa el 100% del alto restante (Sin Espacio Vacío) */}
-      <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-2 flex-1 min-h-0">
+    <div className="h-full min-h-0 min-w-0 overflow-hidden">
+      <div className="grid h-full grid-cols-2 grid-rows-4 gap-2 md:grid-cols-4 md:grid-rows-2">
         {MODULES.map(m => {
           const Icon = m.icon;
           return (
@@ -202,20 +145,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectModule }) 
           );
         })}
       </div>
-
     </div>
   );
 };
-
-const StatChip: React.FC<{ icon: React.ReactNode; label: string; value: string; color: string }> = ({
-  icon,
-  label,
-  value,
-  color
-}) => (
-  <div className="flex items-center gap-1.5 bg-slate-950/80 border border-slate-800 px-2.5 py-1 rounded-full">
-    {icon}
-    <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">{label}</span>
-    <span className={`text-xs font-black ${color}`}>{value}</span>
-  </div>
-);

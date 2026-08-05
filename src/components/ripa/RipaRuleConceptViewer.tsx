@@ -28,15 +28,30 @@ export const RipaRuleConceptViewer: React.FC<{ family: ConceptFamily }> = ({ fam
           <pattern id="ripaWaves" width="52" height="24" patternUnits="userSpaceOnUse"><path d="M0 12 Q13 3 26 12 T52 12" fill="none" stroke="#67e8f9" strokeOpacity=".16" strokeWidth="2"/></pattern>
           <filter id="ripaGlow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           <linearGradient id="fog" x1="0" x2="1"><stop stopColor="#cbd5e1" stopOpacity=".82"/><stop offset=".5" stopColor="#64748b" stopOpacity=".34"/><stop offset="1" stopColor="#cbd5e1" stopOpacity=".76"/></linearGradient>
+          <marker id="trafficArrowCyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10Z" fill="#67e8f9"/></marker>
+          <marker id="trafficArrowAmber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10Z" fill="#fbbf24"/></marker>
         </defs>
         <rect width="1200" height="430" fill="url(#ripaSea)"/><rect width="1200" height="430" fill="url(#ripaWaves)"/>
 
         {isChannel && <><path d="M0 60 L360 150 L360 430 L0 430Z" fill="#9a6b39"/><path d="M1200 60 L840 150 L840 430 L1200 430Z" fill="#9a6b39"/><path d="M390 0 V430 M810 0 V430" stroke="#f8fafc" strokeDasharray="18 16" strokeOpacity=".55" strokeWidth="5"/><text x="600" y="54" fill="#a5f3fc" fontSize="28" textAnchor="middle">CANAL NAVEGABLE</text></>}
-        {isTss && <><path d="M100 115 H1100 M1100 315 H100" stroke="#38bdf8" strokeWidth="64" strokeOpacity=".16"/><path d="M150 115 H1050 M1050 315 H150" stroke="#f8fafc" strokeWidth="5" strokeDasharray="28 18"/><path d="M600 20 V410" stroke="#fde047" strokeWidth="4" strokeDasharray="12 12"/><text x="600" y="214" fill="#fde047" fontSize="23" textAnchor="middle">ZONA DE SEPARACIÓN</text><path d="M515 385 V65" stroke="#f472b6" strokeWidth="10" markerEnd="url(#none)"/></>}
+        {isTss && <>
+          <rect x="70" y="45" width="1060" height="125" rx="18" fill="#0e7490" fillOpacity=".38" stroke="#38bdf8" strokeOpacity=".45" strokeWidth="4"/>
+          <rect x="70" y="260" width="1060" height="125" rx="18" fill="#0e7490" fillOpacity=".38" stroke="#38bdf8" strokeOpacity=".45" strokeWidth="4"/>
+          <rect x="70" y="185" width="1060" height="60" rx="12" fill="#831843" fillOpacity=".55" stroke="#f472b6" strokeWidth="4" strokeDasharray="16 10"/>
+          <path d="M145 108 H405 M470 108 H730 M795 108 H1055" stroke="#67e8f9" strokeWidth="9" markerEnd="url(#trafficArrowCyan)"/>
+          <path d="M1055 323 H795 M730 323 H470 M405 323 H145" stroke="#67e8f9" strokeWidth="9" markerEnd="url(#trafficArrowCyan)"/>
+          <text x="600" y="221" fill="#fbcfe8" fontSize="20" fontWeight="800" textAnchor="middle">FRANJA DE SEPARACIÓN · NO NAVEGAR POR ELLA</text>
+          <path d="M510 405 V22" stroke="#fbbf24" strokeWidth="10" strokeDasharray="18 10" markerEnd="url(#trafficArrowAmber)"/>
+          <path d="M455 190 A55 55 0 0 1 510 135" fill="none" stroke="#fde68a" strokeWidth="5"/>
+          <text x="412" y="178" fill="#fde68a" fontSize="20" fontWeight="800">≈ 90°</text>
+          <g transform="translate(510 320) rotate(-90)"><path d="M-72 22 L50 22 L90 0 L50-22 L-72-22 L-94 0Z" fill="#f8fafc" stroke="#0f172a" strokeWidth="5"/><rect x="-35" y="-14" width="45" height="28" rx="6" fill="#164e63"/></g>
+          <g transform="translate(875 108)"><path d="M-58 17 L40 17 L68 0 L40-17 L-58-17 L-76 0Z" fill="#cbd5e1" stroke="#0f172a" strokeWidth="4"/></g>
+          <g transform="translate(285 323) rotate(180)"><path d="M-58 17 L40 17 L68 0 L40-17 L-58-17 L-76 0Z" fill="#cbd5e1" stroke="#0f172a" strokeWidth="4"/></g>
+        </>}
         {!isChannel && !isTss && <circle cx="610" cy="225" r="150" fill="none" stroke="#38bdf8" strokeOpacity=".18" strokeWidth="3"/>}
 
-        <g transform={isChannel ? 'translate(650 240)' : isTss ? 'translate(520 325) rotate(-90)' : 'translate(500 270)'}>
-          <path d="M-100 28 L76 28 L128 0 L76-28 L-100-28 L-128 0Z" fill="#e2e8f0" stroke="#fff" strokeWidth="5"/><rect x="-52" y="-18" width="67" height="36" rx="7" fill="#164e63"/><path d="M-116 0 H-210" stroke="#67e8f9" strokeWidth="7" strokeDasharray="12 12"/><circle cx="76" cy="-18" r="7" fill="#22c55e" filter="url(#ripaGlow)"/><circle cx="76" cy="18" r="7" fill="#ef4444" filter="url(#ripaGlow)"/></g>
+        {!isTss && <g transform={isChannel ? 'translate(650 240)' : 'translate(500 270)'}>
+          <path d="M-100 28 L76 28 L128 0 L76-28 L-100-28 L-128 0Z" fill="#e2e8f0" stroke="#fff" strokeWidth="5"/><rect x="-52" y="-18" width="67" height="36" rx="7" fill="#164e63"/><path d="M-116 0 H-210" stroke="#67e8f9" strokeWidth="7" strokeDasharray="12 12"/><circle cx="76" cy="-18" r="7" fill="#22c55e" filter="url(#ripaGlow)"/><circle cx="76" cy="18" r="7" fill="#ef4444" filter="url(#ripaGlow)"/></g>}
 
         {(isRisk || isAvoidance || isFog) && <g transform="translate(865 130) rotate(38)"><path d="M-72 22 L54 22 L94 0 L54-22 L-72-22 L-94 0Z" fill="#f59e0b" stroke="#fde68a" strokeWidth="4"/><path d="M-88 0 H-170" stroke="#fbbf24" strokeWidth="6" strokeDasharray="10 10"/></g>}
         {isRisk && <><path d="M610 235 L865 130" stroke="#fb7185" strokeWidth="5" strokeDasharray="14 11"/><path d="M610 235 L820 149" stroke="#fb7185" strokeWidth="3" opacity=".35"/><text x="745" y="165" fill="#fecdd3" fontSize="22">marcación constante</text><text x="740" y="300" fill="#e2e8f0" fontSize="20">distancia ↓</text></>}

@@ -46,29 +46,11 @@ body {
   }
 
   .integrated-learning .learning-visual {
-    flex-basis: 35%;
+    flex-basis: 38%;
   }
 
   .integrated-learning .learning-panel {
-    flex-basis: 65%;
-  }
-
-  .learning-visual-label {
-    max-width: calc(100% - 1rem);
-    padding: 0.2rem 0.4rem;
-  }
-
-  .learning-visual-label p:first-child {
-    font-size: 0.45rem;
-  }
-
-  .learning-visual-label p:last-child {
-    max-width: 78vw;
-    font-size: 0.5rem;
-  }
-
-  .learning-visual-focus {
-    display: none;
+    flex-basis: 62%;
   }
 
   .learning-progress {
@@ -110,16 +92,11 @@ body {
 /* Teléfonos apaisados: se prioriza la pregunta y se evita que la lámina la desplace. */
 @media (max-height: 520px) and (max-width: 900px) {
   .integrated-learning .learning-visual {
-    flex-basis: 36%;
+    flex-basis: 39%;
   }
 
   .integrated-learning .learning-panel {
-    flex-basis: 64%;
-  }
-
-  .learning-visual-label,
-  .learning-visual-focus {
-    display: none;
+    flex-basis: 61%;
   }
 
   .learning-progress {
@@ -177,6 +154,17 @@ body {
 
 .static-question-visual .question-light-animation {
   pointer-events: none !important;
+}
+
+/* La pregunta y la teoría ya aportan el contexto: la lámina dedica toda su superficie al dibujo. */
+.static-question-visual figcaption {
+  display: none !important;
+}
+
+.static-question-visual > figure,
+.static-question-visual > div {
+  height: 100%;
+  min-height: 0;
 }
 
 /* Efectos Fotorrealistas (Luces y Faros) para el Modo Noche */
@@ -272,6 +260,25 @@ body {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(-2deg); }
   75% { transform: rotate(2deg); }
+}
+
+/* Movimiento meteorológico informativo: mantiene el fenómeno legible y no compite con la pregunta. */
+@keyframes met-arrow-flow { to { stroke-dashoffset: -28; } }
+@keyframes met-wave-swell { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes met-rain { 0% { transform: translate(0,-12px); opacity: .15; } 45% { opacity: .85; } 100% { transform: translate(-18px,26px); opacity: .1; } }
+@keyframes met-fog-drift { 0%,100% { transform: translateX(0); opacity: .42; } 50% { transform: translateX(70px); opacity: .58; } }
+@keyframes met-lightning { 0%,88%,100% { opacity: .2; filter: none; } 90%,94% { opacity: 1; filter: drop-shadow(0 0 18px #fef08a); } }
+@keyframes met-boat-heave { 0%,100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+.met-arrow-flow { stroke-dasharray: 18 10; animation: met-arrow-flow 1.4s linear infinite; }
+.met-wave-swell { transform-box: fill-box; transform-origin: center; animation: met-wave-swell 2.8s ease-in-out infinite; }
+.met-wave-delay { animation-delay: -1.1s; }
+.met-rain { animation: met-rain .9s linear infinite; }
+.met-fog-drift { animation: met-fog-drift 8s ease-in-out infinite; }
+.met-lightning { animation: met-lightning 4.5s linear infinite; }
+.met-boat-heave { animation: met-boat-heave 2.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .met-arrow-flow, .met-wave-swell, .met-rain, .met-fog-drift, .met-lightning, .met-boat-heave { animation: none !important; }
 }
 
 /* ======================================

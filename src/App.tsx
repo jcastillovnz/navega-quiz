@@ -7,9 +7,13 @@ import { ModuloIalaView } from './components/modules/ModuloIalaView';
 import { ModuloTeoricoView } from './components/modules/ModuloTeoricoView';
 import { SafetyQuestionIllustration } from './components/seguridad/SafetyQuestionIllustration';
 import { NomenclaturaViewer } from './components/nomenclatura/NomenclaturaViewer';
+import { HullNomenclatureViewer } from './components/nomenclatura/HullNomenclatureViewer';
+import { InboardEngineViewer } from './components/nomenclatura/InboardEngineViewer';
+import { PropulsionManeuverViewer } from './components/nomenclatura/PropulsionManeuverViewer';
+import { FuelMaintenanceViewer } from './components/nomenclatura/FuelMaintenanceViewer';
 import { MarinePropulsionViewer } from './components/nomenclatura/MarinePropulsionViewer';
 import { MeteorologiaViewer } from './components/meteorologia/MeteorologiaViewer';
-import { MeteorologyConceptViewer } from './components/meteorologia/MeteorologyConceptViewer';
+import { MeteorologyQuestionViewer } from './components/meteorologia/MeteorologyQuestionViewer';
 import { KnotsViewer } from './components/knots/KnotsViewer';
 import { RealExamView } from './components/exam/RealExamView';
 import { PracticalExercisesView } from './components/practico/PracticalExercisesView';
@@ -22,7 +26,6 @@ import {
   Cable, 
   GraduationCap, 
   Home, 
-  Compass,
   Anchor
 } from 'lucide-react';
 import nudosData from './data/nudos.json';
@@ -58,18 +61,8 @@ function App() {
             </button>
           </div>
 
-          {/* Selector de Módulos (Incluyendo Inicio + 7 Módulos en Pills) */}
+          {/* Selector directo de módulos; Menú Principal ya representa el inicio. */}
           <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 overflow-x-auto">
-            <button
-              onClick={() => setActiveView('HOME')}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                isActiveView('HOME') ? 'bg-cyan-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Compass className="w-3.5 h-3.5" />
-              Inicio (Cards)
-            </button>
-
             <button
               onClick={() => setActiveView('RIPA')}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
@@ -218,6 +211,10 @@ function App() {
                 const family = getVisualSpec(question.id)?.family;
                 if (family === 'NOM_ENGINE') return <MarinePropulsionViewer focus="ENGINE" context={question.question} />;
                 if (family === 'NOM_PROPELLER') return <MarinePropulsionViewer focus="PROPELLER" context={question.question} />;
+                if (family === 'NOM_INBOARD') return <InboardEngineViewer context={question.question} />;
+                if (family === 'NOM_PROPULSION_MANEUVER') return <PropulsionManeuverViewer context={question.question} />;
+                if (family === 'NOM_FUEL_MAINTENANCE') return <FuelMaintenanceViewer context={question.question} />;
+                if (family === 'NOM_HULL') return <HullNomenclatureViewer questionId={question.id} />;
                 const focusSection = family === 'NOM_ANCHOR' ? 'FONDEO' : family === 'NOM_RIGGING' ? 'JARCIA' : 'CASCO';
                 return <NomenclaturaViewer compact focusSection={focusSection} />;
               }}
@@ -238,17 +235,7 @@ function App() {
               }}
               viewer={<MeteorologiaViewer compact />}
               visualForQuestion={question => {
-                const family = getVisualSpec(question.id)?.family;
-                if (family === 'MET_FORECAST') return <MeteorologyConceptViewer focus="PRONOSTICO" />;
-                if (family === 'MET_PRESSURE') return <MeteorologyConceptViewer focus="PRESION" />;
-                if (family === 'MET_BREEZE') return <MeteorologyConceptViewer focus="BRISAS" />;
-                if (family === 'MET_WAVES') return <MeteorologyConceptViewer focus="OLEAJE" />;
-                if (family === 'MET_WIND') return <MeteorologyConceptViewer focus="VIENTO" />;
-                if (family === 'MET_PAMPERO') return <MeteorologiaViewer compact focusPhenomenon="PAMPERO" />;
-                if (family === 'MET_SUDESTADA') return <MeteorologiaViewer compact focusPhenomenon="SUDESTADA" />;
-                if (family === 'MET_NORTAZO') return <MeteorologyConceptViewer focus="VIENTO" />;
-                if (family === 'MET_BEAUFORT') return <MeteorologiaViewer compact focusBeaufort={6} />;
-                return <MeteorologiaViewer compact focusBeaufort={3} />;
+                return <MeteorologyQuestionViewer questionId={question.id} />;
               }}
             />
           )}

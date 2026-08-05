@@ -7,8 +7,8 @@ export type VisualFamily =
   | 'IALA_SPECIAL' | 'IALA_NEW_DANGER'
   | 'IALA_PREFERRED_PORT' | 'IALA_PREFERRED_STARBOARD'
   | 'SAFETY_INVENTORY' | 'SAFETY_FIRE' | 'SAFETY_DAMAGE' | 'SAFETY_STORM'
-  | 'SAFETY_HAA' | 'SAFETY_ANCHOR'
-  | 'NOM_HULL' | 'NOM_RIGGING' | 'NOM_ANCHOR' | 'NOM_ENGINE' | 'NOM_PROPELLER'
+  | 'SAFETY_HAA' | 'SAFETY_ANCHOR' | 'SAFETY_RADIO'
+  | 'NOM_HULL' | 'NOM_RIGGING' | 'NOM_ANCHOR' | 'NOM_ENGINE' | 'NOM_PROPELLER' | 'NOM_INBOARD' | 'NOM_PROPULSION_MANEUVER' | 'NOM_FUEL_MAINTENANCE'
   | 'MET_FORECAST' | 'MET_PRESSURE' | 'MET_BREEZE' | 'MET_WAVES' | 'MET_WIND'
   | 'MET_PAMPERO' | 'MET_SUDESTADA' | 'MET_NORTAZO' | 'MET_BEAUFORT'
   | 'KNOT_BOWLINE' | 'KNOT_REEF' | 'KNOT_CLOVE' | 'KNOT_SHEET_BEND' | 'KNOT_FIGURE_EIGHT' | 'KNOT_ANCHOR_BEND' | 'KNOT_COILING'
@@ -74,13 +74,17 @@ assign(['seg_daf_1', 'seg_watertight_1', 'seg_waste_1', 'seg_night_1'], 'SAFETY_
 assign(['seg_fire_methods_1', 'seg_fire_technique_1'], 'SAFETY_FIRE', 'Método de extinción y dirección correcta del agente hacia la base del fuego');
 assign(['seg_catenary_1'], 'SAFETY_ANCHOR', 'Línea de fondeo completa con curvatura de catenaria entre proa y fondo');
 assign(['seg_hypothermia_1'], 'SAFETY_HAA', 'Persona recuperada, aislamiento térmico gradual y maniobra cuidadosa');
+assign(['seg_radio_priority_1', 'seg_radio_panpan_1', 'seg_radio_securite_1', 'seg_radio_mayday_1', 'seg_radio_panpan_structure_1', 'seg_radio_securite_example_1', 'seg_radio_channel16_1', 'seg_radio_position_1', 'seg_radio_receive_1', 'seg_radio_escalation_1', 'seg_radio_medical_1', 'seg_radio_working_channel_1', 'seg_radio_weather_safety_1', 'seg_radio_cancel_1'], 'SAFETY_RADIO', 'Puesto VHF, prioridad, naturaleza del mensaje, posición y secuencia radiotelefónica contextualizados');
 
 assign(Array.from({ length: 38 }, (_, i) => `nom_${i + 1}`), 'NOM_HULL', 'Elemento del casco destacado dentro de su contexto');
 assign(Array.from({ length: 23 }, (_, i) => `nom_${i + 39}`), 'NOM_RIGGING', 'Elemento de jarcia, vela o maniobra destacado');
 assign(['nom_61'], 'NOM_ANCHOR', 'Bosa y punto de afirmado dentro del conjunto');
 assign(['nom_62', 'nom_63', 'nom_64', 'nom_65'], 'NOM_HULL', 'Instrumento completo, escala y variable medida');
-assign(['nom_66', 'nom_67', 'nom_68', 'nom_69'], 'NOM_ENGINE', 'Motor fuera de borda completo con el componente evaluado destacado en su posición real');
-assign(['nom_70', 'nom_71', 'nom_72', 'nom_73', 'nom_74', 'nom_75'], 'NOM_PROPELLER', 'Hélice en perspectiva de popa con cubo, raíz, punta, bordes y sentido de giro');
+assign(['nom_66', 'nom_67', 'nom_68', 'nom_69', 'nom_76', 'nom_77', 'nom_78', 'nom_79', 'nom_80', 'nom_81', 'nom_82', 'nom_83', 'nom_84', 'nom_85', 'nom_86', 'nom_87', 'nom_88'], 'NOM_ENGINE', 'Motor fuera de borda completo con el componente evaluado destacado en su posición real');
+assign(['nom_70', 'nom_71', 'nom_72', 'nom_73', 'nom_74', 'nom_75', 'nom_89', 'nom_90', 'nom_91', 'nom_92', 'nom_93', 'nom_94'], 'NOM_PROPELLER', 'Hélice y línea de eje con la pieza o dimensión evaluada destacada en su posición real');
+assign(['nom_95', 'nom_96', 'nom_97', 'nom_98', 'nom_99', 'nom_100', 'nom_101', 'nom_102', 'nom_103', 'nom_104', 'nom_105'], 'NOM_INBOARD', 'Motor interno y línea de eje con el componente de control, filtrado, transmisión, sellado o protección destacado');
+assign(['nom_106', 'nom_107', 'nom_108', 'nom_109', 'nom_110', 'nom_111'], 'NOM_PROPULSION_MANEUVER', 'Sentido de hélices, desplazamiento de popa o comprobación mecánica representada en contexto');
+assign(['nom_112', 'nom_113', 'nom_114', 'nom_115', 'nom_116', 'nom_117'], 'NOM_FUEL_MAINTENANCE', 'Tanque, cebado, lubricación, lavado o fijación de hélice representados como procedimiento observable');
 
 assign(['met_forecast_1'], 'MET_FORECAST', 'Pronóstico, momento de actualización y evolución');
 assign(['met_pressure_1', 'met_pressure_2', 'met_8', 'met_10', 'met_11', 'met_9', 'met_16'], 'MET_PRESSURE', 'Instrumento, isobaras y cambio atmosférico');
@@ -94,6 +98,8 @@ assign(['met_heat_conduction', 'met_heat_convection', 'met_heat_advection'], 'ME
 assign(['met_pressure_normal', 'met_isobar_gradient', 'met_high_south', 'met_low_south'], 'MET_PRESSURE', 'Isobaras, valor barométrico y circulación de altas y bajas en el hemisferio sur');
 assign(['met_wind_refresh', 'met_apparent_wind'], 'MET_WIND', 'Vector de viento aparente y cambio observable de intensidad');
 assign(['met_pampero_variants'], 'MET_PAMPERO', 'Contraste entre Pampero seco estable y Pampero húmedo con nubosidad');
+assign(['met_pampero_direction_1', 'met_pampero_air_1', 'met_pampero_cloud_1', 'met_pampero_pressure_1'], 'MET_PAMPERO', 'Dirección frontal, masa de aire, nubosidad convectiva y tendencia barométrica del Pampero');
+assign(['met_sudestada_direction_1', 'met_sudestada_cloud_1', 'met_sudestada_duration_1', 'met_sudestada_navigation_1'], 'MET_SUDESTADA', 'Entrada húmeda del sudeste, nubosidad estratiforme, acumulación de agua y riesgos para navegar');
 assign(['met_3', 'met_4', 'met_5', 'met_6', 'met_7'], 'MET_BEAUFORT', 'Fuerza del viento, nube y estado correspondiente del mar');
 
 assign(['nudo_1', 'nudo_6'], 'KNOT_BOWLINE', 'Chicote, firme, seno y gaza fija terminada');

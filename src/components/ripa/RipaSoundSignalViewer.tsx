@@ -126,12 +126,8 @@ export const RipaSoundSignalViewer: React.FC<{ context: string }> = ({ context }
     <figure className="h-full min-h-0 grid grid-rows-[minmax(0,1fr)_auto] overflow-hidden bg-slate-950">
       <div className="relative min-h-0 overflow-hidden">
         <ContextScene signal={signal} />
-        <div className="absolute left-2 bottom-2 rounded-lg border border-white/15 bg-slate-950/85 px-2.5 py-1.5 backdrop-blur-sm">
-          <p className="text-[10px] sm:text-xs font-black text-white">{signal.title}</p>
-          <p className="text-[8px] sm:text-[10px] text-slate-300">Observá posición, arrancada y entorno antes de interpretar la señal.</p>
-        </div>
       </div>
-      <figcaption className="flex min-h-11 items-center justify-center gap-2 overflow-x-auto border-t border-cyan-400/25 bg-slate-900 px-2 py-1.5">
+      <div className="flex min-h-10 items-center justify-center gap-2 overflow-x-auto border-t border-cyan-400/25 bg-slate-900 px-2 py-1" role="img" aria-label={`Patrón acústico de ${signal.title}`}>
         <div className="shrink-0 rounded-full border border-cyan-400/35 bg-slate-950 p-1.5">
           {signal.bell ? <Bell className="h-4 w-4 text-amber-300" /> : <Volume2 className="h-4 w-4 text-cyan-300" />}
         </div>
@@ -142,7 +138,7 @@ export const RipaSoundSignalViewer: React.FC<{ context: string }> = ({ context }
           </div>
         ))}
         {signal.interval && <span className="ml-1 whitespace-nowrap rounded bg-slate-950 px-2 py-1 text-[8px] font-bold text-slate-300">{signal.interval}</span>}
-      </figcaption>
+      </div>
     </figure>
   );
 };
