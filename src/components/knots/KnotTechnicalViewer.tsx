@@ -8,6 +8,7 @@ import bowlineStep4 from '../../assets/knots/bowline-guide-step-4-v3.webp';
 import bowlineStep5 from '../../assets/knots/bowline-guide-step-5-v3.webp';
 import cloveHitchPlate from '../../assets/knots/clove-hitch-steps-v1.webp';
 import figureEightPlate from '../../assets/knots/figure-eight-steps-v1.webp';
+import reefKnotNudo2 from '../../assets/knots/reef-knot-nudo-2-v2.webp';
 import reefKnotPlate from '../../assets/knots/reef-knot-steps-v1.webp';
 import sheetBendPlate from '../../assets/knots/sheet-bend-steps-v1.webp';
 
@@ -83,6 +84,24 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
   const [selectedStep, setSelectedStep] = useState(0);
 
   useEffect(() => setSelectedStep(0), [family, questionId]);
+
+  if (questionId === 'nudo_2') {
+    return (
+      <figure className="h-full min-h-0 overflow-hidden bg-[#17110d] flex flex-col" aria-label="Unión simétrica de dos cabos de igual diámetro">
+        <div className="min-h-0 flex-1">
+          <img
+            src={reefKnotNudo2}
+            alt="Dos cabos trenzados de igual diámetro unidos en un nudo plano y simétrico, con los extremos de cada cabo paralelos"
+            className="h-full w-full object-contain"
+            draggable={false}
+          />
+        </div>
+        <figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-3 py-1.5 text-center text-[10px] font-bold text-slate-200">
+          Observá el recorrido, la simetría y la salida paralela de los chicotes.
+        </figcaption>
+      </figure>
+    );
+  }
 
   return (
     <figure className="h-full min-h-0 overflow-hidden bg-slate-950 flex flex-col" aria-label={`${guide.name}: guía visual paso a paso`}>
