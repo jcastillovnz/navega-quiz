@@ -8,16 +8,7 @@ import bowlineStep4 from '../../assets/knots/bowline-guide-step-4-v3.webp';
 import bowlineStep5 from '../../assets/knots/bowline-guide-step-5-v3.webp';
 import cloveHitchPlate from '../../assets/knots/clove-hitch-steps-v1.webp';
 import figureEightPlate from '../../assets/knots/figure-eight-steps-v1.webp';
-import reefFrame1 from '../../assets/knots/reef-animation-v1/frame-01.png';
-import reefFrame2 from '../../assets/knots/reef-animation-v1/frame-02.png';
-import reefFrame3 from '../../assets/knots/reef-animation-v1/frame-03.png';
-import reefFrame4 from '../../assets/knots/reef-animation-v1/frame-04.png';
 import reefKnotPlate from '../../assets/knots/reef-knot-steps-v1.webp';
-import sheetBendFrame1 from '../../assets/knots/sheet-bend-animation-v1/frame-01.png';
-import sheetBendFrame2 from '../../assets/knots/sheet-bend-animation-v1/frame-02.png';
-import sheetBendFrame3 from '../../assets/knots/sheet-bend-animation-v1/frame-03.png';
-import sheetBendFrame4 from '../../assets/knots/sheet-bend-animation-v1/frame-04.png';
-import sheetBendFrame5 from '../../assets/knots/sheet-bend-animation-v1/frame-05.png';
 import sheetBendPlate from '../../assets/knots/sheet-bend-steps-v1.webp';
 
 export type KnotFamily = Extract<VisualFamily,
@@ -94,14 +85,72 @@ const knotSurfaceStyle: React.CSSProperties = {
   ].join(','),
 };
 
-const QUESTION_ANIMATIONS: Record<string, { frames: string[]; steps: string[] }> = {
+const animationAssets = import.meta.glob('../../assets/knots/*-animation-v1/*.{png,webp}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+const getFrames = (folder: string, count: number, extension = 'png') => Array.from(
+  { length: count },
+  (_, index) => animationAssets[`../../assets/knots/${folder}/frame-${String(index + 1).padStart(2, '0')}.${extension}`],
+);
+
+type QuestionAnimation = {
+  frames: string[];
+  steps: string[];
+  sourceHref?: string;
+};
+
+const QUESTION_ANIMATIONS: Record<string, QuestionAnimation> = {
+  nudo_1: {
+    frames: [bowlineStep1, bowlineStep2, bowlineStep3, bowlineStep4, bowlineStep5],
+    steps: ['Formá una coca', 'Mantené abierta la coca', 'Sacá el chicote por la coca', 'Rodeá el firme por detrás', 'Volvé por la coca y ajustá la gaza'],
+  },
   nudo_2: {
-    frames: [reefFrame1, reefFrame2, reefFrame3, reefFrame4],
+    frames: getFrames('reef-animation-v1', 4),
     steps: ['Enfrentá ambos chicotes', 'Derecha sobre izquierda y por debajo', 'Invertí: izquierda sobre derecha y por debajo', 'Ajustá los cuatro ramales por parejas'],
+    sourceHref: 'https://knots3d.com/en/square-knot',
+  },
+  nudo_3: {
+    frames: getFrames('clove-animation-v1', 6),
+    steps: ['Acercá el cabo al soporte', 'Dá la primera vuelta', 'Cruzá sobre la vuelta anterior', 'Completá la segunda vuelta', 'Pasá bajo el último cruce', 'Ajustá ambos firmes'],
+    sourceHref: 'https://knots3d.com/en/clove-hitch-knot',
   },
   nudo_4: {
-    frames: [sheetBendFrame1, sheetBendFrame2, sheetBendFrame3, sheetBendFrame4, sheetBendFrame5],
+    frames: getFrames('sheet-bend-animation-v1', 5),
     steps: ['Formá un seno con el cabo grueso', 'Entrá por el seno con el cabo fino', 'Rodeá por detrás los dos brazos del seno', 'Pasá el chicote fino bajo su propio firme', 'Ajustá con ambos chicotes del mismo lado'],
+    sourceHref: 'https://knots3d.com/en/sheet-bend-knot',
+  },
+  nudo_5: {
+    frames: getFrames('figure-eight-animation-v1', 6),
+    steps: ['Tomá el chicote', 'Formá una coca', 'Rodeá el firme', 'Llevá el chicote hacia la coca', 'Pasalo por la coca', 'Vestí y ajustá la figura'],
+    sourceHref: 'https://knots3d.com/en/figure-eight-knot',
+  },
+  nudo_6: {
+    frames: getFrames('bowline-animation-v1', 6),
+    steps: ['Prepará chicote y firme', 'Formá la coca', 'Sacá el chicote por la coca', 'Rodeá el firme', 'Volvé por la coca', 'Ajustá sin cerrar la gaza'],
+    sourceHref: 'https://knots3d.com/en/bowline-knot',
+  },
+  nudo_7: {
+    frames: getFrames('anchor-hitch-animation-v1', 6),
+    steps: ['Entrá por el arganeo', 'Dá la primera vuelta', 'Completá la segunda vuelta', 'Cruzá el chicote sobre el firme', 'Pasá bajo las vueltas', 'Rematá y ajustá'],
+    sourceHref: 'https://knots3d.com/en/anchor-hitch-knot',
+  },
+  nudo_8: {
+    frames: getFrames('reef-mnemonic-animation-v1', 4),
+    steps: ['Enfrentá ambos chicotes', 'Realizá el primer medio nudo', 'Invertí el sentido del segundo cruce', 'Ajustá conservando la simetría'],
+    sourceHref: 'https://knots3d.com/en/square-knot',
+  },
+  nudo_15: {
+    frames: getFrames('figure-eight-stopper-animation-v1', 6),
+    steps: ['Tomá el chicote', 'Formá una coca amplia', 'Rodeá el firme', 'Llevá el chicote hacia la coca', 'Pasalo por la abertura', 'Ajustá el tope sin deformarlo'],
+    sourceHref: 'https://knots3d.com/en/figure-eight-knot',
+  },
+  nudo_17: {
+    frames: getFrames('granny-animation-v1', 5),
+    steps: ['Realizá el primer medio nudo', 'Repetí el cruce en el mismo sentido', 'Observá cómo se pierde la simetría', 'Seguí la salida de ambos chicotes', 'Compará la disposición final de los lazos'],
+    sourceHref: 'https://knots3d.com/en/granny-knot',
   },
 };
 
@@ -161,7 +210,7 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
           </div>
         </div>
         <figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-3 py-1 text-right text-[9px] font-semibold text-slate-400">
-          Secuencia técnica basada en <a className="text-cyan-300 underline" href={questionId === 'nudo_2' ? 'https://knots3d.com/en/square-knot' : 'https://knots3d.com/en/sheet-bend-knot'} target="_blank" rel="noreferrer">Knots 3D</a>
+          {animation.sourceHref ? <>Secuencia técnica basada en <a className="text-cyan-300 underline" href={animation.sourceHref} target="_blank" rel="noreferrer">Knots 3D</a></> : 'Secuencia fotográfica técnica'}
         </figcaption>
       </figure>
     );
