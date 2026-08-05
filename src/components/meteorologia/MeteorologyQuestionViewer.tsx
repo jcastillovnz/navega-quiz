@@ -1,4 +1,5 @@
 import React from 'react';
+import pamperoRealistic from '../../assets/pampero_rio_plata_3d-v1.png';
 
 type Props = { questionId: string };
 
@@ -114,6 +115,7 @@ const WeatherScene = ({ id }: { id: string }) => {
 
 export const MeteorologyQuestionViewer: React.FC<Props> = ({ questionId }) => {
   const meta = META[questionId] ?? { title: 'Meteorología aplicada', cue: 'Observá las variables del fenómeno antes de responder.' };
+  if (questionId === 'met_pampero_cloud_1' || questionId === 'met_4') return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950"><img src={pamperoRealistic} alt="Frente de Pampero sobre el Río de la Plata con cumulonimbus, nube de arrastre, lluvia y descargas" className="h-full w-full object-contain"/></figure>;
   return <figure className="h-full min-h-0 overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950 flex flex-col">
     <svg viewBox="0 0 1200 430" className="block min-h-0 flex-1 w-full" preserveAspectRatio="xMidYMid meet" role="img" aria-label={`${meta.title}. ${meta.cue}`}>
       <defs><marker id="metArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L0 6 L9 3Z" fill="context-stroke"/></marker></defs>

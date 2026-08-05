@@ -16,7 +16,6 @@ export const PreferredChannelBuoyViewer: React.FC<{preferred:'PORT'|'STARBOARD'}
       </svg>
       {!night&&<div className="absolute inset-0 animate-buoy-sway pointer-events-none"/>}
       {night&&<><div className={`question-light-animation absolute left-1/2 top-[13%] -translate-x-1/2 h-5 w-5 rounded-full ${toPort?'bg-red-500 animate-glow-red':'bg-emerald-500 animate-glow-green'} animate-iala-two-plus-one`}/><div className="absolute inset-0 opacity-70">{[...Array(14)].map((_,i)=><i key={i} className="star absolute rounded-full bg-white" style={{width:2,height:2,top:`${8+(i*23)%55}%`,left:`${8+(i*31)%86}%`}}/>)}</div></>}
-      <div className={`absolute bottom-2 left-2 right-2 rounded-lg px-2 py-1.5 backdrop-blur ${night?'bg-slate-950/85':'bg-white/85'}`}><p className={`text-[10px] font-black ${night?'text-indigo-200':'text-sky-950'}`}>{night?'NOCHE · Fl(2+1)':'DÍA · COLOR Y FORMA'}</p><p className={`text-[9px] ${night?'text-slate-200':'text-slate-800'}`}>{night?`${toPort?'Roja':'Verde'}: dos destellos + pausa + uno`:label}</p></div>
     </div>})}
   </figure>;
 };

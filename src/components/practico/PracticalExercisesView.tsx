@@ -12,8 +12,45 @@ const TYPE_LABELS: Record<PracticalExercise['type'], string> = {
   RUMBO_VELOCIDAD: 'Rumbo, distancia y tiempo'
 };
 
+const QUICK_METHODS: Record<string, string[]> = {
+  prac_carta_1: ['Leé 7 minutos de arco en la escala lateral de latitud.', 'Cada minuto de latitud representa 1 milla náutica.', 'Entonces: 7′ = 7 MN.'],
+  prac_carta_2: ['En examen, abrí el compás entre A y B.', 'Sin cambiar la abertura, llevalo a la escala de latitud más cercana a la derrota.', 'La abertura mide aproximadamente 9,1 MN; no hace falta trigonometría.'],
+  prac_carta_3: ['Tiempo = 9,1 ÷ 9 ≈ 1 hora.', 'Como sobra 0,1 MN, agregá aproximadamente 1 minuto.', '10:20 + 1:01 = 11:21.'],
+  prac_1: ['Años: 2025 − 2021 = 4.', 'Cambio: 4 × 8′ = 32′ W.', 'Mismo sentido: 6°10′ + 32′ = 6°42′ W.'],
+  prac_2: ['Años: 2026 − 2020 = 6.', 'Cambio: 6 × 5′ = 30′ E.', 'Sentidos opuestos: 5°40′ W − 30′ = 5°10′ W.'],
+  prac_3: ['Años: 2025 − 2021 = 4.', 'Cambio: 8′24″ × 4 = 33′36″.', 'Sumá a 7°25′00″: resultado 7°58′36″ W.'],
+  prac_4: ['Años: 2025 − 2021 = 4.', 'Cambio: 4 × 8″ = 32″.', '54″ + 32″ = 86″ = 1′26″; resultado 6°57′26″ W.'],
+  prac_5: ['Tiempo = distancia ÷ velocidad.', '12 ÷ 8 = 1,5 horas.', 'Media hora es 30 minutos: total 1 h 30 min.'],
+  prac_6: ['45 minutos son 3/4 de hora.', 'Distancia = 6 × 3/4.', '6 ÷ 4 × 3 = 4,5 MN.'],
+  prac_7: ['Medí en carta: 9,1 MN.', 'Oeste se resta al verdadero: Rm = 150° + 8° = 158°.', 'Tiempo: 9,1 ÷ 9 ≈ 1 h 1 min.'],
+  prac_8: ['Medí distancia y rumbo directamente en carta: 13 MN y 231° magnético.', 'Tiempo = 13 ÷ 6 = 2 horas y sobra 1 MN.', 'A 6 kn, 1 MN lleva 10 min: total 2 h 10 min.'],
+  prac_9: ['Medí en carta: 9,4 MN y 318° magnético.', 'Tiempo = 9,4 ÷ 6,5 ≈ 1,45 h.', '0,45 h × 60 ≈ 27 min: aproximadamente 1 h 26 min.'],
+  prac_10: ['Amplitud = pleamar − bajamar.', '1,80 − 0,60 = 1,20 m.'],
+  prac_11: ['Necesitás: calado 1,10 + margen 0,30 = 1,40 m.', 'En cada horario sumá: fondo 0,70 + marea − 0,20 de viento.', 'El primer horario que alcanza 1,40 m es 17:00.'],
+  prac_12: ['Trazá cada marcación desde su objeto conocido.', 'El cruce de ambas rectas es la posición del barco.', 'No hay cuenta: es una resolución gráfica.'],
+  prac_13: ['Restá 9° W a cada marcación: 249°→240° y 197°→188°.', 'Sacá las recíprocas: 060° y 008°.', 'Trazalas desde los objetos; su cruce da la posición.'],
+  prac_14: ['Restá 9° W: 284°→275° y 162°→153°.', 'Recíprocas: 095° y 333°.', 'Trazá ambas; el cruce queda junto a Torre Agua.'],
+  prac_15: ['Restá 7° W: 268°→261° y 195°→188°.', 'Recíprocas: 081° y 008°.', 'Trazalas desde ambos objetos y leé la intersección.'],
+  prac_16: ['Actualizá Dm: 7°36′ + 18′ = 7°54′ W.', 'Rumbo verdadero: 13° − 7°54′ ≈ 5°.', 'Distancia: 6 × 1,5 = 9 MN; trazá 9 MN al 005°.'],
+  prac_17: ['Actualizá Dm: 7°32′ + 21′ = 7°53′ W.', 'Rumbo verdadero: 38° − 7°53′ ≈ 30°.', 'Distancia: 5 × 1,5 = 7,5 MN; trazá al 030°.'],
+  prac_18: ['Necesitás: 1,25 + 0,30 = 1,55 m.', 'Probá cada hora: fondo 0,50 + marea + 0,20 de viento.', 'A las 17:00: 0,50 + 0,95 + 0,20 = 1,65 m; alcanza.'],
+  prac_19: ['Usá escala 1 cm = 1 kn.', 'Dibujá 5 cm al 090° y, desde su punta, 2 cm al 150°.', 'Uní origen con punta final y medí: ≈106° y 6,3 kn.'],
+  prac_20: ['Trazá la derrota deseada al 105°.', 'Dibujá la corriente invertida: 1,5 cm al 350°.', 'Con compás de 6 cm cerrá el triángulo y medí: ≈086° y 6,3 kn.'],
+  prac_21: ['Rumbo verdadero: 190° − 3° − 12° = 175°.', 'Abatimiento a estribor: 175° + 10° = 185°.', 'Resultado: Rv 175°; derrota 185°.']
+};
+
 const ChartScaleGuide: React.FC = () => (
   <div className="mt-4 rounded-xl border border-cyan-500/30 bg-slate-950 p-3">
+    <div className="mb-3 grid gap-2 sm:grid-cols-2">
+      <div className="rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-3">
+        <p className="text-[10px] font-black uppercase tracking-wider text-cyan-300">¿Por qué 1′ equivale a 1 MN?</p>
+        <p className="mt-1 text-[10px] leading-relaxed text-slate-200">La latitud divide cada grado del meridiano terrestre en 60 minutos de arco. <strong className="text-white">Una milla náutica corresponde a un minuto de ese arco</strong>; internacionalmente se fijó en 1.852 metros. Por eso, 7′ de latitud representan 7 MN.</p>
+      </div>
+      <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3">
+        <p className="text-[10px] font-black uppercase tracking-wider text-amber-300">¿Por qué se mide sobre latitud?</p>
+        <p className="mt-1 text-[10px] leading-relaxed text-slate-200">Los meridianos convergen hacia los polos: un minuto de <strong className="text-white">longitud</strong> se hace más corto al alejarse del Ecuador. La escala lateral de <strong className="text-white">latitud</strong> conserva la referencia náutica correcta en la carta Mercator.</p>
+      </div>
+    </div>
     <div className="relative overflow-hidden rounded-lg border border-slate-700 aspect-[5/4] bg-slate-800">
       <img src={buenosAiresChart} alt="Carta abierta del Río de la Plata frente a Buenos Aires con señales marítimas" className="absolute inset-0 h-full w-full object-cover" />
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" role="img" aria-label="Derrota entre las posiciones A y B sobre una carta del área de Buenos Aires">
@@ -36,12 +73,37 @@ const ChartScaleGuide: React.FC = () => (
       </div>
       <div className="absolute bottom-1 left-1 rounded bg-slate-950/80 px-1.5 py-1 text-[7px] text-slate-300">© OpenStreetMap · OpenSeaMap · CARTO</div>
     </div>
+    <div className="mt-2 overflow-hidden rounded-lg border border-cyan-500/30 bg-slate-900 p-2">
+      <p className="mb-1 text-[9px] font-black uppercase tracking-wider text-cyan-300">Ampliación de la escala lateral · cada división de este ejemplo es 1′</p>
+      <svg viewBox="0 0 760 150" className="h-auto w-full" role="img" aria-label="Escala de latitud ampliada y compás midiendo siete minutos, equivalentes a siete millas náuticas">
+        <rect width="760" height="150" rx="12" fill="#020617"/>
+        <path d="M72 82H688" stroke="#e2e8f0" strokeWidth="4"/>
+        {Array.from({length:11},(_,minute)=>{
+          const x=72+minute*61.6;
+          const major=minute===0||minute===5||minute===10;
+          return <g key={minute}>
+            <path d={`M${x} ${major?48:62}V102`} stroke={major?'#22d3ee':'#94a3b8'} strokeWidth={major?5:3}/>
+            <text x={x} y="121" textAnchor="middle" fill={major?'#67e8f9':'#cbd5e1'} fontSize={major?16:13} fontWeight="800">{24+minute}′</text>
+          </g>;
+        })}
+        <text x="72" y="31" fill="#67e8f9" fontSize="15" fontWeight="900">34°24′ S</text>
+        <text x="688" y="31" textAnchor="end" fill="#67e8f9" fontSize="15" fontWeight="900">34°34′ S</text>
+        <path d="M72 72 Q287 0 503 72" fill="none" stroke="#fbbf24" strokeWidth="6"/>
+        <circle cx="72" cy="72" r="8" fill="#fbbf24"/><circle cx="503" cy="72" r="8" fill="#fbbf24"/>
+        <path d="M72 66L40 16 M503 66L535 16" stroke="#fbbf24" strokeWidth="6" strokeLinecap="round"/>
+        <rect x="250" y="5" width="128" height="30" rx="15" fill="#f59e0b"/>
+        <text x="314" y="25" textAnchor="middle" fill="#0f172a" fontSize="15" fontWeight="900">7′ = 7 MN</text>
+        <text x="380" y="143" textAnchor="middle" fill="#94a3b8" fontSize="12">Una rayita = 1′ = 1 MN en esta escala</text>
+      </svg>
+      <p className="mt-1 text-[9px] leading-relaxed text-slate-300"><strong className="text-amber-300">Cómo se usa:</strong> abrí el compás entre los dos puntos de la derrota, sin cambiar su abertura apoyá una punta en una marca de minuto y contá las divisiones hasta la otra punta. En el ejemplo abarca de 24′ a 31′: son 7 divisiones, por lo tanto 7 MN.</p>
+      <p className="mt-1 text-[9px] leading-relaxed text-slate-400"><strong className="text-rose-300">Antes de contar rayitas:</strong> comprobá los números impresos. Si entre 24′ y 25′ hay dos espacios, cada espacio vale 0,5′ = 0,5 MN; si hay cinco, cada uno vale 0,2′ = 0,2 MN.</p>
+    </div>
     <div className="mt-2 grid grid-cols-3 gap-1.5 text-[9px] leading-snug">
       <div className="rounded-lg border border-cyan-500/25 bg-cyan-500/10 p-2 text-cyan-100"><strong>1. Abrí el compás</strong><br />desde A hasta B.</div>
-      <div className="rounded-lg border border-cyan-500/25 bg-cyan-500/10 p-2 text-cyan-100"><strong>2. Trasladalo</strong><br />a la escala lateral cercana.</div>
+      <div className="rounded-lg border border-cyan-500/25 bg-cyan-500/10 p-2 text-cyan-100"><strong>2. Trasladalo</strong><br />a la escala de latitud más próxima a la derrota.</div>
       <div className="rounded-lg border border-amber-500/25 bg-amber-500/10 p-2 text-amber-100"><strong>3. Leé minutos</strong><br />1′ de latitud = 1 MN.</div>
     </div>
-    <p className="mt-2 text-[9px] leading-relaxed text-slate-400"><strong className="text-rose-300">Nunca midas millas sobre la escala horizontal de longitud.</strong> Esta lámina usa cartografía abierta real para aprendizaje y no reemplaza una carta oficial actualizada para navegar.</p>
+    <p className="mt-2 text-[9px] leading-relaxed text-slate-400"><strong className="text-rose-300">No midas millas sobre la escala horizontal de longitud.</strong> En cartas Mercator, tomá la distancia sobre la escala lateral de latitud y a la altura media de la derrota, porque la escala varía de norte a sur. Esta lámina usa cartografía abierta para aprendizaje y no reemplaza una carta oficial actualizada.</p>
   </div>
 );
 
@@ -50,7 +112,7 @@ export const PracticalExercisesView: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
   const exercise = exercises[index];
-  const steps = useMemo(() => exercise.explanationStepByStep
+  const steps = useMemo(() => QUICK_METHODS[exercise.id] ?? exercise.explanationStepByStep
     .split('\n')
     .map(step => step.replace(/^\s*\d+[.)-]?\s*/, '').trim())
     .filter(Boolean), [exercise]);
@@ -103,8 +165,8 @@ export const PracticalExercisesView: React.FC = () => {
 
       <section className="md:col-span-7 min-h-0 rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden flex flex-col">
         <div className="shrink-0 p-3 border-b border-slate-800">
-          <p className="text-[9px] uppercase tracking-widest text-amber-400 font-black">Resolución razonada</p>
-          <h3 className="text-sm font-black text-white">Procedimiento completo</h3>
+          <p className="text-[9px] uppercase tracking-widest text-amber-400 font-black">Resolución sencilla</p>
+          <h3 className="text-sm font-black text-white">Método corto · mente o calculadora básica</h3>
         </div>
 
         {!showSolution ? (

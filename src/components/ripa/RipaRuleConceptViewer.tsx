@@ -1,5 +1,6 @@
 import React from 'react';
 import type { VisualFamily } from '../../data/visualManifest';
+import tssRealistic from '../../assets/ripa_tss_3d_realistic-v3.png';
 
 type ConceptFamily = Extract<VisualFamily,
   'RIPA_WATCH' | 'RIPA_COLLISION_RISK' | 'RIPA_AVOIDANCE' | 'RIPA_CHANNEL' | 'RIPA_TSS' | 'RIPA_RESTRICTED_VIS'>;
@@ -19,6 +20,12 @@ export const RipaRuleConceptViewer: React.FC<{ family: ConceptFamily }> = ({ fam
   const isTss = family === 'RIPA_TSS';
   const isRisk = family === 'RIPA_COLLISION_RISK';
   const isAvoidance = family === 'RIPA_AVOIDANCE';
+
+  if (isTss) return (
+    <figure className="h-full min-h-0 overflow-hidden bg-slate-950" aria-label={COPY[family].title}>
+      <img src={tssRealistic} alt="Dispositivo de separación de tráfico con vías opuestas y embarcación cruzando perpendicularmente" className="h-full w-full object-contain" />
+    </figure>
+  );
 
   return (
     <figure className="h-full min-h-0 flex flex-col bg-slate-950 overflow-hidden" aria-label={COPY[family].title}>
