@@ -95,6 +95,18 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
               className="h-full max-h-full w-auto max-w-full object-contain"
               draggable={false}
             />
+            <div className="absolute left-1/2 top-2 flex -translate-x-1/2 gap-1 rounded-full border border-slate-600 bg-slate-950/90 p-1" aria-label="Elegir paso del As de Guía">
+              {guide.steps.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setSelectedStep(index)}
+                  className={`grid h-7 w-7 place-items-center rounded-full text-[11px] font-black ${selectedStep === index ? 'bg-amber-300 text-slate-950' : 'text-slate-300 hover:bg-slate-800'}`}
+                  aria-label={`Ver paso ${index + 1}`}
+                  aria-current={selectedStep === index ? 'step' : undefined}
+                >{index + 1}</button>
+              ))}
+            </div>
             <button
               type="button"
               onClick={() => setSelectedStep(step => Math.max(0, step - 1))}
