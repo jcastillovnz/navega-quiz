@@ -61,7 +61,7 @@
     "type": "RUMBO_VELOCIDAD",
     "statement": "Un yate a motor navega de la boya A hacia la boya B. La distancia medida en la carta es de 12 millas náuticas (MN). Si su velocidad constante es de 8 nudos, ¿cuánto tiempo tardará en llegar?",
     "expectedResult": "1 hora y 30 minutos",
-    "explanationStepByStep": "Fórmula: Tiempo = Distancia / Velocidad.\n1. T = 12 MN / 8 Nudos = 1.5 horas.\n2. Convertir 0.5 horas a minutos: 0.5 × 60 = 30 minutos.\n3. Tiempo total: 1 hora y 30 minutos."
+    "explanationStepByStep": "1. Identificar qué se conoce y qué se busca: se conocen distancia (12 MN) y velocidad (8 nudos), y se busca tiempo. Por eso corresponde Tiempo = Distancia ÷ Velocidad.\n2. Recordar la unidad escondida en el nudo: 8 nudos = 8 MN/h. Entonces 12 MN ÷ 8 MN/h = 1,5 h; las MN se cancelan y quedan horas.\n3. Interpretar correctamente 1,5 h: el 1 es una hora completa y 0,5 es media hora. No significa 1 h 50 min, porque los decimales de hora se basan en una hora de 60 minutos.\n4. Convertir solo la fracción decimal: 0,5 h × 60 min/h = 30 min.\n5. Regla para reconocer cuándo convertir: se convierte de horas decimales a minutos cuando el resultado tiene una parte decimal y se quiere comunicar como horas y minutos. Si diera 2,0 h, no habría fracción que convertir.\n6. Tiempo total: 1 hora y 30 minutos."
   },
   {
     "id": "prac_6",
@@ -92,8 +92,8 @@
     "category": "PRACTICO",
     "type": "RUMBO_VELOCIDAD",
     "statement": "Trasládese de A: 34° 34.6' S / 058° 17.8' W a B: 34° 29.2' S / 058° 26.7' W. Velocidad 6.5 nudos. Dm = 10° W. Estimar A) Distancia B) Rumbo magnético C) Tiempo.",
-    "expectedResult": "A) 9.4 MN  B) 318°  C) 1h 26min",
-    "explanationStepByStep": "A) Distancia en la carta: 9.4 MN.\nB) Rumbo magnético: 318°.\nC) Tiempo = 9.4 / 6.5 = 1.446 h = 1h 26min."
+    "expectedResult": "A) 9.4 MN  B) 318°  C) aproximadamente 1h 27min",
+    "explanationStepByStep": "1. Medir la distancia en la carta sobre la escala lateral de latitudes: 9,4 MN.\n2. Obtener del trazado el rumbo magnético: 318°.\n3. Calcular el tiempo: 9,4 MN ÷ 6,5 MN/h = 1,446 h. Las MN se cancelan y el resultado queda en horas porque los nudos expresan MN por hora.\n4. Separar 1 hora completa y convertir la fracción 0,446 h: 0,446 × 60 = 26,76 min, aproximadamente 27 min.\n5. Regla de decisión: una coma en horas no separa horas de minutos. Siempre multiplicar la parte decimal por 60 para pasarla a minutos; si el tiempo ya viniera dado como «1 h 30 min», se convertiría a 1,5 h solamente si fuera a multiplicarse por una velocidad en nudos.\n6. Resultado aproximado: 1 h 27 min."
   },
   {
     "id": "prac_10",

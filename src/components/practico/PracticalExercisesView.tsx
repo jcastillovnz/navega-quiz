@@ -12,31 +12,58 @@ const TYPE_LABELS: Record<PracticalExercise['type'], string> = {
   RUMBO_VELOCIDAD: 'Rumbo, distancia y tiempo'
 };
 
-const QUICK_METHODS: Record<string, string[]> = {
-  prac_carta_1: ['Leé 7 minutos de arco en la escala lateral de latitud.', 'Cada minuto de latitud representa 1 milla náutica.', 'Entonces: 7′ = 7 MN.'],
-  prac_carta_2: ['En examen, abrí el compás entre A y B.', 'Sin cambiar la abertura, llevalo a la escala de latitud más cercana a la derrota.', 'La abertura mide aproximadamente 9,1 MN; no hace falta trigonometría.'],
-  prac_carta_3: ['Tiempo = 9,1 ÷ 9 ≈ 1 hora.', 'Como sobra 0,1 MN, agregá aproximadamente 1 minuto.', '10:20 + 1:01 = 11:21.'],
-  prac_1: ['Años: 2025 − 2021 = 4.', 'Cambio: 4 × 8′ = 32′ W.', 'Mismo sentido: 6°10′ + 32′ = 6°42′ W.'],
-  prac_2: ['Años transcurridos: 2026 − 2020 = 6.', 'La carta da 5′ E por año: el símbolo ′ indica minutos de arco, no grados. Por eso se multiplican 6 años × 5′/año.', 'Cambio acumulado: 6 × 5′ = 30′ E. Como 60′ = 1°, entonces 30′ = 0°30′, no 30°.', 'Como W y E son sentidos opuestos, se restan sus magnitudes: 5°40′ − 0°30′ = 5°10′.', 'El resultado sigue siendo W porque 5°40′ W es mayor que la corrección opuesta de 0°30′ E. Resultado: 5°10′ W.'],
-  prac_3: ['Años: 2025 − 2021 = 4.', 'Cambio: 8′24″ × 4 = 33′36″.', 'Sumá a 7°25′00″: resultado 7°58′36″ W.'],
-  prac_4: ['Años: 2025 − 2021 = 4.', 'Cambio: 4 × 8″ = 32″.', '54″ + 32″ = 86″ = 1′26″; resultado 6°57′26″ W.'],
-  prac_5: ['Tiempo = distancia ÷ velocidad.', '12 ÷ 8 = 1,5 horas.', 'Media hora es 30 minutos: total 1 h 30 min.'],
-  prac_6: ['45 minutos son 3/4 de hora.', 'Distancia = 6 × 3/4.', '6 ÷ 4 × 3 = 4,5 MN.'],
-  prac_7: ['Medí en carta: 9,1 MN.', 'Oeste se resta al verdadero: Rm = 150° + 8° = 158°.', 'Tiempo: 9,1 ÷ 9 ≈ 1 h 1 min.'],
-  prac_8: ['Medí distancia y rumbo directamente en carta: 13 MN y 231° magnético.', 'Tiempo = 13 ÷ 6 = 2 horas y sobra 1 MN.', 'A 6 kn, 1 MN lleva 10 min: total 2 h 10 min.'],
-  prac_9: ['Medí en carta: 9,4 MN y 318° magnético.', 'Tiempo = 9,4 ÷ 6,5 ≈ 1,45 h.', '0,45 h × 60 ≈ 27 min: aproximadamente 1 h 26 min.'],
-  prac_10: ['Amplitud = pleamar − bajamar.', '1,80 − 0,60 = 1,20 m.'],
-  prac_11: ['Necesitás: calado 1,10 + margen 0,30 = 1,40 m.', 'En cada horario sumá: fondo 0,70 + marea − 0,20 de viento.', 'El primer horario que alcanza 1,40 m es 17:00.'],
-  prac_12: ['Trazá cada marcación desde su objeto conocido.', 'El cruce de ambas rectas es la posición del barco.', 'No hay cuenta: es una resolución gráfica.'],
-  prac_13: ['Restá 9° W a cada marcación: 249°→240° y 197°→188°.', 'Sacá las recíprocas: 060° y 008°.', 'Trazalas desde los objetos; su cruce da la posición.'],
-  prac_14: ['Restá 9° W: 284°→275° y 162°→153°.', 'Recíprocas: 095° y 333°.', 'Trazá ambas; el cruce queda junto a Torre Agua.'],
-  prac_15: ['Restá 7° W: 268°→261° y 195°→188°.', 'Recíprocas: 081° y 008°.', 'Trazalas desde ambos objetos y leé la intersección.'],
-  prac_16: ['Actualizá Dm: 7°36′ + 18′ = 7°54′ W.', 'Rumbo verdadero: 13° − 7°54′ ≈ 5°.', 'Distancia: 6 × 1,5 = 9 MN; trazá 9 MN al 005°.'],
-  prac_17: ['Actualizá Dm: 7°32′ + 21′ = 7°53′ W.', 'Rumbo verdadero: 38° − 7°53′ ≈ 30°.', 'Distancia: 5 × 1,5 = 7,5 MN; trazá al 030°.'],
-  prac_18: ['Necesitás: 1,25 + 0,30 = 1,55 m.', 'Probá cada hora: fondo 0,50 + marea + 0,20 de viento.', 'A las 17:00: 0,50 + 0,95 + 0,20 = 1,65 m; alcanza.'],
-  prac_19: ['Usá escala 1 cm = 1 kn.', 'Dibujá 5 cm al 090° y, desde su punta, 2 cm al 150°.', 'Uní origen con punta final y medí: ≈106° y 6,3 kn.'],
-  prac_20: ['Trazá la derrota deseada al 105°.', 'Dibujá la corriente invertida: 1,5 cm al 350°.', 'Con compás de 6 cm cerrá el triángulo y medí: ≈086° y 6,3 kn.'],
-  prac_21: ['Rumbo verdadero: 190° − 3° − 12° = 175°.', 'Abatimiento a estribor: 175° + 10° = 185°.', 'Resultado: Rv 175°; derrota 185°.']
+type DvtTarget = 'DISTANCIA' | 'TIEMPO';
+const DVT_EXERCISES: Record<string, DvtTarget> = {
+  prac_carta_3: 'TIEMPO',
+  prac_5: 'TIEMPO',
+  prac_6: 'DISTANCIA',
+  prac_7: 'TIEMPO',
+  prac_8: 'TIEMPO',
+  prac_9: 'TIEMPO',
+  prac_16: 'DISTANCIA',
+  prac_17: 'DISTANCIA',
+};
+
+const RULE_THREE_EXAMPLES: Record<string, [string, string, string]> = {
+  prac_carta_3: ['9 MN → 60 min', '9,1 MN → x min', 'x = (9,1 × 60) ÷ 9 ≈ 61 min'],
+  prac_5: ['8 MN → 60 min', '12 MN → x min', 'x = (12 × 60) ÷ 8 = 90 min'],
+  prac_6: ['60 min → 6 MN', '45 min → x MN', 'x = (45 × 6) ÷ 60 = 4,5 MN'],
+  prac_7: ['9 MN → 60 min', '9,1 MN → x min', 'x = (9,1 × 60) ÷ 9 ≈ 61 min'],
+  prac_8: ['6 MN → 60 min', '13 MN → x min', 'x = (13 × 60) ÷ 6 = 130 min'],
+  prac_9: ['6,5 MN → 60 min', '9,4 MN → x min', 'x = (9,4 × 60) ÷ 6,5 ≈ 87 min'],
+  prac_16: ['60 min → 6 MN', '90 min → x MN', 'x = (90 × 6) ÷ 60 = 9 MN'],
+  prac_17: ['60 min → 5 MN', '90 min → x MN', 'x = (90 × 5) ÷ 60 = 7,5 MN'],
+};
+
+const DistanceSpeedTimeGuide: React.FC<{ target: DvtTarget; questionId: string }> = ({ target, questionId }) => {
+  const isDistance = target === 'DISTANCIA';
+  const ruleThree = RULE_THREE_EXAMPLES[questionId];
+  return <div className="rounded-xl border border-amber-400/35 bg-amber-400/5 p-3">
+    <div className="grid items-center gap-3 sm:grid-cols-[112px_1fr]">
+      <div className="mx-auto w-24 overflow-hidden rounded-lg border-2 border-amber-300 bg-slate-950 text-center font-black shadow-lg shadow-amber-950/30" aria-label="Triángulo de distancia, velocidad y tiempo">
+        <div className={`border-b-2 border-amber-300 py-1.5 text-lg ${isDistance ? 'bg-amber-300 text-slate-950' : 'text-amber-200'}`}>D</div>
+        <div className="grid grid-cols-2 divide-x-2 divide-amber-300">
+          <div className="py-1.5 text-base text-cyan-200">V</div>
+          <div className={`py-1.5 text-base ${!isDistance ? 'bg-amber-300 text-slate-950' : 'text-cyan-200'}`}>T</div>
+        </div>
+      </div>
+      <div>
+        <p className="text-[10px] font-black uppercase tracking-wider text-amber-300">Cómo usar el triángulo D–V–T</p>
+        <p className="mt-1 text-[11px] leading-relaxed text-slate-200"><strong>Tapá la letra que buscás.</strong> Si quedan dos letras juntas, multiplicá; si quedan una arriba y otra abajo, dividí.</p>
+        {ruleThree && <div className="mt-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-2 text-[10px] leading-relaxed text-slate-200">
+          <p className="font-black text-cyan-300">Resolvelo con una regla de tres simple</p>
+          <p className="mt-1 font-mono text-white">{ruleThree[0]}<br />{ruleThree[1]}</p>
+          <p className="mt-1"><strong>{ruleThree[2]}.</strong> Es directa: a más distancia corresponde más tiempo; a más tiempo corresponde más distancia.</p>
+        </div>}
+        <div className="mt-2 grid grid-cols-3 gap-1 text-center text-[10px] font-black">
+          <span className={`rounded-md px-1 py-1.5 ${isDistance ? 'bg-amber-300 text-slate-950' : 'bg-slate-800 text-slate-300'}`}>D = V × T</span>
+          <span className="rounded-md bg-slate-800 px-1 py-1.5 text-slate-300">V = D ÷ T</span>
+          <span className={`rounded-md px-1 py-1.5 ${!isDistance ? 'bg-amber-300 text-slate-950' : 'bg-slate-800 text-slate-300'}`}>T = D ÷ V</span>
+        </div>
+        <p className="mt-2 text-[10px] leading-relaxed text-slate-400"><strong className="text-cyan-300">Unidades:</strong> D en millas náuticas, V en nudos (MN/h) y T en horas. Si el tiempo está en minutos, usá horas = minutos ÷ 60.</p>
+      </div>
+    </div>
+  </div>;
 };
 
 type TideRow = { time: string; event?: string; tide: number; available?: number; safe?: boolean };
@@ -179,7 +206,8 @@ export const PracticalExercisesView: React.FC = () => {
   const [showSolution, setShowSolution] = useState(false);
   const exercise = exercises[index];
   const tideData = TIDE_EXERCISES[exercise.id];
-  const steps = useMemo(() => QUICK_METHODS[exercise.id] ?? exercise.explanationStepByStep
+  const dvtTarget = DVT_EXERCISES[exercise.id];
+  const steps = useMemo(() => exercise.explanationStepByStep
     .split('\n')
     .map(step => step.replace(/^\s*\d+[.)-]?\s*/, '').trim())
     .filter(Boolean), [exercise]);
@@ -233,8 +261,8 @@ export const PracticalExercisesView: React.FC = () => {
 
       <section className="md:col-span-7 min-h-0 rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden flex flex-col">
         <div className="shrink-0 p-3 border-b border-slate-800">
-          <p className="text-[9px] uppercase tracking-widest text-amber-400 font-black">Resolución sencilla</p>
-          <h3 className="text-sm font-black text-white">Método corto · mente o calculadora básica</h3>
+          <p className="text-[9px] uppercase tracking-widest text-amber-400 font-black">Resolución explicada</p>
+          <h3 className="text-sm font-black text-white">Qué hacer, por qué y cómo reconocerlo</h3>
         </div>
 
         {!showSolution ? (
@@ -247,6 +275,7 @@ export const PracticalExercisesView: React.FC = () => {
           </div>
         ) : (
           <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-2">
+            {dvtTarget && <DistanceSpeedTimeGuide target={dvtTarget} questionId={exercise.id} />}
             {steps.map((step, stepIndex) => (
               <div key={`${exercise.id}-${stepIndex}`} className="grid grid-cols-[34px_1fr] gap-3 rounded-xl border border-slate-800 bg-slate-900 p-3">
                 <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 grid place-items-center text-xs font-black">{stepIndex + 1}</div>
