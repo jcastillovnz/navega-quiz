@@ -17,6 +17,7 @@ type KnotGuide = {
   image: string;
   alt: string;
   steps: [string, string, string, string];
+  directions?: [string, string, string, string];
   layout?: 'strip' | 'grid';
 };
 
@@ -26,7 +27,9 @@ const GUIDES: Record<KnotFamily, KnotGuide> = {
     use: 'Gaza fija que no se corre',
     image: bowlinePlate,
     alt: 'Cuatro fotografías consecutivas para formar un as de guía con el firme azul y el chicote naranja',
-    steps: ['Formá una coca', 'Subí por la coca', 'Rodeá el firme', 'Volvé y ajustá'],
+    steps: ['Cruzá y formá una coca', 'Meté el chicote desde abajo', 'Rodeá el firme por detrás', 'Volvé por la coca y ajustá'],
+    directions: ['↻', '↑', '↶', '↓'],
+    layout: 'grid',
   },
   KNOT_REEF: {
     name: 'Nudo llano',
@@ -76,18 +79,11 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
   return (
     <figure className="h-full min-h-0 overflow-hidden bg-slate-950 flex flex-col" aria-label={`${guide.name}: guía visual paso a paso`}>
       <div className="relative min-h-0 flex-1 bg-[#17110d]">
-        <img
-          src={guide.image}
-          alt={guide.alt}
-          className="hidden h-full w-full object-contain sm:block"
-          draggable={false}
-        />
-
-        <div className="flex h-full snap-x snap-mandatory overflow-x-auto sm:hidden" aria-label="Deslizá para observar los cuatro pasos">
+        <div className="flex h-full snap-x snap-mandatory overflow-x-auto sm:grid sm:grid-cols-4 sm:overflow-hidden" aria-label="Deslizá para observar los cuatro pasos">
           {guide.steps.map((step, index) => (
             <div
               key={step}
-              className="relative h-full min-w-[88vw] snap-center border-r border-white/15 bg-cover bg-no-repeat"
+              className="relative h-full min-w-[88vw] snap-center border-r border-white/20 bg-cover bg-no-repeat sm:min-w-0"
               style={{
                 backgroundImage: `url(${guide.image})`,
                 backgroundSize: guide.layout === 'grid' ? '200% 200%' : '400% 100%',
@@ -96,18 +92,16 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
               role="img"
               aria-label={`Paso ${index + 1}: ${step}`}
             >
-              <span className="absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-full border border-white/50 bg-slate-950/90 text-sm font-black text-white">
+              <span className={`absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-full border text-sm font-black shadow-lg ${index === focusStep ? 'border-amber-300 bg-amber-300 text-slate-950' : 'border-white/50 bg-slate-950/90 text-white'}`}>
                 {index + 1}
               </span>
-            </div>
-          ))}
-        </div>
-
-        <div className="pointer-events-none absolute inset-x-0 top-2 hidden grid-cols-4 px-2 sm:grid">
-          {guide.steps.map((step, index) => (
-            <div key={step} className="px-1">
-              <span className={`grid h-7 w-7 place-items-center rounded-full border text-xs font-black shadow-lg ${index === focusStep ? 'border-amber-300 bg-amber-300 text-slate-950' : 'border-white/50 bg-slate-950/85 text-white'}`}>
-                {index + 1}
+              {guide.directions?.[index] && (
+                <span className="absolute right-3 top-2 text-4xl font-black text-amber-300 [text-shadow:0_2px_8px_#000]" aria-hidden="true">
+                  {guide.directions[index]}
+                </span>
+              )}
+              <span className="absolute inset-x-2 bottom-2 rounded-md border border-white/20 bg-slate-950/90 px-2 py-1 text-center text-[10px] font-bold text-white sm:hidden">
+                {step}
               </span>
             </div>
           ))}
