@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { VisualFamily } from '../../data/visualManifest';
 import anchorBendPlate from '../../assets/knots/anchor-bend-steps-v1.webp';
-import bowlinePlate from '../../assets/knots/bowline-steps-v2.webp';
+import bowlineStep1 from '../../assets/knots/bowline-guide-step-1-v3.webp';
+import bowlineStep2 from '../../assets/knots/bowline-guide-step-2-v3.webp';
+import bowlineStep3 from '../../assets/knots/bowline-guide-step-3-v3.webp';
+import bowlineStep4 from '../../assets/knots/bowline-guide-step-4-v3.webp';
+import bowlineStep5 from '../../assets/knots/bowline-guide-step-5-v3.webp';
 import cloveHitchPlate from '../../assets/knots/clove-hitch-steps-v1.webp';
 import figureEightPlate from '../../assets/knots/figure-eight-steps-v1.webp';
 import reefKnotPlate from '../../assets/knots/reef-knot-steps-v1.webp';
@@ -15,9 +19,10 @@ type KnotGuide = {
   name: string;
   use: string;
   image: string;
+  stepImages?: string[];
   alt: string;
-  steps: [string, string, string, string];
-  directions?: [string, string, string, string];
+  steps: string[];
+  directions?: string[];
   layout?: 'strip' | 'grid';
 };
 
@@ -25,11 +30,11 @@ const GUIDES: Record<KnotFamily, KnotGuide> = {
   KNOT_BOWLINE: {
     name: 'As de guía',
     use: 'Gaza fija que no se corre',
-    image: bowlinePlate,
-    alt: 'Cuatro fotografías consecutivas para formar un as de guía con el firme azul y el chicote naranja',
-    steps: ['Cruzá y formá una coca', 'Meté el chicote desde abajo', 'Rodeá el firme por detrás', 'Volvé por la coca y ajustá'],
-    directions: ['↻', '↑', '↶', '↓'],
-    layout: 'grid',
+    image: bowlineStep1,
+    stepImages: [bowlineStep1, bowlineStep2, bowlineStep3, bowlineStep4, bowlineStep5],
+    alt: 'Cinco fotografías verificadas para formar un as de guía con un único cabo',
+    steps: ['Giralo para formar la coca', 'Dejá la coca abierta', 'Sacá el chicote por la coca', 'Rodeá el firme por detrás', 'Volvé por la coca y ajustá'],
+    directions: ['↻', '○', '↑', '↶', '↓'],
   },
   KNOT_REEF: {
     name: 'Nudo llano',
@@ -75,10 +80,42 @@ const gridPosition = ['0% 0%', '100% 0%', '0% 100%', '100% 100%'];
 export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: string }> = ({ family, questionId }) => {
   const guide = GUIDES[family];
   const focusStep = questionId ? Number(questionId.replace(/\D/g, '')) % 4 : 3;
+  const [selectedStep, setSelectedStep] = useState(0);
+
+  useEffect(() => setSelectedStep(0), [family, questionId]);
 
   return (
     <figure className="h-full min-h-0 overflow-hidden bg-slate-950 flex flex-col" aria-label={`${guide.name}: guía visual paso a paso`}>
       <div className="relative min-h-0 flex-1 bg-[#17110d]">
+        {guide.stepImages ? (
+          <div className="relative flex h-full items-center justify-center bg-[radial-gradient(circle_at_center,#3b2a1f_0%,#17110d_62%)] px-16 sm:px-28">
+            <img
+              src={guide.stepImages[selectedStep]}
+              alt={`Paso ${selectedStep + 1} de ${guide.steps.length}: ${guide.steps[selectedStep]}`}
+              className="h-full max-h-full w-auto max-w-full object-contain"
+              draggable={false}
+            />
+            <button
+              type="button"
+              onClick={() => setSelectedStep(step => Math.max(0, step - 1))}
+              disabled={selectedStep === 0}
+              className="absolute left-3 grid h-10 w-10 place-items-center rounded-full border border-slate-500 bg-slate-950/90 text-xl font-black text-white disabled:opacity-25"
+              aria-label="Paso anterior"
+            >‹</button>
+            <button
+              type="button"
+              onClick={() => setSelectedStep(step => Math.min(guide.steps.length - 1, step + 1))}
+              disabled={selectedStep === guide.steps.length - 1}
+              className="absolute right-3 grid h-10 w-10 place-items-center rounded-full border border-slate-500 bg-slate-950/90 text-xl font-black text-white disabled:opacity-25"
+              aria-label="Paso siguiente"
+            >›</button>
+            <div className="absolute inset-x-0 bottom-2 flex justify-center">
+              <span className="rounded-full border border-amber-300/60 bg-slate-950/90 px-3 py-1 text-[11px] font-bold text-white">
+                <span className="mr-1 text-amber-300">{selectedStep + 1}/{guide.steps.length}</span>{guide.steps[selectedStep]}
+              </span>
+            </div>
+          </div>
+        ) : (
         <div className="flex h-full snap-x snap-mandatory overflow-x-auto sm:grid sm:grid-cols-4 sm:overflow-hidden" aria-label="Deslizá para observar los cuatro pasos">
           {guide.steps.map((step, index) => (
             <div
@@ -106,6 +143,7 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
             </div>
           ))}
         </div>
+        )}
       </div>
 
       <figcaption className="shrink-0 border-t border-pink-400/30 bg-slate-900 px-2 py-1.5">
@@ -113,9 +151,9 @@ export const KnotTechnicalViewer: React.FC<{ family: KnotFamily; questionId?: st
           <p className="text-xs font-black text-pink-200">{guide.name}</p>
           <p className="text-[10px] font-bold text-amber-300">{guide.use}</p>
         </div>
-        <ol className="grid grid-cols-2 gap-1 sm:grid-cols-4">
+        <ol className={`grid grid-cols-2 gap-1 ${guide.steps.length === 5 ? 'sm:grid-cols-5' : 'sm:grid-cols-4'}`}>
           {guide.steps.map((step, index) => (
-            <li key={step} className={`rounded-md border px-2 py-1 text-[10px] font-semibold ${index === focusStep ? 'border-amber-400/70 bg-amber-400/10 text-amber-100' : 'border-slate-700 bg-slate-950/70 text-slate-200'}`}>
+            <li key={step} className={`rounded-md border px-2 py-1 text-[10px] font-semibold ${index === (guide.stepImages ? selectedStep : focusStep) ? 'border-amber-400/70 bg-amber-400/10 text-amber-100' : 'border-slate-700 bg-slate-950/70 text-slate-200'}`}>
               <span className="mr-1 text-cyan-300">{index + 1}.</span>{step}
             </li>
           ))}
