@@ -236,6 +236,12 @@ export const PracticalExercisesView: React.FC = () => {
             <span className="text-[10px] uppercase tracking-wider font-black">Enunciado</span>
           </div>
           <p className="text-sm text-slate-100 leading-relaxed font-semibold whitespace-pre-line">{tideData?.prompt ?? exercise.statement}</p>
+          {exercise.provenance === 'COMPLEMENTARIO' && (
+            <div className="mt-3 rounded-lg border border-amber-400/35 bg-amber-400/10 px-3 py-2">
+              <p className="text-[9px] font-black uppercase tracking-wider text-amber-300">Ejercicio complementario · no textual del preguntero</p>
+              {exercise.source && <p className="mt-0.5 text-[10px] leading-relaxed text-slate-300">Fuente: {exercise.source}</p>}
+            </div>
+          )}
           {tideData && <TideExerciseTable data={tideData} reveal={showSolution} />}
           {exercise.type === 'CARTA_LAT_LONG' && <ChartScaleGuide />}
         </div>

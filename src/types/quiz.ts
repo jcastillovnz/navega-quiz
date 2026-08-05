@@ -34,6 +34,8 @@ export interface PracticalExercise {
   id: string;
   category: 'PRACTICO';
   type: 'CARTA_LAT_LONG' | 'DECLINACION' | 'MAREAS' | 'MARCACIONES' | 'RUMBO_VELOCIDAD';
+  provenance?: 'PREGUNTERO' | 'COMPLEMENTARIO';
+  source?: string;
   statement: string; // Enunciado del ejercicio
   expectedResult: number | string; // Resultado numérico o texto esperado
   explanationStepByStep: string; // Explicación resolutiva paso a paso
