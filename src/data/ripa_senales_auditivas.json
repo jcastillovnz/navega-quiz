@@ -93,6 +93,34 @@
       { "id": "C", "text": "Dos pitadas cortas", "isCorrect": false },
       { "id": "D", "text": "Silencio para escuchar", "isCorrect": false }
     ],
-    "explanation": "Regla 35 g): el fondeado repica rápidamente la campana durante unos 5 segundos a intervalos no mayores de 1 minuto. Si mide 100 m o más, añade inmediatamente un gong a popa durante unos 5 segundos."
+    "explanation": "Regla 35 f): el fondeado repica rápidamente la campana durante unos 5 segundos a intervalos no mayores de 1 minuto. Si mide 100 m o más, añade inmediatamente un gong a popa durante unos 5 segundos."
+  },
+  {
+    "id": "ripa_sound_anchor_100m",
+    "category": "RIPA",
+    "provenance": "COMPLEMENTARIO",
+    "source": "RIPA, Regla 35 f) · Ley 21.546",
+    "question": "En visibilidad reducida, ¿qué señal acústica corresponde a un buque fondeado de eslora igual o superior a 100 metros?",
+    "options": [
+      { "id": "A", "text": "Campana a proa durante unos 5 segundos y, enseguida, gong a popa durante unos 5 segundos; cada no más de 1 minuto", "isCorrect": true },
+      { "id": "B", "text": "Solo gong a proa durante 10 segundos cada 2 minutos", "isCorrect": false },
+      { "id": "C", "text": "Campana y gong simultáneos en la parte central", "isCorrect": false },
+      { "id": "D", "text": "Una pitada prolongada seguida de tres cortas", "isCorrect": false }
+    ],
+    "explanation": "En un fondeado de eslora igual o superior a 100 m, la Regla 35 f) exige repicar la campana en la parte de proa durante unos 5 segundos y, de inmediato, hacer sonar rápidamente el gong en la parte de popa durante unos 5 segundos. El conjunto se repite a intervalos que no excedan de 1 minuto. No se hacen simultáneamente: campana primero y gong inmediatamente después. [FUENTE: RIPA, Regla 35 f) · Ley 21.546]"
+  },
+  {
+    "id": "ripa_sound_aground_fog",
+    "category": "RIPA",
+    "provenance": "COMPLEMENTARIO",
+    "source": "RIPA, Regla 35 g) · Ley 21.546",
+    "question": "En visibilidad reducida, ¿cómo se diferencia acústicamente un buque varado de uno simplemente fondeado?",
+    "options": [
+      { "id": "A", "text": "Da tres golpes de campana claros y separados antes y después del repique rápido reglamentario", "isCorrect": true },
+      { "id": "B", "text": "Sustituye la campana por tres pitadas prolongadas", "isCorrect": false },
+      { "id": "C", "text": "Hace sonar el gong continuamente hasta liberarse", "isCorrect": false },
+      { "id": "D", "text": "Emite cinco pitadas cortas después de cada repique", "isCorrect": false }
+    ],
+    "explanation": "La Regla 35 g) ordena al varado emitir la señal de campana —y, si corresponde por su eslora, también la de gong— prescrita para el fondeado. Para distinguir su condición, agrega tres golpes de campana claros y separados inmediatamente antes y otros tres inmediatamente después del repique rápido. [FUENTE: RIPA, Regla 35 g) · Ley 21.546]"
   }
 ]

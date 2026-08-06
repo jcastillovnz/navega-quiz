@@ -180,6 +180,11 @@ export const IntegratedLearningView: React.FC<IntegratedLearningViewProps> = ({
                   <Lightbulb className="w-3.5 h-3.5" />
                   <span className="text-[10px] uppercase tracking-wider font-black">Comprobación inmediata</span>
                 </div>
+                {question.provenance === 'COMPLEMENTARIO' && (
+                  <p className="mb-1.5 text-[8px] font-black uppercase tracking-wider text-amber-300">
+                    Pregunta complementaria{question.source ? ` · ${question.source}` : ''}
+                  </p>
+                )}
                 <p className="text-sm leading-snug font-bold text-white mb-2.5">{question.question}</p>
                 <div className="learning-options grid sm:grid-cols-2 gap-1.5">
                   {question.options.map(option => (

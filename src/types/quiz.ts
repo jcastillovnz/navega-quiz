@@ -24,6 +24,8 @@ export interface QuizOption {
 export interface QuizQuestion {
   id: string;
   category: QuizCategory;
+  provenance?: 'PREGUNTERO' | 'COMPLEMENTARIO';
+  source?: string;
   question: string;
   options: QuizOption[];
   explanation: string; // Explicación que se muestra al usuario después de responder

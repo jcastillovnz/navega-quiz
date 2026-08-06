@@ -10,6 +10,9 @@ interface SignalSpec {
   scene: Scene;
   interval?: string;
   bell?: boolean;
+  gong?: boolean;
+  aground?: boolean;
+  patternLabel?: string;
   maneuver?: 'PORT' | 'STARBOARD' | 'ASTERN' | 'DOUBT';
 }
 
@@ -19,6 +22,8 @@ const signalFrom = (text: string): SignalSpec => {
   if (/ripa_rule33_whistle/.test(value)) return { title: 'Pito reglamentario según la eslora', blasts: ['SHORT'], scene: 'EQUIPMENT' };
   if (/ripa_rule33_bell/.test(value)) return { title: 'Pito y campana según la eslora', blasts: [], scene: 'EQUIPMENT', bell: true };
   if (/ripa_rule36_attention/.test(value)) return { title: 'Señal de atención sin crear confusión', blasts: ['SHORT'], scene: 'MANEUVER', maneuver: 'DOUBT' };
+  if (/ripa_sound_anchor_100m/.test(value)) return { title: 'Fondeado de 100 m o más', blasts: [], scene: 'ANCHOR', interval: 'Repetir cada ≤ 1 min', bell: true, gong: true, patternLabel: 'CAMPANA PROA 5 s → GONG POPA 5 s' };
+  if (/ripa_sound_aground_fog/.test(value)) return { title: 'Varado en visibilidad reducida', blasts: [], scene: 'ANCHOR', interval: 'Repetir cada ≤ 1 min', bell: true, aground: true, patternLabel: '3 GOLPES → REPIQUE 5 s → 3 GOLPES' };
   if (/fondead|campana/.test(value)) return { title: 'Fondeado en visibilidad reducida', blasts: [], scene: 'ANCHOR', interval: 'Repique rápido durante 5 s · cada ≤ 1 min', bell: true };
   if (/duda|incomprensi|cinco|5 pitadas/.test(value)) return { title: 'Duda o peligro ante la maniobra', blasts: ['SHORT', 'SHORT', 'SHORT', 'SHORT', 'SHORT'], scene: 'MANEUVER', maneuver: 'DOUBT' };
   if (/recodo|curva|obstru/.test(value)) return { title: 'Buques ocultos por un recodo', blasts: ['LONG'], scene: 'BEND' };
@@ -91,9 +96,16 @@ const ContextScene = ({ signal }: { signal: SignalSpec }) => (
     {(signal.scene === 'FOG' || signal.scene === 'ANCHOR') && <>
       <Ship x={500} y={235} />
       {signal.scene === 'ANCHOR' ? <>
-        <path d="M500 260 Q515 315 580 338" fill="none" stroke="#d6a45d" strokeWidth="8" />
-        <path d="M580 310 V345 M557 323 H603 M580 345 Q550 342 538 325 M580 345 Q610 342 622 325" fill="none" stroke="#1e293b" strokeWidth="8" />
-        <g transform="translate(500 105)"><Bell className="text-amber-300" /></g>
+        {signal.aground ? <>
+          <path d="M340 282 L390 220 L445 285 L505 226 L565 287 L625 230 L690 292Z" fill="#78716c" stroke="#292524" strokeWidth="7" />
+          <path d="M350 296 H690" stroke="#f59e0b" strokeWidth="5" strokeDasharray="12 8" />
+          {[410, 445, 480, 520, 555, 590].map((x, index) => <circle key={x} cx={x} cy="112" r={index === 2 || index === 3 ? 8 : 5} fill="#fbbf24" opacity={index === 2 || index === 3 ? .95 : .65} />)}
+        </> : <>
+          <path d="M500 260 Q515 315 580 338" fill="none" stroke="#d6a45d" strokeWidth="8" />
+          <path d="M580 310 V345 M557 323 H603 M580 345 Q550 342 538 325 M580 345 Q610 342 622 325" fill="none" stroke="#1e293b" strokeWidth="8" />
+        </>}
+        <g transform="translate(585 92)"><Bell className="text-amber-300" /></g>
+        {signal.gong && <g transform="translate(375 105)"><circle r="28" fill="#b45309" stroke="#fbbf24" strokeWidth="6" /><circle r="7" fill="#fcd34d" /><path d="M-32 -36 H32" stroke="#78350f" strokeWidth="6" /><path d="M-25 -35 V-15 M25 -35 V-15" stroke="#78350f" strokeWidth="5" /></g>}
       </> : <SoundWaves x={505} y={115} />}
       <g opacity=".62" filter="url(#fog)"><rect x="0" y="45" width="1000" height="80" rx="40" fill="#f8fafc" /><rect x="80" y="155" width="840" height="70" rx="35" fill="#f8fafc" /></g>
     </>}
@@ -131,7 +143,7 @@ export const RipaSoundSignalViewer: React.FC<{ context: string }> = ({ context }
         <div className="shrink-0 rounded-full border border-cyan-400/35 bg-slate-950 p-1.5">
           {signal.bell ? <Bell className="h-4 w-4 text-amber-300" /> : <Volume2 className="h-4 w-4 text-cyan-300" />}
         </div>
-        {signal.bell ? <span className="whitespace-nowrap text-[10px] font-black text-amber-200">REPIQUE CONTINUO · 5 s</span> : signal.blasts.map((blast, index) => (
+        {signal.bell ? <span className="whitespace-nowrap text-[10px] font-black text-amber-200">{signal.patternLabel ?? 'REPIQUE CONTINUO · 5 s'}</span> : signal.blasts.map((blast, index) => (
           <div key={`${blast}-${index}`} className="flex shrink-0 flex-col items-center gap-0.5">
             <div className={`h-2 rounded-full ${blast === 'LONG' ? 'w-12 bg-cyan-300' : 'w-4 bg-amber-300'}`} />
             <span className="text-[7px] font-black text-slate-400">{blast === 'LONG' ? '4–6 s' : '≈1 s'}</span>

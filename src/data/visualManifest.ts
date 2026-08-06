@@ -38,6 +38,8 @@ assign(['ripa_17'], 'RIPA_DAY_TRAWLING', 'Dos conos negros con vértices unidos 
 assign(['ripa_7', 'ripa_8', 'ripa_9', 'ripa_10', 'ripa_15', 'ripa_19', 'ripa_20', 'ripa_24', 'ripa_25', 'ripa_26', 'ripa_33', 'ripa_35'], 'RIPA_LIGHTS', 'Color, disposición, sector y perspectiva de las luces');
 assign(['ripa_18'], 'RIPA_LIGHTS', 'Buque sin gobierno, detenido y sin arrancada: exactamente dos luces rojas todo horizonte alineadas verticalmente, sin luces contradictorias');
 assign(['ripa_13', 'ripa_14', 'ripa_27', 'ripa_28', 'ripa_29', 'ripa_30', 'ripa_31', 'ripa_32', 'ripa_sound_port', 'ripa_sound_doubt', 'ripa_sound_overtake_starboard', 'ripa_sound_overtake_port', 'ripa_sound_overtake_agree', 'ripa_sound_bend', 'ripa_sound_stopped_fog', 'ripa_sound_anchor_fog'], 'RIPA_SOUND', 'Secuencia de pitadas o campana y duración reglamentaria');
+assign(['ripa_sound_anchor_100m'], 'RIPA_SOUND', 'Buque fondeado de gran eslora completo: campana situada a proa seguida por gong situado a popa, ambos con duración de unos 5 segundos');
+assign(['ripa_sound_aground_fog'], 'RIPA_SOUND', 'Buque varado inmóvil sobre el fondo: tres golpes claros, repique rápido de campana y otros tres golpes claros');
 assign(['ripa_rule5_lookout', 'ripa_rule6_safe_speed', 'ripa_rule6_factors'], 'RIPA_WATCH', 'Puente, campo visual, radar y factores de velocidad segura');
 assign(['ripa_rule7_bearing', 'ripa_rule7_doubt', 'ripa_rule7_radar'], 'RIPA_COLLISION_RISK', 'Marcaciones sucesivas, distancia decreciente y punto de máxima aproximación');
 assign(['ripa_rule8_early', 'ripa_rule8_large', 'ripa_rule8_slow', 'ripa_rule16_action'], 'RIPA_AVOIDANCE', 'Comparación entre maniobra clara, maniobra insuficiente y separación resultante');
