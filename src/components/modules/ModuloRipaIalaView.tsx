@@ -12,6 +12,7 @@ import { RipaDayShapeViewer } from '../ripa/RipaDayShapeViewer';
 import anchoredDayShape from '../../assets/ripa_anchored_day_shape_illustrated.png';
 import agroundDayShape from '../../assets/ripa_aground_day_shape_illustrated.png';
 import trawlerDayShape from '../../assets/ripa_trawler_day_shape_illustrated.png';
+import notUnderCommandNight from '../../assets/ripa_not_under_command_night-v1.webp';
 import { getVisualSpec } from '../../data/visualManifest';
 import type { QuizQuestion } from '../../types/quiz';
 
@@ -44,6 +45,18 @@ export const ModuloRipaIalaView: React.FC = () => {
           visualForQuestion={question => {
             const text = `${question.id} ${question.question} ${question.explanation}`.toLowerCase();
             const family = getVisualSpec(question.id)?.family;
+            if (question.id === 'ripa_18') {
+              return (
+                <figure className="h-full overflow-hidden bg-slate-950">
+                  <img
+                    src={notUnderCommandNight}
+                    alt="Buque mercante detenido y sin arrancada durante la noche"
+                    className="h-full w-full object-contain"
+                    draggable={false}
+                  />
+                </figure>
+              );
+            }
             if (family === 'RIPA_DAY_ANCHORED' || family === 'RIPA_DAY_AGROUND' || family === 'RIPA_DAY_TRAWLING') {
               const dayShape = family === 'RIPA_DAY_AGROUND' ? {
                 image: agroundDayShape,
